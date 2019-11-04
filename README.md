@@ -9,3 +9,5 @@ All the projects requirements can be viewed [here](https://web.fe.up.pt/~arestiv
 ## Authors
 
 * **Gonçalo Marantes** - [Marantesss](https://github.com/Marantesss)
+* **João Araújo** - [jfcaraujo](https://github.com/jfcaraujo)
+* **Joaquim Rodrigues** - [jmscrodrigues](https://github.com/jmscrodrigues)
