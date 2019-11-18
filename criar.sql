@@ -59,8 +59,6 @@ create table RESERVATION(
 
 create table REVIEW(
     idReservation INTEGER NOT NULL REFERENCES RESERVATION ON DELETE CASCADE ON UPDATE CASCADE PRIMARY KEY,
-	idPlace INTEGER NOT NULL,
-    idTourist TEXT NOT NULL,
     classification INTEGER NOT NULL,
     comment TEXT,
     reply TEXT);
@@ -72,7 +70,7 @@ SELECT raise(rollback, 'So pode dar uma review quando acabar a sua reserva.') WH
 	SELECT 1
 	FROM RESERVATION WHERE
 	new.idReservation = RESERVATION.idReservation
-	AND (SELECT date('now') >= RESERVATION.endDate));
+	AND (SELECT date('now') < RESERVATION.endDate));
 END;
 
 create table MESSAGE(
