@@ -1,0 +1,28 @@
+:root {
+    --main-blue-color: #0b2c4f;
+    --grey-color: #d9d9d9;
+}
+
+/* main stuff */
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0em;
+}
+
+/* header */
+header {
+    padding: 1em;
+}
+
+#header_background {
+    opacity: 0.5;
+}
+
+#logo {
+
+}
+
+header h1 {
+    
+}

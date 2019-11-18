@@ -71,6 +71,7 @@
 
     <html lang="en-US">
         <head>
+            <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" rel="stylesheet">
             <link rel="stylesheet" type="text/css" href="css/style.css">
             <!-- ****** faviconit.com favicons ****** -->
             <link rel="shortcut icon" href="assets/faviconit/favicon.ico">
@@ -101,8 +102,9 @@
         <body>
         
             <header>
+                <img id="header_background" src="assets/images/header_background.png" alt="" />
                 <img id="logo" src="assets/images/logo.png" alt="Hemkonfort Logo" />
-                <h1> HEMKONFORT IN THA HOUSE BIATCHES! </h1>
+                <h1>Hemkonfort</h1>
                 <nav>
                     <ul>
                         <li> <a href="about_us.html" target="_blank">About Us</a></li>
