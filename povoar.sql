@@ -36,10 +36,3 @@ insert into MESSAGE(idOwner,idTourist,sender,message) values ('monopoly_guy','ba
 insert into MESSAGE(idOwner,idTourist,sender,message) values ('monopoly_guy','banana_papaya',0,'Tambem perdi o jogo');
 insert into MESSAGE(idOwner,idTourist,sender,message) values ('monopoly_guy','sumol_de_ananas',1,'Perdi o jogo');
 insert into MESSAGE(idOwner,idTourist,sender,message) values ('big_dollars','sumol_de_ananas',0,'Perdi o jogo');
-
-insert into NOTIFICATION(idUser,notification) values ('banana_papaya','You have received a message');
-insert into NOTIFICATION(idUser,notification) values ('monopoly_guy','You have received a message');
-insert into NOTIFICATION(idUser,notification) values ('sumol_de_ananas','You have received a message');
-insert into NOTIFICATION(idUser,notification) values ('big_dollars','You have received a message');
-
-
