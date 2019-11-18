@@ -1,5 +1,6 @@
 :root {
     --main-blue-color: #0b2c4f;
+    --main-blue-color-overlay: #0b2c4f0f;
     --grey-color: #d9d9d9;
 }
 
@@ -10,19 +11,43 @@ body {
     margin: 0em;
 }
 
-/* header */
+/**************/
+/*** header ***/
+/**************/
+
 header {
-    padding: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    /*background: url('../assets/images/header_background.jpg') 0 0 no-repeat;*/
+    background-size: 100%;
+    overflow: hidden;
 }
 
-#header_background {
-    opacity: 0.5;
+#logo-section {
+    padding: 2em 1em 1em 1em;
+    text-align: center;
+    display: inline-block;
 }
 
 #logo {
-
+    width: 20em;
 }
 
-header h1 {
-    
+#logo-section h1 {
+    font-size: 4em;
+    padding: 10px;
+    margin: 0;
 }
+
+#nav-bar ul {
+    display: flex;
+    list-style-type: none;
+    padding: 1em;
+}
+
+#nav-bar ul li {
+    padding: 6px;
+}
+

@@ -102,14 +102,15 @@
         <body>
         
             <header>
-                <img id="header_background" src="assets/images/header_background.png" alt="" />
-                <img id="logo" src="assets/images/logo.png" alt="Hemkonfort Logo" />
-                <h1>Hemkonfort</h1>
-                <nav>
+                <div id="logo-section">
+                    <img id="logo" src="assets/images/logo.png" alt="Hemkonfort Logo" />
+                    <h1>Hemkonfort</h1>
+                </div>
+                <nav id="nav-bar">
                     <ul>
-                        <li> <a href="about_us.html" target="_blank">About Us</a></li>
-                        <li> <a href="----" target="_blank">New Houses</a></li>
-                        <li> <a href="----" target="_blank">Popular</a></li>
+                        <li><a href="about_us.html" target="_blank">About Us</a></li>
+                        <li><a href="----" target="_blank">New Houses</a></li>
+                        <li><a href="----" target="_blank">Popular</a></li>
                         <?php if (isset($_SESSION[$username])) : ?>
                             <li> <a href="sign_up.html" target="_blank">Sign In</a></li>
                             <li> <a href="sign_in.html" target="_blank">Sign Up</a> </li>
