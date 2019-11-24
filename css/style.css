@@ -1,34 +1,49 @@
-:root {
-    --main-blue-color: #0b2c4f;
-    --main-blue-color-overlay: #0b2c4f0f;
-    --grey-color: #d9d9d9;
-}
-
-/* main stuff */
+/** 
+ * main stuff
+ */
 
 body {
-    font-family: 'Open Sans', sans-serif;
+    /* brandbook */
+    --main-blue-color: #0b2c4f;
+    --grey-color: #d9d9d9;
+
+    /* background color */
+    --background-color: #FFF;
+
+    /* font */
+    --font: 'Open Sans', sans-serif;
+
+    font-family: var(--font);
     margin: 0em;
+    background-color: var(--background-color);
 }
 
-/**************/
-/*** header ***/
-/**************/
+/**
+ * Generic
+ */
+a {
+    text-decoration: none;
+}
+
+/**
+ * header
+ */
 
 header {
+    padding: 1em;
     display: flex;
     justify-content: center;
+    text-align: center;
     align-items: flex-start;
     width: 100%;
-    /*background: url('../assets/images/header_background.jpg') 0 0 no-repeat;*/
+    background: url('../assets/images/header_background.jpg') 0 0 no-repeat;
     background-size: 100%;
     overflow: hidden;
 }
 
 #logo-section {
-    padding: 2em 1em 1em 1em;
+    padding: 1em;
     text-align: center;
-    display: inline-block;
 }
 
 #logo {
@@ -36,18 +51,42 @@ header {
 }
 
 #logo-section h1 {
+    color: white;
+    text-shadow: 2px 2px 10px #000000;
     font-size: 4em;
     padding: 10px;
     margin: 0;
 }
 
 #nav-bar ul {
+    text-align: center;
     display: flex;
     list-style-type: none;
-    padding: 1em;
+    padding: 0px;
 }
 
 #nav-bar ul li {
-    padding: 6px;
+    font-weight: 700;
+    padding: 1em 1em;
+    margin: 1em;
 }
 
+#nav-bar ul li a {
+    color: white;
+}
+
+header div:nth-child(2) h2 {
+    text-shadow: 2px 2px 10px #000000;
+    padding: 4em 1em 4em 1em;
+    color: white;
+}
+
+
+#signup-button {
+    border-radius: 5em;
+    border: 3px solid white;
+}
+
+/**
+ *
+ */

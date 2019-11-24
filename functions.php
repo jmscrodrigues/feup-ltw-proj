@@ -107,21 +107,24 @@
                     <img id="logo" src="assets/images/logo.png" alt="Hemkonfort Logo" />
                     <h1>Hemkonfort</h1>
                 </div>
-                <nav id="nav-bar">
-                    <ul>
-                        <li><a href="about_us.html" target="_blank">About Us</a></li>
-                        <li><a href="----" target="_blank">New Houses</a></li>
-                        <li><a href="----" target="_blank">Popular</a></li>
-                        <?php if (isset($_SESSION[$username])) : ?>
-                            <li> <a href="sign_up.html" target="_blank">Sign In</a></li>
+                <div>
+                    <nav id="nav-bar">
+                        <ul>
+                            <li><a href="about_us.html" target="_blank">About Us</a></li>
+                            <li><a href="----" target="_blank">New Houses</a></li>
+                            <li><a href="----" target="_blank">Popular</a></li>
+                            <?php if (isset($_SESSION[$username])) : ?>
                             <li> <a href="sign_in.html" target="_blank">Sign Up</a> </li>
+                            <li id="signup-button"> <a href="sign_up.html" target="_blank">Sign In</a></li>
 
-                        <?php else : ?>
-                            <li> <a href="sign_in.html" target="_blank">Welcome, <?=$username?></a> </li>
-                        <?php endif; ?>
+                            <?php else : ?>
+                                <li> <a href="sign_in.html" target="_blank">Welcome, <?=$username?></a> </li>
+                            <?php endif; ?>
 
-                    </ul>
-                </nav>
+                        </ul>
+                    </nav>
+                    <h2>We the best music</h2>
+                </div>
             </header>
 <?php } ?>
 
@@ -211,7 +214,7 @@
  */
     ?>
 
-        <h2>POPULAR HOMES</h2>
+        <h2>Popular <strong>Homes</strong></h2>
 
         <?php $dbh = new PDO('sqlite:database.db'); 
             $stmt = $dbh->prepare('SELECT * FROM PLACE'); 
