@@ -72,8 +72,7 @@
 
     <html lang="en-US">
         <head>
-            <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" rel="stylesheet">
-            <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&display=swap" rel="stylesheet">            <link rel="stylesheet" type="text/css" href="css/style.css">
             <!-- ****** faviconit.com favicons ****** -->
             <link rel="shortcut icon" href="assets/faviconit/favicon.ico">
             <link rel="icon" sizes="16x16 32x32 64x64" href="assets/faviconit/favicon.ico">
@@ -171,41 +170,46 @@
  * Draws the footer of the Website.   TODO: VERIFICAR PARTE DA USER AREA NO CASO DE TER UM USER COM SESSÃO INICIADA E NAO!
  */
     ?>
-            <?php session_start()?>
+    <?php session_start()?>
 
-            <h2>| Information<h2>
-            <nav>
-                <ul>
-                    <li> <a href="----" target="_blank">FAQs</a></li>
-                    <li> <a href="----" target="_blank">Company</a></li>
-                    <li> <a href="----" target="_blank">Privacy Policy</a></li>
-                    <li> <a href="----" target="_blank">Payment</a></li>
-                    <li> <a href="----" target="_blank">Contract Information</a> </li>
-                    <li> <a href="----" target="_blank">Insurance</a> </li>
+    <footer>
+      <section id='footer-options-bar'>
+        <div class='row-footer-container'>
+          <h2>Information</h2>
+          <nav class="footer-nav-bar">
+            <ul>
+              <li> <a href="----" target="_blank">FAQs</a></li>
+              <li> <a href="----" target="_blank">Company</a></li>
+              <li> <a href="----" target="_blank">Privacy Policy</a></li>
+              <li> <a href="----" target="_blank">Payment</a></li>
+              <li> <a href="----" target="_blank">Contract Information</a> </li>
+              <li> <a href="----" target="_blank">Insurance</a> </li>
+            </ul>
+          </nav>
+        </div>
 
-                </ul>
+        <?php if (isset($_SESSION[$username])) : ?>
+          <div class='row-footer-container'>
+            <h2>User Area</h2>  
+            <nav class="footer-nav-bar">
+              <ul>
+                <li> <a href="----" target="_blank">Personal Profile</a> </li>
+                <li> <a href="----" target="_blank">Messages</a> </li>
+                <li> <a href="----" target="_blank">My Houses</a> </li>
+                <li> <a href="----" target="_blank">My Orders</a> </li>
+              </ul>
             </nav>
+          </div>
+        <?php endif; ?>
+      </section>
 
-            <?php if (isset($_SESSION[$username])) : ?>
+      <section id="footer-rights-bar">
+        <p>&copy 2020 FEUP-LTW. All rights reserved.</p>
+      </section>
 
-                <h2>| User Area<h2>  
-                <nav>
-                    <ul>
-                        <li> <a href="----" target="_blank">Personal Profile</a> </li>
-                        <li> <a href="----" target="_blank">Messages</a> </li>
-                        <li> <a href="----" target="_blank">My Houses</a> </li>
-                        <li> <a href="----" target="_blank">My Orders</a> </li>
-    
-                    </ul>
-                </nav>
-            <?php endif; ?>
-
-            
-            
-
-
-        </body>
-    </html>
+    </footer>
+  </body>
+</html>
 
 <?php } ?>
 

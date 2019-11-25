@@ -25,6 +25,10 @@ a {
     text-decoration: none;
 }
 
+ul {
+    list-style-type: none;
+}
+
 /**
  * header
  */
@@ -33,7 +37,7 @@ header {
     justify-content: center;
     width: 100%;
     background: url('../assets/images/home-page-bg.png') 0 0 no-repeat;
-    background-size: 100%;
+    background-size: cover;
     overflow: hidden;
 
     display: grid;
@@ -50,7 +54,6 @@ header {
 #home-nav-bar ul {
     text-align: center;
     display: flex;
-    list-style-type: none;
     padding: 0em;
     margin: 0em;
 }
@@ -112,5 +115,52 @@ header {
 }
 
 /**
- *
+ * footer
  */
+footer {
+    width: 100%;
+    overflow: hidden;
+}
+
+#footer-options-bar {
+    justify-content: center;
+    background: var(--main-blue-color);
+    display: flex;
+}
+
+.row-footer-container {
+    text-align: left;
+    padding: 0em 2em;
+}
+
+.row-footer-container h2 {
+    color: white;
+    border-left: 3px solid white;
+    padding: 0px 6px;
+    margin: 1em 1em 1em 0em;
+}
+
+.footer-nav-bar ul {
+    padding: 0em;
+}
+
+.footer-nav-bar a {
+    color: white;
+    font-weight: lighter;
+}
+
+.footer-nav-bar ul li {
+    padding: 4px;
+}
+
+#footer-rights-bar {
+    background: black;
+    text-align: center;
+    padding: 0.5em;
+}
+
+#footer-rights-bar p {
+    font-weight: lighter;
+    color: white;
+    margin: 0em;
+}
