@@ -118,8 +118,9 @@ header {
  * house body
  */
 .houses-section-container {
-    padding: 0em 10em;
+    justify-content: center;
     display: grid;
+    margin: 1em 0em;
 }
 
 .house-article-header {
@@ -140,8 +141,38 @@ header {
 
 .house-card {
     background: var(--grey-color);
-    padding: auto;
+    display: grid;
+    border-radius: 2em;
+    margin: 0em 1em;
+    box-shadow: 2px 2px 20px;
 }
+
+.house-card > img {
+
+}
+
+.house-card-text {
+    margin: 1em;
+}
+
+.house-card-text > h2, h3, h4 {
+    margin: 0em;
+}
+
+.house-card-text > h3, h4 {
+    font-weight: normal;
+}
+
+.house-card-button {
+    background-color: var(--main-blue-color);
+    color:white;
+    font-weight: bold;
+    text-align: center;
+    margin: 1em 4em;
+    padding: 1em;
+    border-radius: 5em;
+}
+
 
 
 /**

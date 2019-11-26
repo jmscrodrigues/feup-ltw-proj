@@ -142,10 +142,12 @@
         <article class='house-article-container'>
           <div class="house-card">
             <img src="assets/images/sofa_test.jpeg" alt="House image" />
-            <h2>Casa Vonita</h2>
-            <h3>Rua falsa yo</h3>
-            <h4>Portugal</h4>
-            <input type="submit" value="30€">
+            <div class="house-card-text">
+              <h2>Casa Vonita</h2>
+              <h3>Rua falsa yo</h3>
+              <h4>Portugal</h4>
+            </div>
+            <a href="google.com" class='house-card-button'>30€</a>
           </div>
 
           <div class="house-card">
@@ -154,38 +156,46 @@
               <h2>Casa Vonita</h2>
               <h3>Rua falsa yo</h3>
               <h4>Portugal</h4>
-              <input type="submit" value="30€">
             </div>
+            <a href="google.com" class='house-card-button'>30€</a>
           </div>
 
           <div class="house-card">
             <img src="assets/images/sofa_test.jpeg" alt="House image" />
-            <h2>Casa Vonita</h2>
-            <h3>Rua falsa yo</h3>
-            <h4>Portugal</h4>
-            <input type="submit" value="30€">
+            <div class="house-card-text">
+              <h2>Casa Vonita</h2>
+              <h3>Rua falsa yo</h3>
+              <h4>Portugal</h4>
+            </div>
+            <a href="google.com" class='house-card-button'>30€</a>
           </div>
 
           <div class="house-card">
             <img src="assets/images/sofa_test.jpeg" alt="House image" />
-            <h2>Casa Vonita</h2>
-            <h3>Rua falsa yo</h3>
-            <h4>Portugal</h4>
-            <input type="submit" value="30€">
+            <div class="house-card-text">
+              <h2>Casa Vonita</h2>
+              <h3>Rua falsa yo</h3>
+              <h4>Portugal</h4>
+            </div>
+            <a href="google.com" class='house-card-button'>30€</a>
           </div>
+
         </article>
 
+
         <div class='house-article-header'>
-          <h2><strong>Popular</strong> Homes</h2>
+          <h2><strong>Latest</strong> Homes</h2>
           <!-- BUTTON HERE -->
         </div>
         <article class='house-article-container'>
           <div class="house-card">
             <img src="assets/images/sofa_test.jpeg" alt="House image" />
-            <h2>Casa Vonita</h2>
-            <h3>Rua falsa yo</h3>
-            <h4>Portugal</h4>
-            <input type="submit" value="30€">
+            <div class="house-card-text">
+              <h2>Casa Vonita</h2>
+              <h3>Rua falsa yo</h3>
+              <h4>Portugal</h4>
+            </div>
+            <a href="google.com" class='house-card-button'>30€</a>
           </div>
 
           <div class="house-card">
@@ -194,26 +204,32 @@
               <h2>Casa Vonita</h2>
               <h3>Rua falsa yo</h3>
               <h4>Portugal</h4>
-              <input type="submit" value="30€">
             </div>
+            <a href="google.com" class='house-card-button'>30€</a>
           </div>
 
           <div class="house-card">
             <img src="assets/images/sofa_test.jpeg" alt="House image" />
-            <h2>Casa Vonita</h2>
-            <h3>Rua falsa yo</h3>
-            <h4>Portugal</h4>
-            <input type="submit" value="30€">
+            <div class="house-card-text">
+              <h2>Casa Vonita</h2>
+              <h3>Rua falsa yo</h3>
+              <h4>Portugal</h4>
+            </div>
+            <a href="google.com" class='house-card-button'>30€</a>
           </div>
 
           <div class="house-card">
             <img src="assets/images/sofa_test.jpeg" alt="House image" />
-            <h2>Casa Vonita</h2>
-            <h3>Rua falsa yo</h3>
-            <h4>Portugal</h4>
-            <input type="submit" value="30€">
+            <div class="house-card-text">
+              <h2>Casa Vonita</h2>
+              <h3>Rua falsa yo</h3>
+              <h4>Portugal</h4>
+            </div>
+            <a href="google.com" class='house-card-button'>30€</a>
           </div>
+          
         </article>
+
       </section>
 <?php } ?>
 
