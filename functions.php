@@ -129,6 +129,124 @@
             </header>
 <?php } ?>
 
+<?php function draw_houses_frontend() {
+/**
+ * Draws the house pages
+ */
+    ?>
+      <section class='houses-section-container'>
+        <div class='house-article-header'>
+          <h2><strong>Popular</strong> Homes</h2>
+          <!-- BUTTON HERE -->
+        </div>
+        <article class='house-article-container'>
+          <div class="house-card">
+            <img src="assets/images/sofa_test.jpeg" alt="House image" />
+            <h2>Casa Vonita</h2>
+            <h3>Rua falsa yo</h3>
+            <h4>Portugal</h4>
+            <input type="submit" value="30€">
+          </div>
+
+          <div class="house-card">
+            <img src="assets/images/sofa_test.jpeg" alt="House image" />
+            <div class="house-card-text">
+              <h2>Casa Vonita</h2>
+              <h3>Rua falsa yo</h3>
+              <h4>Portugal</h4>
+              <input type="submit" value="30€">
+            </div>
+          </div>
+
+          <div class="house-card">
+            <img src="assets/images/sofa_test.jpeg" alt="House image" />
+            <h2>Casa Vonita</h2>
+            <h3>Rua falsa yo</h3>
+            <h4>Portugal</h4>
+            <input type="submit" value="30€">
+          </div>
+
+          <div class="house-card">
+            <img src="assets/images/sofa_test.jpeg" alt="House image" />
+            <h2>Casa Vonita</h2>
+            <h3>Rua falsa yo</h3>
+            <h4>Portugal</h4>
+            <input type="submit" value="30€">
+          </div>
+        </article>
+
+        <div class='house-article-header'>
+          <h2><strong>Popular</strong> Homes</h2>
+          <!-- BUTTON HERE -->
+        </div>
+        <article class='house-article-container'>
+          <div class="house-card">
+            <img src="assets/images/sofa_test.jpeg" alt="House image" />
+            <h2>Casa Vonita</h2>
+            <h3>Rua falsa yo</h3>
+            <h4>Portugal</h4>
+            <input type="submit" value="30€">
+          </div>
+
+          <div class="house-card">
+            <img src="assets/images/sofa_test.jpeg" alt="House image" />
+            <div class="house-card-text">
+              <h2>Casa Vonita</h2>
+              <h3>Rua falsa yo</h3>
+              <h4>Portugal</h4>
+              <input type="submit" value="30€">
+            </div>
+          </div>
+
+          <div class="house-card">
+            <img src="assets/images/sofa_test.jpeg" alt="House image" />
+            <h2>Casa Vonita</h2>
+            <h3>Rua falsa yo</h3>
+            <h4>Portugal</h4>
+            <input type="submit" value="30€">
+          </div>
+
+          <div class="house-card">
+            <img src="assets/images/sofa_test.jpeg" alt="House image" />
+            <h2>Casa Vonita</h2>
+            <h3>Rua falsa yo</h3>
+            <h4>Portugal</h4>
+            <input type="submit" value="30€">
+          </div>
+        </article>
+      </section>
+<?php } ?>
+
+<?php function draw_houses() {
+/**
+ * Draws the house pages
+ */
+    ?>
+      <section id='house-section-container'>
+        <h2>Popular <strong>Homes</strong></h2>
+
+        <?php $dbh = new PDO('sqlite:database.db'); 
+            $stmt = $dbh->prepare('SELECT * FROM PLACE'); 
+            $stmt->execute();
+            $result = $stmt->fetchAll(); ?>
+
+    
+
+        <?php for($i = 0; $i < 5; $i++)  {?>
+            <article id = "house<?=$i?>">
+              <img id="houseimg<?=$i?>" src="images/sofa_test.jpeg" alt="House image" />
+              <h2><?=$result[$i]['name']?></h2>
+              <h3><?=$result[$i]['street']?></h3>
+              <br>
+              <h4><?=$result[$i]['country']?></h4>
+              <br>
+              <input type="submit" value="<?=$result[$i]['price']?>">
+              <br><br>
+            </article>
+        <?php } ?>
+      </section>
+<?php } ?>
+
 <?php function draw_header_alternative($username) {
 /**
  * Draws the header of the Website.
@@ -213,37 +331,4 @@
 
 <?php } ?>
 
-
-<?php function draw_houses() {
-/**
- * Draws the house pages
- */
-    ?>
-
-        <h2>Popular <strong>Homes</strong></h2>
-
-        <?php $dbh = new PDO('sqlite:database.db'); 
-            $stmt = $dbh->prepare('SELECT * FROM PLACE'); 
-            $stmt->execute();
-            $result = $stmt->fetchAll(); ?>
-
-    
-
-        <?php for($i = 0; $i < 5; $i++)  {?>
-            <article id = "house<?=$i?>">
-            <img id="houseimg<?=$i?>" src="Images/house.jpeg" alt="House image" />
-            <h2><?=$result[$i]['name']?></h2>
-            <h3><?=$result[$i]['street']?></h3>
-            <br>
-            <h4><?=$result[$i]['country']?></h4>
-            <br>
-            <input type="submit" value="<?=$result[$i]['price']?>">
-            <br><br>
-
-            </article>
-        <?php } ?>
-
-
-
-<?php } ?>
     

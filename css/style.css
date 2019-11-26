@@ -115,6 +115,36 @@ header {
 }
 
 /**
+ * house body
+ */
+.houses-section-container {
+    padding: 0em 10em;
+    display: grid;
+}
+
+.house-article-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.house-article-header h2 {
+    font-weight: normal;
+    margin: 1em 0em;
+}
+
+.house-article-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 1em 0em;
+}
+
+.house-card {
+    background: var(--grey-color);
+    padding: auto;
+}
+
+
+/**
  * footer
  */
 footer {
@@ -123,9 +153,9 @@ footer {
 }
 
 #footer-options-bar {
-    justify-content: center;
     background: var(--main-blue-color);
     display: flex;
+    justify-content: center;
 }
 
 .row-footer-container {
