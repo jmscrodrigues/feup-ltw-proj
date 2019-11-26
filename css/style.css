@@ -121,6 +121,7 @@ header {
     justify-content: center;
     display: grid;
     margin: 1em 0em;
+    
 }
 
 .house-article-header {
@@ -135,23 +136,31 @@ header {
 
 .house-article-container {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     padding: 1em 0em;
 }
 
 .house-card {
+    width: min-content;
+    min-width: 20%;
     background: var(--grey-color);
     display: grid;
     border-radius: 2em;
-    margin: 0em 1em;
-    box-shadow: 2px 2px 20px;
+    margin: 1em 1em;
+    box-shadow: 2px 2px 20px;;
 }
 
 .house-card > img {
-
+    object-fit: cover;
+    height: 120px;
+    width: 100%;
+    border-top-left-radius: 2em;
+    border-top-right-radius: 2em;
 }
 
 .house-card-text {
+    width: 12em;
     margin: 1em;
 }
 

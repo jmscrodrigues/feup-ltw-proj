@@ -141,7 +141,7 @@
         </div>
         <article class='house-article-container'>
           <div class="house-card">
-            <img src="assets/images/sofa_test.jpeg" alt="House image" />
+            <img src="assets/images/logo.png" alt="House image" />
             <div class="house-card-text">
               <h2>Casa Vonita</h2>
               <h3>Rua falsa yo</h3>
@@ -161,7 +161,7 @@
           </div>
 
           <div class="house-card">
-            <img src="assets/images/sofa_test.jpeg" alt="House image" />
+            <img src="assets/images/stock-house.jpg" alt="House image" />
             <div class="house-card-text">
               <h2>Casa Vonita</h2>
               <h3>Rua falsa yo</h3>
@@ -171,7 +171,7 @@
           </div>
 
           <div class="house-card">
-            <img src="assets/images/sofa_test.jpeg" alt="House image" />
+            <img src="assets/images/stock-house.jpg" alt="House image" />
             <div class="house-card-text">
               <h2>Casa Vonita</h2>
               <h3>Rua falsa yo</h3>
@@ -189,7 +189,7 @@
         </div>
         <article class='house-article-container'>
           <div class="house-card">
-            <img src="assets/images/sofa_test.jpeg" alt="House image" />
+            <img src="assets/images/stock-house.jpg" alt="House image" />
             <div class="house-card-text">
               <h2>Casa Vonita</h2>
               <h3>Rua falsa yo</h3>
@@ -199,7 +199,7 @@
           </div>
 
           <div class="house-card">
-            <img src="assets/images/sofa_test.jpeg" alt="House image" />
+            <img src="assets/images/stock-house.jpg" alt="House image" />
             <div class="house-card-text">
               <h2>Casa Vonita</h2>
               <h3>Rua falsa yo</h3>
@@ -209,7 +209,7 @@
           </div>
 
           <div class="house-card">
-            <img src="assets/images/sofa_test.jpeg" alt="House image" />
+            <img src="assets/images/stock-house.jpg" alt="House image" />
             <div class="house-card-text">
               <h2>Casa Vonita</h2>
               <h3>Rua falsa yo</h3>
@@ -219,7 +219,7 @@
           </div>
 
           <div class="house-card">
-            <img src="assets/images/sofa_test.jpeg" alt="House image" />
+            <img src="assets/images/stock-house.jpg" alt="House image" />
             <div class="house-card-text">
               <h2>Casa Vonita</h2>
               <h3>Rua falsa yo</h3>
