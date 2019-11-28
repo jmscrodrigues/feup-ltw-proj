@@ -3,52 +3,39 @@
  * Draws the signup section.
  */
 ?>
-  <section id = "signup">
-    <form action="" method="POST">
-      <label>Username:
-        <input type="text" name="username" required="required"> 
-      </label>
-      <label>E-mail:
-        <input type="text" name="email" required="required">
-      </label>
-      <label>Password:
-        <input type="text" name="password" required="required">
-      </label>
-      <label>Confirm password:
-        <input type="text" name="c_password" required="required">
-      </label>
-      <label>First Name:
-        <input type="text" name="f_name" required="required">
-      </label>
-      <label>Last Name:
-        <input type="text" name="l_name" required="required">
-      </label>
-      <input type="submit" value="Sign Up">
+  <section class="sign-form-card">
+    <header>
+      <img src="assets/images/logo.png" alt="Hemkonfort Logo" />
+      <h1>Sign Up</h1>
+    </header>
+    <form id="signup-form" action="" method="POST">
+      <input class="input-form" type="email" name="email" required="required" placeholder="Email"> 
+      <input class="input-form" type="password" name="password" required="required" placeholder="Repeat Password">
+      <input class="input-form" type="password" name="password" required="required" placeholder="Password">
+      <input class="input-form" type="text" name="first-name" required="required" placeholder="First Name"> 
+      <input class="input-form" type="text" name="last-name" required="required" placeholder="Last Name"> 
+      <input class="input-form-button"type="submit" value="Sign up">
     </form>
     <footer>
       <p>Already have an account? <a href="--------">Sign In</a></p>
     </footer>
-  </section>    
+  </section>  
 <?php } ?>
 
 <?php function draw_signin() { 
 /**
  * Draws the signup section.
  */
-?>
-  <section id="signin">
+?> 
+  <section class="sign-form-card">
     <header>
-      <img id="logo" src="assets/images/logo.png" alt="Hemkonfort Logo" />
+      <img src="assets/images/logo.png" alt="Hemkonfort Logo" />
       <h1>Login</h1>
     </header>
-    <form action="" method="POST">
-      <label>Username:
-        <input type="text" name="username" required="required"> 
-      </label>
-      <label>Password:
-        <input type="text" name="password" required="required">
-      </label>
-      <input type="submit" value="Sign In">
+    <form id="signin-form" action="" method="POST">
+      <input class="input-form" type="emial" name="email" required="required" placeholder="Email"> 
+      <input class="input-form" type="password" name="password" required="required" placeholder="Password">
+      <input class="input-form-button"type="submit" value="Sign In">
     </form>
     <footer>
       <p>Don't have an account? <a href="--------">Create Account</a></p>
@@ -175,138 +162,43 @@
     </header>
 <?php } ?>
 
-<?php function draw_houses_frontend() {
-/**
- * Draws the house pages
- */
-    ?>
-      <section class='houses-section-container'>
-        <div class='house-article-header'>
-          <h2><strong>Popular</strong> Homes</h2>
-          <a href="google.com">View All</a>
-        </div>
-        <article class='house-article-container'>
-          <div class="house-card">
-            <img src="assets/images/logo.png" alt="House image" />
-            <div class="house-card-text">
-              <h2>Casa Vonita</h2>
-              <h3>Rua falsa yo</h3>
-              <h4>Portugal</h4>
-            </div>
-            <a href="google.com" class='house-card-button'>30€</a>
-          </div>
-
-          <div class="house-card">
-            <img src="assets/images/sofa_test.jpeg" alt="House image" />
-            <div class="house-card-text">
-              <h2>Casa Vonita</h2>
-              <h3>Rua falsa yo</h3>
-              <h4>Portugal</h4>
-            </div>
-            <a href="google.com" class='house-card-button'>30€</a>
-          </div>
-
-          <div class="house-card">
-            <img src="assets/images/stock-house.jpg" alt="House image" />
-            <div class="house-card-text">
-              <h2>Casa Vonita</h2>
-              <h3>Rua falsa yo</h3>
-              <h4>Portugal</h4>
-            </div>
-            <a href="google.com" class='house-card-button'>30€</a>
-          </div>
-
-          <div class="house-card">
-            <img src="assets/images/stock-house.jpg" alt="House image" />
-            <div class="house-card-text">
-              <h2>Casa Vonita</h2>
-              <h3>Rua falsa yo</h3>
-              <h4>Portugal</h4>
-            </div>
-            <a href="google.com" class='house-card-button'>30€</a>
-          </div>
-
-        </article>
-
-
-        <div class='house-article-header'>
-          <h2><strong>Latest</strong> Homes</h2>
-          <a href="google.com">View All</a>
-        </div>
-        <article class='house-article-container'>
-          <div class="house-card">
-            <img src="assets/images/stock-house.jpg" alt="House image" />
-            <div class="house-card-text">
-              <h2>Casa Vonita</h2>
-              <h3>Rua falsa yo</h3>
-              <h4>Portugal</h4>
-            </div>
-            <a href="google.com" class='house-card-button'>30€</a>
-          </div>
-
-          <div class="house-card">
-            <img src="assets/images/stock-house.jpg" alt="House image" />
-            <div class="house-card-text">
-              <h2>Casa Vonita</h2>
-              <h3>Rua falsa yo</h3>
-              <h4>Portugal</h4>
-            </div>
-            <a href="google.com" class='house-card-button'>30€</a>
-          </div>
-
-          <div class="house-card">
-            <img src="assets/images/stock-house.jpg" alt="House image" />
-            <div class="house-card-text">
-              <h2>Casa Vonita</h2>
-              <h3>Rua falsa yo</h3>
-              <h4>Portugal</h4>
-            </div>
-            <a href="google.com" class='house-card-button'>30€</a>
-          </div>
-
-          <div class="house-card">
-            <img src="assets/images/stock-house.jpg" alt="House image" />
-            <div class="house-card-text">
-              <h2>Casa Vonita</h2>
-              <h3>Rua falsa yo</h3>
-              <h4>Portugal</h4>
-            </div>
-            <a href="google.com" class='house-card-button'>30€</a>
-          </div>
-          
-        </article>
-
-      </section>
-<?php } ?>
-
 <?php function draw_houses() {
 /**
  * Draws the house pages
  */
     ?>
-      <section id='house-section-container'>
+    <section class='houses-section-container'>
+      <div class='house-article-header'>
         <h2>Popular <strong>Homes</strong></h2>
+        <a href="google.com">View All</a>
+      </div>
+      <article class='house-article-container'>
+      <?php 
+          $dbh = new PDO('sqlite:database/database.db'); 
+          $stmt = $dbh->prepare('SELECT * FROM PLACE'); 
+          $stmt->execute();
+          $result = $stmt->fetchAll(); ?>
+      <?php for($i = 0; $i < 4; $i++)  {?>
+        <?php
+              $houseId = $result[$i]['idPlace'];
+              $stmt1 = $dbh->prepare("SELECT picturePath FROM PICTURES WHERE idPlace = $houseId"); 
+              $stmt1->execute();
+              $image = $stmt1->fetchColumn();    
+          ?>
+        <div class="house-card">
+          <img id="houseimg<?=$i?>" src=<?=$image?> alt="House image" />
+          <div class="house-card-text">
+            <h2><?=$result[$i]['name']?></h2>
+            <h3><?=$result[$i]['street']?></h3>
+            <h4><?=$result[$i]['country']?></h4>
+          </div>
+          <a href="google.com" class='house-card-button'><?=$result[$i]['price']?>€</a>
+        </div>
+       <?php } ?>
+       </article>
 
-        <?php $dbh = new PDO('sqlite:database.db'); 
-            $stmt = $dbh->prepare('SELECT * FROM PLACE'); 
-            $stmt->execute();
-            $result = $stmt->fetchAll(); ?>
-
-    
-
-        <?php for($i = 0; $i < 5; $i++)  {?>
-            <article id = "house<?=$i?>">
-              <img id="houseimg<?=$i?>" src="images/sofa_test.jpeg" alt="House image" />
-              <h2><?=$result[$i]['name']?></h2>
-              <h3><?=$result[$i]['street']?></h3>
-              <br>
-              <h4><?=$result[$i]['country']?></h4>
-              <br>
-              <input type="submit" value="<?=$result[$i]['price']?>">
-              <br><br>
-            </article>
-        <?php } ?>
       </section>
+      <?php $dbh = null;?>
 <?php } ?>
 
 <?php function draw_footer($username) {
