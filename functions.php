@@ -35,20 +35,17 @@
 /**
  * Draws the signup section.
  */
-?>
-  <section id="signin">
+?> 
+
+  <section class="sign-form-card">
     <header>
-      <img id="logo" src="assets/images/logo.png" alt="Hemkonfort Logo" />
+      <img src="assets/images/logo.png" alt="Hemkonfort Logo" />
       <h1>Login</h1>
     </header>
     <form action="" method="POST">
-      <label>Username:
-        <input type="text" name="username" required="required"> 
-      </label>
-      <label>Password:
-        <input type="text" name="password" required="required">
-      </label>
-      <input type="submit" value="Sign In">
+      <input class="input-form" type="text" name="username" required="required" placeholder="Username"> 
+      <input class="input-form" type="password" name="password" required="required" placeholder="Password">
+      <input class="input-form-button"type="submit" value="Sign In">
     </form>
     <footer>
       <p>Don't have an account? <a href="--------">Create Account</a></p>
