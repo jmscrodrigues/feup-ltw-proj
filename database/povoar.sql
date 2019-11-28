@@ -21,7 +21,7 @@ insert into PICTURES(picturePath,idPlace,aproved) values ('/assets/images/logo.p
 insert into PICTURES(picturePath,idPlace,aproved) values ('/assets/images/logo.png',2,1);
 insert into PICTURES(picturePath,idPlace,aproved) values ('/assets/images/logo.png',3,1);
 insert into PICTURES(picturePath,idPlace,aproved) values ('/assets/images/logo.png',4,0);
-insert into PICTURES(picturePath,idPlace,aproved) values ('/assets/images/sofa_test.jpeg',4,1);
+insert into PICTURES(picturePath,idPlace,aproved) values ('/assets/images/sofa_test.jpeg',5,1);
 
 insert into RESERVATION(idPlace,idTourist,beginDate,endDate) values (1,'sumol_de_ananas','2019-05-15','2019-05-20');
 insert into RESERVATION(idPlace,idTourist,beginDate,endDate) values (1,'banana_papaya','2019-08-01','2019-08-03');
