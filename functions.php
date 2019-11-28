@@ -3,52 +3,39 @@
  * Draws the signup section.
  */
 ?>
-  <section id = "signup">
-    <form action="" method="POST">
-      <label>Username:
-        <input type="text" name="username" required="required"> 
-      </label>
-      <label>E-mail:
-        <input type="text" name="email" required="required">
-      </label>
-      <label>Password:
-        <input type="text" name="password" required="required">
-      </label>
-      <label>Confirm password:
-        <input type="text" name="c_password" required="required">
-      </label>
-      <label>First Name:
-        <input type="text" name="f_name" required="required">
-      </label>
-      <label>Last Name:
-        <input type="text" name="l_name" required="required">
-      </label>
-      <input type="submit" value="Sign Up">
+  <section class="sign-form-card">
+    <header>
+      <img src="assets/images/logo.png" alt="Hemkonfort Logo" />
+      <h1>Sign Up</h1>
+    </header>
+    <form id="signup-form" action="" method="POST">
+      <input class="input-form" type="email" name="email" required="required" placeholder="Email"> 
+      <input class="input-form" type="password" name="password" required="required" placeholder="Repeat Password">
+      <input class="input-form" type="password" name="password" required="required" placeholder="Password">
+      <input class="input-form" type="text" name="first-name" required="required" placeholder="First Name"> 
+      <input class="input-form" type="text" name="last-name" required="required" placeholder="Last Name"> 
+      <input class="input-form-button"type="submit" value="Sign up">
     </form>
     <footer>
       <p>Already have an account? <a href="--------">Sign In</a></p>
     </footer>
-  </section>    
+  </section>  
 <?php } ?>
 
 <?php function draw_signin() { 
 /**
  * Draws the signup section.
  */
-?>
-  <section id="signin">
+?> 
+  <section class="sign-form-card">
     <header>
-      <img id="logo" src="assets/images/logo.png" alt="Hemkonfort Logo" />
+      <img src="assets/images/logo.png" alt="Hemkonfort Logo" />
       <h1>Login</h1>
     </header>
-    <form action="" method="POST">
-      <label>Username:
-        <input type="text" name="username" required="required"> 
-      </label>
-      <label>Password:
-        <input type="text" name="password" required="required">
-      </label>
-      <input type="submit" value="Sign In">
+    <form id="signin-form" action="" method="POST">
+      <input class="input-form" type="emial" name="email" required="required" placeholder="Email"> 
+      <input class="input-form" type="password" name="password" required="required" placeholder="Password">
+      <input class="input-form-button"type="submit" value="Sign In">
     </form>
     <footer>
       <p>Don't have an account? <a href="--------">Create Account</a></p>
