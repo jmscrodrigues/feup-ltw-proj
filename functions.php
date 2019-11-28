@@ -175,147 +175,44 @@
     </header>
 <?php } ?>
 
-<?php function draw_houses_frontend() {
-/**
- * Draws the house pages
- */
-    ?>
-      <section class='houses-section-container'>
-        <div class='house-article-header'>
-          <h2><strong>Popular</strong> Homes</h2>
-          <a href="google.com">View All</a>
-        </div>
-        <article class='house-article-container'>
-          <div class="house-card">
-            <img src="assets/images/logo.png" alt="House image" />
-            <div class="house-card-text">
-              <h2>Casa Vonita</h2>
-              <h3>Rua falsa yo</h3>
-              <h4>Portugal</h4>
-            </div>
-            <a href="google.com" class='house-card-button'>30€</a>
-          </div>
-
-          <div class="house-card">
-            <img src="assets/images/sofa_test.jpeg" alt="House image" />
-            <div class="house-card-text">
-              <h2>Casa Vonita</h2>
-              <h3>Rua falsa yo</h3>
-              <h4>Portugal</h4>
-            </div>
-            <a href="google.com" class='house-card-button'>30€</a>
-          </div>
-
-          <div class="house-card">
-            <img src="assets/images/stock-house.jpg" alt="House image" />
-            <div class="house-card-text">
-              <h2>Casa Vonita</h2>
-              <h3>Rua falsa yo</h3>
-              <h4>Portugal</h4>
-            </div>
-            <a href="google.com" class='house-card-button'>30€</a>
-          </div>
-
-          <div class="house-card">
-            <img src="assets/images/stock-house.jpg" alt="House image" />
-            <div class="house-card-text">
-              <h2>Casa Vonita</h2>
-              <h3>Rua falsa yo</h3>
-              <h4>Portugal</h4>
-            </div>
-            <a href="google.com" class='house-card-button'>30€</a>
-          </div>
-
-        </article>
-
-
-        <div class='house-article-header'>
-          <h2><strong>Latest</strong> Homes</h2>
-          <a href="google.com">View All</a>
-        </div>
-        <article class='house-article-container'>
-          <div class="house-card">
-            <img src="assets/images/stock-house.jpg" alt="House image" />
-            <div class="house-card-text">
-              <h2>Casa Vonita</h2>
-              <h3>Rua falsa yo</h3>
-              <h4>Portugal</h4>
-            </div>
-            <a href="google.com" class='house-card-button'>30€</a>
-          </div>
-
-          <div class="house-card">
-            <img src="assets/images/stock-house.jpg" alt="House image" />
-            <div class="house-card-text">
-              <h2>Casa Vonita</h2>
-              <h3>Rua falsa yo</h3>
-              <h4>Portugal</h4>
-            </div>
-            <a href="google.com" class='house-card-button'>30€</a>
-          </div>
-
-          <div class="house-card">
-            <img src="assets/images/stock-house.jpg" alt="House image" />
-            <div class="house-card-text">
-              <h2>Casa Vonita</h2>
-              <h3>Rua falsa yo</h3>
-              <h4>Portugal</h4>
-            </div>
-            <a href="google.com" class='house-card-button'>30€</a>
-          </div>
-
-          <div class="house-card">
-            <img src="assets/images/stock-house.jpg" alt="House image" />
-            <div class="house-card-text">
-              <h2>Casa Vonita</h2>
-              <h3>Rua falsa yo</h3>
-              <h4>Portugal</h4>
-            </div>
-            <a href="google.com" class='house-card-button'>30€</a>
-          </div>
-          
-        </article>
-
-      </section>
-<?php } ?>
 
 <?php function draw_houses() {
 /**
  * Draws the house pages
  */
     ?>
-      <section id='house-section-container'>
+    <section class='houses-section-container'>
+      <div class='house-article-header'>
         <h2>Popular <strong>Homes</strong></h2>
-
-        <?php 
-            $dbh = new PDO('sqlite:database/database1.db'); 
-            $stmt = $dbh->prepare('SELECT * FROM PLACE'); 
-            $stmt->execute();
-            $result = $stmt->fetchAll(); ?>
-
-    
-
-        <?php for($i = 0; $i < 5; $i++)  {?>
-            <article id = "house<?=$i?>">
-                <?php
-                    $houseId = $result[$i]['idPlace'];
-                    $stmt1 = $dbh->prepare("SELECT picturePath FROM PICTURES WHERE idPlace = $houseId"); 
-                    $stmt1->execute();
-                    $image = $stmt1->fetchColumn();    
-                ?>
-                <img id="houseimg<?=$i?>" src=<?=$image?> alt="House image" />
-                <h2><?=$result[$i]['name']?></h2>
-                <h3><?=$result[$i]['street']?></h3>
-                <br>
-                <h4><?=$result[$i]['country']?></h4>
-                <br>
-                <input type="submit" value="<?=$result[$i]['price']?>">
-                <br><br>
-            </article>
-        <?php } ?>
-        <?php $dbh = null; ?>
+        <a href="google.com">View All</a>
+      </div>
+      <article class='house-article-container'>
+      <?php 
+          $dbh = new PDO('sqlite:database/database1.db'); 
+          $stmt = $dbh->prepare('SELECT * FROM PLACE'); 
+          $stmt->execute();
+          $result = $stmt->fetchAll(); ?>
+      <?php for($i = 0; $i < 4; $i++)  {?>
+        <?php
+              $houseId = $result[$i]['idPlace'];
+              $stmt1 = $dbh->prepare("SELECT picturePath FROM PICTURES WHERE idPlace = $houseId"); 
+              $stmt1->execute();
+              $image = $stmt1->fetchColumn();    
+          ?>
+        <div class="house-card">
+          <img id="houseimg<?=$i?>" src=<?=$image?> alt="House image" />
+          <div class="house-card-text">
+            <h2><?=$result[$i]['name']?></h2>
+            <h3><?=$result[$i]['street']?></h3>
+            <h4><?=$result[$i]['country']?></h4>
+          </div>
+          <a href="google.com" class='house-card-button'><?=$result[$i]['price']?>€</a>
+        </div>
+       <?php } ?>
+       </article>
 
       </section>
+      <?php $dbh = null;?>
 <?php } ?>
 
 <?php function draw_footer($username) {
