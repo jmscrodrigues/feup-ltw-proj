@@ -38,6 +38,7 @@ create table PLACE(
     city TEXT NOT NULL,
     country TEXT NOT NULL,
     description TEXT,
+    classification INTEGER default 0,
 	idUser TEXT NOT NULL REFERENCES OWNER ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT CHK_PLACE CHECK (price>=0),
     UNIQUE(street,number,city,country));
@@ -71,6 +72,18 @@ SELECT raise(rollback, 'So pode dar uma review quando acabar a sua reserva.') WH
 	FROM RESERVATION WHERE
 	new.idReservation = RESERVATION.idReservation
 	AND (SELECT date('now') < RESERVATION.endDate));
+END;
+
+CREATE TRIGGER IF NOT EXISTS updateRating 
+AFTER INSERT ON REVIEW
+BEGIN
+UPDATE PLACE SET classification =
+    (SELECT avg(classification) from REVIEW, RESERVATION as reserv,RESERVATION as reserv2
+    WHERE REVIEW.idReservation = reserv.idReservation AND new.idReservation = reserv2.idReservation 
+    AND reserv.idPlace = reserv2.idPlace)
+    WHERE EXISTS (
+        SELECT * FROM RESERVATION WHERE
+        new.idReservation = RESERVATION.idReservation AND RESERVATION.idPlace = PLACE.idPlace); 
 END;
 
 create table MESSAGE(
