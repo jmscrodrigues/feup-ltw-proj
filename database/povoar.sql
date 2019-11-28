@@ -13,7 +13,7 @@ insert into TOURIST values ('banana_papaya');
 
 insert into PLACE(name,price,street,number,city,country,description,idUser) values ('Apartamento no Rossio',42,'Rua do Rossio',18,'Porto','Portugal','E um apartamento','monopoly_guy');
 insert into PLACE(name,price,street,number,city,country,description,idUser) values ('Vivenda a beira mar',95,'Rua da Foz',1,'Porto','Portugal','Muito luxuosa','big_dollars');
-insert into PLACE(name,price,street,number,city,country,description,idUser) values ('Moradia em Madrid',75,'Rua da Foz',35,'Madrid','Expanha','Estilo espanhol','big_dollars');
+insert into PLACE(name,price,street,number,city,country,description,idUser) values ('Moradia em Madrid',75,'Puerta del Sol',35,'Madrid','Expanha','Estilo espanhol','big_dollars');
 insert into PLACE(name,price,street,number,city,country,description,idUser) values ('Casa em Campo Alegre',55,'Rua de Tras',29,'Porto','Portugal','Elegante','monopoly_guy');
 insert into PLACE(name,price,street,number,city,country,description,idUser) values ('Apartamento no Porto',80,'Rua das Flores',18,'Porto','Portugal','Apartamento','monopoly_guy');
 
