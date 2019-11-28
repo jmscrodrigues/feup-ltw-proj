@@ -17,13 +17,11 @@ insert into PLACE(name,price,street,number,city,country,description,idUser) valu
 insert into PLACE(name,price,street,number,city,country,description,idUser) values ('Casa em Campo Alegre',55,'Rua de Tras',29,'Porto','Portugal','Elegante','monopoly_guy');
 insert into PLACE(name,price,street,number,city,country,description,idUser) values ('Apartamento no Porto',80,'Rua das Flores',18,'Porto','Portugal','Apartamento','monopoly_guy');
 
-
-
-insert into PICTURES(picturePath,idPlace,aproved) values ('/Images/001.jpg',1,1);
-insert into PICTURES(picturePath,idPlace,aproved) values ('/Images/002.jpg',2,1);
-insert into PICTURES(picturePath,idPlace,aproved) values ('/Images/003.jpg',3,1);
-insert into PICTURES(picturePath,idPlace,aproved) values ('/Images/004.jpg',4,0);
-insert into PICTURES(picturePath,idPlace,aproved) values ('/Images/005.jpg',4,1);
+insert into PICTURES(picturePath,idPlace,aproved) values ('/assets/images/logo.png',1,1);
+insert into PICTURES(picturePath,idPlace,aproved) values ('/assets/images/logo.png',2,1);
+insert into PICTURES(picturePath,idPlace,aproved) values ('/assets/images/logo.png',3,1);
+insert into PICTURES(picturePath,idPlace,aproved) values ('/assets/images/logo.png',4,0);
+insert into PICTURES(picturePath,idPlace,aproved) values ('/assets/images/sofa_test.jpeg',4,1);
 
 insert into RESERVATION(idPlace,idTourist,beginDate,endDate) values (1,'sumol_de_ananas','2019-05-15','2019-05-20');
 insert into RESERVATION(idPlace,idTourist,beginDate,endDate) values (1,'banana_papaya','2019-08-01','2019-08-03');
