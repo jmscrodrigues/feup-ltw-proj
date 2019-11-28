@@ -3,7 +3,6 @@
  * Draws the signup section.
  */
 ?>
-
   <section class="sign-form-card">
     <header>
       <img src="assets/images/logo.png" alt="Hemkonfort Logo" />
@@ -161,110 +160,6 @@
         </ul>
       </nav>
     </header>
-<?php } ?>
-
-<?php function draw_houses_frontend() {
-/**
- * Draws the house pages
- */
-    ?>
-      <section class='houses-section-container'>
-        <div class='house-article-header'>
-          <h2><strong>Popular</strong> Homes</h2>
-          <a href="google.com">View All</a>
-        </div>
-        <article class='house-article-container'>
-          <div class="house-card">
-            <img src="assets/images/logo.png" alt="House image" />
-            <div class="house-card-text">
-              <h2>Casa Vonita</h2>
-              <h3>Rua falsa yo</h3>
-              <h4>Portugal</h4>
-            </div>
-            <a href="google.com" class='house-card-button'>30€</a>
-          </div>
-
-          <div class="house-card">
-            <img src="assets/images/sofa_test.jpeg" alt="House image" />
-            <div class="house-card-text">
-              <h2>Casa Vonita</h2>
-              <h3>Rua falsa yo</h3>
-              <h4>Portugal</h4>
-            </div>
-            <a href="google.com" class='house-card-button'>30€</a>
-          </div>
-
-          <div class="house-card">
-            <img src="assets/images/stock-house.jpg" alt="House image" />
-            <div class="house-card-text">
-              <h2>Casa Vonita</h2>
-              <h3>Rua falsa yo</h3>
-              <h4>Portugal</h4>
-            </div>
-            <a href="google.com" class='house-card-button'>30€</a>
-          </div>
-
-          <div class="house-card">
-            <img src="assets/images/stock-house.jpg" alt="House image" />
-            <div class="house-card-text">
-              <h2>Casa Vonita</h2>
-              <h3>Rua falsa yo</h3>
-              <h4>Portugal</h4>
-            </div>
-            <a href="google.com" class='house-card-button'>30€</a>
-          </div>
-
-        </article>
-
-
-        <div class='house-article-header'>
-          <h2><strong>Latest</strong> Homes</h2>
-          <a href="google.com">View All</a>
-        </div>
-        <article class='house-article-container'>
-          <div class="house-card">
-            <img src="assets/images/stock-house.jpg" alt="House image" />
-            <div class="house-card-text">
-              <h2>Casa Vonita</h2>
-              <h3>Rua falsa yo</h3>
-              <h4>Portugal</h4>
-            </div>
-            <a href="google.com" class='house-card-button'>30€</a>
-          </div>
-
-          <div class="house-card">
-            <img src="assets/images/stock-house.jpg" alt="House image" />
-            <div class="house-card-text">
-              <h2>Casa Vonita</h2>
-              <h3>Rua falsa yo</h3>
-              <h4>Portugal</h4>
-            </div>
-            <a href="google.com" class='house-card-button'>30€</a>
-          </div>
-
-          <div class="house-card">
-            <img src="assets/images/stock-house.jpg" alt="House image" />
-            <div class="house-card-text">
-              <h2>Casa Vonita</h2>
-              <h3>Rua falsa yo</h3>
-              <h4>Portugal</h4>
-            </div>
-            <a href="google.com" class='house-card-button'>30€</a>
-          </div>
-
-          <div class="house-card">
-            <img src="assets/images/stock-house.jpg" alt="House image" />
-            <div class="house-card-text">
-              <h2>Casa Vonita</h2>
-              <h3>Rua falsa yo</h3>
-              <h4>Portugal</h4>
-            </div>
-            <a href="google.com" class='house-card-button'>30€</a>
-          </div>
-          
-        </article>
-
-      </section>
 <?php } ?>
 
 <?php function draw_houses() {
