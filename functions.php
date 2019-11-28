@@ -176,9 +176,9 @@
 <?php } ?>
 
 
-<?php function draw_houses() {
+<?php function draw_popular_houses() {
 /**
- * Draws the house pages
+ * Draws the popular house pages
  */
     ?>
     <section class='houses-section-container'>
@@ -188,7 +188,7 @@
       </div>
       <article class='house-article-container'>
       <?php 
-          $dbh = new PDO('sqlite:database/database1.db'); 
+          $dbh = new PDO('sqlite:database/database.db'); 
           $stmt = $dbh->prepare('SELECT * FROM PLACE'); 
           $stmt->execute();
           $result = $stmt->fetchAll(); ?>
@@ -220,7 +220,9 @@
  * Draws the footer of the Website.   TODO: VERIFICAR PARTE DA USER AREA NO CASO DE TER UM USER COM SESSÃO INICIADA E NAO!
  */
     ?>
-    <?php session_start()?>
+    <?php session_start();
+    $_SESSION['name'] = $username;
+    ?>
 
     <footer>
       <section id='footer-options-bar'>
@@ -238,7 +240,7 @@
           </nav>
         </div>
 
-        <?php if (isset($_SESSION[$username])) : ?>
+        <?php if (!isset($_SESSION[$username])) : ?>
           <div class='row-footer-container'>
             <h2>User Area</h2>  
             <nav class="footer-nav-bar">
@@ -263,4 +265,86 @@
 
 <?php } ?>
 
-    
+
+<?php function draw_recent_houses() {
+/**
+ * Draws the recent house pages
+ */
+    ?>
+
+<section class='houses-section-container'>
+      <div class='house-article-header'>
+        <h2>Recent <strong>Homes</strong></h2>
+        <a href="google.com">View All</a>
+      </div>
+      <article class='house-article-container'>
+      <?php 
+          $dbh = new PDO('sqlite:database/database1.db'); 
+          $stmt = $dbh->prepare('select * from PLACE ORDER BY idPlace DESC LIMIT 4'); 
+          $stmt->execute();
+          $result = $stmt->fetchAll(); ?>
+      <?php for($i = 0; $i < 4; $i++)  {?>
+        <?php
+              $houseId = $result[$i]['idPlace'];
+              $stmt1 = $dbh->prepare("SELECT picturePath FROM PICTURES WHERE idPlace = $houseId"); 
+              $stmt1->execute();
+              $image = $stmt1->fetchColumn();    
+          ?>
+        <div class="house-card">
+          <img id="houseimg<?=$i?>" src=<?=$image?> alt="House image" />
+          <div class="house-card-text">
+            <h2><?=$result[$i]['name']?></h2>
+            <h3><?=$result[$i]['street']?></h3>
+            <h4><?=$result[$i]['country']?></h4>
+          </div>
+          <a href="google.com" class='house-card-button'><?=$result[$i]['price']?>€</a>
+        </div>
+       <?php } ?>
+       </article>
+
+      </section>
+      <?php $dbh = null;?>
+
+
+<?php } ?>
+
+<?php function draw_top_houses() {
+/**
+ * Draws the top rated house pages
+ */
+    ?>
+
+<section class='houses-section-container'>
+      <div class='house-article-header'>
+        <h2>Top <strong>Homes</strong></h2>
+        <a href="google.com">View All</a>
+      </div>
+      <article class='house-article-container'>
+      <?php 
+          $dbh = new PDO('sqlite:database/database1.db'); 
+          $stmt = $dbh->prepare('select * from PLACE ORDER BY classification DESC LIMIT 4'); 
+          $stmt->execute();
+          $result = $stmt->fetchAll(); ?>
+      <?php for($i = 0; $i < 4; $i++)  {?>
+        <?php
+              $houseId = $result[$i]['idPlace'];
+              $stmt1 = $dbh->prepare("SELECT picturePath FROM PICTURES WHERE idPlace = $houseId"); 
+              $stmt1->execute();
+              $image = $stmt1->fetchColumn();    
+          ?>
+        <div class="house-card">
+          <img id="houseimg<?=$i?>" src=<?=$image?> alt="House image" />
+          <div class="house-card-text">
+            <h2><?=$result[$i]['name']?></h2>
+            <h3><?=$result[$i]['street']?></h3>
+            <h4><?=$result[$i]['country']?></h4>
+          </div>
+          <a href="google.com" class='house-card-button'><?=$result[$i]['price']?>€</a>
+        </div>
+       <?php } ?>
+       </article>
+
+      </section>
+      <?php $dbh = null;?>
+
+<?php } ?>
