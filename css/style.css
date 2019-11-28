@@ -261,7 +261,7 @@ footer {
 }
 
 /*************************************************/
-/***************** Sign-in Page ******************/
+/**************** Sign-in/up Page ****************/
 /*************************************************/
 .sign-form-card {
     width: 50em;
@@ -297,10 +297,26 @@ footer {
     width: 20em;
 }
 
-.sign-form-card > form {
-    margin: 2em 10em;
+#signin-form {
+    padding: 2em 10em;
     row-gap: 10px;
     display: grid;
+}
+
+#signup-form {
+    padding: 2em 5em;
+    row-gap: 10px;
+    display: grid;
+    grid-template-rows: [start] auto [line1] auto [line2] auto [end];
+    grid-template-columns: [start] auto [line1] auto [end];
+}
+
+#signup-form > .input-form-button {
+    margin: 0px 1em;
+}
+
+#signup-form > .input-form {
+    margin: 0px 1em;
 }
 
 .input-form {
@@ -322,7 +338,7 @@ footer {
 .sign-form-card > footer {
     padding: 1em 0em;
     text-align: center;
-    vertical-align: middle;
+    vertical-align: top;
 }
 
 .sign-form-card > footer > p {
@@ -330,7 +346,3 @@ footer {
     padding: 0em 10em;
     margin: 0em;
 }
-
-/*************************************************/
-/***************** Sign-up Page ******************/
-/*************************************************/
