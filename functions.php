@@ -1,64 +1,60 @@
 <?php function draw_signup() { 
 /**
  * Draws the signup section.
- */ ?>
-    <section id = "signup">
-            <form action="" method="POST">
-                    <label>Username:
-                        <input type="text" name="username" required="required"> 
-                    </label>
-                    <br>
-                    <label>E-mail:
-                        <input type="text" name="email" required="required">
-                    </label>
-                    <br>
-                    <label>Password:
-                            <input type="text" name="password" required="required">
-                    </label>
-                    <br>
-                    <label>Confirm password:
-                            <input type="text" name="c_password" required="required">
-                    </label>
-                    <br>
-                    <label>First Name:
-                            <input type="text" name="f_name" required="required">
-                    </label>
-                    <br>
-                    <label>Last Name:
-                            <input type="text" name="l_name" required="required">
-                    </label>
-                    <br>
-                    <input type="submit" value="Sign Up">
-            </form>
-            <footer>
-                <p>Already have an account? <a href="--------">Sign In</a></p>
-            </footer>
-        </section>
-    
+ */
+?>
+  <section id = "signup">
+    <form action="" method="POST">
+      <label>Username:
+        <input type="text" name="username" required="required"> 
+      </label>
+      <label>E-mail:
+        <input type="text" name="email" required="required">
+      </label>
+      <label>Password:
+        <input type="text" name="password" required="required">
+      </label>
+      <label>Confirm password:
+        <input type="text" name="c_password" required="required">
+      </label>
+      <label>First Name:
+        <input type="text" name="f_name" required="required">
+      </label>
+      <label>Last Name:
+        <input type="text" name="l_name" required="required">
+      </label>
+      <input type="submit" value="Sign Up">
+    </form>
+    <footer>
+      <p>Already have an account? <a href="--------">Sign In</a></p>
+    </footer>
+  </section>    
 <?php } ?>
 
 <?php function draw_signin() { 
 /**
  * Draws the signup section.
- */ ?>
-    <section id = "signin">
-            <form action="" method="POST">
-                    <label>Username:
-                        <input type="text" name="username" required="required"> 
-                    </label>
-                    <br>
-                    <label>Password:
-                            <input type="text" name="password" required="required">
-                    </label>
-                    <br>
-                    <input type="submit" value="Sign In">
-            </form>
-            <footer>
-                <p>Don't have an account? <a href="--------">Create Account</a></p>
-                <p>Forgot Password? <a href="--------">Reset Password</a></p>
-            </footer>
-        </section>
-    
+ */
+?>
+  <section id="signin">
+    <header>
+      <img id="logo" src="assets/images/logo.png" alt="Hemkonfort Logo" />
+      <h1>Login</h1>
+    </header>
+    <form action="" method="POST">
+      <label>Username:
+        <input type="text" name="username" required="required"> 
+      </label>
+      <label>Password:
+        <input type="text" name="password" required="required">
+      </label>
+      <input type="submit" value="Sign In">
+    </form>
+    <footer>
+      <p>Don't have an account? <a href="--------">Create Account</a></p>
+      <p>Forgot Password? <a href="--------">Reset Password</a></p>
+    </footer>
+  </section>
 <?php } ?>
 
 
@@ -66,67 +62,117 @@
 /**
  * Draws the header of the Website.
  */
-    ?>
-    <!DOCTYPE html>
+?>
+<!DOCTYPE html>
 
+<html lang="en-US">
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&display=swap" rel="stylesheet">            <link rel="stylesheet" type="text/css" href="css/style.css">
+    <!-- ****** faviconit.com favicons ****** -->
+    <link rel="shortcut icon" href="assets/faviconit/favicon.ico">
+    <link rel="icon" sizes="16x16 32x32 64x64" href="assets/faviconit/favicon.ico">
+    <link rel="icon" type="image/png" sizes="196x196" href="assets/faviconit/favicon-192.png">
+    <link rel="icon" type="image/png" sizes="160x160" href="assets/faviconit/favicon-160.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/faviconit/favicon-96.png">
+    <link rel="icon" type="image/png" sizes="64x64" href="assets/faviconit/favicon-64.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/faviconit/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/faviconit/favicon-16.png">
+    <link rel="apple-touch-icon" href="assets/faviconit/favicon-57.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="assets/faviconit/favicon-114.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="assets/faviconit/favicon-72.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="assets/faviconit/favicon-144.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="assets/faviconit/favicon-60.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="assets/faviconit/favicon-120.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/faviconit/favicon-76.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/faviconit/favicon-152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/faviconit/favicon-180.png">
+    <meta name="msapplication-TileColor" content="#FFFFFF">
+    <meta name="msapplication-TileImage" content="assets/faviconit/favicon-144.png">
+    <meta name="msapplication-config" content="assets/faviconit/browserconfig.xml">
+    <!-- ****** faviconit.com favicons ****** -->
+    <title>Hemkonfort</title>
+    <meta charset="UTF-8">
+  </head>
 
-    <html lang="en-US">
-        <head>
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&display=swap" rel="stylesheet">            <link rel="stylesheet" type="text/css" href="css/style.css">
-            <!-- ****** faviconit.com favicons ****** -->
-            <link rel="shortcut icon" href="assets/faviconit/favicon.ico">
-            <link rel="icon" sizes="16x16 32x32 64x64" href="assets/faviconit/favicon.ico">
-            <link rel="icon" type="image/png" sizes="196x196" href="assets/faviconit/favicon-192.png">
-            <link rel="icon" type="image/png" sizes="160x160" href="assets/faviconit/favicon-160.png">
-            <link rel="icon" type="image/png" sizes="96x96" href="assets/faviconit/favicon-96.png">
-            <link rel="icon" type="image/png" sizes="64x64" href="assets/faviconit/favicon-64.png">
-            <link rel="icon" type="image/png" sizes="32x32" href="assets/faviconit/favicon-32.png">
-            <link rel="icon" type="image/png" sizes="16x16" href="assets/faviconit/favicon-16.png">
-            <link rel="apple-touch-icon" href="assets/faviconit/favicon-57.png">
-            <link rel="apple-touch-icon" sizes="114x114" href="assets/faviconit/favicon-114.png">
-            <link rel="apple-touch-icon" sizes="72x72" href="assets/faviconit/favicon-72.png">
-            <link rel="apple-touch-icon" sizes="144x144" href="assets/faviconit/favicon-144.png">
-            <link rel="apple-touch-icon" sizes="60x60" href="assets/faviconit/favicon-60.png">
-            <link rel="apple-touch-icon" sizes="120x120" href="assets/faviconit/favicon-120.png">
-            <link rel="apple-touch-icon" sizes="76x76" href="assets/faviconit/favicon-76.png">
-            <link rel="apple-touch-icon" sizes="152x152" href="assets/faviconit/favicon-152.png">
-            <link rel="apple-touch-icon" sizes="180x180" href="assets/faviconit/favicon-180.png">
-            <meta name="msapplication-TileColor" content="#FFFFFF">
-            <meta name="msapplication-TileImage" content="assets/faviconit/favicon-144.png">
-            <meta name="msapplication-config" content="assets/faviconit/browserconfig.xml">
-            <!-- ****** faviconit.com favicons ****** -->
-            <title>Hemkonfort</title>
-            <meta charset="UTF-8">
-        </head>
+  <body>
+    <header id="main-header">
+      <nav id="home-nav-bar">
+        <ul>
+          <li><a href="about_us.html" target="_blank">About Us</a></li>
+          <li><a href="----" target="_blank">New Houses</a></li>
+          <li><a href="----" target="_blank">Popular</a></li>
+          <?php if (isset($_SESSION[$username])) : ?>
+            <li> <a href="sign_in.html" target="_blank">Sign Up</a> </li>
+            <li id="signup-button"> <a href="sign_up.html" target="_blank">Sign In</a></li>
+          <?php else : ?>
+              <li>Welcome, <a class="header-username"href="sign_in.html" target="_blank"><?=$username?></a> </li>
+          <?php endif; ?>
+        </ul>
+      </nav>
+      <div id="logo-section">
+        <div id="logo-title-container">
+          <img id="logo" src="assets/images/logo.png" alt="Hemkonfort Logo" />
+          <h1>Hemkonfort</h1>
+        </div>
+        <div id="logo-subtitle-container">
+          <h2>We the best music</h2>
+        </div>
+      </div>
+    </header>
+<?php } ?>
 
-        <body>
-        
-            <header>
-                <nav id="home-nav-bar">
-                    <ul>
-                        <li><a href="about_us.html" target="_blank">About Us</a></li>
-                        <li><a href="----" target="_blank">New Houses</a></li>
-                        <li><a href="----" target="_blank">Popular</a></li>
-                        <?php if (isset($_SESSION[$username])) : ?>
-                        <li> <a href="sign_in.html" target="_blank">Sign Up</a> </li>
-                        <li id="signup-button"> <a href="sign_up.html" target="_blank">Sign In</a></li>
+<?php function draw_header_alternative($username) {
+/**
+ * Draws the header of the Website.
+ */
+?>
+<!DOCTYPE html>
 
-                        <?php else : ?>
-                            <li> <a href="sign_in.html" target="_blank">Welcome, <?=$username?></a> </li>
-                        <?php endif; ?>
-
-                    </ul>
-                </nav>
-                <div id="logo-section">
-                    <div id="logo-title-container">
-                        <img id="logo" src="assets/images/logo.png" alt="Hemkonfort Logo" />
-                        <h1>Hemkonfort</h1>
-                    </div>
-                    <div id="logo-subtitle-container">
-                        <h2>We the best music</h2>
-                    </div>
-                </div>
-            </header>
+<html lang="en-US">
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&display=swap" rel="stylesheet">            <link rel="stylesheet" type="text/css" href="css/style.css">
+    <!-- ****** faviconit.com favicons ****** -->
+    <link rel="shortcut icon" href="assets/faviconit/favicon.ico">
+    <link rel="icon" sizes="16x16 32x32 64x64" href="assets/faviconit/favicon.ico">
+    <link rel="icon" type="image/png" sizes="196x196" href="assets/faviconit/favicon-192.png">
+    <link rel="icon" type="image/png" sizes="160x160" href="assets/faviconit/favicon-160.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/faviconit/favicon-96.png">
+    <link rel="icon" type="image/png" sizes="64x64" href="assets/faviconit/favicon-64.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/faviconit/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/faviconit/favicon-16.png">
+    <link rel="apple-touch-icon" href="assets/faviconit/favicon-57.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="assets/faviconit/favicon-114.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="assets/faviconit/favicon-72.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="assets/faviconit/favicon-144.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="assets/faviconit/favicon-60.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="assets/faviconit/favicon-120.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/faviconit/favicon-76.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/faviconit/favicon-152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/faviconit/favicon-180.png">
+    <meta name="msapplication-TileColor" content="#FFFFFF">
+    <meta name="msapplication-TileImage" content="assets/faviconit/favicon-144.png">
+    <meta name="msapplication-config" content="assets/faviconit/browserconfig.xml">
+    <!-- ****** faviconit.com favicons ****** -->
+    <title>Hemkonfort</title>
+    <meta charset="UTF-8">
+  </head>
+  <body>  
+    <header id="alternative-header">
+      <img id="logoalternative" src="assets/images/logo.png" alt="Hemkonfort Logo" />
+      <nav id="home-nav-bar">
+        <ul>
+          <li> <a href="about_us.html" target="_blank">About Us</a></li>
+          <li> <a href="----" target="_blank">New Houses</a></li>
+          <li> <a href="----" target="_blank">Popular</a></li>
+          <?php if (isset($_SESSION[$username])) : ?>
+            <li> <a href="sign_up.html" target="_blank">Sign In</a></li>
+            <li> <a href="sign_in.html" target="_blank">Sign Up</a> </li>
+          <?php else : ?>
+            <li>Welcome, <a class="header-username"href="sign_in.html" target="_blank"><?=$username?></a> </li>
+          <?php endif; ?>
+        </ul>
+      </nav>
+    </header>
 <?php } ?>
 
 <?php function draw_houses_frontend() {
@@ -137,7 +183,7 @@
       <section class='houses-section-container'>
         <div class='house-article-header'>
           <h2><strong>Popular</strong> Homes</h2>
-          <!-- BUTTON HERE -->
+          <a href="google.com">View All</a>
         </div>
         <article class='house-article-container'>
           <div class="house-card">
@@ -185,7 +231,7 @@
 
         <div class='house-article-header'>
           <h2><strong>Latest</strong> Homes</h2>
-          <!-- BUTTON HERE -->
+          <a href="google.com">View All</a>
         </div>
         <article class='house-article-container'>
           <div class="house-card">
@@ -261,42 +307,6 @@
             </article>
         <?php } ?>
       </section>
-<?php } ?>
-
-<?php function draw_header_alternative($username) {
-/**
- * Draws the header of the Website.
- */
-    ?>
-    <!DOCTYPE html>
-
-    <html lang="en-US">
-        <head>
-            <title>Hemkonfort</title>
-            <meta charset="UTF-8">
-        </head>
-
-        <body>
-        
-            <header>
-                <img id="logoalternative" src="Images/sofa_test.jpeg" alt="Hemkonfort Logo" />
-                <nav>
-                    <ul>HEMKONFORT IN THA HOUSE BIATCHES!
-
-                        <li> <a href="about_us.html" target="_blank">About Us</a></li>
-                        <li> <a href="----" target="_blank">New Houses</a></li>
-                        <li> <a href="----" target="_blank">Popular</a></li>
-                        <?php if (isset($_SESSION[$username])) : ?>
-                            <li> <a href="sign_up.html" target="_blank">Sign In</a></li>
-                            <li> <a href="sign_in.html" target="_blank">Sign Up</a> </li>
-
-                        <?php else : ?>
-                            <li> <a href="sign_in.html" target="_blank">Welcome, <?=$username?></a> </li>
-                        <?php endif; ?>
-
-                    </ul>
-                </nav>
-            </header>
 <?php } ?>
 
 <?php function draw_footer($username) {
