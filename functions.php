@@ -82,6 +82,12 @@
   </head>
 
   <body>
+
+  <?php 
+    session_start(); 
+
+  
+  ?>
     <header id="main-header">
       <nav id="home-nav-bar">
         <ul>
@@ -89,8 +95,8 @@
           <li><a href="----" target="_blank">New Houses</a></li>
           <li><a href="----" target="_blank">Popular</a></li>
           <?php if (isset($_SESSION[$username])) : ?>
-            <li> <a href="sign_in.html" target="_blank">Sign Up</a> </li>
-            <li id="signup-button"> <a href="sign_up.html" target="_blank">Sign In</a></li>
+            <li> <a href="sign_in.php" target="_blank">Sign In</a> </li>
+            <li id="signup-button"> <a href="sign_up.php" target="_blank">Sign Up</a></li>
           <?php else : ?>
               <li>Welcome, <a class="header-username"href="sign_in.html" target="_blank"><?=$username?></a> </li>
           <?php endif; ?>
@@ -144,6 +150,12 @@
     <meta charset="UTF-8">
   </head>
   <body>  
+
+    <?php 
+      session_start(); 
+
+  
+    ?>
     <header id="alternative-header">
       <img id="logoalternative" src="assets/images/logo.png" alt="Hemkonfort Logo" />
       <nav id="home-nav-bar">
@@ -152,10 +164,10 @@
           <li> <a href="----" target="_blank">New Houses</a></li>
           <li> <a href="----" target="_blank">Popular</a></li>
           <?php if (isset($_SESSION[$username])) : ?>
-            <li> <a href="sign_up.html" target="_blank">Sign In</a></li>
-            <li> <a href="sign_in.html" target="_blank">Sign Up</a> </li>
+            <li> <a href="sign_in.php" target="_blank">Sign In</a></li>
+            <li> <a href="sign_up.php" target="_blank">Sign Up</a> </li>
           <?php else : ?>
-            <li>Welcome, <a class="header-username"href="sign_in.html" target="_blank"><?=$username?></a> </li>
+            <li>Welcome, <a class="header-username"href="user_page.php" target="_blank"><?=$username?></a> </li>
           <?php endif; ?>
         </ul>
       </nav>
@@ -207,8 +219,11 @@
  * Draws the footer of the Website.   TODO: VERIFICAR PARTE DA USER AREA NO CASO DE TER UM USER COM SESSÃO INICIADA E NAO!
  */
     ?>
-    <?php session_start();
-    $_SESSION['name'] = $username;
+    
+    <?php 
+      session_start(); 
+
+  
     ?>
 
     <footer>
@@ -259,6 +274,12 @@
  */
     ?>
 
+    <?php 
+      session_start(); 
+
+  
+    ?>
+
 <section class='houses-section-container'>
       <div class='house-article-header'>
         <h2>Recent <strong>Homes</strong></h2>
@@ -266,7 +287,7 @@
       </div>
       <article class='house-article-container'>
       <?php 
-          $dbh = new PDO('sqlite:database/database1.db'); 
+          $dbh = new PDO('sqlite:database/database.db'); 
           $stmt = $dbh->prepare('select * from PLACE ORDER BY idPlace DESC LIMIT 4'); 
           $stmt->execute();
           $result = $stmt->fetchAll(); ?>
@@ -301,6 +322,12 @@
  */
     ?>
 
+    <?php 
+      session_start(); 
+
+  
+    ?>
+
 <section class='houses-section-container'>
       <div class='house-article-header'>
         <h2>Top <strong>Homes</strong></h2>
@@ -308,7 +335,7 @@
       </div>
       <article class='house-article-container'>
       <?php 
-          $dbh = new PDO('sqlite:database/database1.db'); 
+          $dbh = new PDO('sqlite:database/database.db'); 
           $stmt = $dbh->prepare('select * from PLACE ORDER BY classification DESC LIMIT 4'); 
           $stmt->execute();
           $result = $stmt->fetchAll(); ?>
@@ -333,5 +360,27 @@
 
       </section>
       <?php $dbh = null;?>
+
+<?php } ?>
+
+
+<?php function getUserAndPass($username, $password) {
+/**
+ * Retrieves the pass and usernames from the database
+ */
+    ?>
+
+        <?php  
+          //FAZER HASH AQUI 
+          $dbh = new PDO('sqlite:database/database.db'); 
+          $stmt = $dbh->prepare('select * from user where username = ? and password = ?'); 
+          $stmt->execute(array($username, $password));
+          if ($stmt->fetchAll() == false) {
+            print("OH QUE CRL");
+          } 
+          else 
+          prinT("yo");
+          ?>
+
 
 <?php } ?>
