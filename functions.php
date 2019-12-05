@@ -1,3 +1,42 @@
+<?php function draw_user_area() { 
+/**
+ * Draws the signup section.
+ */
+?>
+  <section id="user-area">
+    <header>
+      <h1>User Area</h1>
+    </header>
+    <div>
+      <aside>
+        <section id="user-card">
+          <div class="user-card-photo">
+            <img src="design/mockups/stock-images/stock-profile-photo.jpg" alt="Hemkonfort Logo" />
+          </div>
+          <h3>John Doe</h3>
+        </section>
+        <nav id="user-nav-bar">
+          <ul>
+            <li>Profile</li>
+            <li>Messages</li>
+            <li>My Houses</li>
+            <li>Rents</li>
+          </ul>
+        </nav>
+      </aside>
+      <form id="user-area-form" action="" method="POST">
+        <input class="input-form" type="text" name="first-name" required="required" placeholder="First Name" value="John"> 
+        <input class="input-form" type="text" name="last-name" required="required" placeholder="Last Name" value="Doe"> 
+        <input class="input-form" type="email" name="email" required="required" placeholder="Email" value="john.doe@whatever.com"> 
+        <input class="input-form" type="text" name="last-name" required="required" placeholder="Phone Number" value="(424) 827-0389"> 
+        <input class="input-form" type="password" name="password" required="required" placeholder="Password">
+        <input class="input-form" type="password" name="password" required="required" placeholder="Repeat Password">
+        <input id="user-area-submit-button" class="input-form-button"type="submit" value="Submit Changes">
+      </form>
+    <div>
+  </section>  
+<?php } ?>
+
 <?php function draw_signup() { 
 /**
  * Draws the signup section.
@@ -5,15 +44,15 @@
 ?>
   <section class="sign-form-card">
     <header>
-      <img src="assets/images/logo.png" alt="Hemkonfort Logo" />
+      <img src="assets/images/logo.png" alt="User Picture" />
       <h1>Sign Up</h1>
     </header>
     <form id="signup-form" action="" method="POST">
-      <input class="input-form" type="email" name="email" required="required" placeholder="Email"> 
-      <input class="input-form" type="password" name="password" required="required" placeholder="Repeat Password">
-      <input class="input-form" type="password" name="password" required="required" placeholder="Password">
       <input class="input-form" type="text" name="first-name" required="required" placeholder="First Name"> 
       <input class="input-form" type="text" name="last-name" required="required" placeholder="Last Name"> 
+      <input class="input-form" type="email" name="email" required="required" placeholder="Email"> 
+      <input class="input-form" type="password" name="password" required="required" placeholder="Password">
+      <input class="input-form" type="password" name="password" required="required" placeholder="Repeat Password">
       <input class="input-form-button"type="submit" value="Sign up">
     </form>
     <footer>
@@ -145,7 +184,7 @@
   </head>
   <body>  
     <header id="alternative-header">
-      <img id="logoalternative" src="assets/images/logo.png" alt="Hemkonfort Logo" />
+      <img src="assets/images/logo.png" alt="Hemkonfort Logo" />
       <nav id="home-nav-bar">
         <ul>
           <li> <a href="about_us.html" target="_blank">About Us</a></li>

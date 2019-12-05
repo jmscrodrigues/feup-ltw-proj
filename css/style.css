@@ -45,14 +45,13 @@ ul {
     width: 100%;
     background: var(--main-blue-color);
     overflow: hidden;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     display: flex;
 }
 
 #alternative-header > img{
     width: 3em;
-    padding: 0em 5em;
 }
 
 /**
@@ -312,11 +311,11 @@ footer {
 }
 
 #signup-form > .input-form-button {
-    margin: 0px 1em;
+    margin: 0em 1em;
 }
 
 #signup-form > .input-form {
-    margin: 0px 1em;
+    margin: 0em 1em;
 }
 
 .input-form {
@@ -345,4 +344,82 @@ footer {
     text-align: right;
     padding: 0em 10em;
     margin: 0em;
+}
+
+/*************************************************/
+/******************* User-Area *******************/
+/*************************************************/
+#user-area {
+    justify-content: center;
+    display: grid;
+    margin: 1em auto;
+}
+
+#user-area > header > h1 {
+    font-size: 3em;
+    margin: 0.5em 0em;
+}
+
+#user-area > div {
+    display: flex;
+}
+
+#user-area > div aside {
+    display: grid;
+}
+
+#user-nav-bar {
+    margin: 1em;
+}
+
+#user-nav-bar > ul{
+    padding: 0em;
+    margin: 0em;
+}
+
+#user-nav-bar > ul li{
+    padding: 0.3em;
+}
+
+#user-card {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.user-card-photo {
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.user-card-photo > img {
+    width: auto;
+    height: 100%;
+    margin-left: -50%;
+}
+
+#user-area-form {
+    row-gap: 10px;
+    width: 50em;
+    margin: 0em 2em;
+    display: grid;
+    align-content: center;
+    grid-template-rows: [start] auto [line1] auto [line2] auto [end];
+    grid-template-columns: [start] auto [line1] auto [end];
+}
+
+#user-area-form > .input-form-button {
+    margin: 0em 1em;
+}
+
+#user-area-form > .input-form {
+    margin: 0em 1em;
+}
+
+#user-area-submit-button {
+    grid-column-start: start;
+    grid-column-end: end;
+    margin: 2em 25% 0em 25% !important;
 }
