@@ -85,7 +85,6 @@
 
   <?php 
     session_start(); 
-
   
   ?>
     <header id="main-header">
@@ -94,7 +93,7 @@
           <li><a href="about_us.html" target="_blank">About Us</a></li>
           <li><a href="----" target="_blank">New Houses</a></li>
           <li><a href="----" target="_blank">Popular</a></li>
-          <?php if (isset($_SESSION[$username])) : ?>
+          <?php if (!($_SESSION['name'] == $username)) : ?>
             <li> <a href="sign_in.php" target="_blank">Sign In</a> </li>
             <li id="signup-button"> <a href="sign_up.php" target="_blank">Sign Up</a></li>
           <?php else : ?>
@@ -179,6 +178,12 @@
 /**
  * Draws the popular house pages
  */
+    ?>
+
+    <?php 
+      session_start(); 
+
+  
     ?>
     <section class='houses-section-container'>
       <div class='house-article-header'>
@@ -376,11 +381,96 @@
           $stmt = $dbh->prepare('select * from user where username = ? and password = ?'); 
           $stmt->execute(array($username, $password));
           if ($stmt->fetchAll() == false) {
-            print("OH QUE CRL");
+            print("CENAS ERRADAS");
+            return -1;
           } 
-          else 
-          prinT("yo");
+          else {
+            session_start();
+            if (!isset($_SESSION['name'])) {
+              $_SESSION['name'] = $username;
+            }
+
+            //atribuir o username à sessão, verificando antes se nao tem lá nenhum atribuído previamente
+          }
           ?>
 
+
+<?php } ?>
+
+
+<?php function createAccount($username, $name, $email, $password) {
+/**
+ * Creates a new account
+ */
+    ?>
+
+        <?php  
+          //FAZER HASH DA PASS AQUI 
+          $dbh = new PDO('sqlite:database/database.db'); 
+          $stmt = $dbh->prepare('insert into User(Username, Name, Email, Password) VALUES (:Username,:Name,:Email,:Password)'); 
+          $stmt->bindParam(':Username', $username);
+          $stmt->bindParam(':Name', $name);
+          $stmt->bindParam(':Email', $email);
+          $stmt->bindParam(':Password', $password);
+          
+          if($stmt->execute()) {
+            session_start();
+            if (!isset($_SESSION['name'])) {
+              $_SESSION['name'] = $username;
+            }
+            //atribuir o username à sessão, verificando antes se nao tem lá nenhum atribuído previamente
+          }
+          else {
+            return -1;
+          }
+          ?>
+"#$%^&*()+=-[]';,./{}|:<>?~"
+<?php } ?>
+
+
+
+<?php function checkInjectionLogIn($username, $password) {
+/**
+ * Creates a new account
+ */
+    ?>
+     <?php  
+      if(preg_match('/[\'^£$%&*()}{@#~?><>, "|=+¬-]/' ,$username)) {
+        return -1;
+      }
+      else if(preg_match('/[\'^£$%&*()}{@#~?><>, "|=+¬-]/' ,$password)){
+        return -1;
+      }
+      else {
+        return 1;
+      }
+
+     ?>
+    
+
+<?php } ?>
+
+
+<?php function checkInjectionSignUp($username, $name, $password) { // TODO: EMAIL NAO PORQUE O FORMATO QUE RECEBE É EMAIL, OU ESTOU ENGANADO?
+/**
+ * Creates a new account
+ */
+    ?>
+     <?php  
+      if(preg_match('/[\'^£$%&*()}{@#~?><>, "|=+¬-]/' ,$username)) {
+        return -1;
+      }
+      else if(preg_match('/[\'^£$%&*()}{@#~?><>,"|=+¬-]/' ,$name)) {
+        return -1;
+      }
+      else if(preg_match('/[\'^£$%&*()}{@#~?><>, "|=+¬-]/' ,$password)){
+        return -1;
+      }
+      else {
+        return 1;
+      }
+
+     ?>
+    
 
 <?php } ?>
