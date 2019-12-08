@@ -66,16 +66,23 @@
       <!-- USER AREA MESSAGES -->
       <div id="user-area-messages">
         <div id="message-address-list">
-          <?php for($i = 0; $i < 2; $i++)  {?>
+          <?php for($i = 0; $i < 6; $i++)  {?>
           <div class="user-message-card">
             <div class="user-message-card-photo rounded-photo-container">
-              <img src="design/mockups/stock-images/stock-house.jpg" alt="House image" />
+              <img src="design/mockups/stock-images/stock-profile-photo.jpg" alt="House image" />
             </div>
-            <h4><strong>Jane Doe</strong></h4>
+            <h4><strong>John Doe <?=$i+1?></strong></h4>
           </div>
           <?php } ?>
         </div>
         <div id="message-chat-box">
+          <div id="message-chat-box-view">
+            cenas aqui :)
+          </div>
+          <form action="" id="message-send-form">
+            <textarea class="input-form" type="text" name="text" required="required" placeholder="Write your message"></textarea>
+            <input class="input-form-button" type="submit" value="Send">
+          </form>
         </div>
       </div>
     <div>

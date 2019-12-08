@@ -473,12 +473,45 @@ footer {
 /* Messaging */
 #user-area-messages {
     display: none;
+    grid-template-columns: [start] auto [line1] auto [end];
 }
 
 #message-address-list {
+    max-height: 30em;
+    overflow-y: scroll;
+    margin: 1em;
+    
+}
 
+.user-message-card {
+    display: grid;
+    justify-items: start;
+    grid-template-columns: [start] 6em [line1] 12em [end];
+    grid-template-rows: [start] auto [end];
+    padding: 1em 0em;
+    border-bottom: 3px solid var(--main-blue-color);
+}
+
+.user-message-card-photo {
+    justify-self: center;
+    width: 70px;
+    height: 70px;
 }
 
 #message-chat-box {
-    
+    display:grid;
+    margin: 1em;
+    width: 30em;
+}
+
+#message-chat-box-view {
+    height: 24em;
+    max-height: 30em;
+    overflow-y: scroll;
+}
+
+#message-send-form {
+    display: grid;
+    grid-template-columns: [start] auto [line1] 8em [end];
+    grid-template-rows: [start] auto [end];
 }
