@@ -359,6 +359,7 @@ footer {
 
 #user-area > div aside {
     display: grid;
+    align-self: start;
 }
 
 #user-nav-bar {
