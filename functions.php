@@ -507,25 +507,22 @@
       return -1;
     }
 
-    //HASH
     $dbh = new PDO('sqlite:database/database.db'); 
     $stmt = $dbh->prepare('select * from user where username = ? and password = ?'); 
-    $stmt->execute(array($username, $password));
+    $hashPassword=hash('sha256',$password);
+    $stmt->execute(array($username, $hashPassword));
     if ($stmt->fetchAll() == false) {
       print("wrong password!");
       return -1;
     } 
     else {
       $stmt2 = $dbh->prepare('update user set password = ?');
-      $stmt2->execute(array($newPassword));
+      $newHashPassword=hash('sha256',$newPassword);
+      $stmt2->execute(array($newHashPassword));
       print("updated");
       return 0;
-
     }
-
     ?>
-
-
 
 <?php } ?>
 
@@ -541,10 +538,10 @@
       return -1;
     }
 
-    //HASH
     $dbh = new PDO('sqlite:database/database.db'); 
     $stmt = $dbh->prepare('select * from user where username = ? and password = ?'); 
-    $stmt->execute(array($username, $password));
+    $hashPassword=hash('sha256',$password);
+    $stmt->execute(array($username, $hashPassword));
     if ($stmt->fetchAll() == false) {
       print("wrong password!");
       return -1;
