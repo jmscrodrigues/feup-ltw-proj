@@ -33,7 +33,7 @@
       <h1>Login</h1>
     </header>
     <form id="signin-form" action="" method="POST">
-      <input class="input-form" type="emial" name="email" required="required" placeholder="Email"> 
+      <input class="input-form" type="email" name="email" required="required" placeholder="Email"> 
       <input class="input-form" type="password" name="password" required="required" placeholder="Password">
       <input class="input-form-button"type="submit" value="Sign In">
     </form>
@@ -464,7 +464,8 @@
           $stmt->bindParam(':Username', $username);
           $stmt->bindParam(':Name', $name);
           $stmt->bindParam(':Email', $email);
-          $stmt->bindParam(':Password', $password);
+          $newPassword=hash('sha256',$password);
+          $stmt->bindParam(':Password', $newPassword);
           
           if($stmt->execute()) {
             session_start();
