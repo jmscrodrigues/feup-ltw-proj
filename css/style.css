@@ -28,6 +28,14 @@ ul {
     list-style-type: none;
 }
 
+h1 {
+    color: white;
+    text-shadow: 2px 2px 10px #000000;
+    font-size: 4em;
+    margin: 0em;
+    padding: 10px;
+}
+
 /*************************************************/
 /******************** Header *********************/
 /*************************************************/
@@ -92,10 +100,13 @@ ul {
     text-shadow: 2px 2px 10px #000000;
     padding: 4em 1em 4em 1em;
     color: white;
+    margin: 0;
 }
 
 #logo {
     width: 10em;
+    border-radius: 50%;
+    box-shadow: 10px 10px 2em #000000;
 }
 
 #logo-section {
@@ -107,26 +118,12 @@ ul {
     text-align: center;
 }
 
-#logo-title-container h1 {
-    color: white;
-    text-shadow: 2px 2px 10px #000000;
-    font-size: 4em;
-    padding: 10px;
-    margin: 0;
-}
 
 #logo-subtitle-container {
     text-align: center;
     align-self: center;
     vertical-align: middle;
     max-width: 100%;
-}
-
-#logo-subtitle-container h2 {
-    color: white;
-    text-shadow: 2px 2px 10px #000000;
-    padding: 10px;
-    margin: 0;
 }
 
 /*************************************************/
@@ -217,11 +214,12 @@ footer {
     flex-wrap: wrap;
     justify-content: space-between;
     padding: 1em 0em;
+    max-width: 1024px;
 }
 
 .house-card {
-    width: min-content;
-    min-width: 20%;
+    width: 100%;
+    max-width: 224px;
     background: var(--grey-color);
     display: grid;
     border-radius: 2em;
@@ -285,15 +283,10 @@ footer {
     padding: 2em 0em;
 }
 
-.sign-form-card > header h1 {
-    color: white;
-    text-shadow: 2px 2px 10px #000000;
-    font-size: 4em;
-    margin: 0em;
-}
-
 .sign-form-card > header img {
     width: 20em;
+    border-radius: 50%;
+    box-shadow: 10px 10px 2em #000000;
 }
 
 #signin-form {
@@ -423,3 +416,4 @@ footer {
     grid-column-end: end;
     margin: 2em 25% 0em 25% !important;
 }
+

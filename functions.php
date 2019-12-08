@@ -5,7 +5,7 @@
 ?>
   <section id="user-area">
     <header>
-      <h1>User Area</h1>
+      <h2>User Area</h2>
     </header>
     <div>
       <aside>
@@ -17,13 +17,14 @@
         </section>
         <nav id="user-nav-bar">
           <ul>
-            <li>Profile</li>
+            <li><button class="btn1">Profile</button></li>
             <li>Messages</li>
             <li>My Houses</li>
             <li>Rents</li>
           </ul>
         </nav>
       </aside>
+      <!--
       <form id="user-area-form" action="" method="POST">
         <input class="input-form" type="text" name="first-name" required="required" placeholder="First Name" value="John"> 
         <input class="input-form" type="text" name="last-name" required="required" placeholder="Last Name" value="Doe"> 
@@ -33,6 +34,20 @@
         <input class="input-form" type="password" name="password" required="required" placeholder="Repeat Password">
         <input id="user-area-submit-button" class="input-form-button"type="submit" value="Submit Changes">
       </form>
+      -->
+      <article class='house-article-container'>
+      <?php for($i = 0; $i < 5; $i++)  {?>
+        <div class="house-card">
+          <img src="design/mockups/stock-images/stock-house.jpg" alt="House image" />
+          <div class="house-card-text">
+            <h2>Banana</h2>
+            <h3>RUA DA BANANA</h3>
+            <h4>BANANA COUNTRY</h4>
+          </div>
+          <a href="google.com" class='house-card-button'>2€</a>
+        </div>
+       <?php } ?>
+       </article>
     <div>
   </section>  
 <?php } ?>
