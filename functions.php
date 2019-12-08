@@ -484,11 +484,77 @@
 
 <?php function logOut() {
 /**
- * Terminates the current user sesion!
+ * Terminates the current user sesion
  */
     ?>
     <?php
     session_destroy();
+    ?>
+
+<?php } ?>
+
+
+<?php function editPassword($username, $password, $newPassword) {
+/**
+ * Edits the password of a user
+ */
+    ?>
+    <?php
+    session_start();
+    if ($_SESSION['name'] != $username) {
+      print("not logged in");
+      return -1;
+    }
+
+    //HASH
+    $dbh = new PDO('sqlite:database/database.db'); 
+    $stmt = $dbh->prepare('select * from user where username = ? and password = ?'); 
+    $stmt->execute(array($username, $password));
+    if ($stmt->fetchAll() == false) {
+      print("wrong password!");
+      return -1;
+    } 
+    else {
+      $stmt2 = $dbh->prepare('update user set password = ?');
+      $stmt2->execute(array($newPassword));
+      print("updated");
+      return 0;
+
+    }
+
+    ?>
+
+
+
+<?php } ?>
+
+<?php function editUsername($username, $newUsername, $password) {
+/**
+ * Edits the username of a user
+ */
+    ?>
+    <?php
+    session_start();
+    if ($_SESSION['name'] != $username) {
+      print("not logged in");
+      return -1;
+    }
+
+    //HASH
+    $dbh = new PDO('sqlite:database/database.db'); 
+    $stmt = $dbh->prepare('select * from user where username = ? and password = ?'); 
+    $stmt->execute(array($username, $password));
+    if ($stmt->fetchAll() == false) {
+      print("wrong password!");
+      return -1;
+    } 
+    else {
+      $stmt2 = $dbh->prepare('update user set username = ?');
+      $stmt2->execute(array($newUsername));
+      print("updated");
+      return 0;
+    }
+
     ?>
 
 <?php } ?>
