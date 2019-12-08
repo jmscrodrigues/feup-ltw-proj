@@ -10,7 +10,7 @@
     <div>
       <aside>
         <section id="user-card">
-          <div class="user-card-photo">
+          <div class="user-card-photo rounded-photo-container">
             <img src="design/mockups/stock-images/stock-profile-photo.jpg" alt="Hemkonfort Logo" />
           </div>
           <h3>John Doe</h3>
@@ -24,6 +24,7 @@
           </ul>
         </nav>
       </aside>
+      <!-- USER AREA FORM -->
       <form id="user-area-form" action="" method="POST">
         <input class="input-form" type="text" name="first-name" required="required" placeholder="First Name" value="John"> 
         <input class="input-form" type="text" name="last-name" required="required" placeholder="Last Name" value="Doe"> 
@@ -33,6 +34,7 @@
         <input class="input-form" type="password" name="password" required="required" placeholder="Repeat Password">
         <input id="user-area-submit-button" class="input-form-button"type="submit" value="Submit Changes">
       </form>
+      <!-- USER AREA HOUSES -->
       <article id="user-area-houses" class='house-article-container'>
         <?php for($i = 0; $i < 5; $i++)  {?>
         <div class="house-card">
@@ -46,11 +48,35 @@
         </div>
         <?php } ?>
       </article>
+      <!-- USER AREA RENTS -->
       <div id="user-area-rents">
-
+        <?php for($i = 0; $i < 6; $i++)  {?>
+        <div class="rent-card">
+          <div class="rent-card-photo rounded-photo-container">
+            <img src="design/mockups/stock-images/stock-house.jpg" alt="House image" />
+          </div>
+            <h4><strong>House Name</strong></h4>
+            <p><strong>From:</strong> Data de inicio</p>
+            <p>30€ per day</p>
+            <p><strong>To:</strong> Data de fim</p>
+            <p class="rent-card-total"><strong>Total:</strong> 90€</p>
+        </div>
+        <?php } ?>
       </div>
+      <!-- USER AREA MESSAGES -->
       <div id="user-area-messages">
-
+        <div id="message-address-list">
+          <?php for($i = 0; $i < 2; $i++)  {?>
+          <div class="user-message-card">
+            <div class="user-message-card-photo rounded-photo-container">
+              <img src="design/mockups/stock-images/stock-house.jpg" alt="House image" />
+            </div>
+            <h4><strong>Jane Doe</strong></h4>
+          </div>
+          <?php } ?>
+        </div>
+        <div id="message-chat-box">
+        </div>
       </div>
     <div>
   </section>  
