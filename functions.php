@@ -17,7 +17,7 @@
       <input class="input-form-button"type="submit" value="Sign up">
     </form>
     <footer>
-      <p>Already have an account? <a href="--------">Sign In</a></p>
+      <p>Already have an account? <a href="sign_in.php">Sign In</a></p>
     </footer>
   </section>  
 <?php } ?>
@@ -38,7 +38,7 @@
       <input class="input-form-button"type="submit" value="Sign In">
     </form>
     <footer>
-      <p>Don't have an account? <a href="--------">Create Account</a></p>
+      <p>Don't have an account? <a href="sign_up.php">Create Account</a></p>
       <p>Forgot Password? <a href="--------">Reset Password</a></p>
     </footer>
   </section>
@@ -227,7 +227,6 @@
     
     <?php 
       session_start(); 
-
   
     ?>
 
@@ -247,7 +246,7 @@
           </nav>
         </div>
 
-        <?php if (!isset($_SESSION[$username])) : ?>
+        <?php if ($_SESSION['name'] == $username) : ?>
           <div class='row-footer-container'>
             <h2>User Area</h2>  
             <nav class="footer-nav-bar">
@@ -368,67 +367,6 @@
 
 <?php } ?>
 
-
-<?php function getUserAndPass($username, $password) {
-/**
- * Retrieves the pass and usernames from the database
- */
-    ?>
-
-        <?php  
-          //FAZER HASH AQUI 
-          $dbh = new PDO('sqlite:database/database.db'); 
-          $stmt = $dbh->prepare('select * from user where username = ? and password = ?'); 
-          $stmt->execute(array($username, $password));
-          if ($stmt->fetchAll() == false) {
-            print("CENAS ERRADAS");
-            return -1;
-          } 
-          else {
-            session_start();
-            if (!isset($_SESSION['name'])) {
-              $_SESSION['name'] = $username;
-            }
-
-            //atribuir o username à sessão, verificando antes se nao tem lá nenhum atribuído previamente
-          }
-          ?>
-
-
-<?php } ?>
-
-
-<?php function createAccount($username, $name, $email, $password) {
-/**
- * Creates a new account
- */
-    ?>
-
-        <?php  
-          //FAZER HASH DA PASS AQUI 
-          $dbh = new PDO('sqlite:database/database.db'); 
-          $stmt = $dbh->prepare('insert into User(Username, Name, Email, Password) VALUES (:Username,:Name,:Email,:Password)'); 
-          $stmt->bindParam(':Username', $username);
-          $stmt->bindParam(':Name', $name);
-          $stmt->bindParam(':Email', $email);
-          $stmt->bindParam(':Password', $password);
-          
-          if($stmt->execute()) {
-            session_start();
-            if (!isset($_SESSION['name'])) {
-              $_SESSION['name'] = $username;
-            }
-            //atribuir o username à sessão, verificando antes se nao tem lá nenhum atribuído previamente
-          }
-          else {
-            return -1;
-          }
-          ?>
-"#$%^&*()+=-[]';,./{}|:<>?~"
-<?php } ?>
-
-
-
 <?php function checkInjectionLogIn($username, $password) {
 /**
  * Creates a new account
@@ -472,5 +410,85 @@
 
      ?>
     
+
+<?php } ?>
+
+
+<?php function getUserAndPass($username, $password) {
+/**
+ * Retrieves the pass and usernames from the database
+ */
+    ?>
+
+        <?php  
+          if(checkInjectionLogIn($username, $password) == -1) {
+            return -2;
+          }
+          //FAZER HASH AQUI 
+          $dbh = new PDO('sqlite:database/database.db'); 
+          $stmt = $dbh->prepare('select * from user where username = ? and password = ?'); 
+          $stmt->execute(array($username, $password));
+          if ($stmt->fetchAll() == false) {
+            return -1;
+          } 
+          else {
+            session_start();
+            if (!isset($_SESSION['name'])) {
+              $_SESSION['name'] = $username;
+              return 1;
+            }
+
+            //atribuir o username à sessão, verificando antes se nao tem lá nenhum atribuído previamente
+          }
+          ?>
+
+
+<?php } ?>
+
+
+<?php function createAccount($username, $name, $email, $password) {
+/**
+ * Creates a new account
+ */
+    ?>
+
+        <?php  
+
+          if(checkInjectionSignUp($username, $name, $password) == -1) {
+            print("dass");
+            return -2;
+          }
+          //FAZER HASH DA PASS AQUI 
+          $dbh = new PDO('sqlite:database/database.db'); 
+          $stmt = $dbh->prepare('insert into User(Username, Name, Email, Password) VALUES (:Username,:Name,:Email,:Password)'); 
+          $stmt->bindParam(':Username', $username);
+          $stmt->bindParam(':Name', $name);
+          $stmt->bindParam(':Email', $email);
+          $stmt->bindParam(':Password', $password);
+          
+          if($stmt->execute()) {
+            session_start();
+            if (!isset($_SESSION['name'])) {
+              $_SESSION['name'] = $username;
+              print("got here");
+            }
+            //atribuir o username à sessão, verificando antes se nao tem lá nenhum atribuído previamente
+          }
+          else {
+            return -1;
+          }
+          ?>
+<?php } ?>
+
+
+
+<?php function logOut() {
+/**
+ * Terminates the current user sesion!
+ */
+    ?>
+    <?php
+    session_destroy();
+    ?>
 
 <?php } ?>
