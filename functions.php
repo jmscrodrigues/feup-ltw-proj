@@ -17,14 +17,13 @@
         </section>
         <nav id="user-nav-bar">
           <ul>
-            <li><button class="btn1">Profile</button></li>
-            <li>Messages</li>
-            <li>My Houses</li>
-            <li>Rents</li>
+            <li><button onclick="userAreaShowForm()" class="user-area-button">Profile</button></li>
+            <li><button onclick="userAreaShowHouses()" class="user-area-button">My Houses</button></li>
+            <li><button onclick="userAreaShowRents()" class="user-area-button">My Rents</button></li>
+            <li><button onclick="userAreaShowMessages()" class="user-area-button">Messages</button></li>
           </ul>
         </nav>
       </aside>
-      <!--
       <form id="user-area-form" action="" method="POST">
         <input class="input-form" type="text" name="first-name" required="required" placeholder="First Name" value="John"> 
         <input class="input-form" type="text" name="last-name" required="required" placeholder="Last Name" value="Doe"> 
@@ -34,9 +33,8 @@
         <input class="input-form" type="password" name="password" required="required" placeholder="Repeat Password">
         <input id="user-area-submit-button" class="input-form-button"type="submit" value="Submit Changes">
       </form>
-      -->
-      <article class='house-article-container'>
-      <?php for($i = 0; $i < 5; $i++)  {?>
+      <article id="user-area-houses" class='house-article-container'>
+        <?php for($i = 0; $i < 5; $i++)  {?>
         <div class="house-card">
           <img src="design/mockups/stock-images/stock-house.jpg" alt="House image" />
           <div class="house-card-text">
@@ -46,8 +44,14 @@
           </div>
           <a href="google.com" class='house-card-button'>2€</a>
         </div>
-       <?php } ?>
-       </article>
+        <?php } ?>
+      </article>
+      <div id="user-area-rents">
+
+      </div>
+      <div id="user-area-messages">
+
+      </div>
     <div>
   </section>  
 <?php } ?>
@@ -131,6 +135,7 @@
     <meta name="msapplication-TileImage" content="assets/faviconit/favicon-144.png">
     <meta name="msapplication-config" content="assets/faviconit/browserconfig.xml">
     <!-- ****** faviconit.com favicons ****** -->
+    <script src="js/script.js"></script>
     <title>Hemkonfort</title>
     <meta charset="UTF-8">
   </head>
@@ -194,6 +199,7 @@
     <meta name="msapplication-TileImage" content="assets/faviconit/favicon-144.png">
     <meta name="msapplication-config" content="assets/faviconit/browserconfig.xml">
     <!-- ****** faviconit.com favicons ****** -->
+    <script src="js/script.js"></script>
     <title>Hemkonfort</title>
     <meta charset="UTF-8">
   </head>

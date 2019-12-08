@@ -371,6 +371,10 @@ footer {
     margin: 0em;
 }
 
+#user-nav-bar > ul li:nth-child(1) button{
+    border-left: 3px solid var(--main-blue-color);
+}
+
 #user-nav-bar > ul li{
     padding: 0.3em;
 }
@@ -418,3 +422,21 @@ footer {
     margin: 2em 25% 0em 25% !important;
 }
 
+#user-area-houses {
+    display: none;
+}
+
+#user-area-rents {
+    display: none;
+}
+
+#user-area-messages {
+    display: none;
+}
+
+.user-area-button {
+    border: 0px;
+    background-color: transparent;
+    color: #000000;
+    font-size: 16px;
+}
