@@ -4,20 +4,40 @@
  */
 ?>
   <section id="house-rent-container">
-    <aside>
-      <section class="profile-card">
-        <div class="profile-card-photo rounded-photo-container">
-          <img src="design/mockups/stock-images/stock-profile-photo.jpg" alt="House Photo" />
-        </div>
-        <h3>John Doe</h3>
-      </section>
-      <section>
-      </section>
-    </aside>
-    <div>
+    <div class="profile-card">
+      <div class="profile-card-photo rounded-photo-container">
+        <img src="design/mockups/stock-images/stock-profile-photo.jpg" alt="House Photo" />
+      </div>
+      <h3>John Doe</h3>
+      <div class="profile-card-contacts">
+        <h4>(424) 827-0389</h4>
+        <h4>john.doe@whatever.com</h4>
+        <a class="black-rounded-button" href="#">Message</a>
+      </div>
     </div>
+    <div class="house-detail-card">
+      <img src="design/mockups/stock-images/stock-house.jpg" alt="House image" />
+      <div>
+        <h3>Casa Banana</h3>
+        <p>Banana house description yo</p>
+      </div>
+      <div>
+        <h3>Location</h3>
+        <p><strong>Country: </strong>Banana Country</p>
+        <p><strong>City: </strong>Banana city</p>
+        <p><strong>Street: </strong>Banana Street</p>
+        <p><strong>Number: </strong>73</p>
+      </div>
+    </div>
+
     <div class="rent-house-card">
-    </div>
+    <form>
+      <label>Start Date</label>
+      <input class="input-form" type="date" name="name" required="required">
+      <label>End Date</label>
+      <input class="input-form" type="date" name="country" required="required"> 
+      <input class="blue-filled-rounded-button" type="submit" value="Rent">
+    </form>
   </section>  
 <?php } ?>
 
@@ -268,7 +288,9 @@
       </nav>
       <div id="logo-section">
         <div id="logo-title-container">
-          <img id="logo" class="logo-shadow" src="assets/images/logo.png" alt="Hemkonfort Logo" />
+          <a href="/">
+            <img id="logo" class="logo-shadow" src="assets/images/logo.png" alt="Hemkonfort Logo" />
+          </a>
           <h1>Hemkonfort</h1>
         </div>
         <div id="logo-subtitle-container">
@@ -316,7 +338,9 @@
   </head>
   <body>  
     <header id="alternative-header">
-      <img class="logo-shadow" src="assets/images/logo.png" alt="Hemkonfort Logo" />
+      <a href="/">
+        <img class="logo-shadow" src="assets/images/logo.png" alt="Hemkonfort Logo" />
+      </a>
       <nav id="home-nav-bar">
         <ul>
           <li> <a href="about_us.html" target="_blank">About Us</a></li>
