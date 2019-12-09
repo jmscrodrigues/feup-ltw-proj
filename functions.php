@@ -424,10 +424,10 @@
           if(checkInjectionLogIn($username, $password) == -1) {
             return -2;
           }
-          //FAZER HASH AQUI 
+          $hashedPassword=hash('sha256',$password);
           $dbh = new PDO('sqlite:database/database.db'); 
           $stmt = $dbh->prepare('select * from user where username = ? and password = ?'); 
-          $stmt->execute(array($username, $password));
+          $stmt->execute(array($username, $hashedPassword));
           if ($stmt->fetchAll() == false) {
             return -1;
           } 
@@ -458,7 +458,6 @@
             print("dass");
             return -2;
           }
-          //FAZER HASH DA PASS AQUI 
           $dbh = new PDO('sqlite:database/database.db'); 
           $stmt = $dbh->prepare('insert into User(Username, Name, Email, Password) VALUES (:Username,:Name,:Email,:Password)'); 
           $stmt->bindParam(':Username', $username);
@@ -489,6 +488,7 @@
  */
     ?>
     <?php
+    session_start();
     session_destroy();
     ?>
 
