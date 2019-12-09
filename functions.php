@@ -96,7 +96,7 @@
 ?>
   <section class="sign-form-card">
     <header>
-      <img src="assets/images/logo.png" alt="User Picture" />
+      <img class="logo-shadow" src="assets/images/logo.png" alt="User Picture" />
       <h1>Sign Up</h1>
     </header>
     <form id="signup-form" action="" method="POST">
@@ -105,7 +105,7 @@
       <input class="input-form" type="email" name="email" required="required" placeholder="Email"> 
       <input class="input-form" type="password" name="password" required="required" placeholder="Password">
       <input class="input-form" type="password" name="password" required="required" placeholder="Repeat Password">
-      <input class="input-form-button"type="submit" value="Sign up">
+      <input class="blue-filled-rounded-button" type="submit" value="Sign up">
     </form>
     <footer>
       <p>Already have an account? <a href="--------">Sign In</a></p>
@@ -120,13 +120,13 @@
 ?> 
   <section class="sign-form-card">
     <header>
-      <img src="assets/images/logo.png" alt="Hemkonfort Logo" />
+      <img class="logo-shadow" src="assets/images/logo.png" alt="Hemkonfort Logo" />
       <h1>Login</h1>
     </header>
     <form id="signin-form" action="" method="POST">
       <input class="input-form" type="emial" name="email" required="required" placeholder="Email"> 
       <input class="input-form" type="password" name="password" required="required" placeholder="Password">
-      <input class="input-form-button"type="submit" value="Sign In">
+      <input class="blue-filled-rounded-button" type="submit" value="Sign In">
     </form>
     <footer>
       <p>Don't have an account? <a href="--------">Create Account</a></p>
@@ -190,11 +190,11 @@
       </nav>
       <div id="logo-section">
         <div id="logo-title-container">
-          <img id="logo" src="assets/images/logo.png" alt="Hemkonfort Logo" />
+          <img id="logo" class="logo-shadow" src="assets/images/logo.png" alt="Hemkonfort Logo" />
           <h1>Hemkonfort</h1>
         </div>
         <div id="logo-subtitle-container">
-          <h2>We the best music</h2>
+          <p>We the best music</p>
         </div>
       </div>
     </header>
@@ -238,7 +238,7 @@
   </head>
   <body>  
     <header id="alternative-header">
-      <img src="assets/images/logo.png" alt="Hemkonfort Logo" />
+      <img class="logo-shadow" src="assets/images/logo.png" alt="Hemkonfort Logo" />
       <nav id="home-nav-bar">
         <ul>
           <li> <a href="about_us.html" target="_blank">About Us</a></li>
@@ -262,8 +262,8 @@
     ?>
     <section class='houses-section-container'>
       <div class='house-article-header'>
-        <h2>Popular <strong>Homes</strong></h2>
-        <a href="google.com">View All</a>
+        <h2><strong>Popular</strong> Homes</h2>
+        <a class="black-rounded-button" href="google.com">View All</a>
       </div>
       <article class='house-article-container'>
       <?php 
@@ -285,7 +285,7 @@
             <h3><?=$result[$i]['street']?></h3>
             <h4><?=$result[$i]['country']?></h4>
           </div>
-          <a href="google.com" class='house-card-button'><?=$result[$i]['price']?>€</a>
+          <a href="google.com" class='blue-filled-rounded-button house-card-button'><?=$result[$i]['price']?>€</a>
         </div>
        <?php } ?>
        </article>

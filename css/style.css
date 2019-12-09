@@ -36,6 +36,11 @@ h1 {
     padding: 10px;
 }
 
+.logo-shadow {
+    border-radius: 50%;
+    box-shadow: 10px 10px 2em #000000;
+}
+
 .rounded-photo-container {
     overflow: hidden;
     border-radius: 50%;
@@ -45,6 +50,33 @@ h1 {
     width: auto;
     height: 100%;
     margin-left: -33%;
+}
+
+.black-rounded-button {
+    color: black;
+    font-weight: normal;
+    margin: 1em;
+    text-align: center;
+    padding: 1em;
+    border-radius: 5em;
+    border: 3px solid black;
+}
+
+.blue-filled-rounded-button {
+    background-color: var(--main-blue-color);
+    border: 3px solid var(--main-blue-color);
+    color:white;
+    font-weight: bolder;
+    text-align: center;
+    border-radius: 5em;
+    padding: 0.8em;
+}
+
+.input-form {
+    background: transparent;
+    border: 3px solid var(--main-blue-color);
+    padding: 0.8em;
+    border-radius: 5em;
 }
 
 /*************************************************/
@@ -61,7 +93,6 @@ h1 {
 }
 
 #alternative-header {
-    width: 100%;
     background: var(--main-blue-color);
     overflow: hidden;
     justify-content: space-evenly;
@@ -107,8 +138,9 @@ h1 {
     text-decoration: underline;
 }
 
-#logo-subtitle-container h2 {
-    text-shadow: 2px 2px 10px #000000;
+#logo-subtitle-container > p {
+    font-size: 2em;
+    text-shadow: 2px 2px 6px #000000;
     padding: 4em 1em 4em 1em;
     color: white;
     margin: 0;
@@ -116,8 +148,6 @@ h1 {
 
 #logo {
     width: 10em;
-    border-radius: 50%;
-    box-shadow: 10px 10px 2em #000000;
 }
 
 #logo-section {
@@ -210,15 +240,6 @@ footer {
     margin: 1em 0em;
 }
 
-.house-article-header > a {
-    color: black;
-    font-weight: normal;
-    margin: 1em;
-    text-align: center;
-    padding: 1em;
-    border-radius: 5em;
-    border: 3px solid black;
-}
 
 .house-article-container {
     display: flex;
@@ -259,13 +280,7 @@ footer {
 }
 
 .house-card-button {
-    background-color: var(--main-blue-color);
-    color:white;
-    font-weight: bold;
-    text-align: center;
     margin: 1em 4em;
-    padding: 1em;
-    border-radius: 5em;
 }
 
 /*************************************************/
@@ -296,8 +311,6 @@ footer {
 
 .sign-form-card > header img {
     width: 20em;
-    border-radius: 50%;
-    box-shadow: 10px 10px 2em #000000;
 }
 
 #signin-form {
@@ -314,7 +327,7 @@ footer {
     grid-template-columns: [start] auto [line1] auto [end];
 }
 
-#signup-form > .input-form-button {
+#signup-form > .blue-filled-rounded-button {
     margin: 0em 1em;
 }
 
@@ -322,21 +335,6 @@ footer {
     margin: 0em 1em;
 }
 
-.input-form {
-    background: transparent;
-    border: 3px solid var(--main-blue-color);
-    padding: 0.8em;
-    border-radius: 5em;
-}
-
-.input-form-button {
-    padding: 0.8em;
-    border: 3px solid var(--main-blue-color);
-    background: var(--main-blue-color);
-    border-radius: 5em;
-    color: white;
-    font-weight: bolder;
-}
 
 .sign-form-card > footer {
     padding: 1em 0em;
@@ -401,6 +399,7 @@ footer {
     height: 200px;
 }
 
+/* Form */
 #user-area-form {
     row-gap: 10px;
     width: 50em;
@@ -411,7 +410,7 @@ footer {
     grid-template-columns: [start] auto [line1] auto [end];
 }
 
-#user-area-form > .input-form-button {
+#user-area-form > .blue-filled-rounded-button {
     margin: 0em 1em;
 }
 
