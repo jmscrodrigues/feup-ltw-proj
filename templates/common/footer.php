@@ -1,7 +1,3 @@
-<?php 
-  session_start(); 
-?>
-
     <footer>
       <section id='footer-options-bar'>
         <div class='row-footer-container'>
@@ -18,7 +14,9 @@
           </nav>
         </div>
 
-        <?php if ($_SESSION['name'] == $username) : ?>
+        <?php
+        $username = get_username();
+        if ($_SESSION['username'] == $username) : ?>
           <div class='row-footer-container'>
             <h2>User Area</h2>  
             <nav class="footer-nav-bar">

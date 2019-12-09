@@ -1,3 +1,7 @@
+<?php 
+  include_once('includes/session.php')
+?>
+
 <!DOCTYPE html>
 
 <html lang="en-US">
@@ -32,17 +36,15 @@
 
   <body>
 
-  <?php 
-    session_start(); 
-  ?>
-
   <header id="main-header">
     <nav id="home-nav-bar">
       <ul>
         <li><a href="#">About Us</a></li>
         <li><a href="#">New Houses</a></li>
         <li><a href="#">Popular</a></li>
-        <?php if (!($_SESSION['name'] == $username)) : ?>
+        <?php
+        $username = get_username();
+        if (!($_SESSION['username'] == $username)) : ?>
           <li> <a href="sign_in.php">Sign In</a> </li>
           <li id="signup-button"> <a href="sign_up.php">Sign Up</a></li>
         <?php else : ?>

@@ -1,6 +1,3 @@
-<?php 
-  session_start(); 
-?>
 <section class='houses-section-container'>
   <!-- TOP HOMES -->
   <div class='house-article-header'>
@@ -27,7 +24,7 @@
         <h3><?=$result[$i]['street']?></h3>
         <h4><?=$result[$i]['country']?></h4>
       </div>
-      <a href="#" class='blue-filled-rounded-button house-card-button'><?=$result[$i]['price']?>€</a>
+      <a href="pages/house_detail_page.php?idPlace=<?=$houseId?>" class='blue-filled-rounded-button house-card-button'><?=$result[$i]['price']?>€</a>
     </div>
     <?php } ?>
     <?php $dbh = null;?>
