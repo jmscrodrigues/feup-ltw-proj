@@ -1,3 +1,192 @@
+<?php function draw_house_rent_area() { 
+/**
+ * Draws the signup section.
+ */
+?>
+  <section id="house-rent-container">
+    <div class="profile-card">
+      <div class="profile-card-photo rounded-photo-container">
+        <img src="design/mockups/stock-images/stock-profile-photo.jpg" alt="House Photo" />
+      </div>
+      <h3>John Doe</h3>
+      <div class="profile-card-contacts">
+        <h4>(424) 827-0389</h4>
+        <h4>john.doe@whatever.com</h4>
+        <a class="black-rounded-button" href="#">Message</a>
+      </div>
+    </div>
+    <div class="house-detail-card">
+      <img src="design/mockups/stock-images/stock-house.jpg" alt="House image" />
+      <div>
+        <h3>Casa Banana</h3>
+        <p>Banana house description yo</p>
+      </div>
+      <div>
+        <h3>Location</h3>
+        <p><strong>Country: </strong>Banana Country</p>
+        <p><strong>City: </strong>Banana city</p>
+        <p><strong>Street: </strong>Banana Street</p>
+        <p><strong>Number: </strong>73</p>
+      </div>
+    </div>
+
+    <div class="rent-house-card">
+    <form>
+      <label>Start Date</label>
+      <input class="input-form" type="date" name="name" required="required">
+      <label>End Date</label>
+      <input class="input-form" type="date" name="country" required="required"> 
+      <input class="blue-filled-rounded-button" type="submit" value="Rent">
+    </form>
+  </section>  
+<?php } ?>
+
+<?php function draw_house_area() { 
+/**
+ * Draws the signup section.
+ */
+?>
+  <section class="profile-area">
+    <header>
+      <h2>House Area</h2>
+    </header>
+    <div>
+      <aside>
+        <section class="profile-card">
+          <div class="profile-card-photo rounded-photo-container">
+            <img src="design/mockups/stock-images/stock-house.jpg" alt="House Photo" />
+          </div>
+          <h3>Casa Banana</h3>
+        </section>
+        <nav class="profile-nav-bar">
+          <ul>
+            <li><button onclick="houseAreaShowForm()" class="profile-area-button">Profile</button></li>
+            <li><button onclick="houseAreaShowRents()" class="profile-area-button">Rents</button></li>
+          </ul>
+        </nav>
+      </aside>
+      <!-- HOUSE AREA FORM -->
+      <form id="house-area-form" class="profile-area-form" action="" method="POST">
+        <input class="input-form" type="text" name="name" required="required" placeholder="House Name" value="Casa Banana"> 
+        <input class="input-form" type="text" name="country" required="required" placeholder="Country" value="Banana Country"> 
+        <input class="input-form" type="number" name="price" required="required" placeholder="Price" value="30"> 
+        <input class="input-form" type="text" name="city" required="required" placeholder="City" value="Banana City">
+        <textarea id="house-description" class="input-form" name="description" required="required" row="3" placeholder="Description">Banana house is super cool!</textarea>
+        <input class="input-form" type="text" name="street" required="required" placeholder="Street" value="Banana Street"> 
+        <input class="input-form" type="number" name="number" required="required" placeholder="House number" value="78">
+        <!--<input id="image-form" type="file" name="image" required="required" placeholder="Image">-->
+        <input class="profile-area-submit-button blue-filled-rounded-button" type="submit" value="Submit Changes">
+      </form>
+      <!-- USER AREA RENTS -->
+      <div id="house-area-rents">
+        <?php for($i = 0; $i < 6; $i++)  {?>
+        <div class="rent-card">
+          <div class="rent-card-photo rounded-photo-container">
+            <img src="design/mockups/stock-images/stock-profile-photo.jpg" alt="House image" />
+          </div>
+            <h4><strong>John Doe</strong></h4>
+            <p><strong>From:</strong> Data de inicio</p>
+            <p>30€ per day</p>
+            <p><strong>To:</strong> Data de fim</p>
+            <p class="rent-card-total"><strong>Total:</strong> 90€</p>
+        </div>
+        <?php } ?>
+      </div>
+    <div>
+  </section>  
+<?php } ?>
+
+<?php function draw_user_area() { 
+/**
+ * Draws the signup section.
+ */
+?>
+  <section class="profile-area">
+    <header>
+      <h2>User Area</h2>
+    </header>
+    <div>
+      <aside>
+        <section class="profile-card">
+          <div class="profile-card-photo rounded-photo-container">
+            <img src="design/mockups/stock-images/stock-profile-photo.jpg" alt="Hemkonfort Logo" />
+          </div>
+          <h3>John Doe</h3>
+        </section>
+        <nav class="profile-nav-bar">
+          <ul>
+            <li><button onclick="userAreaShowForm()" class="profile-area-button">Profile</button></li>
+            <li><button onclick="userAreaShowHouses()" class="profile-area-button">My Houses</button></li>
+            <li><button onclick="userAreaShowRents()" class="profile-area-button">My Rents</button></li>
+            <li><button onclick="userAreaShowMessages()" class="profile-area-button">Messages</button></li>
+          </ul>
+        </nav>
+      </aside>
+      <!-- USER AREA FORM -->
+      <form id="user-area-form" class="profile-area-form" action="" method="POST">
+        <input class="input-form" type="text" name="first-name" required="required" placeholder="First Name" value="John"> 
+        <input class="input-form" type="text" name="last-name" required="required" placeholder="Last Name" value="Doe"> 
+        <input class="input-form" type="email" name="email" required="required" placeholder="Email" value="john.doe@whatever.com"> 
+        <input class="input-form" type="text" name="last-name" required="required" placeholder="Phone Number" value="(424) 827-0389"> 
+        <input class="input-form" type="password" name="password" required="required" placeholder="Password">
+        <input class="input-form" type="password" name="password" required="required" placeholder="Repeat Password">
+        <input class="profile-area-submit-button blue-filled-rounded-button" type="submit" value="Submit Changes">
+      </form>
+      <!-- USER AREA HOUSES -->
+      <article id="user-area-houses" class='house-article-container'>
+        <?php for($i = 0; $i < 5; $i++)  {?>
+        <div class="house-card">
+          <img src="design/mockups/stock-images/stock-house.jpg" alt="House image" />
+          <div class="house-card-text">
+            <h2>Banana</h2>
+            <h3>RUA DA BANANA</h3>
+            <h4>BANANA COUNTRY</h4>
+          </div>
+          <a href="google.com" class='blue-filled-rounded-button house-card-button'>2€</a>
+        </div>
+        <?php } ?>
+      </article>
+      <!-- USER AREA RENTS -->
+      <div id="user-area-rents">
+        <?php for($i = 0; $i < 6; $i++)  {?>
+        <div class="rent-card">
+          <div class="rent-card-photo rounded-photo-container">
+            <img src="design/mockups/stock-images/stock-house.jpg" alt="House image" />
+          </div>
+            <h4><strong>House Name</strong></h4>
+            <p><strong>From:</strong> Data de inicio</p>
+            <p>30€ per day</p>
+            <p><strong>To:</strong> Data de fim</p>
+            <p class="rent-card-total"><strong>Total:</strong> 90€</p>
+        </div>
+        <?php } ?>
+      </div>
+      <!-- USER AREA MESSAGES -->
+      <div id="user-area-messages">
+        <div id="message-address-list">
+          <?php for($i = 0; $i < 6; $i++)  {?>
+          <div class="user-message-card">
+            <div class="user-message-card-photo rounded-photo-container">
+              <img src="design/mockups/stock-images/stock-profile-photo.jpg" alt="House image" />
+            </div>
+            <h4><strong>John Doe <?=$i+1?></strong></h4>
+          </div>
+          <?php } ?>
+        </div>
+        <div id="message-chat-box">
+          <div id="message-chat-box-view">
+            cenas aqui :)
+          </div>
+          <form action="" id="message-send-form">
+            <textarea class="input-form" type="text" name="text" required="required" placeholder="Write your message"></textarea>
+            <input class="blue-filled-rounded-button input-form-button" type="submit" value="Send">
+          </form>
+        </div>
+      </div>
+    <div>
+  </section>  
+<?php } ?>
+
 <?php function draw_signup() { 
 /**
  * Draws the signup section.
@@ -5,16 +194,18 @@
 ?>
   <section class="sign-form-card">
     <header>
-      <img src="assets/images/logo.png" alt="Hemkonfort Logo" />
+      <a href="/">
+        <img class="logo-shadow" src="assets/images/logo.png" alt="Logo" />
+      </a>
       <h1>Sign Up</h1>
     </header>
     <form id="signup-form" action="" method="POST">
-      <input class="input-form" type="email" name="email" required="required" placeholder="Email"> 
-      <input class="input-form" type="password" name="password" required="required" placeholder="Repeat Password">
-      <input class="input-form" type="password" name="password" required="required" placeholder="Password">
       <input class="input-form" type="text" name="first-name" required="required" placeholder="First Name"> 
       <input class="input-form" type="text" name="last-name" required="required" placeholder="Last Name"> 
-      <input class="input-form-button"type="submit" value="Sign up">
+      <input class="input-form" type="email" name="email" required="required" placeholder="Email"> 
+      <input class="input-form" type="password" name="password" required="required" placeholder="Password">
+      <input class="input-form" type="password" name="password" required="required" placeholder="Repeat Password">
+      <input class="blue-filled-rounded-button" type="submit" value="Sign up">
     </form>
     <footer>
       <p>Already have an account? <a href="sign_in.php">Sign In</a></p>
@@ -29,13 +220,15 @@
 ?> 
   <section class="sign-form-card">
     <header>
-      <img src="assets/images/logo.png" alt="Hemkonfort Logo" />
-      <h1>Login</h1>
+    <a href="/">
+      <img class="logo-shadow" src="assets/images/logo.png" alt="Logo" />
+    </a>
+    <h1>Login</h1>
     </header>
     <form id="signin-form" action="" method="POST">
       <input class="input-form" type="email" name="email" required="required" placeholder="Email"> 
       <input class="input-form" type="password" name="password" required="required" placeholder="Password">
-      <input class="input-form-button"type="submit" value="Sign In">
+      <input class="blue-filled-rounded-button" type="submit" value="Sign In">
     </form>
     <footer>
       <p>Don't have an account? <a href="sign_up.php">Create Account</a></p>
@@ -77,6 +270,7 @@
     <meta name="msapplication-TileImage" content="assets/faviconit/favicon-144.png">
     <meta name="msapplication-config" content="assets/faviconit/browserconfig.xml">
     <!-- ****** faviconit.com favicons ****** -->
+    <script src="js/script.js"></script>
     <title>Hemkonfort</title>
     <meta charset="UTF-8">
   </head>
@@ -94,20 +288,22 @@
           <li><a href="----" target="_blank">New Houses</a></li>
           <li><a href="----" target="_blank">Popular</a></li>
           <?php if (!($_SESSION['name'] == $username)) : ?>
-            <li> <a href="sign_in.php" target="_blank">Sign In</a> </li>
-            <li id="signup-button"> <a href="sign_up.php" target="_blank">Sign Up</a></li>
+            <li> <a href="sign_in.php">Sign In</a> </li>
+            <li id="signup-button"> <a href="sign_up.php">Sign Up</a></li>
           <?php else : ?>
-              <li>Welcome, <a class="header-username"href="sign_in.html" target="_blank"><?=$username?></a> </li>
+              <li>Welcome, <a class="header-username"href="sign_in.html"><?=$username?></a> </li>
           <?php endif; ?>
         </ul>
       </nav>
       <div id="logo-section">
         <div id="logo-title-container">
-          <img id="logo" src="assets/images/logo.png" alt="Hemkonfort Logo" />
+          <a href="/">
+            <img id="logo" class="logo-shadow" src="assets/images/logo.png" alt="Hemkonfort Logo" />
+          </a>
           <h1>Hemkonfort</h1>
         </div>
         <div id="logo-subtitle-container">
-          <h2>We the best music</h2>
+          <p>We the best music</p>
         </div>
       </div>
     </header>
@@ -145,6 +341,7 @@
     <meta name="msapplication-TileImage" content="assets/faviconit/favicon-144.png">
     <meta name="msapplication-config" content="assets/faviconit/browserconfig.xml">
     <!-- ****** faviconit.com favicons ****** -->
+    <script src="js/script.js"></script>
     <title>Hemkonfort</title>
     <meta charset="UTF-8">
   </head>
@@ -156,7 +353,9 @@
   
     ?>
     <header id="alternative-header">
-      <img id="logoalternative" src="assets/images/logo.png" alt="Hemkonfort Logo" />
+      <a href="/">
+        <img class="logo-shadow" src="assets/images/logo.png" alt="Hemkonfort Logo" />
+      </a>
       <nav id="home-nav-bar">
         <ul>
           <li> <a href="about_us.html" target="_blank">About Us</a></li>
@@ -187,8 +386,8 @@
     ?>
     <section class='houses-section-container'>
       <div class='house-article-header'>
-        <h2>Popular <strong>Homes</strong></h2>
-        <a href="google.com">View All</a>
+        <h2><strong>Popular</strong> Homes</h2>
+        <a class="black-rounded-button" href="google.com">View All</a>
       </div>
       <article class='house-article-container'>
       <?php 
@@ -210,7 +409,7 @@
             <h3><?=$result[$i]['street']?></h3>
             <h4><?=$result[$i]['country']?></h4>
           </div>
-          <a href="google.com" class='house-card-button'><?=$result[$i]['price']?>€</a>
+          <a href="google.com" class='blue-filled-rounded-button house-card-button'><?=$result[$i]['price']?>€</a>
         </div>
        <?php } ?>
        </article>
@@ -286,8 +485,8 @@
 
 <section class='houses-section-container'>
       <div class='house-article-header'>
-        <h2>Recent <strong>Homes</strong></h2>
-        <a href="google.com">View All</a>
+        <h2><strong>Recent</strong> Homes</h2>
+        <a class="black-rounded-button" href="google.com">View All</a>
       </div>
       <article class='house-article-container'>
       <?php 
@@ -309,7 +508,7 @@
             <h3><?=$result[$i]['street']?></h3>
             <h4><?=$result[$i]['country']?></h4>
           </div>
-          <a href="google.com" class='house-card-button'><?=$result[$i]['price']?>€</a>
+          <a href="google.com" class='blue-filled-rounded-button house-card-button'><?=$result[$i]['price']?>€</a>
         </div>
        <?php } ?>
        </article>
@@ -332,10 +531,10 @@
   
     ?>
 
-<section class='houses-section-container'>
+    <section class='houses-section-container'>
       <div class='house-article-header'>
-        <h2>Top <strong>Homes</strong></h2>
-        <a href="google.com">View All</a>
+        <h2><strong>Top</strong> Homes</h2>
+        <a class="black-rounded-button" href="google.com">View All</a>
       </div>
       <article class='house-article-container'>
       <?php 
@@ -357,7 +556,7 @@
             <h3><?=$result[$i]['street']?></h3>
             <h4><?=$result[$i]['country']?></h4>
           </div>
-          <a href="google.com" class='house-card-button'><?=$result[$i]['price']?>€</a>
+          <a href="google.com" class='blue-filled-rounded-button house-card-button'><?=$result[$i]['price']?>€</a>
         </div>
        <?php } ?>
        </article>
