@@ -422,14 +422,14 @@
 
         <?php  
           if(checkInjectionLogIn($username, $password) == -1) {
-            return -2;
+            return -1;
           }
           $hashedPassword=hash('sha256',$password);
           $dbh = new PDO('sqlite:database/database.db'); 
           $stmt = $dbh->prepare('select * from user where username = ? and password = ?'); 
           $stmt->execute(array($username, $hashedPassword));
           if ($stmt->fetchAll() == false) {
-            return -1;
+            return -2;
           } 
           else {
             session_start();
@@ -440,13 +440,15 @@
 
             //atribuir o username à sessão, verificando antes se nao tem lá nenhum atribuído previamente
           }
+
+          return -3;
           ?>
 
 
 <?php } ?>
 
 
-<?php function createAccount($username, $name, $email, $password) {
+<?php function createAccount($username, $name, $email, $password, $confirmPassword) {
 /**
  * Creates a new account
  */
@@ -456,8 +458,13 @@
 
           if(checkInjectionSignUp($username, $name, $password) == -1) {
             print("dass");
+            return -1;
+          }
+
+          if($password != $confirmPassword) {
             return -2;
           }
+
           $dbh = new PDO('sqlite:database/database.db'); 
           $stmt = $dbh->prepare('insert into User(Username, Name, Email, Password) VALUES (:Username,:Name,:Email,:Password)'); 
           $stmt->bindParam(':Username', $username);
@@ -475,7 +482,7 @@
             //atribuir o username à sessão, verificando antes se nao tem lá nenhum atribuído previamente
           }
           else {
-            return -1;
+            return -3;
           }
           ?>
 <?php } ?>
@@ -526,7 +533,7 @@
 
 <?php } ?>
 
-<?php function editUsername($username, $newUsername, $password) {
+<?php function editUsername($username, $newUsername, $password, $confirmPassword) {
 /**
  * Edits the username of a user
  */
@@ -538,13 +545,18 @@
       return -1;
     }
 
+    if($password != $confirmPassword) {
+      print("error");
+      return -2;
+    }
+
     $dbh = new PDO('sqlite:database/database.db'); 
     $stmt = $dbh->prepare('select * from user where username = ? and password = ?'); 
     $hashPassword=hash('sha256',$password);
     $stmt->execute(array($username, $hashPassword));
     if ($stmt->fetchAll() == false) {
       print("wrong password!");
-      return -1;
+      return -3;
     } 
     else {
       $stmt2 = $dbh->prepare('update user set username = ?');
