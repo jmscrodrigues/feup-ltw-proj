@@ -5,7 +5,7 @@
   <!-- TOP HOMES -->
   <div class='house-article-header'>
     <h2><strong>Top</strong> Homes</h2>
-    <a class="black-rounded-button" href="google.com">View All</a>
+    <a class="black-rounded-button" href="#">View All</a>
   </div>
   <article class='house-article-container'>
   <?php 
@@ -27,7 +27,7 @@
         <h3><?=$result[$i]['street']?></h3>
         <h4><?=$result[$i]['country']?></h4>
       </div>
-      <a href="google.com" class='blue-filled-rounded-button house-card-button'><?=$result[$i]['price']?>€</a>
+      <a href="#" class='blue-filled-rounded-button house-card-button'><?=$result[$i]['price']?>€</a>
     </div>
     <?php } ?>
     <?php $dbh = null;?>
@@ -67,7 +67,7 @@
   <!-- RECENT HOMES -->
   <div class='house-article-header'>
     <h2><strong>Recent</strong> Homes</h2>
-    <a class="black-rounded-button" href="google.com">View All</a>
+    <a class="black-rounded-button" href="#">View All</a>
   </div>
   <article class='house-article-container'>
   <?php 
@@ -89,7 +89,7 @@
         <h3><?=$result[$i]['street']?></h3>
         <h4><?=$result[$i]['country']?></h4>
       </div>
-      <a href="google.com" class='blue-filled-rounded-button house-card-button'><?=$result[$i]['price']?>€</a>
+      <a href="#" class='blue-filled-rounded-button house-card-button'><?=$result[$i]['price']?>€</a>
     </div>
   <?php } ?>
   <?php $dbh = null;?>
