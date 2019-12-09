@@ -32,7 +32,7 @@
         <input class="input-form" type="text" name="last-name" required="required" placeholder="Phone Number" value="(424) 827-0389"> 
         <input class="input-form" type="password" name="password" required="required" placeholder="Password">
         <input class="input-form" type="password" name="password" required="required" placeholder="Repeat Password">
-        <input id="user-area-submit-button" class="input-form-button"type="submit" value="Submit Changes">
+        <input id="user-area-submit-button" class="blue-filled-rounded-button" type="submit" value="Submit Changes">
       </form>
       <!-- USER AREA HOUSES -->
       <article id="user-area-houses" class='house-article-container'>
@@ -44,7 +44,7 @@
             <h3>RUA DA BANANA</h3>
             <h4>BANANA COUNTRY</h4>
           </div>
-          <a href="google.com" class='house-card-button'>2€</a>
+          <a href="google.com" class='blue-filled-rounded-button house-card-button'>2€</a>
         </div>
         <?php } ?>
       </article>
@@ -81,7 +81,7 @@
           </div>
           <form action="" id="message-send-form">
             <textarea class="input-form" type="text" name="text" required="required" placeholder="Write your message"></textarea>
-            <input class="input-form-button" type="submit" value="Send">
+            <input class="blue-filled-rounded-button input-form-button" type="submit" value="Send">
           </form>
         </div>
       </div>
