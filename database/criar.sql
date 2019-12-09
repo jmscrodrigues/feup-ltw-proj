@@ -21,7 +21,7 @@ create table USER(
     name TEXT NOT NULL,
 	email TEXT NOT NULL UNIQUE,
     password TEXT NOT NULL,
-	CONSTRAINT CHK_USER CHECK (length(password)>=8 AND length(password)<=16 AND length(username)>=6 AND length(username)<=20));
+	CONSTRAINT CHK_USER CHECK (length(username)>=6 AND length(username)<=20));
 
 create table OWNER(
 	idUser TEXT REFERENCES USER ON DELETE CASCADE ON UPDATE CASCADE PRIMARY KEY);
