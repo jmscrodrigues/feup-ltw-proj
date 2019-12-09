@@ -1,6 +1,6 @@
 <?php
     include_once('functions.php');
-    getUserAndPass('big_dollars', 'password1');
+    getUserAndPass('big_dollars', 'password');
     draw_header_main('big_dollars');
     draw_top_houses();
     draw_recent_houses();
