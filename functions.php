@@ -1,3 +1,26 @@
+<?php function draw_house_rent_area() { 
+/**
+ * Draws the signup section.
+ */
+?>
+  <section id="house-rent-container">
+    <aside>
+      <section class="profile-card">
+        <div class="profile-card-photo rounded-photo-container">
+          <img src="design/mockups/stock-images/stock-profile-photo.jpg" alt="House Photo" />
+        </div>
+        <h3>John Doe</h3>
+      </section>
+      <section>
+      </section>
+    </aside>
+    <div>
+    </div>
+    <div class="rent-house-card">
+    </div>
+  </section>  
+<?php } ?>
+
 <?php function draw_house_area() { 
 /**
  * Draws the signup section.

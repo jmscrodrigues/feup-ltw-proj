@@ -517,7 +517,7 @@ footer {
 }
 
 /*************************************************/
-/******************* House-Area *******************/
+/******************* House-Area ******************/
 /*************************************************/
 #house-area {
     justify-content: center;
@@ -535,4 +535,24 @@ footer {
 
 #house-description {
     grid-row: 3/5;
+}
+
+/*************************************************/
+/****************** House-Rent *******************/
+/*************************************************/
+#house-rent-container {
+    justify-content: center;
+    justify-items: center;
+    display: grid;
+    margin: 1em auto;
+    width: 70em;
+    grid-template-columns: [start] 20% [line1] 60% [line3] 20% [end];
+}
+
+.rent-house-card {
+    display: grid;
+    background-color: var(--grey-color);
+    color: var(--grey-color);
+    width: 100%;
+    height: 100%;
 }
