@@ -17,17 +17,18 @@ drop table if exists NOTIFICATION;
 PRAGMA foreign_keys=ON;
 
 create table USER(
-	username TEXT PRIMARY KEY,
+    id INTEGER PRIMARY KEY,
+	username TEXT UNIQUE,
     name TEXT NOT NULL,
 	email TEXT NOT NULL UNIQUE,
     password TEXT NOT NULL,
-	CONSTRAINT CHK_USER CHECK (length(password)>=8 AND length(password)<=16 AND length(username)>=6 AND length(username)<=20));
+	CONSTRAINT CHK_USER CHECK (length(username)>=6 AND length(username)<=20));
 
 create table OWNER(
-	idUser TEXT REFERENCES USER ON DELETE CASCADE ON UPDATE CASCADE PRIMARY KEY);
+	idUser TEXT REFERENCES USER(username) ON DELETE CASCADE ON UPDATE CASCADE PRIMARY KEY);
 
 create table TOURIST(
-	idUser TEXT REFERENCES USER ON DELETE CASCADE ON UPDATE CASCADE PRIMARY KEY);
+	idUser TEXT REFERENCES USER(username) ON DELETE CASCADE ON UPDATE CASCADE PRIMARY KEY);
 
 create table PLACE(
     idPlace INTEGER PRIMARY KEY,
