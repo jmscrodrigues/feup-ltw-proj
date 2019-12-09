@@ -873,7 +873,7 @@
 
 
 <!-- ACTION -->
-<?php function getHousesCountry($street) {
+<?php function getHousesStreet($street) {
 /**
  * Returns the houses from o determinate country
  */
