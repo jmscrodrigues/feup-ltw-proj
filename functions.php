@@ -194,7 +194,9 @@
 ?>
   <section class="sign-form-card">
     <header>
-      <img class="logo-shadow" src="assets/images/logo.png" alt="User Picture" />
+      <a href="/">
+        <img class="logo-shadow" src="assets/images/logo.png" alt="Logo" />
+      </a>
       <h1>Sign Up</h1>
     </header>
     <form id="signup-form" action="" method="POST">
@@ -206,7 +208,7 @@
       <input class="blue-filled-rounded-button" type="submit" value="Sign up">
     </form>
     <footer>
-      <p>Already have an account? <a href="--------">Sign In</a></p>
+      <p>Already have an account? <a href="sign_in.php">Sign In</a></p>
     </footer>
   </section>  
 <?php } ?>
@@ -218,16 +220,18 @@
 ?> 
   <section class="sign-form-card">
     <header>
-      <img class="logo-shadow" src="assets/images/logo.png" alt="Hemkonfort Logo" />
-      <h1>Login</h1>
+    <a href="/">
+      <img class="logo-shadow" src="assets/images/logo.png" alt="Logo" />
+    </a>
+    <h1>Login</h1>
     </header>
     <form id="signin-form" action="" method="POST">
-      <input class="input-form" type="emial" name="email" required="required" placeholder="Email"> 
+      <input class="input-form" type="email" name="email" required="required" placeholder="Email"> 
       <input class="input-form" type="password" name="password" required="required" placeholder="Password">
       <input class="blue-filled-rounded-button" type="submit" value="Sign In">
     </form>
     <footer>
-      <p>Don't have an account? <a href="--------">Create Account</a></p>
+      <p>Don't have an account? <a href="sign_up.php">Create Account</a></p>
       <p>Forgot Password? <a href="--------">Reset Password</a></p>
     </footer>
   </section>
@@ -272,17 +276,22 @@
   </head>
 
   <body>
+
+  <?php 
+    session_start(); 
+  
+  ?>
     <header id="main-header">
       <nav id="home-nav-bar">
         <ul>
           <li><a href="about_us.html" target="_blank">About Us</a></li>
           <li><a href="----" target="_blank">New Houses</a></li>
           <li><a href="----" target="_blank">Popular</a></li>
-          <?php if (isset($_SESSION[$username])) : ?>
-            <li> <a href="sign_in.html" target="_blank">Sign Up</a> </li>
-            <li id="signup-button"> <a href="sign_up.html" target="_blank">Sign In</a></li>
+          <?php if (!($_SESSION['name'] == $username)) : ?>
+            <li> <a href="sign_in.php">Sign In</a> </li>
+            <li id="signup-button"> <a href="sign_up.php">Sign Up</a></li>
           <?php else : ?>
-              <li>Welcome, <a class="header-username"href="sign_in.html" target="_blank"><?=$username?></a> </li>
+              <li>Welcome, <a class="header-username"href="sign_in.html"><?=$username?></a> </li>
           <?php endif; ?>
         </ul>
       </nav>
@@ -337,6 +346,12 @@
     <meta charset="UTF-8">
   </head>
   <body>  
+
+    <?php 
+      session_start(); 
+
+  
+    ?>
     <header id="alternative-header">
       <a href="/">
         <img class="logo-shadow" src="assets/images/logo.png" alt="Hemkonfort Logo" />
@@ -347,20 +362,27 @@
           <li> <a href="----" target="_blank">New Houses</a></li>
           <li> <a href="----" target="_blank">Popular</a></li>
           <?php if (isset($_SESSION[$username])) : ?>
-            <li> <a href="sign_up.html" target="_blank">Sign In</a></li>
-            <li> <a href="sign_in.html" target="_blank">Sign Up</a> </li>
+            <li> <a href="sign_in.php" target="_blank">Sign In</a></li>
+            <li> <a href="sign_up.php" target="_blank">Sign Up</a> </li>
           <?php else : ?>
-            <li>Welcome, <a class="header-username"href="sign_in.html" target="_blank"><?=$username?></a> </li>
+            <li>Welcome, <a class="header-username"href="user_page.php" target="_blank"><?=$username?></a> </li>
           <?php endif; ?>
         </ul>
       </nav>
     </header>
 <?php } ?>
 
-<?php function draw_houses() {
+
+<?php function draw_popular_houses() {
 /**
- * Draws the house pages
+ * Draws the popular house pages
  */
+    ?>
+
+    <?php 
+      session_start(); 
+
+  
     ?>
     <section class='houses-section-container'>
       <div class='house-article-header'>
@@ -401,7 +423,11 @@
  * Draws the footer of the Website.   TODO: VERIFICAR PARTE DA USER AREA NO CASO DE TER UM USER COM SESSÃO INICIADA E NAO!
  */
     ?>
-    <?php session_start()?>
+    
+    <?php 
+      session_start(); 
+  
+    ?>
 
     <footer>
       <section id='footer-options-bar'>
@@ -419,7 +445,7 @@
           </nav>
         </div>
 
-        <?php if (isset($_SESSION[$username])) : ?>
+        <?php if ($_SESSION['name'] == $username) : ?>
           <div class='row-footer-container'>
             <h2>User Area</h2>  
             <nav class="footer-nav-bar">
@@ -444,4 +470,300 @@
 
 <?php } ?>
 
+
+<?php function draw_recent_houses() {
+/**
+ * Draws the recent house pages
+ */
+    ?>
+
+    <?php 
+      session_start(); 
+
+  
+    ?>
+
+<section class='houses-section-container'>
+      <div class='house-article-header'>
+        <h2><strong>Recent</strong> Homes</h2>
+        <a class="black-rounded-button" href="google.com">View All</a>
+      </div>
+      <article class='house-article-container'>
+      <?php 
+          $dbh = new PDO('sqlite:database/database.db'); 
+          $stmt = $dbh->prepare('select * from PLACE ORDER BY idPlace DESC LIMIT 4'); 
+          $stmt->execute();
+          $result = $stmt->fetchAll(); ?>
+      <?php for($i = 0; $i < 4; $i++)  {?>
+        <?php
+              $houseId = $result[$i]['idPlace'];
+              $stmt1 = $dbh->prepare("SELECT picturePath FROM PICTURES WHERE idPlace = $houseId"); 
+              $stmt1->execute();
+              $image = $stmt1->fetchColumn();    
+          ?>
+        <div class="house-card">
+          <img id="houseimg<?=$i?>" src=<?=$image?> alt="House image" />
+          <div class="house-card-text">
+            <h2><?=$result[$i]['name']?></h2>
+            <h3><?=$result[$i]['street']?></h3>
+            <h4><?=$result[$i]['country']?></h4>
+          </div>
+          <a href="google.com" class='blue-filled-rounded-button house-card-button'><?=$result[$i]['price']?>€</a>
+        </div>
+       <?php } ?>
+       </article>
+
+      </section>
+      <?php $dbh = null;?>
+
+
+<?php } ?>
+
+<?php function draw_top_houses() {
+/**
+ * Draws the top rated house pages
+ */
+    ?>
+
+    <?php 
+      session_start(); 
+
+  
+    ?>
+
+    <section class='houses-section-container'>
+      <div class='house-article-header'>
+        <h2><strong>Top</strong> Homes</h2>
+        <a class="black-rounded-button" href="google.com">View All</a>
+      </div>
+      <article class='house-article-container'>
+      <?php 
+          $dbh = new PDO('sqlite:database/database.db'); 
+          $stmt = $dbh->prepare('select * from PLACE ORDER BY classification DESC LIMIT 4'); 
+          $stmt->execute();
+          $result = $stmt->fetchAll(); ?>
+      <?php for($i = 0; $i < 4; $i++)  {?>
+        <?php
+              $houseId = $result[$i]['idPlace'];
+              $stmt1 = $dbh->prepare("SELECT picturePath FROM PICTURES WHERE idPlace = $houseId"); 
+              $stmt1->execute();
+              $image = $stmt1->fetchColumn();    
+          ?>
+        <div class="house-card">
+          <img id="houseimg<?=$i?>" src=<?=$image?> alt="House image" />
+          <div class="house-card-text">
+            <h2><?=$result[$i]['name']?></h2>
+            <h3><?=$result[$i]['street']?></h3>
+            <h4><?=$result[$i]['country']?></h4>
+          </div>
+          <a href="google.com" class='blue-filled-rounded-button house-card-button'><?=$result[$i]['price']?>€</a>
+        </div>
+       <?php } ?>
+       </article>
+
+      </section>
+      <?php $dbh = null;?>
+
+<?php } ?>
+
+<?php function checkInjectionLogIn($username, $password) {
+/**
+ * Creates a new account
+ */
+    ?>
+     <?php  
+      if(preg_match('/[\'^£$%&*()}{@#~?><>, "|=+¬-]/' ,$username)) {
+        return -1;
+      }
+      else if(preg_match('/[\'^£$%&*()}{@#~?><>, "|=+¬-]/' ,$password)){
+        return -1;
+      }
+      else {
+        return 1;
+      }
+
+     ?>
     
+
+<?php } ?>
+
+
+<?php function checkInjectionSignUp($username, $name, $password) { // TODO: EMAIL NAO PORQUE O FORMATO QUE RECEBE É EMAIL, OU ESTOU ENGANADO?
+/**
+ * Creates a new account
+ */
+    ?>
+     <?php  
+      if(preg_match('/[\'^£$%&*()}{@#~?><>, "|=+¬-]/' ,$username)) {
+        return -1;
+      }
+      else if(preg_match('/[\'^£$%&*()}{@#~?><>,"|=+¬-]/' ,$name)) {
+        return -1;
+      }
+      else if(preg_match('/[\'^£$%&*()}{@#~?><>, "|=+¬-]/' ,$password)){
+        return -1;
+      }
+      else {
+        return 1;
+      }
+
+     ?>
+    
+
+<?php } ?>
+
+
+<?php function getUserAndPass($username, $password) {
+/**
+ * Retrieves the pass and usernames from the database
+ */
+    ?>
+
+        <?php  
+          if(checkInjectionLogIn($username, $password) == -1) {
+            return -1;
+          }
+          $hashedPassword=hash('sha256',$password);
+          $dbh = new PDO('sqlite:database/database.db'); 
+          $stmt = $dbh->prepare('select * from user where username = ? and password = ?'); 
+          $stmt->execute(array($username, $hashedPassword));
+          if ($stmt->fetchAll() == false) {
+            return -2;
+          } 
+          else {
+            session_start();
+            if (!isset($_SESSION['name'])) {
+              $_SESSION['name'] = $username;
+              return 1;
+            }
+
+            //atribuir o username à sessão, verificando antes se nao tem lá nenhum atribuído previamente
+          }
+
+          return -3;
+          ?>
+
+
+<?php } ?>
+
+
+<?php function createAccount($username, $name, $email, $password, $confirmPassword) {
+/**
+ * Creates a new account
+ */
+    ?>
+
+        <?php  
+
+          if(checkInjectionSignUp($username, $name, $password) == -1) {
+            print("dass");
+            return -1;
+          }
+
+          if($password != $confirmPassword) {
+            return -2;
+          }
+
+          $dbh = new PDO('sqlite:database/database.db'); 
+          $stmt = $dbh->prepare('insert into User(Username, Name, Email, Password) VALUES (:Username,:Name,:Email,:Password)'); 
+          $stmt->bindParam(':Username', $username);
+          $stmt->bindParam(':Name', $name);
+          $stmt->bindParam(':Email', $email);
+          $newPassword=hash('sha256',$password);
+          $stmt->bindParam(':Password', $newPassword);
+          
+          if($stmt->execute()) {
+            session_start();
+            if (!isset($_SESSION['name'])) {
+              $_SESSION['name'] = $username;
+              print("got here");
+            }
+            //atribuir o username à sessão, verificando antes se nao tem lá nenhum atribuído previamente
+          }
+          else {
+            return -3;
+          }
+          ?>
+<?php } ?>
+
+
+
+<?php function logOut() {
+/**
+ * Terminates the current user sesion
+ */
+    ?>
+    <?php
+    session_start();
+    session_destroy();
+    ?>
+
+<?php } ?>
+
+
+<?php function editPassword($username, $password, $newPassword) {
+/**
+ * Edits the password of a user
+ */
+    ?>
+    <?php
+    session_start();
+    if ($_SESSION['name'] != $username) {
+      print("not logged in");
+      return -1;
+    }
+
+    $dbh = new PDO('sqlite:database/database.db'); 
+    $stmt = $dbh->prepare('select * from user where username = ? and password = ?'); 
+    $hashPassword=hash('sha256',$password);
+    $stmt->execute(array($username, $hashPassword));
+    if ($stmt->fetchAll() == false) {
+      print("wrong password!");
+      return -1;
+    } 
+    else {
+      $stmt2 = $dbh->prepare("update user set password = ? where username='$username'");
+      $newHashPassword=hash('sha256',$newPassword);
+      $stmt2->execute(array($newHashPassword));
+      print("updated");
+      return 0;
+    }
+    ?>
+
+<?php } ?>
+
+<?php function editUsername($username, $newUsername, $password, $confirmPassword) {
+/**
+ * Edits the username of a user
+ */
+    ?>
+    <?php
+    session_start();
+    if ($_SESSION['name'] != $username) {
+      print("not logged in");
+      return -1;
+    }
+
+    if($password != $confirmPassword) {
+      print("error");
+      return -2;
+    }
+
+    $dbh = new PDO('sqlite:database/database.db'); 
+    $stmt = $dbh->prepare('select * from user where username = ? and password = ?'); 
+    $hashPassword=hash('sha256',$password);
+    $stmt->execute(array($username, $hashPassword));
+    if ($stmt->fetchAll() == false) {
+      print("wrong password!");
+      return -3;
+    } 
+    else {
+      $stmt2 = $dbh->prepare("update user set username = ? where username='$username'");
+      $stmt2->execute(array($newUsername));
+      print("updated");
+      return 0;
+    }
+
+    ?>
+
+<?php } ?>
