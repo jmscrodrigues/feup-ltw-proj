@@ -523,7 +523,7 @@
       return -1;
     } 
     else {
-      $stmt2 = $dbh->prepare('update user set password = ?');
+      $stmt2 = $dbh->prepare("update user set password = ? where username='$username'");
       $newHashPassword=hash('sha256',$newPassword);
       $stmt2->execute(array($newHashPassword));
       print("updated");
@@ -559,7 +559,7 @@
       return -3;
     } 
     else {
-      $stmt2 = $dbh->prepare('update user set username = ?');
+      $stmt2 = $dbh->prepare("update user set username = ? where username='$username'");
       $stmt2->execute(array($newUsername));
       print("updated");
       return 0;
