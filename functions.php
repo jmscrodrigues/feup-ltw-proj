@@ -232,7 +232,7 @@
     </form>
     <footer>
       <p>Don't have an account? <a href="sign_up.php">Create Account</a></p>
-      <p>Forgot Password? <a href="--------">Reset Password</a></p>
+      <p>Forgot Password? <a href="#">Reset Password</a></p>
     </footer>
   </section>
 <?php } ?>
@@ -284,9 +284,9 @@
     <header id="main-header">
       <nav id="home-nav-bar">
         <ul>
-          <li><a href="about_us.html" target="_blank">About Us</a></li>
-          <li><a href="----" target="_blank">New Houses</a></li>
-          <li><a href="----" target="_blank">Popular</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">New Houses</a></li>
+          <li><a href="#">Popular</a></li>
           <?php if (!($_SESSION['name'] == $username)) : ?>
             <li> <a href="sign_in.php">Sign In</a> </li>
             <li id="signup-button"> <a href="sign_up.php">Sign Up</a></li>
@@ -358,9 +358,9 @@
       </a>
       <nav id="home-nav-bar">
         <ul>
-          <li> <a href="about_us.html" target="_blank">About Us</a></li>
-          <li> <a href="----" target="_blank">New Houses</a></li>
-          <li> <a href="----" target="_blank">Popular</a></li>
+          <li> <a href="#" target="_blank">About Us</a></li>
+          <li> <a href="#" target="_blank">New Houses</a></li>
+          <li> <a href="#" target="_blank">Popular</a></li>
           <?php if (isset($_SESSION[$username])) : ?>
             <li> <a href="sign_in.php" target="_blank">Sign In</a></li>
             <li> <a href="sign_up.php" target="_blank">Sign Up</a> </li>
@@ -387,7 +387,7 @@
     <section class='houses-section-container'>
       <div class='house-article-header'>
         <h2><strong>Popular</strong> Homes</h2>
-        <a class="black-rounded-button" href="google.com">View All</a>
+        <a class="black-rounded-button" href="#">View All</a>
       </div>
       <article class='house-article-container'>
       <?php 
@@ -409,7 +409,7 @@
             <h3><?=$result[$i]['street']?></h3>
             <h4><?=$result[$i]['country']?></h4>
           </div>
-          <a href="google.com" class='blue-filled-rounded-button house-card-button'><?=$result[$i]['price']?>€</a>
+          <a href="#" class='blue-filled-rounded-button house-card-button'><?=$result[$i]['price']?>€</a>
         </div>
        <?php } ?>
        </article>

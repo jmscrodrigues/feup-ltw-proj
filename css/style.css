@@ -442,6 +442,10 @@ footer {
     font-size: 16px;
 }
 
+.profile-area-button-selected {
+    border-left: 3px solid var(--main-blue-color);
+}
+
 .rent-card {
     display: grid;
     grid-template-columns: [start] 8em [line1] 16em [line2] 16em [line3] 16em [end];
