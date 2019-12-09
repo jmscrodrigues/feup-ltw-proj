@@ -1,38 +1,93 @@
+<?php function draw_house_area() { 
+/**
+ * Draws the signup section.
+ */
+?>
+  <section class="profile-area">
+    <header>
+      <h2>House Area</h2>
+    </header>
+    <div>
+      <aside>
+        <section class="profile-card">
+          <div class="profile-card-photo rounded-photo-container">
+            <img src="design/mockups/stock-images/stock-house.jpg" alt="House Photo" />
+          </div>
+          <h3>Casa Banana</h3>
+        </section>
+        <nav class="profile-nav-bar">
+          <ul>
+            <li><button onclick="houseAreaShowForm()" class="profile-area-button">Profile</button></li>
+            <li><button onclick="houseAreaShowRents()" class="profile-area-button">Rents</button></li>
+          </ul>
+        </nav>
+      </aside>
+      <!-- HOUSE AREA FORM -->
+      <form id="house-area-form" class="profile-area-form" action="" method="POST">
+        <input class="input-form" type="text" name="name" required="required" placeholder="House Name" value="Casa Banana"> 
+        <input class="input-form" type="text" name="country" required="required" placeholder="Country" value="Banana Country"> 
+        <input class="input-form" type="number" name="price" required="required" placeholder="Price" value="30"> 
+        <input class="input-form" type="text" name="city" required="required" placeholder="City" value="Banana City">
+        <textarea id="house-description" class="input-form" name="description" required="required" row="3" placeholder="Description">Banana house is super cool!</textarea>
+        <input class="input-form" type="text" name="street" required="required" placeholder="Street" value="Banana Street"> 
+        <input class="input-form" type="number" name="number" required="required" placeholder="House number" value="78">
+        <!--<input id="image-form" type="file" name="image" required="required" placeholder="Image">-->
+        <input class="profile-area-submit-button blue-filled-rounded-button" type="submit" value="Submit Changes">
+      </form>
+      <!-- USER AREA RENTS -->
+      <div id="house-area-rents">
+        <?php for($i = 0; $i < 6; $i++)  {?>
+        <div class="rent-card">
+          <div class="rent-card-photo rounded-photo-container">
+            <img src="design/mockups/stock-images/stock-profile-photo.jpg" alt="House image" />
+          </div>
+            <h4><strong>John Doe</strong></h4>
+            <p><strong>From:</strong> Data de inicio</p>
+            <p>30€ per day</p>
+            <p><strong>To:</strong> Data de fim</p>
+            <p class="rent-card-total"><strong>Total:</strong> 90€</p>
+        </div>
+        <?php } ?>
+      </div>
+    <div>
+  </section>  
+<?php } ?>
+
 <?php function draw_user_area() { 
 /**
  * Draws the signup section.
  */
 ?>
-  <section id="user-area">
+  <section class="profile-area">
     <header>
       <h2>User Area</h2>
     </header>
     <div>
       <aside>
-        <section id="user-card">
-          <div class="user-card-photo rounded-photo-container">
+        <section class="profile-card">
+          <div class="profile-card-photo rounded-photo-container">
             <img src="design/mockups/stock-images/stock-profile-photo.jpg" alt="Hemkonfort Logo" />
           </div>
           <h3>John Doe</h3>
         </section>
-        <nav id="user-nav-bar">
+        <nav class="profile-nav-bar">
           <ul>
-            <li><button onclick="userAreaShowForm()" class="user-area-button">Profile</button></li>
-            <li><button onclick="userAreaShowHouses()" class="user-area-button">My Houses</button></li>
-            <li><button onclick="userAreaShowRents()" class="user-area-button">My Rents</button></li>
-            <li><button onclick="userAreaShowMessages()" class="user-area-button">Messages</button></li>
+            <li><button onclick="userAreaShowForm()" class="profile-area-button">Profile</button></li>
+            <li><button onclick="userAreaShowHouses()" class="profile-area-button">My Houses</button></li>
+            <li><button onclick="userAreaShowRents()" class="profile-area-button">My Rents</button></li>
+            <li><button onclick="userAreaShowMessages()" class="profile-area-button">Messages</button></li>
           </ul>
         </nav>
       </aside>
       <!-- USER AREA FORM -->
-      <form id="user-area-form" action="" method="POST">
+      <form id="user-area-form" class="profile-area-form" action="" method="POST">
         <input class="input-form" type="text" name="first-name" required="required" placeholder="First Name" value="John"> 
         <input class="input-form" type="text" name="last-name" required="required" placeholder="Last Name" value="Doe"> 
         <input class="input-form" type="email" name="email" required="required" placeholder="Email" value="john.doe@whatever.com"> 
         <input class="input-form" type="text" name="last-name" required="required" placeholder="Phone Number" value="(424) 827-0389"> 
         <input class="input-form" type="password" name="password" required="required" placeholder="Password">
         <input class="input-form" type="password" name="password" required="required" placeholder="Repeat Password">
-        <input id="user-area-submit-button" class="blue-filled-rounded-button" type="submit" value="Submit Changes">
+        <input class="profile-area-submit-button blue-filled-rounded-button" type="submit" value="Submit Changes">
       </form>
       <!-- USER AREA HOUSES -->
       <article id="user-area-houses" class='house-article-container'>

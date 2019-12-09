@@ -1,3 +1,6 @@
+/*
+USER AREA MENU
+*/
 function hideUserAreaSections() {
     var formArea = document.getElementById("user-area-form");
     formArea.style.display = "none";
@@ -7,7 +10,7 @@ function hideUserAreaSections() {
     rentsArea.style.display = "none";
     var messagesArea = document.getElementById("user-area-messages");
     messagesArea.style.display = "none";
-    var buttonList = document.getElementsByClassName("user-area-button");
+    var buttonList = document.getElementsByClassName("profile-area-button");
     for (button of buttonList) {
         button.style.border = "0px"
     }
@@ -19,7 +22,7 @@ function userAreaShowForm() {
     // show user area form
     var formArea = document.getElementById("user-area-form");
     formArea.style.display = "grid";
-    var buttonList = document.getElementsByClassName("user-area-button");
+    var buttonList = document.getElementsByClassName("profile-area-button");
     buttonList[0].style.borderLeft = "3px solid var(--main-blue-color)";
 }
 
@@ -29,7 +32,7 @@ function userAreaShowHouses() {
     // show user houses
     var houseArea = document.getElementById("user-area-houses");
     houseArea.style.display = "flex"
-    var buttonList = document.getElementsByClassName("user-area-button");
+    var buttonList = document.getElementsByClassName("profile-area-button");
     buttonList[1].style.borderLeft = "3px solid var(--main-blue-color)";
 }
 
@@ -39,7 +42,7 @@ function userAreaShowRents() {
     // show user houses
     var rentsArea = document.getElementById("user-area-rents");
     rentsArea.style.display = "grid"
-    var buttonList = document.getElementsByClassName("user-area-button");
+    var buttonList = document.getElementsByClassName("profile-area-button");
     buttonList[2].style.borderLeft = "3px solid var(--main-blue-color)";
 }
 
@@ -49,6 +52,40 @@ function userAreaShowMessages() {
     // show user houses
     var messagesArea = document.getElementById("user-area-messages");
     messagesArea.style.display = "grid"
-    var buttonList = document.getElementsByClassName("user-area-button");
+    var buttonList = document.getElementsByClassName("profile-area-button");
     buttonList[3].style.borderLeft = "3px solid var(--main-blue-color)";
+}
+
+/*
+HOUSE AREA MENU
+*/
+function hideHouseAreaSections() {
+    var formArea = document.getElementById("house-area-form");
+    formArea.style.display = "none";
+    var rentsArea = document.getElementById("house-area-rents");
+    rentsArea.style.display = "none";
+    var buttonList = document.getElementsByClassName("profile-area-button");
+    for (button of buttonList) {
+        button.style.border = "0px"
+    }
+}
+
+function houseAreaShowForm() {
+    // hide all elements
+    hideHouseAreaSections()
+    // show user house form
+    var formArea = document.getElementById("house-area-form");
+    formArea.style.display = "grid";
+    var buttonList = document.getElementsByClassName("profile-area-button");
+    buttonList[0].style.borderLeft = "3px solid var(--main-blue-color)";
+}
+
+function houseAreaShowRents() {
+    // hide all elements
+    hideHouseAreaSections()
+    // show house rents
+    var rentsArea = document.getElementById("house-area-rents");
+    rentsArea.style.display = "grid"
+    var buttonList = document.getElementsByClassName("profile-area-button");
+    buttonList[1].style.borderLeft = "3px solid var(--main-blue-color)";
 }

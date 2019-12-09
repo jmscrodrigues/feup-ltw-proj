@@ -36,6 +36,12 @@ h1 {
     padding: 10px;
 }
 
+textarea {
+    font-family: inherit;
+    font-size: 400;
+    font-weight: inherit;
+}
+
 .logo-shadow {
     border-radius: 50%;
     box-shadow: 10px 10px 2em #000000;
@@ -351,56 +357,51 @@ footer {
 /*************************************************/
 /******************* User-Area *******************/
 /*************************************************/
-#user-area {
+.profile-area {
     justify-content: center;
     display: grid;
     margin: 1em auto;
 }
 
-#user-area > header > h1 {
-    font-size: 3em;
-    margin: 0.6em 0em;
-}
-
-#user-area > div {
+.profile-area > div {
     display: flex;
 }
 
-#user-area > div aside {
+.profile-area > div aside {
     display: grid;
     align-self: start;
 }
 
-#user-nav-bar {
+.profile-nav-bar {
     margin: 1em;
 }
 
-#user-nav-bar > ul{
+.profile-nav-bar > ul{
     padding: 0em;
     margin: 0em;
 }
 
-#user-nav-bar > ul li:nth-child(1) button{
+.profile-nav-bar > ul li:nth-child(1) button{
     border-left: 3px solid var(--main-blue-color);
 }
 
-#user-nav-bar > ul li{
+.profile-nav-bar > ul li{
     padding: 0.3em;
 }
 
-#user-card {
+.profile-card {
     justify-content: center;
     align-items: center;
     text-align: center;
 }
 
-.user-card-photo {
+.profile-card-photo {
     width: 200px;
     height: 200px;
 }
 
 /* Form */
-#user-area-form {
+.profile-area-form {
     row-gap: 10px;
     width: 50em;
     margin: 0em 2em;
@@ -410,15 +411,15 @@ footer {
     grid-template-columns: [start] auto [line1] auto [end];
 }
 
-#user-area-form > .blue-filled-rounded-button {
+.profile-area-form > .blue-filled-rounded-button {
     margin: 0em 1em;
 }
 
-#user-area-form > .input-form {
+.profile-area-form > .input-form {
     margin: 0em 1em;
 }
 
-#user-area-submit-button {
+.profile-area-submit-button {
     grid-column-start: start;
     grid-column-end: end;
     margin: 2em 25% 0em 25% !important;
@@ -434,7 +435,7 @@ footer {
     display: none;
 }
 
-.user-area-button {
+.profile-area-button {
     border: 0px;
     background-color: transparent;
     color: #000000;
@@ -513,4 +514,25 @@ footer {
     display: grid;
     grid-template-columns: [start] auto [line1] 8em [end];
     grid-template-rows: [start] auto [end];
+}
+
+/*************************************************/
+/******************* House-Area *******************/
+/*************************************************/
+#house-area {
+    justify-content: center;
+    display: grid;
+    margin: 1em auto;
+}
+
+#image-form {
+    width: 2em;
+}
+
+#house-area-rents {
+    display: none;
+}
+
+#house-description {
+    grid-row: 3/5;
 }
