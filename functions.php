@@ -204,7 +204,7 @@
       <input class="input-form" type="text" name="last-name" required="required" placeholder="Last Name"> 
       <input class="input-form" type="email" name="email" required="required" placeholder="Email"> 
       <input class="input-form" type="password" name="password" required="required" placeholder="Password">
-      <input class="input-form" type="password" name="password" required="required" placeholder="Repeat Password">
+      <input class="input-form" type="password" name="password2" required="required" placeholder="Repeat Password">
       <input class="blue-filled-rounded-button" type="submit" value="Sign up">
     </form>
     <footer>
@@ -392,7 +392,7 @@
       <article class='house-article-container'>
       <?php 
           $dbh = new PDO('sqlite:database/database.db'); 
-          $stmt = $dbh->prepare('SELECT * FROM PLACE'); 
+          $stmt = $dbh->prepare('SELECT PLACE.* from PLACE,RESERVATION WHERE PLACE.idPlace=RESERVATION.idPlace GROUP BY PLACE.name ORDER BY count(*) DESC LIMIT 4'); 
           $stmt->execute();
           $result = $stmt->fetchAll(); ?>
       <?php for($i = 0; $i < 4; $i++)  {?>
@@ -491,7 +491,7 @@
       <article class='house-article-container'>
       <?php 
           $dbh = new PDO('sqlite:database/database.db'); 
-          $stmt = $dbh->prepare('select * from PLACE ORDER BY idPlace DESC LIMIT 4'); 
+          $stmt = $dbh->prepare('SELECT * from PLACE ORDER BY idPlace DESC LIMIT 4'); 
           $stmt->execute();
           $result = $stmt->fetchAll(); ?>
       <?php for($i = 0; $i < 4; $i++)  {?>
@@ -539,7 +539,7 @@
       <article class='house-article-container'>
       <?php 
           $dbh = new PDO('sqlite:database/database.db'); 
-          $stmt = $dbh->prepare('select * from PLACE ORDER BY classification DESC LIMIT 4'); 
+          $stmt = $dbh->prepare('SELECT * from PLACE ORDER BY classification DESC LIMIT 4'); 
           $stmt->execute();
           $result = $stmt->fetchAll(); ?>
       <?php for($i = 0; $i < 4; $i++)  {?>
@@ -571,11 +571,11 @@
  * Creates a new account
  */
     ?>
-     <?php  
-      if(preg_match('/[\'^£$%&*()}{@#~?><>, "|=+¬-]/' ,$username)) {
+     <?php
+      if ( !preg_match ("/^[a-z0-9_]+$/i", $username)) {
         return -1;
       }
-      else if(preg_match('/[\'^£$%&*()}{@#~?><>, "|=+¬-]/' ,$password)){
+      else if ( !preg_match  ("/^[a-z0-9_]+$/i", $password)) {
         return -1;
       }
       else {
@@ -588,19 +588,19 @@
 <?php } ?>
 
 
-<?php function checkInjectionSignUp($username, $name, $password) { // TODO: EMAIL NAO PORQUE O FORMATO QUE RECEBE É EMAIL, OU ESTOU ENGANADO?
+<?php function checkInjectionSignUp($username, $name, $password) { 
 /**
  * Creates a new account
  */
     ?>
      <?php  
-      if(preg_match('/[\'^£$%&*()}{@#~?><>, "|=+¬-]/' ,$username)) {
+      if ( !preg_match ("/^[a-z0-9_]+$/i", $username)) {
         return -1;
       }
-      else if(preg_match('/[\'^£$%&*()}{@#~?><>,"|=+¬-]/' ,$name)) {
+       if ( !preg_match ("/^[a-z0-9_\s]+$/i", $name)) {
         return -1;
       }
-      else if(preg_match('/[\'^£$%&*()}{@#~?><>, "|=+¬-]/' ,$password)){
+      if ( !preg_match ("/^[a-z0-9_]+$/i", $password)) {
         return -1;
       }
       else {
@@ -612,6 +612,23 @@
 
 <?php } ?>
 
+<?php function checkInjectionEmail($email) { 
+/**
+ * Creates a new account
+ */
+    ?>
+     <?php  
+      if ( !preg_match ("/^[a-z0-9_@]+$/i", $email)) {
+        return -1;
+      }
+      else {
+        return 1;
+      }
+
+     ?>
+    
+
+<?php } ?>
 
 <?php function getUserAndPass($username, $password) {
 /**
@@ -656,6 +673,10 @@
         <?php  
 
           if(checkInjectionSignUp($username, $name, $password) == -1) {
+            print("dass");
+            return -1;
+          }
+          if (checkInjectionEmail($email)==-1){
             print("dass");
             return -1;
           }
@@ -732,7 +753,7 @@
 
 <?php } ?>
 
-<?php function editUsername($username, $newUsername, $password, $confirmPassword) {
+<?php function editUsername($username, $newUsername, $password) {
 /**
  * Edits the username of a user
  */
@@ -742,11 +763,6 @@
     if ($_SESSION['name'] != $username) {
       print("not logged in");
       return -1;
-    }
-
-    if($password != $confirmPassword) {
-      print("error");
-      return -2;
     }
 
     $dbh = new PDO('sqlite:database/database.db'); 
