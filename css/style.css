@@ -119,6 +119,7 @@ textarea {
 
 #home-nav-bar ul {
     text-align: center;
+    justify-content: center;
     display: flex;
     padding: 0em;
     margin: 0em;
@@ -225,8 +226,9 @@ footer {
 }
 
 /*************************************************/
-/******************* Main Page *******************/
+/****************** Main Page ********************/
 /*************************************************/
+
 /**
  * house body
  */

@@ -33,8 +33,7 @@
   <body>
 
     <?php
-    include_once('functions.php');
-    draw_signin();
+    include_once('templates/user/sign_in.php');
     ?>
 
   </body>
