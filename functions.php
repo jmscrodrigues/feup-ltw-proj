@@ -418,6 +418,7 @@
       <?php $dbh = null;?>
 <?php } ?>
 
+
 <?php function draw_footer($username) {
 /**
  * Draws the footer of the Website.   TODO: VERIFICAR PARTE DA USER AREA NO CASO DE TER UM USER COM SESSÃO INICIADA E NAO!
@@ -470,7 +471,7 @@
 
 <?php } ?>
 
-
+<!-- PAGE/TEMPLATE ?? -->
 <?php function draw_recent_houses() {
 /**
  * Draws the recent house pages
@@ -519,6 +520,7 @@
 
 <?php } ?>
 
+<!-- PAGE/TEMPLATE ?? -->
 <?php function draw_top_houses() {
 /**
  * Draws the top rated house pages
@@ -566,6 +568,7 @@
 
 <?php } ?>
 
+<!-- ACTION -->
 <?php function checkInjectionLogIn($username, $password) {
 /**
  * Creates a new account
@@ -587,7 +590,7 @@
 
 <?php } ?>
 
-
+<!-- ACTION -->
 <?php function checkInjectionSignUp($username, $name, $password) { // TODO: EMAIL NAO PORQUE O FORMATO QUE RECEBE É EMAIL, OU ESTOU ENGANADO?
 /**
  * Creates a new account
@@ -612,7 +615,7 @@
 
 <?php } ?>
 
-
+<!-- ACTION -->
 <?php function getUserAndPass($username, $password) {
 /**
  * Retrieves the pass and usernames from the database
@@ -646,7 +649,7 @@
 
 <?php } ?>
 
-
+<!-- ACTION -->
 <?php function createAccount($username, $name, $email, $password, $confirmPassword) {
 /**
  * Creates a new account
@@ -687,7 +690,7 @@
 <?php } ?>
 
 
-
+<!-- ACTION -->
 <?php function logOut() {
 /**
  * Terminates the current user session
@@ -700,7 +703,7 @@
 
 <?php } ?>
 
-
+<!-- ACTION -->
 <?php function editPassword($username, $newPassword, $password, $confirmPassword) {
 /**
  * Edits the password of a user
@@ -736,7 +739,8 @@
 
 <?php } ?>
 
-<?php function editUsername($username, $newUsername, $password, $confirmPassword) {
+<!-- ACTION -->
+<?php function editUsername($username, $newUsername, $password) {
 /**
  * Edits the username of a user
  */
@@ -748,18 +752,13 @@
       return -1;
     }
 
-    if($password != $confirmPassword) {
-      print("error");
-      return -2;
-    }
-
     $dbh = new PDO('sqlite:database/database.db'); 
     $stmt = $dbh->prepare('select * from user where username = ? and password = ?'); 
     $hashPassword=hash('sha256',$password);
     $stmt->execute(array($username, $hashPassword));
     if ($stmt->fetchAll() == false) {
       print("wrong password!");
-      return -3;
+      return -2;
     } 
     else {
       $stmt2 = $dbh->prepare("update user set username = ? where username='$username'");
@@ -772,7 +771,9 @@
 
 <?php } ?>
 
-<?php function editEmail($username, $newEmail, $password, $confirmPassword) {
+
+<!-- ACTION -->
+<?php function editEmail($username, $newEmail, $password) {
 /**
  * Edits the email of an user
  */
@@ -780,15 +781,15 @@
 
     <?php
 
+    // if(checkInjectionEmail($newEmail) == -1) {
+    //   print("dass");
+    //   return -1;
+    // }
+
     session_start();
     if ($_SESSION['name'] != $username) {
       print("not logged in");
       return -1;
-    }
-
-    if($password != $confirmPassword) {
-      print("error confirming passwords");
-      return -2;
     }
 
     $dbh = new PDO('sqlite:database/database.db'); 
@@ -797,24 +798,105 @@
     $stmt->execute(array($username, $hashPassword));
     if ($stmt->fetchAll() == false) {
       print("wrong password!");
-      return -3;
+      return -2;
     } 
 
     else {
-      $stmt2 = $dbh->prepare("update user set username = ? where username='$username'");
-      $stmt2->execute(array($newUsername));
+      $stmt2 = $dbh->prepare("update user set email = ? where username='$username'");
+      $stmt2->execute(array($newEmail));
       print("updated");
       return 0;
     }
-
-
-
-
-
-
     ?>
 
+<?php } ?>
 
 
+<!-- ACTION -->
+<?php function getHousesCity($city) {
+/**
+ * Returns the houses from o determinate city
+ */
+    ?>
 
+    <?php
+
+    $dbh = new PDO('sqlite:database/database.db'); 
+    $stmt = $dbh->prepare('select * from place where city= ?'); 
+    $stmt->execute(array($city));
+    $result = $stmt->fetchAll();
+    if ($result == false) {
+      print("no houses on that city!");
+      return -1;
+    } 
+
+    else {
+      for($z = 0; $z < sizeof($result); $z++) {
+        print_r($result[$z]);
+        echo "<br>";
+
+      }
+     
+    }
+    ?>
+<?php } ?>
+
+
+<!-- ACTION -->
+<?php function getHousesCountry($country) {
+/**
+ * Returns the houses from o determinate country
+ */
+    ?>
+
+    <?php
+
+    $dbh = new PDO('sqlite:database/database.db'); 
+    $stmt = $dbh->prepare('select * from place where country= ?'); 
+    $stmt->execute(array($country));
+    $result = $stmt->fetchAll();
+    if ($result == false) {
+      print("no houses on that country!");
+      return -1;
+    } 
+
+    else {
+      for($z = 0; $z < sizeof($result); $z++) {
+        print_r($result[$z]);
+        echo "<br>";
+
+      }
+     
+    }
+    ?>
+<?php } ?>
+
+
+<!-- ACTION -->
+<?php function getHousesCountry($street) {
+/**
+ * Returns the houses from o determinate country
+ */
+    ?>
+
+    <?php
+
+    $dbh = new PDO('sqlite:database/database.db'); 
+    $stmt = $dbh->prepare('select * from place where street= ?'); 
+    $stmt->execute(array($street));
+    $result = $stmt->fetchAll();
+    if ($result == false) {
+      print("no houses on that street!");
+      return -1;
+    } 
+
+    else {
+      for($z = 0; $z < sizeof($result); $z++) {
+        print_r($result[$z]);
+        echo "<br>";
+
+      }
+     
+    }
+    ?>
 <?php } ?>
