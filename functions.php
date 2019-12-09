@@ -491,7 +491,7 @@
 
 <?php function logOut() {
 /**
- * Terminates the current user sesion
+ * Terminates the current user session
  */
     ?>
     <?php
@@ -502,7 +502,7 @@
 <?php } ?>
 
 
-<?php function editPassword($username, $password, $newPassword) {
+<?php function editPassword($username, $newPassword, $password, $confirmPassword) {
 /**
  * Edits the password of a user
  */
@@ -514,13 +514,17 @@
       return -1;
     }
 
+    if($password != $confirmPassword) {
+      return -2;
+    }
+
     $dbh = new PDO('sqlite:database/database.db'); 
     $stmt = $dbh->prepare('select * from user where username = ? and password = ?'); 
     $hashPassword=hash('sha256',$password);
     $stmt->execute(array($username, $hashPassword));
     if ($stmt->fetchAll() == false) {
       print("wrong password!");
-      return -1;
+      return -3;
     } 
     else {
       $stmt2 = $dbh->prepare("update user set password = ? where username='$username'");
@@ -566,5 +570,52 @@
     }
 
     ?>
+
+<?php } ?>
+
+<?php function editEmail($username, $newEmail, $password, $confirmPassword) {
+/**
+ * Edits the email of an user
+ */
+    ?>
+
+    <?php
+
+    session_start();
+    if ($_SESSION['name'] != $username) {
+      print("not logged in");
+      return -1;
+    }
+
+    if($password != $confirmPassword) {
+      print("error confirming passwords");
+      return -2;
+    }
+
+    $dbh = new PDO('sqlite:database/database.db'); 
+    $stmt = $dbh->prepare('select * from user where username = ? and password = ?'); 
+    $hashPassword=hash('sha256',$password);
+    $stmt->execute(array($username, $hashPassword));
+    if ($stmt->fetchAll() == false) {
+      print("wrong password!");
+      return -3;
+    } 
+
+    else {
+      $stmt2 = $dbh->prepare("update user set username = ? where username='$username'");
+      $stmt2->execute(array($newUsername));
+      print("updated");
+      return 0;
+    }
+
+
+
+
+
+
+    ?>
+
+
+
 
 <?php } ?>
