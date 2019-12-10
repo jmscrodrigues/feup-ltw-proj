@@ -381,7 +381,6 @@
 
     <?php 
       session_start(); 
-
   
     ?>
     <section class='houses-section-container'>
@@ -392,7 +391,7 @@
       <article class='house-article-container'>
       <?php 
           $dbh = new PDO('sqlite:database/database.db'); 
-          $stmt = $dbh->prepare('SELECT PLACE.* from PLACE,RESERVATION WHERE PLACE.idPlace=RESERVATION.idPlace GROUP BY PLACE.name ORDER BY count(*) DESC LIMIT 4'); 
+          $stmt = $dbh->prepare('SELECT * FROM PLACE'); 
           $stmt->execute();
           $result = $stmt->fetchAll(); ?>
       <?php for($i = 0; $i < 4; $i++)  {?>
@@ -417,7 +416,6 @@
       </section>
       <?php $dbh = null;?>
 <?php } ?>
-
 
 <?php function draw_footer($username) {
 /**
@@ -662,7 +660,7 @@
           }
 
           return -3;
-          ?>
+        ?>
 
 
 <?php } ?>
@@ -874,7 +872,7 @@
     <?php
 
     $dbh = new PDO('sqlite:database/database.db'); 
-    $stmt = $dbh->prepare('select * from place where country= ?'); 
+    $stmt = $dbh->prepare('select * from place where country= ?');
     $stmt->execute(array($country));
     $result = $stmt->fetchAll();
     if ($result == false) {
