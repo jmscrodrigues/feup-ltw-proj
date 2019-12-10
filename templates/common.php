@@ -6,7 +6,8 @@
 
 <html lang="en-US">
   <head>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&display=swap" rel="stylesheet">            <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
     <!-- ****** faviconit.com favicons ****** -->
     <link rel="shortcut icon" href="assets/faviconit/favicon.ico">
     <link rel="icon" sizes="16x16 32x32 64x64" href="assets/faviconit/favicon.ico">
@@ -72,7 +73,8 @@
 
 <html lang="en-US">
   <head>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&display=swap" rel="stylesheet">            <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
     <!-- ****** faviconit.com favicons ****** -->
     <link rel="shortcut icon" href="assets/faviconit/favicon.ico">
     <link rel="icon" sizes="16x16 32x32 64x64" href="assets/faviconit/favicon.ico">
