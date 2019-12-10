@@ -30,12 +30,6 @@
     <meta charset="UTF-8">
   </head>
   <body>  
-
-    <?php 
-      session_start(); 
-
-
-    ?>
     <header id="alternative-header">
       <a href="/">
         <img class="logo-shadow" src="assets/images/logo.png" alt="Hemkonfort Logo" />
