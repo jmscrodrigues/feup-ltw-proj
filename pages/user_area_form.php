@@ -1,7 +1,7 @@
 <?php
-  include_once('includes/session.php');
-  include_once('templates/common.php');
-  include_once('templates/user.php');
+  include_once('../includes/session.php');
+  include_once('../templates/common.php');
+  include_once('../templates/user.php');
 
   // see if user is NOT logged in
   $username = get_username();

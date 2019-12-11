@@ -129,7 +129,7 @@
   <!-- TOP HOMES -->
   <div class='house-article-header'>
     <h2><strong>Top</strong> Homes</h2>
-    <a class="black-rounded-button" href="#">View All</a>
+    <a class="black-rounded-button" href="pages/list_houses.php">View All</a>
   </div>
   <article class='house-article-container'>
   <?php 
@@ -145,7 +145,7 @@
           $image = $stmt1->fetchColumn();    
       ?>
     <div class="house-card">
-      <img id="houseimg<?=$i?>" src=<?=$image?> alt="House image" />
+      <img id="houseimg<?=$i?>" src="<?=$image?>" alt="House image" />
       <div class="house-card-text">
         <h2><?=$result[$i]['name']?></h2>
         <h3><?=$result[$i]['street']?></h3>
@@ -160,7 +160,7 @@
   <!-- POPULAR HOMES -->
   <div class='house-article-header'>
     <h2><strong>Popular</strong> Homes</h2>
-    <a class="black-rounded-button" href="#">View All</a>
+    <a class="black-rounded-button" href="pages/list_houses.php">View All</a>
   </div>
   <article class='house-article-container'>
   <?php 
@@ -176,7 +176,7 @@
           $image = $stmt1->fetchColumn();    
       ?>
     <div class="house-card">
-      <img id="houseimg<?=$i?>" src=<?=$image?> alt="House image" />
+      <img id="houseimg<?=$i?>" src="<?=$image?>" alt="House image" />
       <div class="house-card-text">
         <h2><?=$result[$i]['name']?></h2>
         <h3><?=$result[$i]['street']?></h3>
@@ -191,7 +191,7 @@
   <!-- RECENT HOMES -->
   <div class='house-article-header'>
     <h2><strong>Recent</strong> Homes</h2>
-    <a class="black-rounded-button" href="#">View All</a>
+    <a class="black-rounded-button" href="pages/list_houses.php">View All</a>
   </div>
   <article class='house-article-container'>
   <?php 
@@ -207,7 +207,7 @@
           $image = $stmt1->fetchColumn();    
       ?>
     <div class="house-card">
-      <img id="houseimg<?=$i?>" src=<?=$image?> alt="House image" />
+      <img id="houseimg<?=$i?>" src="<?=$image?>" alt="House image" />
       <div class="house-card-text">
         <h2><?=$result[$i]['name']?></h2>
         <h3><?=$result[$i]['street']?></h3>
