@@ -7,8 +7,7 @@
   $username = get_username();
 
   // TODO verify is house ID exists (if not -> 404 page)
-  //$houseId = $_GET['placeId'];
-  $houseId = 1;
+  $houseId = $_GET['idPlace'];
 
   draw_header_alternative($username);
   draw_house_rent_area($houseId);
