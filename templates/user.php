@@ -10,7 +10,7 @@
     <aside>
       <section class="profile-card">
         <div class="profile-card-photo rounded-photo-container">
-          <img src="design/mockups/stock-images/stock-profile-photo.jpg" alt="Hemkonfort Logo" />
+          <img src="../design/mockups/stock-images/stock-profile-photo.jpg" alt="Hemkonfort Logo" />
         </div>
         <h3>John Doe</h3>
       </section>
@@ -49,7 +49,7 @@
 	  <aside>
 		<section class="profile-card">
 		  <div class="profile-card-photo rounded-photo-container">
-			<img src="design/mockups/stock-images/stock-profile-photo.jpg" alt="Hemkonfort Logo" />
+			<img src="../design/mockups/stock-images/stock-profile-photo.jpg" alt="Hemkonfort Logo" />
 		  </div>
 		  <h3>John Doe</h3>
 		</section>
@@ -66,13 +66,13 @@
 	  <article id="user-area-houses" class='house-article-container'>
       <?php for($i = 0; $i < 5; $i++)  {?>
       <div class="house-card">
-        <img src="design/mockups/stock-images/stock-house.jpg" alt="House image" />
+        <img src="../design/mockups/stock-images/stock-house.jpg" alt="House image" />
         <div class="house-card-text">
         <h2>Banana</h2>
         <h3>RUA DA BANANA</h3>
         <h4>BANANA COUNTRY</h4>
         </div>
-        <a href="google.com" class='blue-filled-rounded-button house-card-button'>2€</a>
+        <a href="#" class='blue-filled-rounded-button house-card-button'>2€</a>
       </div>
       <?php } ?>
 	  </article>
@@ -92,7 +92,7 @@
     <aside>
       <section class="profile-card">
         <div class="profile-card-photo rounded-photo-container">
-          <img src="design/mockups/stock-images/stock-profile-photo.jpg" alt="Hemkonfort Logo" />
+          <img src="../design/mockups/stock-images/stock-profile-photo.jpg" alt="Hemkonfort Logo" />
         </div>
         <h3>John Doe</h3>
       </section>
@@ -110,7 +110,7 @@
       <?php for($i = 0; $i < 6; $i++)  {?>
       <div class="rent-card">
         <div class="rent-card-photo rounded-photo-container">
-          <img src="design/mockups/stock-images/stock-house.jpg" alt="House image" />
+          <img src="../design/mockups/stock-images/stock-house.jpg" alt="House image" />
         </div>
           <h4><strong>House Name</strong></h4>
           <p><strong>From:</strong> Data de inicio</p>
@@ -137,7 +137,7 @@
     <aside>
       <section class="profile-card">
         <div class="profile-card-photo rounded-photo-container">
-          <img src="design/mockups/stock-images/stock-profile-photo.jpg" alt="Hemkonfort Logo" />
+          <img src="../design/mockups/stock-images/stock-profile-photo.jpg" alt="Hemkonfort Logo" />
         </div>
         <h3>John Doe</h3>
       </section>
@@ -156,7 +156,7 @@
         <?php for($i = 0; $i < 6; $i++)  {?>
         <div class="user-message-card">
           <div class="user-message-card-photo rounded-photo-container">
-            <img src="design/mockups/stock-images/stock-profile-photo.jpg" alt="House image" />
+            <img src="../design/mockups/stock-images/stock-profile-photo.jpg" alt="House image" />
           </div>
           <h4><strong>John Doe <?=$i+1?></strong></h4>
         </div>
