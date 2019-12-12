@@ -10,9 +10,9 @@
     die(header('Location: sign_in.php'));
 
   // TODO: see if house belongs to user
-  $houseId = NULL;
+  $houseId = $_GET['idPlace'];
 
-  draw_header_alternative($_SESSION['username']);
+  draw_header_alternative($username);
   draw_house_rents($houseId);
-  draw_footer($_SESSION['username']);
+  draw_footer($username);
 ?>

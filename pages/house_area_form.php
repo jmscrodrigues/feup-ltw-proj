@@ -12,7 +12,7 @@
   // TODO: see if house belongs to user
   $houseId = NULL;
 
-  draw_header_alternative($_SESSION['username']);
+  draw_header_alternative($username);
   draw_house_form($houseId);
-  draw_footer($_SESSION['username']);
+  draw_footer($username);
 ?>
