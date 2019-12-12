@@ -413,10 +413,6 @@ footer {
     grid-template-columns: [start] auto [line1] auto [end];
 }
 
-.profile-area-form > .blue-filled-rounded-button {
-    margin: 0em 1em;
-}
-
 .profile-area-form > .input-form {
     margin: 0em 1em;
 }
@@ -424,7 +420,7 @@ footer {
 .profile-area-submit-button {
     grid-column-start: start;
     grid-column-end: end;
-    margin: 2em 25% 0em 25% !important;
+    margin: 0em 25% 1em 25%;
 }
 
 /* Houses */
