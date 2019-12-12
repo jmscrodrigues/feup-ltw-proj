@@ -1,91 +1,28 @@
-/*
-USER AREA MENU
-*/
-function hideUserAreaSections() {
-    var formArea = document.getElementById("user-area-form");
-    formArea.style.display = "none";
-    var houseArea = document.getElementById("user-area-houses");
-    houseArea.style.display = "none";
-    var rentsArea = document.getElementById("user-area-rents");
-    rentsArea.style.display = "none";
-    var messagesArea = document.getElementById("user-area-messages");
-    messagesArea.style.display = "none";
-    var buttonList = document.getElementsByClassName("profile-area-button");
-    for (button of buttonList) {
-        button.style.border = "0px"
+function getVals(){
+    // Get slider values
+    var parent = this.parentNode;
+    var slides = parent.getElementsByTagName("input");
+    var slide1 = parseFloat( slides[0].value );
+    var slide2 = parseFloat( slides[1].value );
+    // Neither slider will clip the other, so make sure we determine which is larger
+    if( slide1 > slide2 ){ var tmp = slide2; slide2 = slide1; slide1 = tmp; }
+    
+    var displayElement = parent.getElementsByClassName("rangeValues")[0];
+        displayElement.innerHTML = slide1 + "€" +  " - " + slide2 + "€";
+}
+  
+window.onload = function(){
+    // Initialize Sliders
+    var sliderSections = document.getElementsByClassName("range-slider");
+    for( var x = 0; x < sliderSections.length; x++ ){
+        var sliders = sliderSections[x].getElementsByTagName("input");
+        for( var y = 0; y < sliders.length; y++ ){
+            if( sliders[y].type ==="range" ){
+                sliders[y].oninput = getVals;
+                // Manually trigger event first time to display values
+                sliders[y].oninput();
+            }
+        }
     }
 }
-
-function userAreaShowForm() {
-    // hide all elements
-    hideUserAreaSections()
-    // show user area form
-    var formArea = document.getElementById("user-area-form");
-    formArea.style.display = "grid";
-    var buttonList = document.getElementsByClassName("profile-area-button");
-    buttonList[0].style.borderLeft = "3px solid var(--main-blue-color)";
-}
-
-function userAreaShowHouses() {
-    // hide all elements
-    hideUserAreaSections()
-    // show user houses
-    var houseArea = document.getElementById("user-area-houses");
-    houseArea.style.display = "flex"
-    var buttonList = document.getElementsByClassName("profile-area-button");
-    buttonList[1].style.borderLeft = "3px solid var(--main-blue-color)";
-}
-
-function userAreaShowRents() {
-    // hide all elements
-    hideUserAreaSections()
-    // show user houses
-    var rentsArea = document.getElementById("user-area-rents");
-    rentsArea.style.display = "grid"
-    var buttonList = document.getElementsByClassName("profile-area-button");
-    buttonList[2].style.borderLeft = "3px solid var(--main-blue-color)";
-}
-
-function userAreaShowMessages() {
-    // hide all elements
-    hideUserAreaSections()
-    // show user houses
-    var messagesArea = document.getElementById("user-area-messages");
-    messagesArea.style.display = "grid"
-    var buttonList = document.getElementsByClassName("profile-area-button");
-    buttonList[3].style.borderLeft = "3px solid var(--main-blue-color)";
-}
-
-/*
-HOUSE AREA MENU
-*/
-function hideHouseAreaSections() {
-    var formArea = document.getElementById("house-area-form");
-    formArea.style.display = "none";
-    var rentsArea = document.getElementById("house-area-rents");
-    rentsArea.style.display = "none";
-    var buttonList = document.getElementsByClassName("profile-area-button");
-    for (button of buttonList) {
-        button.style.border = "0px"
-    }
-}
-
-function houseAreaShowForm() {
-    // hide all elements
-    hideHouseAreaSections()
-    // show user house form
-    var formArea = document.getElementById("house-area-form");
-    formArea.style.display = "grid";
-    var buttonList = document.getElementsByClassName("profile-area-button");
-    buttonList[0].style.borderLeft = "3px solid var(--main-blue-color)";
-}
-
-function houseAreaShowRents() {
-    // hide all elements
-    hideHouseAreaSections()
-    // show house rents
-    var rentsArea = document.getElementById("house-area-rents");
-    rentsArea.style.display = "grid"
-    var buttonList = document.getElementsByClassName("profile-area-button");
-    buttonList[1].style.borderLeft = "3px solid var(--main-blue-color)";
-}
+  
