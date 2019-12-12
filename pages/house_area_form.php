@@ -7,7 +7,7 @@
   $username = get_username();
   // if not, redirect to sign in page
   if ($username == null)
-    die(header('Location: sign_in.php'));
+    //die(header('Location: sign_in.php'));
 
   // TODO: see if house belongs to user
   $houseId = NULL;

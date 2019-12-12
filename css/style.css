@@ -5,6 +5,7 @@ body {
     /* brandbook */
     --main-blue-color: #0b2c4f;
     --grey-color: #d9d9d9;
+    --focus-blue-color: #0066a6;
 
     /* background color */
     --background-color: #FFF;
@@ -78,6 +79,11 @@ textarea {
     padding: 0.8em;
 }
 
+.blue-filled-rounded-button:focus {
+    outline: none;
+    background-color: var(--focus-blue-color)
+}
+
 .input-form {
     background: transparent;
     border: 3px solid var(--main-blue-color);
@@ -136,8 +142,13 @@ textarea {
     color: white;
 }
 
+#home-nav-bar ul li a:hover {
+    border-bottom: 2px solid white;
+}
+
 #home-nav-bar ul li a {
     color: white;
+    transition: 0.5s;
 }
 
 #signup-button {
@@ -396,6 +407,11 @@ section.range-slider input[type=range]::-moz-focus-outer {
     margin: 0em 1em 2em 1em;
     box-shadow: 4px 4px 20px;
     overflow: hidden;
+    transition: 0.5s;
+}
+
+.house-card:hover {
+    box-shadow: 8px 8px 40px;
 }
 
 .house-card > img {
