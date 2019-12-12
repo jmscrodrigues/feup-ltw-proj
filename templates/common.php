@@ -30,7 +30,7 @@
     <meta name="msapplication-TileImage" content="assets/faviconit/favicon-144.png">
     <meta name="msapplication-config" content="assets/faviconit/browserconfig.xml">
     <!-- ****** faviconit.com favicons ****** -->
-    <script src="js/script.js"></script>
+    <script src="js/main.js"></script>
     <title>Hemkonfort</title>
     <meta charset="UTF-8">
   </head>
@@ -96,7 +96,7 @@
     <meta name="msapplication-TileColor" content="#FFFFFF">
     <meta name="msapplication-TileImage" content="../assets/faviconit/favicon-144.png">
     <meta name="msapplication-config" content="../assets/faviconit/browserconfig.xml">
-    <script src="../js/script.js"></script>
+    <script src="../js/main.js"></script>
     <!-- ****** faviconit.com favicons ****** -->
     <title>Hemkonfort</title>
     <meta charset="UTF-8">

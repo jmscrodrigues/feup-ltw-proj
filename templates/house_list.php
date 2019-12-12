@@ -14,7 +14,7 @@
       <input class="input-form" type="text" placeholder="House Name">
     </label>
     <label>Country
-      <select class="input-form" name="Country">
+      <select class="input-form select-form" name="Country">
         <option value="All">All</option>
         <option value="Portugal">Portugal</option>
         <option value="Spain">Spain</option>
@@ -26,6 +26,13 @@
         <span class="rangeValues"></span>
         <input class="price-slider" value="0" min="0" max="200" step="1" type="range">
         <input class="price-slider" value="200" min="0" max="200" step="1" type="range">
+      </section>
+    </label>
+    <label>Rating
+      <section class="range-slider">
+        <span class="rangeValues"></span>
+        <input class="price-slider" value="0" min="0" max="5" step="0.1" type="range">
+        <input class="price-slider" value="5" min="0" max="5" step="0.1" type="range">
       </section>
     </label>
   </select>
@@ -47,7 +54,7 @@
     <div class="house-card">
       <img id="houseimg<?=$i?>" src="<?=$image?>" alt="House Image" />
       <div class="house-card-text">
-        <h2><?=$result[$i]['name']?></h2>
+        <h2><?=$result[$i]['name']?> <?=$houseId?></h2>
         <h3><?=$result[$i]['street']?></h3>
         <h4><?=$result[$i]['country']?></h4>
       </div>
