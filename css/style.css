@@ -60,6 +60,7 @@ textarea {
 }
 
 .black-rounded-button {
+    background-color: transparent;
     color: black;
     font-weight: normal;
     margin: 1em;
@@ -67,6 +68,10 @@ textarea {
     padding: 1em;
     border-radius: 5em;
     border: 3px solid black;
+}
+
+.black-rounded-button:hover {
+    text-decoration: underline;
 }
 
 .blue-filled-rounded-button {
@@ -81,7 +86,8 @@ textarea {
 
 .blue-filled-rounded-button:focus {
     outline: none;
-    background-color: var(--focus-blue-color)
+    background-color: var(--focus-blue-color);
+    border: 3px solid var(--focus-blue-color);
 }
 
 .input-form {
