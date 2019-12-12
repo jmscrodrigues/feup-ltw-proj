@@ -1,16 +1,9 @@
 PRAGMA foreign_keys	= ON;
 
-<<<<<<< HEAD
 insert into USER values ('sumol_de_ananas','Gonçalo Marantes','goncalomarantes99@gmail.com','e05f79651d465214e7558a382ed0f0e5a77380a649f4573f3a1036dc4ee10c0b');--secretpass
 insert into USER values ('monopoly_guy','John Smith','iplayasthethimble@gmail.com','b339abbe244b92e5c157e9cc68f7fe677c42836c3dd93e49471a4a5451a842d2');--cenassecretas
 insert into USER values ('big_dollars','Johnny Smith','ihavemoney@gmail.com','5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8');--password
 insert into USER values ('banana_papaya','Joe Mamma','tuttifrutyy@gmail.com','ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f');--password123
-=======
-insert into USER(username,name,email,password) values ('sumol_de_ananas','Gonçalo Marantes','goncalomarantes99@gmail.com','e05f79651d465214e7558a382ed0f0e5a77380a649f4573f3a1036dc4ee10c0b');--secretpass
-insert into USER(username,name,email,password) values ('monopoly_guy','John Smith','iplayasthethimble@gmail.com','b339abbe244b92e5c157e9cc68f7fe677c42836c3dd93e49471a4a5451a842d2');--cenassecretas
-insert into USER(username,name,email,password) values ('big_dollars','Johnny Smith','ihavemoney@gmail.com','5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8');--password
-insert into USER(username,name,email,password) values ('banana_papaya','Joe Mamma','tuttifrutyy@gmail.com','ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f');--password123
->>>>>>> 2cb58e88854d876754572a33ab24db31f4d9f780
 
 insert into OWNER values ('monopoly_guy');
 insert into OWNER values ('big_dollars');

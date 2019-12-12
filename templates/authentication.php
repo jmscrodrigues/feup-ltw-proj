@@ -46,8 +46,9 @@
         <input class="input-form" type="text" name="first-name" required="required" placeholder="First Name"> 
         <input class="input-form" type="text" name="last-name" required="required" placeholder="Last Name"> 
         <input class="input-form" type="email" name="email" required="required" placeholder="Email"> 
+        <input class="input-form" type="text" name="username" required="required" placeholder="Username"> 
         <input class="input-form" type="password" name="password" required="required" placeholder="Password">
-        <input class="input-form" type="password" name="password" required="required" placeholder="Repeat Password">
+        <input class="input-form" type="password" name="reppassword" required="required" placeholder="Repeat Password">
         <input class="blue-filled-rounded-button" type="submit" value="Sign up">
       </form>
       <footer>
@@ -106,7 +107,7 @@
       <h1>Sign In</h1>
       </header>
       <form id="signin-form" action="" method="POST">
-        <input class="input-form" type="email" name="email" required="required" placeholder="Email"> 
+        <input class="input-form" type="text" name="username" required="required" placeholder="Username"> 
         <input class="input-form" type="password" name="password" required="required" placeholder="Password">
         <input class="blue-filled-rounded-button" type="submit" value="Sign In">
       </form>
