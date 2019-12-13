@@ -8,6 +8,9 @@
   <head>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="js/main.js"></script>
+     <!-- Font Awesome Icon Library -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- ****** faviconit.com favicons ****** -->
     <link rel="shortcut icon" href="assets/faviconit/favicon.ico">
     <link rel="icon" sizes="16x16 32x32 64x64" href="assets/faviconit/favicon.ico">
@@ -30,7 +33,6 @@
     <meta name="msapplication-TileImage" content="assets/faviconit/favicon-144.png">
     <meta name="msapplication-config" content="assets/faviconit/browserconfig.xml">
     <!-- ****** faviconit.com favicons ****** -->
-    <script src="js/main.js"></script>
     <title>Hemkonfort</title>
     <meta charset="UTF-8">
   </head>
@@ -75,6 +77,9 @@
 <head>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <script src="../js/main.js"></script>
+    <!-- Font Awesome Icon Library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- ****** faviconit.com favicons ****** -->
     <link rel="shortcut icon" href="../assets/faviconit/favicon.ico">
     <link rel="icon" sizes="16x16 32x32 64x64" href="../assets/faviconit/favicon.ico">
@@ -96,7 +101,6 @@
     <meta name="msapplication-TileColor" content="#FFFFFF">
     <meta name="msapplication-TileImage" content="../assets/faviconit/favicon-144.png">
     <meta name="msapplication-config" content="../assets/faviconit/browserconfig.xml">
-    <script src="../js/main.js"></script>
     <!-- ****** faviconit.com favicons ****** -->
     <title>Hemkonfort</title>
     <meta charset="UTF-8">
