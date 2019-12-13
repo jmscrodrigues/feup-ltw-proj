@@ -30,7 +30,7 @@
     <meta name="msapplication-TileImage" content="assets/faviconit/favicon-144.png">
     <meta name="msapplication-config" content="assets/faviconit/browserconfig.xml">
     <!-- ****** faviconit.com favicons ****** -->
-    <script src="js/script.js"></script>
+    <script src="js/main.js"></script>
     <title>Hemkonfort</title>
     <meta charset="UTF-8">
   </head>
@@ -96,6 +96,7 @@
     <meta name="msapplication-TileColor" content="#FFFFFF">
     <meta name="msapplication-TileImage" content="../assets/faviconit/favicon-144.png">
     <meta name="msapplication-config" content="../assets/faviconit/browserconfig.xml">
+    <script src="../js/main.js"></script>
     <!-- ****** faviconit.com favicons ****** -->
     <title>Hemkonfort</title>
     <meta charset="UTF-8">
@@ -129,7 +130,7 @@
   <!-- TOP HOMES -->
   <div class='house-article-header'>
     <h2><strong>Top</strong> Homes</h2>
-    <a class="black-rounded-button" href="#">View All</a>
+    <a class="black-rounded-button" href="pages/list_houses.php">View All</a>
   </div>
   <article class='house-article-container'>
   <?php 
@@ -145,7 +146,7 @@
           $image = $stmt1->fetchColumn();    
       ?>
     <div class="house-card">
-      <img id="houseimg<?=$i?>" src=<?=$image?> alt="House image" />
+      <img id="houseimg<?=$i?>" src="<?=$image?>" alt="House image" />
       <div class="house-card-text">
         <h2><?=$result[$i]['name']?></h2>
         <h3><?=$result[$i]['street']?></h3>
@@ -160,7 +161,7 @@
   <!-- POPULAR HOMES -->
   <div class='house-article-header'>
     <h2><strong>Popular</strong> Homes</h2>
-    <a class="black-rounded-button" href="#">View All</a>
+    <a class="black-rounded-button" href="pages/list_houses.php">View All</a>
   </div>
   <article class='house-article-container'>
   <?php 
@@ -176,7 +177,7 @@
           $image = $stmt1->fetchColumn();    
       ?>
     <div class="house-card">
-      <img id="houseimg<?=$i?>" src=<?=$image?> alt="House image" />
+      <img id="houseimg<?=$i?>" src="<?=$image?>" alt="House image" />
       <div class="house-card-text">
         <h2><?=$result[$i]['name']?></h2>
         <h3><?=$result[$i]['street']?></h3>
@@ -191,7 +192,7 @@
   <!-- RECENT HOMES -->
   <div class='house-article-header'>
     <h2><strong>Recent</strong> Homes</h2>
-    <a class="black-rounded-button" href="#">View All</a>
+    <a class="black-rounded-button" href="pages/list_houses.php">View All</a>
   </div>
   <article class='house-article-container'>
   <?php 
@@ -207,7 +208,7 @@
           $image = $stmt1->fetchColumn();    
       ?>
     <div class="house-card">
-      <img id="houseimg<?=$i?>" src=<?=$image?> alt="House image" />
+      <img id="houseimg<?=$i?>" src="<?=$image?>" alt="House image" />
       <div class="house-card-text">
         <h2><?=$result[$i]['name']?></h2>
         <h3><?=$result[$i]['street']?></h3>
@@ -268,3 +269,45 @@
 <?php } ?>
 
 
+<?php function draw_404() {
+/**
+ * Draws error page
+ */?>
+<!DOCTYPE html>
+
+<html lang="en-US">
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <!-- ****** faviconit.com favicons ****** -->
+    <link rel="shortcut icon" href="assets/faviconit/favicon.ico">
+    <link rel="icon" sizes="16x16 32x32 64x64" href="assets/faviconit/favicon.ico">
+    <link rel="icon" type="image/png" sizes="196x196" href="assets/faviconit/favicon-192.png">
+    <link rel="icon" type="image/png" sizes="160x160" href="assets/faviconit/favicon-160.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/faviconit/favicon-96.png">
+    <link rel="icon" type="image/png" sizes="64x64" href="assets/faviconit/favicon-64.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/faviconit/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/faviconit/favicon-16.png">
+    <link rel="apple-touch-icon" href="assets/faviconit/favicon-57.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="assets/faviconit/favicon-114.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="assets/faviconit/favicon-72.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="assets/faviconit/favicon-144.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="assets/faviconit/favicon-60.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="assets/faviconit/favicon-120.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/faviconit/favicon-76.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/faviconit/favicon-152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/faviconit/favicon-180.png">
+    <meta name="msapplication-TileColor" content="#FFFFFF">
+    <meta name="msapplication-TileImage" content="assets/faviconit/favicon-144.png">
+    <meta name="msapplication-config" content="assets/faviconit/browserconfig.xml">
+    <!-- ****** faviconit.com favicons ****** -->
+    <script src="js/main.js"></script>
+    <title>Hemkonfort</title>
+    <meta charset="UTF-8">
+  </head>
+
+  <body>
+    <p>TESTEEEE</p>
+  </body>
+</html>
+<?php } ?>

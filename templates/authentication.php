@@ -43,8 +43,8 @@
         <h1>Sign Up</h1>
       </header>
       <form id="signup-form" action="" method="POST">
-        <input class="input-form" type="text" name="first-name" required="required" placeholder="First Name"> 
-        <input class="input-form" type="text" name="last-name" required="required" placeholder="Last Name"> 
+        <input class="input-form" type="text" name="username" required="required" placeholder="Username">
+        <input class="input-form" type="text" name="name" required="required" placeholder="Full Name">
         <input class="input-form" type="email" name="email" required="required" placeholder="Email"> 
         <input class="input-form" type="text" name="username" required="required" placeholder="Username"> 
         <input class="input-form" type="password" name="password" required="required" placeholder="Password">
