@@ -1,0 +1,20 @@
+# Disable directory browsing
+Options All -Indexes
+
+<Files ~ "\.db$">
+    Order allow, deny
+    Deny from all
+</Files>
+
+<Files ~ "\.sql$">
+    Order allow, deny
+    Deny from all
+</Files>
+
+<Files ~ "\.sql$">
+    Order allow, deny
+    Deny from all
+</Files>
+
+# 404 page
+ErrorDocument 404 /pages/404.php
