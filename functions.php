@@ -52,9 +52,6 @@
     ?>
 
         <?php  
-          if(checkInjectionLogIn($username, $password) == -1) {
-            return -1;
-          }
           $hashedPassword=hash('sha256',$password);
           $dbh = new PDO('sqlite:database/database.db'); 
           $stmt = $dbh->prepare('select * from user where username = ? and password = ?'); 
@@ -85,16 +82,7 @@
  */
     ?>
 
-        <?php  
-
-          if(checkInjectionSignUp($username, $name, $password) == -1) {
-            print("dass");
-            return -1;
-          }
-
-          if($password != $confirmPassword) {
-            return -2;
-          }
+        <?php 
 
           $dbh = new PDO('sqlite:database/database.db'); 
           $stmt = $dbh->prepare('insert into User(Username, Name, Email, Password) VALUES (:Username,:Name,:Email,:Password)'); 
