@@ -556,13 +556,13 @@ section.range-slider input[type=range]::-moz-focus-outer {
 
 /* Form */
 .profile-area-form {
-    row-gap: 10px;
     width: 50em;
-    margin: 0em 2em;
+    margin: 2em;
+    grid-template-columns: [start] 50% [line1] 50% [end];
     display: grid;
-    align-content: center;
-    grid-template-rows: [start] auto [line1] auto [line2] auto [end];
-    grid-template-columns: [start] auto [line1] auto [end];
+    align-content:  center;
+    align-items: stretch;
+    row-gap: 10px;
 }
 
 .profile-area-form > .input-form {
@@ -572,17 +572,11 @@ section.range-slider input[type=range]::-moz-focus-outer {
 .profile-area-submit-button {
     grid-column-start: start;
     grid-column-end: end;
-    margin: 0em 25% 1em 25%;
+    margin: 0em 25%;
 }
 
-/* Houses */
-#user-area-houses {
-    display: none;
-}
-
-/* Rents */
-#user-area-rents {
-    display: none;
+.profile-area-submit-button-2 {
+    margin: 0em 1em;
 }
 
 .profile-area-button {
@@ -590,6 +584,11 @@ section.range-slider input[type=range]::-moz-focus-outer {
     background-color: transparent;
     color: #000000;
     font-size: 16px;
+    transition: 0.5s;
+}
+
+.profile-area-button:hover {
+    text-decoration: underline;
 }
 
 .profile-area-button-selected {
@@ -626,7 +625,6 @@ section.range-slider input[type=range]::-moz-focus-outer {
 
 /* Messaging */
 #user-area-messages {
-    display: none;
     grid-template-columns: [start] auto [line1] auto [end];
 }
 
@@ -677,14 +675,6 @@ section.range-slider input[type=range]::-moz-focus-outer {
     justify-content: center;
     display: grid;
     margin: 1em auto;
-}
-
-#image-form {
-    width: 2em;
-}
-
-#house-area-rents {
-    display: none;
 }
 
 #house-description {

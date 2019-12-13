@@ -24,21 +24,26 @@
       </nav>
     </aside>
     <!-- USER AREA FORM -->
-    <div id="user-area-form">
-      <form id="user-area-form" class="profile-area-form" action="" method="POST">
-        <input class="input-form" type="text" name="username" required="required" placeholder="Username" value="john_doe_87"> 
-        <input class="input-form" type="text" name="name" required="required" placeholder="Full Name" value="John Doe"> 
+    <div>
+      <form class="profile-area-form" action="" method="POST">
+        <input class="input-form" type="text" name="username" required="required" placeholder="john_doe_87"> 
+        <input class="input-form" type="text" name="name" required="required" placeholder="John Doe"> 
         <input class="profile-area-submit-button blue-filled-rounded-button" type="submit" value="Update Name">
       </form>
-      <form id="user-area-form" class="profile-area-form" action="" method="POST">
-        <input class="input-form" type="email" name="email" required="required" placeholder="Email" value="john.doe@whatever.com"> 
-        <input class="input-form" type="text" name="last-name" required="required" placeholder="Phone Number" value="(424) 827-0389"> 
+      <form class="profile-area-form" action="" method="POST">
+        <input class="input-form" type="email" name="email" required="required" placeholder="john.doe@whatever.com"> 
+        <input class="input-form" type="text" name="last-name" required="required" placeholder="(424) 827-0389"> 
         <input class="profile-area-submit-button blue-filled-rounded-button" type="submit" value="Update Contacts">
       </form>
-      <form id="user-area-form" class="profile-area-form" action="" method="POST"> 
-        <input class="input-form" type="password" name="password" required="required" placeholder="Password">
-        <input class="input-form" type="password" name="password" required="required" placeholder="Repeat Password">
-        <input class="profile-area-submit-button blue-filled-rounded-button" type="submit" value="Update Password">
+      <form class="profile-area-form" action="" method="POST">
+        <input class="input-form" type="password" name="password" required="required" placeholder="New Password">
+        <input class="input-form" type="password" name="password" required="required" placeholder="Repeat New Password">
+        <input class="input-form" type="password" name="password" required="required" placeholder="Old Password">
+        <input class="profile-area-submit-button-2 blue-filled-rounded-button" type="submit" value="Update Password">
+      </form>
+      <form class="profile-area-form" action="" method="POST">
+        <input class="input-form" type="file" name="image" required="required" placeholder="Image">
+        <input class="profile-area-submit-button-2 blue-filled-rounded-button" type="submit" value="Submit Image">
       </form>
     </div>
   <div>

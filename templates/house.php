@@ -129,23 +129,28 @@
       </section>
       <nav class="profile-nav-bar">
         <ul>
-          <li><a class="profile-area-button-selected profile-area-button">Profile</a></li>
-          <li><a class="profile-area-button">Rents</a></li>
+          <li><a href="house_area_form.php" class="profile-area-button-selected profile-area-button">Profile</a></li>
+          <li><a href="house_area_rents.php" class="profile-area-button">Rents</a></li>
         </ul>
       </nav>
     </aside>
     <!-- HOUSE AREA FORM -->
-    <form id="house-area-form" class="profile-area-form" action="" method="POST">
-      <input class="input-form" type="text" name="name" required="required" placeholder="House Name" value="Casa Banana"> 
-      <input class="input-form" type="text" name="country" required="required" placeholder="Country" value="Banana Country"> 
-      <input class="input-form" type="number" name="price" required="required" placeholder="Price" value="30"> 
-      <input class="input-form" type="text" name="city" required="required" placeholder="City" value="Banana City">
-      <textarea id="house-description" class="input-form" name="description" required="required" row="3" placeholder="Description">Banana house is super cool!</textarea>
-      <input class="input-form" type="text" name="street" required="required" placeholder="Street" value="Banana Street"> 
-      <input class="input-form" type="number" name="number" required="required" placeholder="House number" value="78">
-      <!--<input id="image-form" type="file" name="image" required="required" placeholder="Image">-->
-      <input class="profile-area-submit-button blue-filled-rounded-button" type="submit" value="Submit Changes">
-    </form>
+    <div>
+      <form class="profile-area-form" action="" method="POST">
+        <input class="input-form" type="text" name="name" required="required" placeholder="Casa Banana"> 
+        <input class="input-form" type="text" name="country" required="required" placeholder="Banana Country"> 
+        <input class="input-form" type="number" name="price" required="required" placeholder="30"> 
+        <input class="input-form" type="text" name="city" required="required" placeholder="Banana City">
+        <textarea id="house-description" class="input-form" name="description" required="required" row="3" placeholder="Banana house is super cool!"></textarea>
+        <input class="input-form" type="text" name="street" required="required" placeholder="Banana Street"> 
+        <input class="input-form" type="number" name="number" required="required" placeholder="78">
+        <input class="profile-area-submit-button blue-filled-rounded-button" type="submit" value="Submit Changes">
+      </form>
+      <form class="profile-area-form" action="" method="POST">
+        <input class="input-form" type="file" name="image" required="required" placeholder="Image">
+        <input class="profile-area-submit-button-2 blue-filled-rounded-button" type="submit" value="Submit Image">
+      </form>
+    </div>
   <div>
 </section>
 <?php } ?>
@@ -168,8 +173,8 @@
       </section>
       <nav class="profile-nav-bar">
         <ul>
-          <li><a class="profile-area-button">Profile</a></li>
-          <li><a class="profile-area-button-selected profile-area-button">Rents</a></li>
+          <li><a href="house_area_form.php" class="profile-area-button">Profile</a></li>
+          <li><a href="house_area_rents.php" class="profile-area-button-selected profile-area-button">Rents</a></li>
         </ul>
       </nav>
     </aside>
