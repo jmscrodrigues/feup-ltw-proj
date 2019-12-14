@@ -8,17 +8,16 @@
         global $dbh;
 
         $hashedPassword=hash('sha256',$password);
-        $dbh = new PDO('sqlite:database/database.db'); 
         $stmt = $dbh->prepare('select id from user where username = ? and password = ?'); 
         $stmt->execute(array($username, $hashedPassword));
         $result = $stmt->fetchAll();
 
         if ($result == false) {
-            return false;
+            return 0;
         }
 
         else {
-            return $result['id'];
+            return $result[0]['id'];
         }
     }
 
@@ -35,15 +34,16 @@
         
         if($stmt->execute()) {
             $stmt2 = $dbh->prepare('select id from user where username = ? and password = ?');
-            $stmt->execute(array($username, $newPassword));$result = $stmt->fetchAll();
-            $result = $stmt->fetchAll();
-            if ($result != false) {
-                return $result['id'];
+            $stmt2->execute(array($username, $newPassword));
+            $result = $stmt2->fetchAll();
+            if ($result == false) {
+                return 0;
             }
-            else return -1;
+            else return $result[0]['id'];
+            
         }
         else {
-        return -1;
+        return 0;
         }
     }
 

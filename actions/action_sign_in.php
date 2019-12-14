@@ -20,7 +20,7 @@
 
     else {
         set_current_user($userId, $username);
-        header('Location: ../pages/home.php');
+        header('Location: ../');
     }
 
 
