@@ -49,16 +49,10 @@
         <?php if ($username == NULL) : ?>
           <li> <a href="pages/sign_in.php">Sign In</a> </li>
           <li id="signup-button"> <a href="pages/sign_up.php">Sign Up</a></li>
-<<<<<<< HEAD
-          <?php else : ?>
-            <li>Welcome, <a class="header-username"href="pages/user_area_form.php"><?=$username?></a> </li>
-          <?php endif; ?>
-=======
         <?php else : ?>
-          <li>Welcome, <a class="header-username"href="user_area_form.php"><?=$username?></a></li>
-          <li><a class="header-username"href="actions/logout.php">Logout</a></li>
+          <li>Welcome, <a class="header-username"href="pages/user_area_form.php"><?=$username?></a> </li>
+          <li><a href="actions/logout.php">Logout</a></li>
         <?php endif; ?>
->>>>>>> beautify-pages
       </ul>
     </nav>
     <div id="logo-section">
