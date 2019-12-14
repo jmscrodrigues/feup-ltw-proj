@@ -187,7 +187,7 @@
         <h3><?=$result[$i]['street']?></h3>
         <h4><?=$result[$i]['country']?></h4>
       </div>
-      <a href="#" class='blue-filled-rounded-button house-card-button'><?=$result[$i]['price']?>€</a>
+      <a href="pages/house_detail_page.php?idPlace=<?=$houseId?>" class='blue-filled-rounded-button house-card-button'><?=$result[$i]['price']?>€</a>
     </div>
     <?php } ?>
     <?php $dbh = null;?>
@@ -218,7 +218,7 @@
         <h3><?=$result[$i]['street']?></h3>
         <h4><?=$result[$i]['country']?></h4>
       </div>
-      <a href="#" class='blue-filled-rounded-button house-card-button'><?=$result[$i]['price']?>€</a>
+      <a href="pages/house_detail_page.php?idPlace=<?=$houseId?>" class='blue-filled-rounded-button house-card-button'><?=$result[$i]['price']?>€</a>
     </div>
   <?php } ?>
   <?php $dbh = null;?>
