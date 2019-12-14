@@ -85,6 +85,41 @@
             return 0;
         }
     }
-       
+
+    function editEmail($username, $newEmail, $password) {
+        /**
+         * Edits the email of an user
+         */
+            ?>
+        
+            <?php
+        
+            // if(checkInjectionEmail($newEmail) == -1) {
+            //   print("dass");
+            //   return -1;
+            // }
+        
+            session_start();
+            if ($_SESSION['name'] != $username) {
+              print("not logged in");
+              return -1;
+            }
+        
+            $dbh = new PDO('sqlite:database/database.db'); 
+            $stmt = $dbh->prepare('select * from user where username = ? and password = ?'); 
+            $hashPassword=hash('sha256',$password);
+            $stmt->execute(array($username, $hashPassword));
+            if ($stmt->fetchAll() == false) {
+              print("wrong password!");
+              return -2;
+            } 
+        
+            else {
+              $stmt2 = $dbh->prepare("update user set email = ? where username='$username'");
+              $stmt2->execute(array($newEmail));
+              print("updated");
+              return 0;
+            } 
+        }              
     
 ?>
