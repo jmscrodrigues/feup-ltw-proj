@@ -257,10 +257,10 @@
             <h2>User Area</h2>  
             <nav class="footer-nav-bar">
               <ul>
-                <li> <a href="#">Personal Profile</a> </li>
-                <li> <a href="#">Messages</a> </li>
-                <li> <a href="#">My Houses</a> </li>
-                <li> <a href="#">My Orders</a> </li>
+                <li> <a href="/pages/user_area_form.php">Personal Profile</a> </li>
+                <li> <a href="/pages/user_area_houses.php">My Houses</a> </li>
+                <li> <a href="/pages/user_area_rents.php">My Rents</a> </li>
+                <li> <a href="/pages/user_area_messages.php">Messages</a> </li>
               </ul>
             </nav>
           </div>
