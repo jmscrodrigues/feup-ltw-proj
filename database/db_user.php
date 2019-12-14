@@ -117,7 +117,7 @@
             global $dbh;
 
             $stmt = $dbh->prepare('select * from user where id = ?'); 
-            $stmt->execute(array($username, $hashPassword));
+            $stmt->execute(array($userId));
             $result = $stmt->fetchAll();
             if($result == false) {
                 return 0;
