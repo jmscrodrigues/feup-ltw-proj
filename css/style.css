@@ -39,8 +39,11 @@ h1 {
 
 textarea {
     font-family: inherit;
-    font-size: 400;
     font-weight: inherit;
+    resize:none;
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+    appearance: textfield;
 }
 
 .logo-shadow {
@@ -535,10 +538,6 @@ section.range-slider input[type=range]::-moz-focus-outer {
     margin: 0em;
 }
 
-.profile-nav-bar > ul li:nth-child(1) button{
-    border-left: 3px solid var(--main-blue-color);
-}
-
 .profile-nav-bar > ul li{
     padding: 0.3em;
 }
@@ -554,15 +553,32 @@ section.range-slider input[type=range]::-moz-focus-outer {
     height: 200px;
 }
 
+.profile-area-nav-button {
+    border: 0px;
+    padding-left: 4px;
+    background-color: transparent;
+    color: #000000;
+    font-size: 16px;
+    transition: 0.5s;
+}
+
+.profile-area-nav-button:hover {
+    text-decoration: underline;
+}
+
+.profile-area-nav-button-selected {
+    border-left: 3px solid var(--main-blue-color);
+}
+
 /* Form */
 .profile-area-form {
-    row-gap: 10px;
     width: 50em;
-    margin: 0em 2em;
+    margin: 2em;
+    grid-template-columns: [start] 50% [line1] 50% [end];
     display: grid;
-    align-content: center;
-    grid-template-rows: [start] auto [line1] auto [line2] auto [end];
-    grid-template-columns: [start] auto [line1] auto [end];
+    align-content:  center;
+    align-items: stretch;
+    row-gap: 10px;
 }
 
 .profile-area-form > .input-form {
@@ -572,30 +588,62 @@ section.range-slider input[type=range]::-moz-focus-outer {
 .profile-area-submit-button {
     grid-column-start: start;
     grid-column-end: end;
-    margin: 0em 25% 1em 25%;
+    margin: 0em 25%;
 }
 
-/* Houses */
-#user-area-houses {
-    display: none;
+.profile-area-submit-button-2 {
+    margin: 0em 1em;
+}
+
+/* My Houses */
+#add-house-button {
+    display: block;
+    margin: 2em;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+  
+/* Modal Content/Box */
+.modal-content {
+    background-color: var(--grey-color);
+    justify-content: center;
+    margin: 10% auto; /* 10% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 40%; /* Could be more or less, depending on screen size */
+}
+
+.modal-form {
+    width: auto !important;
+}
+  
+/* The Close Button */
+.close {
+    color: var(--main-blue-color);
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+  
+.close:hover, .close:focus {
+    color: var(--focus-blue-color);
+    text-decoration: none;
+    cursor: pointer;
 }
 
 /* Rents */
-#user-area-rents {
-    display: none;
-}
-
-.profile-area-button {
-    border: 0px;
-    background-color: transparent;
-    color: #000000;
-    font-size: 16px;
-}
-
-.profile-area-button-selected {
-    border-left: 3px solid var(--main-blue-color);
-}
-
 .rent-card {
     display: grid;
     grid-template-columns: [start] 8em [line1] 16em [line2] 16em [line3] 16em [end];
@@ -626,7 +674,6 @@ section.range-slider input[type=range]::-moz-focus-outer {
 
 /* Messaging */
 #user-area-messages {
-    display: none;
     grid-template-columns: [start] auto [line1] auto [end];
 }
 
@@ -677,14 +724,6 @@ section.range-slider input[type=range]::-moz-focus-outer {
     justify-content: center;
     display: grid;
     margin: 1em auto;
-}
-
-#image-form {
-    width: 2em;
-}
-
-#house-area-rents {
-    display: none;
 }
 
 #house-description {
@@ -750,3 +789,61 @@ section.range-slider input[type=range]::-moz-focus-outer {
 .house-detail-card > div {
     margin: 1em;
 }
+
+.house-rating-container {
+    grid-column: start/end;
+}
+
+.house-detail-card h3 {
+    font-size: 25px;
+    margin-right: 25px;
+}
+
+.fa {
+    font-size: 25px;
+}
+
+.checked {
+    color: orange;
+}
+
+/* Three column layout */
+.side {
+    float: left;
+    width: 15%;
+    margin-top: 10px;
+}
+
+.middle {
+    float: left;
+    width: 70%;
+    margin-top: 10px;
+}
+
+/* Place text to the right */
+.right {
+    text-align: right;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* The bar container */
+.bar-container {
+    width: 100%;
+    background-color: #f1f1f1;
+    text-align: center;
+    color: white;
+}
+
+/* Individual bars */
+.bar-5 {width: 50%; height: 18px; background-color: var(--main-blue-color);}
+.bar-4 {width: 30%; height: 18px; background-color: var(--main-blue-color);}
+.bar-3 {width: 10%; height: 18px; background-color: var(--main-blue-color);}
+.bar-2 {width: 5%; height: 18px; background-color: var(--main-blue-color);}
+.bar-1 {width: 15%; height: 18px; background-color: var(--main-blue-color);}
+

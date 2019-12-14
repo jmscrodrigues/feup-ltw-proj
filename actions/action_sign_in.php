@@ -10,7 +10,6 @@
 
     if (checkInjectionSignIn($username, $password) == -1) {
         header('Location: ../pages/sign_in.php');
-
     }
 
     $userId = verifyLogin($username, $password);

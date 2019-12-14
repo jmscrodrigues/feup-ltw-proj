@@ -8,6 +8,9 @@
   <head>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="js/main.js"></script>
+     <!-- Font Awesome Icon Library -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- ****** faviconit.com favicons ****** -->
     <link rel="shortcut icon" href="assets/faviconit/favicon.ico">
     <link rel="icon" sizes="16x16 32x32 64x64" href="assets/faviconit/favicon.ico">
@@ -30,7 +33,6 @@
     <meta name="msapplication-TileImage" content="assets/faviconit/favicon-144.png">
     <meta name="msapplication-config" content="assets/faviconit/browserconfig.xml">
     <!-- ****** faviconit.com favicons ****** -->
-    <script src="js/main.js"></script>
     <title>Hemkonfort</title>
     <meta charset="UTF-8">
   </head>
@@ -75,6 +77,9 @@
 <head>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <script src="../js/main.js"></script>
+    <!-- Font Awesome Icon Library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- ****** faviconit.com favicons ****** -->
     <link rel="shortcut icon" href="../assets/faviconit/favicon.ico">
     <link rel="icon" sizes="16x16 32x32 64x64" href="../assets/faviconit/favicon.ico">
@@ -96,7 +101,6 @@
     <meta name="msapplication-TileColor" content="#FFFFFF">
     <meta name="msapplication-TileImage" content="../assets/faviconit/favicon-144.png">
     <meta name="msapplication-config" content="../assets/faviconit/browserconfig.xml">
-    <script src="../js/main.js"></script>
     <!-- ****** faviconit.com favicons ****** -->
     <title>Hemkonfort</title>
     <meta charset="UTF-8">
@@ -108,14 +112,14 @@
       </a>
       <nav id="home-nav-bar">
         <ul>
-          <li> <a href="#" target="_blank">About Us</a></li>
-          <li> <a href="#" target="_blank">New Houses</a></li>
-          <li> <a href="#" target="_blank">Popular</a></li>
+          <li> <a href="#">About Us</a></li>
+          <li> <a href="#">New Houses</a></li>
+          <li> <a href="#"">Popular</a></li>
           <?php if ($username == null) : ?>
-            <li> <a href="sign_in.php" target="_blank">Sign In</a></li>
-            <li> <a href="sign_up.php" target="_blank">Sign Up</a> </li>
+            <li> <a href="sign_in.php">Sign In</a></li>
+            <li> <a href="sign_up.php">Sign Up</a> </li>
           <?php else : ?>
-            <li>Welcome, <a class="header-username" href="user_area_form.php" target="_blank"><?=$username?></a> </li>
+            <li>Welcome, <a class="header-username" href="user_area_form.php"><?=$username?></a> </li>
           <?php endif; ?>
         </ul>
       </nav>
@@ -234,12 +238,12 @@
           <h2>Information</h2>
           <nav class="footer-nav-bar">
             <ul>
-              <li> <a href="----" target="_blank">FAQs</a></li>
-              <li> <a href="----" target="_blank">Company</a></li>
-              <li> <a href="----" target="_blank">Privacy Policy</a></li>
-              <li> <a href="----" target="_blank">Payment</a></li>
-              <li> <a href="----" target="_blank">Contract Information</a> </li>
-              <li> <a href="----" target="_blank">Insurance</a> </li>
+              <li> <a href="#">FAQs</a></li>
+              <li> <a href="#">Company</a></li>
+              <li> <a href="#">Privacy Policy</a></li>
+              <li> <a href="#">Payment</a></li>
+              <li> <a href="#">Contract Information</a> </li>
+              <li> <a href="#">Insurance</a> </li>
             </ul>
           </nav>
         </div>
@@ -249,10 +253,10 @@
             <h2>User Area</h2>  
             <nav class="footer-nav-bar">
               <ul>
-                <li> <a href="----" target="_blank">Personal Profile</a> </li>
-                <li> <a href="----" target="_blank">Messages</a> </li>
-                <li> <a href="----" target="_blank">My Houses</a> </li>
-                <li> <a href="----" target="_blank">My Orders</a> </li>
+                <li> <a href="#">Personal Profile</a> </li>
+                <li> <a href="#">Messages</a> </li>
+                <li> <a href="#">My Houses</a> </li>
+                <li> <a href="#">My Orders</a> </li>
               </ul>
             </nav>
           </div>
