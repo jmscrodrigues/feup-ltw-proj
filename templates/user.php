@@ -32,7 +32,7 @@
       </form>
       <form class="profile-area-form" action="" method="POST">
         <input class="input-form" type="email" name="email" required="required" placeholder="john.doe@whatever.com"> 
-        <input class="input-form" type="text" name="last-name" required="required" placeholder="(424) 827-0389"> 
+        <input class="input-form" type="tel" name="phonenumber" required="required" placeholder="827-0389-987"> 
         <input class="profile-area-submit-button blue-filled-rounded-button" type="submit" value="Update Contacts">
       </form>
       <form class="profile-area-form" action="" method="POST">

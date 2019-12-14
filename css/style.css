@@ -588,7 +588,7 @@ section.range-slider input[type=range]::-moz-focus-outer {
 .profile-area-submit-button {
     grid-column-start: start;
     grid-column-end: end;
-    margin: 0em 25%;
+    margin: 0em 25% !important;
 }
 
 .profile-area-submit-button-2 {
