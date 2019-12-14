@@ -1,7 +1,16 @@
+function hamburguerMenu() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+        x.className += " responsive";
+    } else {
+        x.className = "topnav";
+    }
+}
+
 /**
  * Get values for price slider
  */
-function getVals(){
+function getVals() {
     // Get slider values
     var parent = this.parentNode;
     var slides = parent.getElementsByTagName("input");
@@ -14,7 +23,7 @@ function getVals(){
         displayElement.innerHTML = slide1 +  " - " + slide2;
 }
   
-window.onload = function(){
+window.onload = function() {
     // Initialize Sliders
     var sliderSections = document.getElementsByClassName("range-slider");
     for( var x = 0; x < sliderSections.length; x++ ){
