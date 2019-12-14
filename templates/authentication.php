@@ -42,7 +42,7 @@
         </a>
         <h1>Sign Up</h1>
       </header>
-      <form id="signup-form" action="" method="POST">
+      <form id="signup-form" action="../actions/action_sign_up.php" method="POST">
         <input class="input-form" type="text" name="username" required="required" placeholder="Username">
         <input class="input-form" type="text" name="name" required="required" placeholder="Full Name">
         <input class="input-form" type="email" name="email" required="required" placeholder="Email"> 
@@ -105,7 +105,7 @@
       </a>
       <h1>Sign In</h1>
       </header>
-      <form id="signin-form" action="" method="POST">
+      <form id="signin-form" action="../actions/action_sign_in.php" method="POST">
         <input class="input-form" type="text" name="username" required="required" placeholder="Username"> 
         <input class="input-form" type="password" name="password" required="required" placeholder="Password">
         <input class="blue-filled-rounded-button" type="submit" value="Sign In">

@@ -26,22 +26,20 @@
       }
 
     }
+
+    function checkInjectionEmail($email) { 
+
+
+        if ( !preg_match ("/^[a-z0-9_@\-.]+$/i", $email)) {
+          return -1;
+        }
+        else {
+          return 1;
+        }
+ 
+  }
+
+
+
 ?>
 
-<?php function checkInjectionEmail($email) { 
-/**
- * Creates a new account
- */
-    ?>
-     <?php  
-      if ( !preg_match ("/^[a-z0-9_@\-]+$/i", $email)) {
-        return -1;
-      }
-      else {
-        return 1;
-      }
-
-     ?>
-    
-
-<?php } ?>
