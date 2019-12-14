@@ -1,7 +1,6 @@
 <?php
 
     include_once('../database/connection.php');
-    
 
     function verifyLogin($username, $password) {
         
@@ -21,18 +20,17 @@
         }
     }
 
-    function createAccount($username, $name, $email, $password, $confirmPassword) {
+    function createAccount($username, $name, $email, $phonenumber, $password) {
         
         global $dbh;
 
-        $stmt = $dbh->prepare('insert into User(Username, Name, Email, Password) VALUES (:Username,:Name,:Email,:Password)'); 
-        $stmt->bindParam(':Username', $username);
-        $stmt->bindParam(':Name', $name);
-        $stmt->bindParam(':Email', $email);
+        if ($phonenumber==NULL)
+            $phonenumber='NULL';
+
+        $stmt = $dbh->prepare('insert into User VALUES (NULL, NULL, ?, ?, ?, ?, ?)'); 
         $newPassword=hash('sha256',$password);
-        $stmt->bindParam(':Password', $newPassword);
         
-        if($stmt->execute()) {
+        if($stmt->execute(array($username,$name,$email,$phonenumber,$newPassword))) {
             $stmt2 = $dbh->prepare('select id from user where username = ? and password = ?');
             $stmt2->execute(array($username, $newPassword));
             $result = $stmt2->fetchAll();
