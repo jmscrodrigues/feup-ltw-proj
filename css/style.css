@@ -132,8 +132,12 @@ textarea {
 /**
  * Nav-bar
  */
- #home-nav-bar {
+#home-nav-bar {
     padding: 0em;
+}
+
+.hamburguer-nav {
+    display: none;
 }
 
 #home-nav-bar ul {
