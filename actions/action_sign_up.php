@@ -8,6 +8,7 @@
     $name = $_POST['name'];
     $username = $_POST['username'];
     $email = $_POST['email'];
+    $phonenumber = $_POST['phonenumber'];
     $password = $_POST['password'];
     $confirmPassword = $_POST['repeatpassword'];
 
@@ -24,7 +25,7 @@
         header('Location: ../pages/sign_up.php');
     }
 
-    $userId = createAccount($username, $name, $email, $password, $confirmPassword);
+    $userId = createAccount($username, $name, $phonenumber $email, $password);
     if ($userId == 0) {
         header('Location: ../pages/sign_up.php');
     }

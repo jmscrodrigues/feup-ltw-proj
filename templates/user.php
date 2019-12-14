@@ -39,7 +39,7 @@
       </form>
       <form class="profile-area-form" action="../actions/action_edit_contacts.php" method="POST">
         <input class="input-form" type="email" name="email" required="required" placeholder="<?= $result[0]['email'] ?>"> 
-        <input class="input-form" type="text" name="phonenumber" placeholder="<?= $result[0]['phonenumber'] ?>"> 
+        <input class="input-form" type="tel" pattern="[0-9]{9}" name="phonenumber" placeholder="<?= $result[0]['phonenumber'] ?>"> 
         <input class="profile-area-submit-button blue-filled-rounded-button" type="submit" value="Update Contacts">
       </form>
       <form class="profile-area-form" action="../actions/action_edit_password.php" method="POST">
