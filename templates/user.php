@@ -16,29 +16,34 @@
       </section>
       <nav class="profile-nav-bar">
         <ul>
-          <li><a href="user_area_form.php" class="profile-area-button-selected profile-area-button">Profile</a></li>
-          <li><a href="user_area_houses.php" class="profile-area-button">My Houses</a></li>
-          <li><a href="user_area_rents.php" class="profile-area-button">My Rents</a></li>
-          <li><a href="user_area_messages.php" class="profile-area-button">Messages</a></li>
+          <li><a href="user_area_form.php" class="profile-area-nav-button-selected profile-area-nav-button">Profile</a></li>
+          <li><a href="user_area_houses.php" class="profile-area-nav-button">My Houses</a></li>
+          <li><a href="user_area_rents.php" class="profile-area-nav-button">My Rents</a></li>
+          <li><a href="user_area_messages.php" class="profile-area-nav-button">Messages</a></li>
         </ul>
       </nav>
     </aside>
     <!-- USER AREA FORM -->
-    <div id="user-area-form">
-      <form id="user-area-form" class="profile-area-form" action="" method="POST">
-        <input class="input-form" type="text" name="username" required="required" placeholder="Username" value="john_doe_87"> 
-        <input class="input-form" type="text" name="name" required="required" placeholder="Full Name" value="John Doe"> 
+    <div>
+      <form class="profile-area-form" action="" method="POST">
+        <input class="input-form" type="text" name="username" required="required" placeholder="john_doe_87"> 
+        <input class="input-form" type="text" name="name" required="required" placeholder="John Doe"> 
         <input class="profile-area-submit-button blue-filled-rounded-button" type="submit" value="Update Name">
       </form>
-      <form id="user-area-form" class="profile-area-form" action="" method="POST">
-        <input class="input-form" type="email" name="email" required="required" placeholder="Email" value="john.doe@whatever.com"> 
-        <input class="input-form" type="text" name="last-name" required="required" placeholder="Phone Number" value="(424) 827-0389"> 
+      <form class="profile-area-form" action="" method="POST">
+        <input class="input-form" type="email" name="email" required="required" placeholder="john.doe@whatever.com"> 
+        <input class="input-form" type="text" name="last-name" required="required" placeholder="(424) 827-0389"> 
         <input class="profile-area-submit-button blue-filled-rounded-button" type="submit" value="Update Contacts">
       </form>
-      <form id="user-area-form" class="profile-area-form" action="" method="POST"> 
-        <input class="input-form" type="password" name="password" required="required" placeholder="Password">
-        <input class="input-form" type="password" name="password" required="required" placeholder="Repeat Password">
-        <input class="profile-area-submit-button blue-filled-rounded-button" type="submit" value="Update Password">
+      <form class="profile-area-form" action="" method="POST">
+        <input class="input-form" type="password" name="password" required="required" placeholder="New Password">
+        <input class="input-form" type="password" name="password" required="required" placeholder="Repeat New Password">
+        <input class="input-form" type="password" name="password" required="required" placeholder="Old Password">
+        <input class="profile-area-submit-button-2 blue-filled-rounded-button" type="submit" value="Update Password">
+      </form>
+      <form class="profile-area-form" action="" method="POST">
+        <input class="input-form" type="file" name="image" required="required" placeholder="Image">
+        <input class="profile-area-submit-button-2 blue-filled-rounded-button" type="submit" value="Submit Image">
       </form>
     </div>
   <div>
@@ -57,34 +62,56 @@
 	  <aside>
 		<section class="profile-card">
 		  <div class="profile-card-photo rounded-photo-container">
-			<img src="../design/mockups/stock-images/stock-profile-photo.jpg" alt="Hemkonfort Logo" />
+			  <img src="../design/mockups/stock-images/stock-profile-photo.jpg" alt="Hemkonfort Logo" />
 		  </div>
 		  <h3>John Doe</h3>
 		</section>
 		<nav class="profile-nav-bar">
 		  <ul>
-        <li><a href="user_area_form.php" class="profile-area-button-selected">Profile</a></li>
-        <li><a href="user_area_houses.php" class="profile-area-button profile-area-button">My Houses</a></li>
-        <li><a href="user_area_rents.php" class="profile-area-button">My Rents</a></li>
-        <li><a href="user_area_messages.php" class="profile-area-button">Messages</a></li>
+        <li><a href="user_area_form.php" class="profile-area-nav-button">Profile</a></li>
+        <li><a href="user_area_houses.php" class="profile-area-nav-button profile-area-nav-button-selected">My Houses</a></li>
+        <li><a href="user_area_rents.php" class="profile-area-nav-button">My Rents</a></li>
+        <li><a href="user_area_messages.php" class="profile-area-nav-button">Messages</a></li>
 		  </ul>
 		</nav>
 	  </aside>
-	  <!-- USER AREA HOUSES -->
-	  <article id="user-area-houses" class='house-article-container'>
-      <?php for($i = 0; $i < 5; $i++)  {?>
-      <div class="house-card">
-        <img src="../design/mockups/stock-images/stock-house.jpg" alt="House image" />
-        <div class="house-card-text">
-        <h2>Banana</h2>
-        <h3>RUA DA BANANA</h3>
-        <h4>BANANA COUNTRY</h4>
+    <!-- USER AREA HOUSES -->
+    <div id="user-area-houses">
+      <button id="add-house-button" class="blue-filled-rounded-button" type="button">Add House</button>
+      <!-- The Modal -->
+      <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <form class="modal-form profile-area-form" action="" method="POST">
+            <input class="input-form" type="text" name="name" required="required" placeholder="House name"> 
+            <input class="input-form" type="text" name="country" required="required" placeholder="Country"> 
+            <input class="input-form" type="number" name="price" required="required" placeholder="Price/night"> 
+            <input class="input-form" type="text" name="city" required="required" placeholder="City">
+            <textarea id="house-description" class="input-form" name="description" required="required" row="3" placeholder="Description"></textarea>
+            <input class="input-form" type="text" name="street" required="required" placeholder="Street"> 
+            <input class="input-form" type="number" name="number" required="required" placeholder="Number">
+            <input class="input-form" type="file" name="image" required="required" placeholder="Image">
+            <input class="profile-area-submit-button-2 blue-filled-rounded-button" type="submit" value="Add House">
+          </form>
         </div>
-        <a href="#" class='blue-filled-rounded-button house-card-button'>2€</a>
       </div>
-      <?php } ?>
-	  </article>
-	<div>
+      <!-- Houses list -->
+      <article class='house-article-container'>
+        <?php for($i = 0; $i < 5; $i++)  {?>
+        <div class="house-card">
+          <img src="../design/mockups/stock-images/stock-house.jpg" alt="House image" />
+          <div class="house-card-text">
+            <h2>Banana</h2>
+            <h3>RUA DA BANANA</h3>
+            <h4>BANANA COUNTRY</h4>
+          </div>
+          <a href="#" class='blue-filled-rounded-button house-card-button'>2€</a>
+        </div>
+        <?php } ?>
+      </article>
+    </div>
+  </div>
 </section>
 <?php } ?>
 
@@ -106,10 +133,10 @@
       </section>
       <nav class="profile-nav-bar">
         <ul>
-          <li><a href="user_area_form.php" class="profile-area-button-selected">Profile</a></li>
-          <li><a href="user_area_houses.php" class="profile-area-button">My Houses</a></li>
-          <li><a href="user_area_rents.php" class="profile-area-button profile-area-button">My Rents</a></li>
-          <li><a href="user_area_messages.php" class="profile-area-button">Messages</a></li>
+          <li><a href="user_area_form.php" class="profile-area-nav-button">Profile</a></li>
+          <li><a href="user_area_houses.php" class="profile-area-nav-button">My Houses</a></li>
+          <li><a href="user_area_rents.php" class="profile-area-nav-button profile-area-nav-button-selected">My Rents</a></li>
+          <li><a href="user_area_messages.php" class="profile-area-nav-button">Messages</a></li>
         </ul>
       </nav>
     </aside>
@@ -151,10 +178,10 @@
       </section>
       <nav class="profile-nav-bar">
         <ul>
-          <li><a href="user_area_form.php" class="profile-area-button-selected">Profile</a></li>
-          <li><a href="user_area_houses.php" class="profile-area-button">My Houses</a></li>
-          <li><a href="user_area_rents.php" class="profile-area-button">My Rents</a></li>
-          <li><a href="user_area_messages.php" class="profile-area-button profile-area-button">Messages</a></li>
+          <li><a href="user_area_form.php" class="profile-area-nav-button">Profile</a></li>
+          <li><a href="user_area_houses.php" class="profile-area-nav-button">My Houses</a></li>
+          <li><a href="user_area_rents.php" class="profile-area-nav-button">My Rents</a></li>
+          <li><a href="user_area_messages.php" class="profile-area-nav-button profile-area-nav-button-selected">Messages</a></li>
         </ul>
       </nav>
     </aside>
