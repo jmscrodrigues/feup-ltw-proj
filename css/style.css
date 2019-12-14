@@ -678,6 +678,7 @@ section.range-slider input[type=range]::-moz-focus-outer {
 
 /* Messaging */
 #user-area-messages {
+    display: grid;
     grid-template-columns: [start] auto [line1] auto [end];
 }
 

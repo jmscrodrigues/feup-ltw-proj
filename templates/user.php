@@ -214,7 +214,6 @@
         </form>
       </div>
     </div>
-  <div>
 </section>
 <?php } ?>
 
