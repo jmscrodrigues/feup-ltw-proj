@@ -65,13 +65,16 @@
 	<header>
 	  <h2>User Area</h2>
 	</header>
+  <?php
+    $result = getUserInfo($userId);
+  ?>
 	<div>
 	  <aside>
 		<section class="profile-card">
 		  <div class="profile-card-photo rounded-photo-container">
 			  <img src="../design/mockups/stock-images/stock-profile-photo.jpg" alt="Hemkonfort Logo" />
 		  </div>
-		  <h3>John Doe</h3>
+		  <h3><?= $result[0]['name'] ?></h3>
 		</section>
 		<nav class="profile-nav-bar">
 		  <ul>
@@ -130,13 +133,16 @@
   <header>
     <h2>User Area</h2>
   </header>
+  <?php
+    $result = getUserInfo($userId);
+  ?>
   <div>
     <aside>
       <section class="profile-card">
         <div class="profile-card-photo rounded-photo-container">
           <img src="../design/mockups/stock-images/stock-profile-photo.jpg" alt="Hemkonfort Logo" />
         </div>
-        <h3>John Doe</h3>
+        <h3><?= $result[0]['name'] ?></h3>
       </section>
       <nav class="profile-nav-bar">
         <ul>
@@ -175,13 +181,16 @@
   <header>
     <h2>User Area</h2>
   </header>
+  <?php
+    $result = getUserInfo($userId);
+  ?>
   <div>
     <aside>
       <section class="profile-card">
         <div class="profile-card-photo rounded-photo-container">
           <img src="../design/mockups/stock-images/stock-profile-photo.jpg" alt="Hemkonfort Logo" />
         </div>
-        <h3>John Doe</h3>
+        <h3><?= $result[0]['name'] ?></h3>
       </section>
       <nav class="profile-nav-bar">
         <ul>

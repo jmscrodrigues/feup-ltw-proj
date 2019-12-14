@@ -56,7 +56,7 @@ function draw_header_main($username) {
           <li id="signup-button"> <a href="pages/sign_up.php">Sign Up</a></li>
         <?php else : ?>
           <li>Welcome, <a class="header-username"href="pages/user_area_form.php"><?=$username?></a> </li>
-          <li><a href="actions/logout.php">Logout</a></li>
+          <li><a href="actions/action_logout.php">Logout</a></li>
         <?php endif; ?>
       </ul>
     </nav>
@@ -220,10 +220,10 @@ function draw_header_main($username) {
             <h2>User Area</h2>  
             <nav class="footer-nav-bar">
               <ul>
-                <li> <a href="#">Personal Profile</a> </li>
-                <li> <a href="#">Messages</a> </li>
-                <li> <a href="#">My Houses</a> </li>
-                <li> <a href="#">My Orders</a> </li>
+                <li> <a href="../pages/user_area_form.php">Personal Profile</a> </li>
+                <li> <a href="../pages/user_area_messages.php">Messages</a> </li>
+                <li> <a href="../pages/user_area_houses.php">My Houses</a> </li>
+                <li> <a href="../pages/user_area_rents.php">My Orders</a> </li>
               </ul>
             </nav>
           </div>

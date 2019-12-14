@@ -7,6 +7,7 @@
   $username = get_username();
   $userId = get_user_id();
   // if not, redirect to sign in page
+ 
   if ($username == null)
     die(header('Location: sign_in.php'));
 
