@@ -4,5 +4,5 @@
     session_destroy();
     session_start();
 
-    header('Location: ../pages/login.php');
+    header('Location: ../');
 ?>
