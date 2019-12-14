@@ -18,9 +18,11 @@ PRAGMA foreign_keys=ON;
 
 create table USER(
     id INTEGER PRIMARY KEY,
+    picture TEXT default 'pathtodefault',
 	username TEXT UNIQUE,
     name TEXT NOT NULL,
 	email TEXT NOT NULL UNIQUE,
+    phonenumber INTEGER UNIQUE,
     password TEXT NOT NULL,
 	CONSTRAINT CHK_USER CHECK (length(username)>=6 AND length(username)<=20));
 
@@ -32,7 +34,7 @@ create table PLACE(
     number INTEGER NOT NULL,
     city TEXT NOT NULL,
     country TEXT NOT NULL,
-    description TEXT,
+    description TEXT NOT NULL,
     classification INTEGER default 0,
 	idUser INTEGER NOT NULL REFERENCES USER ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT CHK_PLACE CHECK (price>=0),
@@ -47,11 +49,7 @@ create table PICTURES(
 create table RESERVATION(
     idReservation INTEGER PRIMARY KEY,
 	idPlace INTEGER NOT NULL REFERENCES PLACE ON DELETE CASCADE ON UPDATE CASCADE,
-<<<<<<< HEAD
     idTourist INTEGER NOT NULL REFERENCES USER ON DELETE CASCADE ON UPDATE CASCADE,
-=======
-    idTourist TEXT NOT NULL REFERENCES USER ON DELETE CASCADE ON UPDATE CASCADE,
->>>>>>> 1-main-page
     beginDate DATE NOT NULL,
     endDate DATE NOT NULL,
     CONSTRAINT CHK_RESERVATION CHECK (endDate>beginDate));
@@ -87,12 +85,7 @@ END;
 
 create table MESSAGE(
     messageNumber INTEGER PRIMARY KEY,
-<<<<<<< HEAD
 	idOwner INTEGER NOT NULL REFERENCES USER ON DELETE CASCADE ON UPDATE CASCADE,
     idTourist INTEGER NOT NULL REFERENCES USER ON DELETE CASCADE ON UPDATE CASCADE,
-=======
-	idOwner TEXT NOT NULL REFERENCES USER ON DELETE CASCADE ON UPDATE CASCADE,
-    idTourist TEXT NOT NULL REFERENCES USER ON DELETE CASCADE ON UPDATE CASCADE,
->>>>>>> 1-main-page
     sender BOOLEAN NOT NULL,
     message TEXT NOT NULL);
