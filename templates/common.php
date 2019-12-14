@@ -42,15 +42,17 @@
   <header id="main-header">
     <nav id="home-nav-bar">
       <ul>
-        <li><a href="#">About Us</a></li>
-        <li><a href="#">New Houses</a></li>
-        <li><a href="#">Popular</a></li>
+        <li><a href="pages/about_us.php">About Us</a></li>
+        <li><a href="#top-houses">Top Houses</a></li>
+        <li><a href="#popular-houses">Popular Houses</a></li>
+        <li><a href="#new-houses">New Houses</a></li>
         <?php if ($username == NULL) : ?>
           <li> <a href="pages/sign_in.php">Sign In</a> </li>
           <li id="signup-button"> <a href="pages/sign_up.php">Sign Up</a></li>
-          <?php else : ?>
-            <li>Welcome, <a class="header-username"href="user_area_form.php"><?=$username?></a> </li>
-          <?php endif; ?>
+        <?php else : ?>
+          <li>Welcome, <a class="header-username"href="user_area_form.php"><?=$username?></a></li>
+          <li><a class="header-username"href="actions/logout.php">Logout</a></li>
+        <?php endif; ?>
       </ul>
     </nav>
     <div id="logo-section">
@@ -112,14 +114,16 @@
       </a>
       <nav id="home-nav-bar">
         <ul>
-          <li> <a href="#">About Us</a></li>
-          <li> <a href="#">New Houses</a></li>
-          <li> <a href="#"">Popular</a></li>
+          <li><a href="about_us.php">About Us</a></li>
+          <li><a href="../#top-houses">Top Houses</a></li>
+          <li><a href="../#popular-houses">Popular Houses</a></li>
+          <li><a href="../#new-houses">New Houses</a></li>
           <?php if ($username == null) : ?>
             <li> <a href="sign_in.php">Sign In</a></li>
             <li> <a href="sign_up.php">Sign Up</a> </li>
           <?php else : ?>
             <li>Welcome, <a class="header-username" href="user_area_form.php"><?=$username?></a> </li>
+            <li><a class="header-username"href="actions/logout.php">Logout</a></li>
           <?php endif; ?>
         </ul>
       </nav>
@@ -131,9 +135,9 @@
  * Draws content for main page.
  */?>
  <section class='houses-section-container'>
-  <!-- TOP HOMES -->
+  <!-- TOP HOUSES -->
   <div class='house-article-header'>
-    <h2><strong>Top</strong> Homes</h2>
+    <h2 id="top-houses"><strong>Top</strong> Houses</h2>
     <a class="black-rounded-button" href="pages/list_houses.php">View All</a>
   </div>
   <article class='house-article-container'>
@@ -162,9 +166,9 @@
     <?php $dbh = null;?>
   </article>
 
-  <!-- POPULAR HOMES -->
+  <!-- POPULAR HOUSES -->
   <div class='house-article-header'>
-    <h2><strong>Popular</strong> Homes</h2>
+    <h2 id="popular-houses"><strong>Popular</strong> Houses</h2>
     <a class="black-rounded-button" href="pages/list_houses.php">View All</a>
   </div>
   <article class='house-article-container'>
@@ -193,9 +197,9 @@
     <?php $dbh = null;?>
   </article>
 
-  <!-- RECENT HOMES -->
+  <!-- NEW HOUSES -->
   <div class='house-article-header'>
-    <h2><strong>Recent</strong> Homes</h2>
+    <h2 id="new-houses"><strong>New</strong> Houses</h2>
     <a class="black-rounded-button" href="pages/list_houses.php">View All</a>
   </div>
   <article class='house-article-container'>
@@ -311,7 +315,14 @@
   </head>
 
   <body>
-    <p>TESTEEEE</p>
+    <p>404 PAGE</p>
   </body>
 </html>
+<?php } ?>
+
+<?php function draw_about_us() {
+/**
+ * Draws error page
+ */?>
+    <p>ABOUT US PAGE</p>
 <?php } ?>
