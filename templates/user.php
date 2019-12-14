@@ -1,3 +1,7 @@
+<?php
+  include_once('../database/db_user.php');
+?>
+
 <?php function draw_user_form($userId) {
 /**
  * Draws content for main page.
@@ -6,6 +10,9 @@
   <header>
     <h2>User Area</h2>
   </header>
+  <?php
+    $result = getUserInfo($userId);
+  ?>
   <div>
     <aside>
       <section class="profile-card">
@@ -26,13 +33,13 @@
     <!-- USER AREA FORM -->
     <div>
       <form class="profile-area-form" action="" method="POST">
-        <input class="input-form" type="text" name="username" required="required" placeholder="john_doe_87"> 
-        <input class="input-form" type="text" name="name" required="required" placeholder="John Doe"> 
+        <input class="input-form" type="text" name="username" required="required" placeholder="<?= $result[0]['username'] ?>"> 
+        <input class="input-form" type="text" name="name" required="required" placeholder="<?= $result[0]['name'] ?>"> 
         <input class="profile-area-submit-button blue-filled-rounded-button" type="submit" value="Update Name">
       </form>
       <form class="profile-area-form" action="" method="POST">
-        <input class="input-form" type="email" name="email" required="required" placeholder="john.doe@whatever.com"> 
-        <input class="input-form" type="text" name="last-name" required="required" placeholder="(424) 827-0389"> 
+        <input class="input-form" type="email" name="email" required="required" placeholder="<?= $result[0]['email'] ?>"> 
+        <input class="input-form" type="text" name="last-name" placeholder="<?= $result[0]['phonenumber'] ?>"> 
         <input class="profile-area-submit-button blue-filled-rounded-button" type="submit" value="Update Contacts">
       </form>
       <form class="profile-area-form" action="" method="POST">
@@ -42,7 +49,7 @@
         <input class="profile-area-submit-button-2 blue-filled-rounded-button" type="submit" value="Update Password">
       </form>
       <form class="profile-area-form" action="" method="POST">
-        <input class="input-form" type="file" name="image" required="required" placeholder="Image">
+        <input class="input-form" type="file" name="image" required="required" placeholder="Image"> 
         <input class="profile-area-submit-button-2 blue-filled-rounded-button" type="submit" value="Submit Image">
       </form>
     </div>

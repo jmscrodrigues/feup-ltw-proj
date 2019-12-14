@@ -89,23 +89,13 @@
     function editEmail($username, $newEmail, $password) {
         /**
          * Edits the email of an user
-         */
-            ?>
-        
-            <?php
-        
+         */        
             // if(checkInjectionEmail($newEmail) == -1) {
             //   print("dass");
             //   return -1;
             // }
         
-            session_start();
-            if ($_SESSION['name'] != $username) {
-              print("not logged in");
-              return -1;
-            }
-        
-            $dbh = new PDO('sqlite:database/database.db'); 
+            global $dbh; 
             $stmt = $dbh->prepare('select * from user where username = ? and password = ?'); 
             $hashPassword=hash('sha256',$password);
             $stmt->execute(array($username, $hashPassword));
@@ -120,6 +110,19 @@
               print("updated");
               return 0;
             } 
-        }              
+        }
+        
+        
+        function getUserInfo($userId) {
+            global $dbh;
+
+            $stmt = $dbh->prepare('select * from user where id = ?'); 
+            $stmt->execute(array($username, $hashPassword));
+            $result = $stmt->fetchAll();
+            if($result == false) {
+                return 0;
+            }
+            else return $result;
+        }
     
 ?>
