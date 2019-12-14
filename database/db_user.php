@@ -55,61 +55,41 @@
         $hashPassword=hash('sha256',$password);
         $stmt->execute(array($username, $hashPassword));
         if ($stmt->fetchAll() == false) {
-            print("wrong password!");
             return -1;
         } 
         else {
             $stmt1 = $dbh->prepare("update user set password = ? where username='$username'");
             $newHashPassword=hash('sha256',$newPassword);
             $stmt1->execute(array($newHashPassword));
-            print("updated");
             return 0;
         }   
     }
 
-    function editUsername($username, $newUsername, $password) {
+    function editUsername($username, $name, $newUsername) {
 
         global $dbh; 
-
-        $stmt = $dbh->prepare('select * from user where username = ? and password = ?'); 
-        $hashPassword=hash('sha256',$password);
-        $stmt->execute(array($username, $hashPassword));
-        if ($stmt->fetchAll() == false) {
-            print("wrong password!");
-            return -3;
-        }   
-        else {
-            $stmt2 = $dbh->prepare("update user set username = ? where username='$username'");
-            $stmt2->execute(array($newUsername));
-            print("updated");
+  
+        $stmt = $dbh->prepare("update user set username = ?, name = ? where username='$username'");
+        if ($stmt->execute(array($newUsername, $name))) {
             return 0;
+
         }
+        else return -1;
+
     }
 
-    function editEmail($username, $newEmail, $password) {
-        /**
-         * Edits the email of an user
-         */        
-            // if(checkInjectionEmail($newEmail) == -1) {
-            //   print("dass");
-            //   return -1;
-            // }
+    function editContacts($username, $newEmail, $phoneNumber) {
         
             global $dbh; 
-            $stmt = $dbh->prepare('select * from user where username = ? and password = ?'); 
-            $hashPassword=hash('sha256',$password);
-            $stmt->execute(array($username, $hashPassword));
-            if ($stmt->fetchAll() == false) {
-              print("wrong password!");
-              return -2;
-            } 
+            
         
-            else {
-              $stmt2 = $dbh->prepare("update user set email = ? where username='$username'");
-              $stmt2->execute(array($newEmail));
-              print("updated");
-              return 0;
-            } 
+            $stmt = $dbh->prepare("update user set email = ?, phonenumber = ? where username='$username'");
+            if ($stmt->execute(array($newEmail, $phoneNumber))) {
+                return 0;
+            }
+
+            else return -1;
+
         }
         
         

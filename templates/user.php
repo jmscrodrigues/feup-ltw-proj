@@ -32,23 +32,23 @@
     </aside>
     <!-- USER AREA FORM -->
     <div>
-      <form class="profile-area-form" action="" method="POST">
+      <form class="profile-area-form" action="../actions/action_edit_username.php" method="POST">
         <input class="input-form" type="text" name="username" required="required" placeholder="<?= $result[0]['username'] ?>"> 
         <input class="input-form" type="text" name="name" required="required" placeholder="<?= $result[0]['name'] ?>"> 
         <input class="profile-area-submit-button blue-filled-rounded-button" type="submit" value="Update Name">
       </form>
-      <form class="profile-area-form" action="" method="POST">
+      <form class="profile-area-form" action="../actions/action_edit_contacts.php" method="POST">
         <input class="input-form" type="email" name="email" required="required" placeholder="<?= $result[0]['email'] ?>"> 
-        <input class="input-form" type="text" name="last-name" placeholder="<?= $result[0]['phonenumber'] ?>"> 
+        <input class="input-form" type="text" name="phonenumber" placeholder="<?= $result[0]['phonenumber'] ?>"> 
         <input class="profile-area-submit-button blue-filled-rounded-button" type="submit" value="Update Contacts">
       </form>
-      <form class="profile-area-form" action="" method="POST">
-        <input class="input-form" type="password" name="password" required="required" placeholder="New Password">
-        <input class="input-form" type="password" name="password" required="required" placeholder="Repeat New Password">
+      <form class="profile-area-form" action="../actions/action_edit_password.php" method="POST">
+        <input class="input-form" type="password" name="newpassword" required="required" placeholder="New Password">
+        <input class="input-form" type="password" name="repeatpassword" required="required" placeholder="Repeat New Password">
         <input class="input-form" type="password" name="password" required="required" placeholder="Old Password">
         <input class="profile-area-submit-button-2 blue-filled-rounded-button" type="submit" value="Update Password">
       </form>
-      <form class="profile-area-form" action="" method="POST">
+      <form class="profile-area-form" action="../actions/action_edit_image.php" method="POST">
         <input class="input-form" type="file" name="image" required="required" placeholder="Image"> 
         <input class="profile-area-submit-button-2 blue-filled-rounded-button" type="submit" value="Submit Image">
       </form>
