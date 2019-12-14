@@ -1,4 +1,9 @@
-<?php function draw_header_main($username) {
+<?php 
+  $dir=$_SERVER['DOCUMENT_ROOT'];
+  include_once("$dir/database/connection.php");
+  include_once("$dir/templates/house.php");
+
+function draw_header_main($username) {
 /**
  * Draws the main header for main page.
  */ ?>
@@ -130,40 +135,29 @@
     </header>
 <?php } ?>
 
-<?php function draw_main_body() {
+<?php
+
+  function draw_main_body() {
 /**
  * Draws content for main page.
- */?>
+ */
+?>
  <section class='houses-section-container'>
   <!-- TOP HOUSES -->
   <div class='house-article-header'>
-    <h2 id="top-houses"><strong>Top</strong> Houses</h2>
+    <h2 id="top-houses"><strong>Top</strong> Houses<?=$_SERVER["DOCUMENT_ROOT"]?></h2>
     <a class="black-rounded-button" href="pages/list_houses.php">View All</a>
   </div>
   <article class='house-article-container'>
   <?php 
-      $dbh = new PDO('sqlite:database/database.db'); 
+
+    global $dbh;
       $stmt = $dbh->prepare('select * from PLACE ORDER BY classification DESC LIMIT 4'); 
       $stmt->execute();
-      $result = $stmt->fetchAll(); ?>
-  <?php for($i = 0; $i < 4; $i++)  {?>
-    <?php
-          $houseId = $result[$i]['idPlace'];
-          $stmt1 = $dbh->prepare("SELECT picturePath FROM PICTURES WHERE idPlace = $houseId"); 
-          $stmt1->execute();
-          $image = $stmt1->fetchColumn();    
-      ?>
-    <div class="house-card">
-      <img id="houseimg<?=$i?>" src="<?=$image?>" alt="House image" />
-      <div class="house-card-text">
-        <h2><?=$result[$i]['name']?></h2>
-        <h3><?=$result[$i]['street']?></h3>
-        <h4><?=$result[$i]['country']?></h4>
-      </div>
-      <a href="pages/house_detail_page.php?idPlace=<?=$houseId?>" class='blue-filled-rounded-button house-card-button'><?=$result[$i]['price']?>€</a>
-    </div>
-    <?php } ?>
-    <?php $dbh = null;?>
+      $result = $stmt->fetchAll(); 
+      for($i = 0; $i < 4; $i++)  {
+        draw_house_card($result[$i]['idPlace']);
+     } ?>
   </article>
 
   <!-- POPULAR HOUSES -->
@@ -173,28 +167,12 @@
   </div>
   <article class='house-article-container'>
   <?php 
-      $dbh = new PDO('sqlite:database/database.db'); 
       $stmt = $dbh->prepare('SELECT * FROM PLACE'); 
       $stmt->execute();
       $result = $stmt->fetchAll(); ?>
-  <?php for($i = 0; $i < 4; $i++)  {?>
-    <?php
-          $houseId = $result[$i]['idPlace'];
-          $stmt1 = $dbh->prepare("SELECT picturePath FROM PICTURES WHERE idPlace = $houseId"); 
-          $stmt1->execute();
-          $image = $stmt1->fetchColumn();    
-      ?>
-    <div class="house-card">
-      <img id="houseimg<?=$i?>" src="<?=$image?>" alt="House image" />
-      <div class="house-card-text">
-        <h2><?=$result[$i]['name']?></h2>
-        <h3><?=$result[$i]['street']?></h3>
-        <h4><?=$result[$i]['country']?></h4>
-      </div>
-      <a href="pages/house_detail_page.php?idPlace=<?=$houseId?>" class='blue-filled-rounded-button house-card-button'><?=$result[$i]['price']?>€</a>
-    </div>
-    <?php } ?>
-    <?php $dbh = null;?>
+  <?php for($i = 0; $i < 4; $i++)  {
+    draw_house_card($result[$i]['idPlace']);
+  }?>
   </article>
 
   <!-- NEW HOUSES -->
@@ -208,24 +186,9 @@
       $stmt = $dbh->prepare('select * from PLACE ORDER BY idPlace DESC LIMIT 4'); 
       $stmt->execute();
       $result = $stmt->fetchAll(); ?>
-  <?php for($i = 0; $i < 4; $i++)  {?>
-    <?php
-          $houseId = $result[$i]['idPlace'];
-          $stmt1 = $dbh->prepare("SELECT picturePath FROM PICTURES WHERE idPlace = $houseId"); 
-          $stmt1->execute();
-          $image = $stmt1->fetchColumn();    
-      ?>
-    <div class="house-card">
-      <img id="houseimg<?=$i?>" src="<?=$image?>" alt="House image" />
-      <div class="house-card-text">
-        <h2><?=$result[$i]['name']?></h2>
-        <h3><?=$result[$i]['street']?></h3>
-        <h4><?=$result[$i]['country']?></h4>
-      </div>
-      <a href="pages/house_detail_page.php?idPlace=<?=$houseId?>" class='blue-filled-rounded-button house-card-button'><?=$result[$i]['price']?>€</a>
-    </div>
-  <?php } ?>
-  <?php $dbh = null;?>
+  <?php for($i = 0; $i < 4; $i++)  {
+    draw_house_card($result[$i]['idPlace']);}
+    ?>
   </article>
 
 </section>

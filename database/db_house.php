@@ -14,14 +14,7 @@
       print("There are no houses with those parameters.");
       return -1;
     } 
-
-    else {
-      for($z = 0; $z < sizeof($result); $z++) {
-        print_r($result[$z]);
-        echo "<br>";
-      }
-     
-    }
+    else return $result;
 
     function getHousesFilteredSortByClassification($minPrice,$maxPrice,$city,$country,$name) {
   /**
@@ -35,14 +28,7 @@
       print("There are no houses with those parameters.");
       return -1;
     } 
-
-    else {
-      for($z = 0; $z < sizeof($result); $z++) {
-        print_r($result[$z]);
-        echo "<br>";
-      }
-     
-    }
+    else return $result;
 
 
     function getHousesFilteredSortByRecent($minPrice,$maxPrice,$city,$country,$name) {
@@ -57,14 +43,7 @@
       print("There are no houses with those parameters.");
       return -1;
     } 
-
-    else {
-      for($z = 0; $z < sizeof($result); $z++) {
-        print_r($result[$z]);
-        echo "<br>";
-      }
-     
-    }
+    else return $result;
 
     function getHousesFilteredSortByPrice($minPrice,$maxPrice,$city,$country,$name) {
   /**
@@ -78,14 +57,7 @@
       print("There are no houses with those parameters.");
       return -1;
     } 
-
-    else {
-      for($z = 0; $z < sizeof($result); $z++) {
-        print_r($result[$z]);
-        echo "<br>";
-      }
-     
-    }
+    else return $result;
 
     function isOwner($idHouse,$idUser) {
   /**

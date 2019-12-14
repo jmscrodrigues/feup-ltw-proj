@@ -196,3 +196,25 @@
   <div>
 </section>
 <?php } ?>
+
+<?php function draw_house_card($houseId) {
+  $dir=$_SERVER['DOCUMENT_ROOT'];
+  include_once("$dir/database/connection.php");
+  global $dbh;
+  $stmt = $dbh->prepare("SELECT * FROM PLACE WHERE idPlace = ?"); 
+  $stmt->execute(array($houseId));
+  $result = $stmt->fetchAll();
+  $stmt1 = $dbh->prepare("SELECT picturePath FROM PICTURES WHERE idPlace = ?"); 
+  $stmt1->execute(array($houseId));
+  $image = $stmt1->fetchColumn();  
+  ?>  
+  <div class="house-card">
+      <img id="houseimg<?=$houseId?>" src="<?=$image?>" alt="House Image" />
+      <div class="house-card-text">
+        <h2><?=$result[0]['name']?> </h2>
+        <h3><?=$result[0]['street']?></h3>
+        <h4><?=$result[0]['country']?></h4>
+      </div>
+      <a href="house_detail_page.php?idPlace=<?=$houseId?>" class='blue-filled-rounded-button house-card-button'><?=$result[0]['price']?>€</a>
+    </div>
+<?php } ?>

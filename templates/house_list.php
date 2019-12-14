@@ -1,7 +1,13 @@
-<?php function draw_house_list() { 
+<?php 
+  include_once('../database/connection.php');
+  include_once('../templates/house.php');
+
+
+  function draw_house_list() { 
 /**
  * Draws the signup section.
  */
+
 ?>
 <section class='houses-section-container houses-list-container'>
   <div class='house-article-header'>
@@ -40,28 +46,14 @@
   </section>
   <article class='house-article-container'>
   <?php 
-      $dbh = new PDO('sqlite:../database/database.db'); 
+      global $dbh;
       $stmt = $dbh->prepare('select * from PLACE ORDER BY classification DESC');
       $stmt->execute();
       $result = $stmt->fetchAll(); ?>
-  <?php for($i = 0; $i < count($result); $i++)  {?>
-    <?php
-          $houseId = $result[$i]['idPlace'];
-          $stmt1 = $dbh->prepare("SELECT picturePath FROM PICTURES WHERE idPlace = $houseId"); 
-          $stmt1->execute();
-          $image = $stmt1->fetchColumn();    
+  <?php for($i = 0; $i < count($result); $i++)  {
+      draw_house_card($result[$i]['idPlace']);
       ?>
-    <div class="house-card">
-      <img id="houseimg<?=$i?>" src="<?=$image?>" alt="House Image" />
-      <div class="house-card-text">
-        <h2><?=$result[$i]['name']?> <?=$houseId?></h2>
-        <h3><?=$result[$i]['street']?></h3>
-        <h4><?=$result[$i]['country']?></h4>
-      </div>
-      <a href="house_detail_page.php?idPlace=<?=$houseId?>" class='blue-filled-rounded-button house-card-button'><?=$result[$i]['price']?>€</a>
-    </div>
     <?php } ?>
-    <?php $dbh = null;?>
   </article>
 </section>
 <?php } ?>
