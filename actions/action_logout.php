@@ -1,8 +1,8 @@
 <?php
-    include_once('../includes/session.php');
-        
-    session_destroy();
-    session_start();
+include_once('../includes/session.php');
 
-    header('Location: ../');
+session_destroy();
+session_start();
+
+header('Location: ../');
 ?>
