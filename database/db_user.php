@@ -94,7 +94,7 @@ function getUserInfo($userId)
 
     $stmt = $dbh->prepare('select * from user where id = ?');
     $stmt->execute(array($userId));
-    $result = $stmt->fetchAll();
+    $result = $stmt->fetch();
     if ($result == false) {
         return 0;
     } else return $result;
@@ -124,4 +124,12 @@ function getReservations($userId)
     } else return $result;
 }
 
+function addPicture($userId,$path)
+{
+    global $dbh;
+
+    $stmt = $dbh->prepare('update USER set picture = ? where id=?');
+    $stmt->execute(array($path,$userId));
+
+}
 ?>
