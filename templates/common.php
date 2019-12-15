@@ -112,8 +112,13 @@
       <a href="/">
         <img class="logo-shadow" src="../assets/images/logo.png" alt="Hemkonfort Logo" />
       </a>
+
       <nav id="home-nav-bar">
-        <ul id="myTopnav" class="topnav">
+        <!-- just for the hamburguer menu in responsive layout -->
+        <input type="checkbox" id="hamburger"> 
+        <label class="hamburger" for="hamburger"></label>
+        
+        <ul>
           <li><a href="about_us.php">About Us</a></li>
           <li><a href="../#top-houses">Top Houses</a></li>
           <li><a href="../#popular-houses">Popular Houses</a></li>
@@ -125,9 +130,6 @@
             <li>Welcome, <a class="header-username" href="user_area_form.php"><?=$username?></a> </li>
             <li><a class="header-username"href="actions/logout.php">Logout</a></li>
           <?php endif; ?>
-          <li><a href="javascript:void(0);" class="icon" onclick="hamburguerMenu()">
-            <i class="fa fa-bars"></i>
-          </a></li>
         </ul>
       </nav>
     </header>
