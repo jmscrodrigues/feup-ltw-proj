@@ -17,7 +17,7 @@
     <aside>
       <section class="profile-card">
         <div class="profile-card-photo rounded-photo-container">
-          <img src="../design/mockups/stock-images/stock-profile-photo.jpg" alt="Hemkonfort Logo" />
+          <img src="../<?=$result[0]['picture']?>" alt="Hemkonfort Logo" />
         </div>
         <h3><?= $result[0]['name'] ?></h3>
       </section>
@@ -39,7 +39,10 @@
       </form>
       <form class="profile-area-form" action="../actions/action_edit_contacts.php" method="POST">
         <input class="input-form" type="email" name="email" required="required" placeholder="<?= $result[0]['email'] ?>"> 
-        <input class="input-form" type="tel" pattern="[0-9]{9}" name="phonenumber" placeholder="<?= $result[0]['phonenumber'] ?>"> 
+        <?php if ($result[0]['phonenumber']==NULL) 
+                $phonePlaceholder="Phone Number";
+              else $phonePlaceholder= $result[0]['phonenumber'];?>
+        <input class="input-form" type="tel" pattern="[0-9]{9}" name="phonenumber" placeholder="<?=$phonePlaceholder?>"> 
         <input class="profile-area-submit-button blue-filled-rounded-button" type="submit" value="Update Contacts">
       </form>
       <form class="profile-area-form" action="../actions/action_edit_password.php" method="POST">
@@ -72,7 +75,7 @@
 	  <aside>
 		<section class="profile-card">
 		  <div class="profile-card-photo rounded-photo-container">
-			  <img src="../design/mockups/stock-images/stock-profile-photo.jpg" alt="Hemkonfort Logo" />
+			  <img src="../<?=$result[0]['picture']?>" alt="Hemkonfort Logo" />
 		  </div>
 		  <h3><?= $result[0]['name'] ?></h3>
 		</section>
@@ -140,7 +143,7 @@
     <aside>
       <section class="profile-card">
         <div class="profile-card-photo rounded-photo-container">
-          <img src="../design/mockups/stock-images/stock-profile-photo.jpg" alt="Hemkonfort Logo" />
+          <img src="../<?=$result[0]['picture']?>" alt="Hemkonfort Logo" />
         </div>
         <h3><?= $result[0]['name'] ?></h3>
       </section>
@@ -188,7 +191,7 @@
     <aside>
       <section class="profile-card">
         <div class="profile-card-photo rounded-photo-container">
-          <img src="../design/mockups/stock-images/stock-profile-photo.jpg" alt="Hemkonfort Logo" />
+          <img src="../<?=$result[0]['picture']?>" alt="Hemkonfort Logo" />
         </div>
         <h3><?= $result[0]['name'] ?></h3>
       </section>

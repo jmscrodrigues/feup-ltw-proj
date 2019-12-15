@@ -18,7 +18,7 @@ PRAGMA foreign_keys=ON;
 
 create table USER(
     id INTEGER PRIMARY KEY,
-    picture TEXT default 'pathtodefault',
+    picture TEXT default '/assets/images/empty_user.jpg' NOT NULL,
 	username TEXT UNIQUE,
     name TEXT NOT NULL,
 	email TEXT NOT NULL UNIQUE,
@@ -59,7 +59,8 @@ create table REVIEW(
     idReservation INTEGER NOT NULL REFERENCES RESERVATION ON DELETE CASCADE ON UPDATE CASCADE PRIMARY KEY,
     classification INTEGER NOT NULL,
     comment TEXT,
-    reply TEXT);
+    reply TEXT,
+    CONSTRAINT CHK_REVIEW CHECK (classification between 1 AND 5));
 
 CREATE TRIGGER IF NOT EXISTS CheckReviewDate 
 BEFORE INSERT ON REVIEW

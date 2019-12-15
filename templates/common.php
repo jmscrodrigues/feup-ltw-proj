@@ -145,7 +145,7 @@ function draw_header_main($username) {
  <section class='houses-section-container'>
   <!-- TOP HOUSES -->
   <div class='house-article-header'>
-    <h2 id="top-houses"><strong>Top</strong> Houses<?=$_SERVER["DOCUMENT_ROOT"]?></h2>
+    <h2 id="top-houses"><strong>Top</strong> Houses</h2>
     <a class="black-rounded-button" href="pages/list_houses.php">View All</a>
   </div>
   <article class='house-article-container'>
