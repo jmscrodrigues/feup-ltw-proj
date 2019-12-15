@@ -17,7 +17,7 @@
     
     move_uploaded_file($_FILES['image']['tmp_name'], "../assets/images/house_picture_$idPic.jpg");
 
-    //header('Location: ../pages/user_area_houses.php');
+    header('Location: ../pages/user_area_houses.php');
 
 
 ?>

@@ -149,4 +149,9 @@ function addHouse($userId, $houseName, $country, $price, $city, $description, $s
     return $idPic;
 }
 
+
+function makeReservation() {
+    
+}
+
 ?>
