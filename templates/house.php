@@ -19,13 +19,13 @@
         <!-- OWNER CARD -->
         <div class="profile-card">
             <div class="profile-card-photo rounded-photo-container">
-                <img src="<?= $userInfo[0]['picture'] ?>" alt="User Image"/>
+                <img src="<?= $userInfo['picture'] ?>" alt="User Image"/>
             </div>
             
-            <h3><?= $userInfo[0]['name'] ?></h3>
+            <h3><?= $userInfo['name'] ?></h3>
             <div class="profile-card-contacts">
-                <h4><?= $userInfo[0]['phonenumber'] ?></h4>
-                <h4><?= $userInfo[0]['email'] ?></h4>
+                <h4><?= $userInfo['phonenumber'] ?></h4>
+                <h4><?= $userInfo['email'] ?></h4>
                 <a class="black-rounded-button" href="#">Message</a>
             </div>
         </div>

@@ -21,9 +21,9 @@ include_once("$dir/templates/house.php");
             <aside>
                 <section class="profile-card">
                     <div class="profile-card-photo rounded-photo-container">
-                        <img src="..<?= $result[0]['picture'] ?>" alt="User Image"/>
+                        <img src="..<?= $result['picture'] ?>" alt="Profile Picture"/>
                     </div>
-                    <h3><?= $result[0]['name'] ?></h3>
+                    <h3><?= $result['name'] ?></h3>
                 </section>
                 <nav class="profile-nav-bar">
                     <ul>
@@ -39,18 +39,18 @@ include_once("$dir/templates/house.php");
             <div>
                 <form class="profile-area-form" action="../actions/action_edit_username.php" method="POST">
                     <input class="input-form" type="text" name="username" required="required"
-                           placeholder="<?= $result[0]['username'] ?>">
+                           placeholder="<?= $result['username'] ?>">
                     <input class="input-form" type="text" name="name" required="required"
-                           placeholder="<?= $result[0]['name'] ?>">
+                           placeholder="<?= $result['name'] ?>">
                     <input class="profile-area-submit-button blue-filled-rounded-button" type="submit"
                            value="Update Name">
                 </form>
                 <form class="profile-area-form" action="../actions/action_edit_contacts.php" method="POST">
                     <input class="input-form" type="email" name="email" required="required"
-                           placeholder="<?= $result[0]['email'] ?>">
-                    <?php if ($result[0]['phonenumber'] == NULL)
+                           placeholder="<?= $result['email'] ?>">
+                    <?php if ($result['phonenumber'] == NULL)
                         $phonePlaceholder = "Phone Number";
-                    else $phonePlaceholder = $result[0]['phonenumber']; ?>
+                    else $phonePlaceholder = $result['phonenumber']; ?>
                     <input class="input-form" type="tel" pattern="[0-9]{9}" name="phonenumber"
                            placeholder="<?= $phonePlaceholder ?>">
                     <input class="profile-area-submit-button blue-filled-rounded-button" type="submit"
@@ -66,7 +66,7 @@ include_once("$dir/templates/house.php");
                     <input class="profile-area-submit-button-2 blue-filled-rounded-button" type="submit"
                            value="Update Password">
                 </form>
-                <form class="profile-area-form" action="../actions/action_edit_image.php" method="POST">
+                <form class="profile-area-form" action="../actions/action_edit_image.php" method="POST" enctype="multipart/form-data">
                     <input class="input-form" type="file" name="image" required="required" placeholder="Image">
                     <input class="profile-area-submit-button-2 blue-filled-rounded-button" type="submit"
                            value="Submit Profile Picture">
@@ -92,9 +92,9 @@ include_once("$dir/templates/house.php");
             <aside>
                 <section class="profile-card">
                     <div class="profile-card-photo rounded-photo-container">
-                        <img src="..<?= $result[0]['picture'] ?>" alt="Hemkonfort Logo"/>
+                        <img src="..<?= $result['picture'] ?>" alt="Profile Picture"/>
                     </div>
-                    <h3><?= $result[0]['name'] ?></h3>
+                    <h3><?= $result['name'] ?></h3>
                 </section>
                 <nav class="profile-nav-bar">
                     <ul>
@@ -167,9 +167,9 @@ include_once("$dir/templates/house.php");
             <aside>
                 <section class="profile-card">
                     <div class="profile-card-photo rounded-photo-container">
-                        <img src="..<?= $result[0]['picture'] ?>" alt="Hemkonfort Logo"/>
+                        <img src="..<?= $result['picture'] ?>" alt="Profile Picture"/>
                     </div>
-                    <h3><?= $result[0]['name'] ?></h3>
+                    <h3><?= $result['name'] ?></h3>
                 </section>
                 <nav class="profile-nav-bar">
                     <ul>
@@ -226,9 +226,9 @@ include_once("$dir/templates/house.php");
             <aside>
                 <section class="profile-card">
                     <div class="profile-card-photo rounded-photo-container">
-                        <img src="..<?= $result[0]['picture'] ?>" alt="Hemkonfort Logo"/>
+                        <img src="..<?= $result['picture'] ?>" alt="Profile Picture"/>
                     </div>
-                    <h3><?= $result[0]['name'] ?></h3>
+                    <h3><?= $result['name'] ?></h3>
                 </section>
                 <nav class="profile-nav-bar">
                     <ul>
