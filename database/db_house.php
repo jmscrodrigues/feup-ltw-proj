@@ -1,6 +1,7 @@
 <?php
 
-  include_once('../database/connection.php');
+  $dir=$_SERVER['DOCUMENT_ROOT'];
+  include_once("$dir/database/connection.php");
     
   function getHousesFilteredSortByPopularity($minPrice,$maxPrice,$city,$country,$name) {
   /**
@@ -14,7 +15,7 @@
       print("There are no houses with those parameters.");
       return -1;
     } 
-    else return $result;
+    else return $result;}
 
     function getHousesFilteredSortByClassification($minPrice,$maxPrice,$city,$country,$name) {
   /**
@@ -28,7 +29,7 @@
       print("There are no houses with those parameters.");
       return -1;
     } 
-    else return $result;
+    else return $result;}
 
 
     function getHousesFilteredSortByRecent($minPrice,$maxPrice,$city,$country,$name) {
@@ -43,7 +44,7 @@
       print("There are no houses with those parameters.");
       return -1;
     } 
-    else return $result;
+    else return $result;}
 
     function getHousesFilteredSortByPrice($minPrice,$maxPrice,$city,$country,$name) {
   /**
@@ -57,7 +58,7 @@
       print("There are no houses with those parameters.");
       return -1;
     } 
-    else return $result;
+    else return $result;}
 
     function isOwner($idHouse,$idUser) {
   /**
@@ -69,6 +70,22 @@
     $result = $stmt->fetchAll();
     return $result != false;
     }
-  }
 
-    
+    function getHouse($idHouse) {
+
+    global $dbh;
+    $stmt = $dbh->prepare('select * from PLACE WHERE idPlace = ?;'); 
+    $stmt->execute(array($idHouse));
+    $result = $stmt->fetch();
+    return $result;
+    }
+
+    function getPicture($idHouse){
+    global $dbh;
+    $stmt = $dbh->prepare("SELECT picturePath FROM PICTURES WHERE idPlace = ?"); 
+    $stmt->execute(array($idHouse));
+    $image = $stmt->fetchColumn();  
+    return $image;
+    }
+
+?>

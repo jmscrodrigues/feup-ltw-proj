@@ -200,21 +200,18 @@
 <?php function draw_house_card($houseId) {
   $dir=$_SERVER['DOCUMENT_ROOT'];
   include_once("$dir/database/connection.php");
+  include_once("$dir/database/db_house.php");
   global $dbh;
-  $stmt = $dbh->prepare("SELECT * FROM PLACE WHERE idPlace = ?"); 
-  $stmt->execute(array($houseId));
-  $result = $stmt->fetchAll();
-  $stmt1 = $dbh->prepare("SELECT picturePath FROM PICTURES WHERE idPlace = ?"); 
-  $stmt1->execute(array($houseId));
-  $image = $stmt1->fetchColumn();  
+  $result = getHouse($houseId);
+  $image = getPicture($houseId);
   ?>  
   <div class="house-card">
       <img id="houseimg<?=$houseId?>" src="<?=$image?>" alt="House Image" />
       <div class="house-card-text">
-        <h2><?=$result[0]['name']?> </h2>
-        <h3><?=$result[0]['street']?></h3>
-        <h4><?=$result[0]['country']?></h4>
+        <h2><?=$result['name']?> </h2>
+        <h3><?=$result['street']?></h3>
+        <h4><?=$result['country']?></h4>
       </div>
-      <a href="house_detail_page.php?idPlace=<?=$houseId?>" class='blue-filled-rounded-button house-card-button'><?=$result[0]['price']?>€</a>
+      <a href="house_detail_page.php?idPlace=<?=$houseId?>" class='blue-filled-rounded-button house-card-button'><?=$result['price']?>€</a>
     </div>
 <?php } ?>

@@ -102,5 +102,29 @@
             }
             else return $result;
         }
+
+        function getUserHouses($userId) {
+            global $dbh;
+
+            $stmt = $dbh->prepare('select * from place where idUser = ?'); 
+            $stmt->execute(array($userId));
+            $result = $stmt->fetchAll();
+            if($result == false) {
+                return 0;
+            }
+            else return $result;
+        }
+
+        function getReservations($userId) {
+            global $dbh;
+
+            $stmt = $dbh->prepare('select * from reservation where reservation.idTourist = ?'); 
+            $stmt->execute(array($userId));
+            $result = $stmt->fetchAll();
+            if($result == false) {
+                return 0;
+            }
+            else return $result;
+        }
     
 ?>

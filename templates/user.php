@@ -1,5 +1,8 @@
 <?php
-  include_once('../database/db_user.php');
+  $dir=$_SERVER['DOCUMENT_ROOT'];
+  include_once("$dir/database/db_user.php");
+  include_once("$dir/database/db_house.php");
+  include_once("$dir/templates/house.php");
 ?>
 
 <?php function draw_user_form($userId) {
@@ -17,7 +20,7 @@
     <aside>
       <section class="profile-card">
         <div class="profile-card-photo rounded-photo-container">
-          <img src="../<?=$result[0]['picture']?>" alt="Hemkonfort Logo" />
+          <img src="..<?=$result[0]['picture']?>" alt="Hemkonfort Logo" />
         </div>
         <h3><?= $result[0]['name'] ?></h3>
       </section>
@@ -53,7 +56,7 @@
       </form>
       <form class="profile-area-form" action="../actions/action_edit_image.php" method="POST">
         <input class="input-form" type="file" name="image" required="required" placeholder="Image"> 
-        <input class="profile-area-submit-button-2 blue-filled-rounded-button" type="submit" value="Submit Image">
+        <input class="profile-area-submit-button-2 blue-filled-rounded-button" type="submit" value="Submit Profile Picture">
       </form>
     </div>
   <div>
@@ -75,7 +78,7 @@
 	  <aside>
 		<section class="profile-card">
 		  <div class="profile-card-photo rounded-photo-container">
-			  <img src="../<?=$result[0]['picture']?>" alt="Hemkonfort Logo" />
+			  <img src="..<?=$result[0]['picture']?>" alt="Hemkonfort Logo" />
 		  </div>
 		  <h3><?= $result[0]['name'] ?></h3>
 		</section>
@@ -103,7 +106,7 @@
             <input class="input-form" type="text" name="city" required="required" placeholder="City">
             <textarea id="house-description" class="input-form" name="description" required="required" row="3" placeholder="Description"></textarea>
             <input class="input-form" type="text" name="street" required="required" placeholder="Street"> 
-            <input class="input-form" type="number" name="number" required="required" placeholder="Number">
+            <input class="input-form" type="number" name="number" required="required" placeholder="Door Number">
             <input class="input-form" type="file" name="image" required="required" placeholder="Image">
             <input class="profile-area-submit-button-2 blue-filled-rounded-button" type="submit" value="Add House">
           </form>
@@ -111,17 +114,14 @@
       </div>
       <!-- Houses list -->
       <article class='house-article-container'>
-        <?php for($i = 0; $i < 5; $i++)  {?>
-        <div class="house-card">
-          <img src="../design/mockups/stock-images/stock-house.jpg" alt="House image" />
-          <div class="house-card-text">
-            <h2>Banana</h2>
-            <h3>RUA DA BANANA</h3>
-            <h4>BANANA COUNTRY</h4>
-          </div>
-          <a href="#" class='blue-filled-rounded-button house-card-button'>2€</a>
-        </div>
-        <?php } ?>
+        <?php 
+        $houses=getUserHouses($userId);
+        if ($houses==0){?>
+        <h4> You don't have houses. </h4>
+        <?php } else
+        for($i = 0; $i < count($houses); $i++)  {
+          draw_house_card($houses[$i]['idPlace']);
+          } ?>
       </article>
     </div>
   </div>
@@ -143,7 +143,7 @@
     <aside>
       <section class="profile-card">
         <div class="profile-card-photo rounded-photo-container">
-          <img src="../<?=$result[0]['picture']?>" alt="Hemkonfort Logo" />
+          <img src="..<?=$result[0]['picture']?>" alt="Hemkonfort Logo" />
         </div>
         <h3><?= $result[0]['name'] ?></h3>
       </section>
@@ -158,16 +158,23 @@
     </aside>
     <!-- USER AREA RENTS -->
     <div id="user-area-rents">
-      <?php for($i = 0; $i < 6; $i++)  {?>
+      <?php 
+      $reservations=getReservations($userId);
+      for($i = 0; $i < count($reservations); $i++)  {
+        $house=getHouse($reservations[$i]['idPlace']);
+        $image=getPicture($reservations[$i]['idPlace']);
+        $beginDate=new DateTime($reservations[$i]['beginDate']);
+        $endDate=new DateTime($reservations[$i]['endDate']);
+        ?>
       <div class="rent-card">
         <div class="rent-card-photo rounded-photo-container">
-          <img src="../design/mockups/stock-images/stock-house.jpg" alt="House image" />
+          <img src="<?=$image?>" alt="House image" />
         </div>
-          <h4><strong>House Name</strong></h4>
-          <p><strong>From:</strong> Data de inicio</p>
-          <p>30€ per day</p>
-          <p><strong>To:</strong> Data de fim</p>
-          <p class="rent-card-total"><strong>Total:</strong> 90€</p>
+          <h4><strong><?=$house['name']?></strong></h4>
+          <p><strong>From:</strong> <?=$reservations[$i]['beginDate']?></p>
+          <p><?=$house['price']?>€ per day</p>
+          <p><strong>To:</strong> <?=$reservations[$i]['endDate']?></p>
+          <p class="rent-card-total"><strong>Total:</strong><?=$endDate->diff($beginDate)->format("%d")*$house['price']?>€</p>
       </div>
       <?php } ?>
     </div>
@@ -191,7 +198,7 @@
     <aside>
       <section class="profile-card">
         <div class="profile-card-photo rounded-photo-container">
-          <img src="../<?=$result[0]['picture']?>" alt="Hemkonfort Logo" />
+          <img src="..<?=$result[0]['picture']?>" alt="Hemkonfort Logo" />
         </div>
         <h3><?= $result[0]['name'] ?></h3>
       </section>
