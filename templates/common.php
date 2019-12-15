@@ -128,7 +128,7 @@ function draw_header_main($username) {
                 <li><a href="sign_up.php">Sign Up</a></li>
             <?php else : ?>
                 <li>Welcome, <a class="header-username" href="user_area_form.php"><?= $username ?></a></li>
-                <li><a class="header-username" href="actions/action_logout.php">Logout</a></li>
+                <li><a class="header-username" href="../actions/action_logout.php">Logout</a></li>
             <?php endif; ?>
         </ul>
     </nav>

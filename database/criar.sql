@@ -19,7 +19,7 @@ PRAGMA foreign_keys=ON;
 create table USER(
     id INTEGER PRIMARY KEY,
     picture TEXT default '/assets/images/empty_user.jpg' NOT NULL,
-	username TEXT UNIQUE,
+	username TEXT NOT NULL UNIQUE,
     name TEXT NOT NULL,
 	email TEXT NOT NULL UNIQUE,
     phonenumber INTEGER UNIQUE,

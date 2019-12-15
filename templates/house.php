@@ -209,9 +209,8 @@
 <?php function draw_house_card($houseId)
 {
     $dir = $_SERVER['DOCUMENT_ROOT'];
-    include_once("$dir/database/connection.php");
     include_once("$dir/database/db_house.php");
-    global $dbh;
+
     $result = getHouse($houseId);
     $image = getPicture($houseId);
     ?>
@@ -222,7 +221,7 @@
             <h3><?= $result['street'] ?></h3>
             <h4><?= $result['country'] ?></h4>
         </div>
-        <a href="<?= $dir ?>/pages/house_detail_page.php?idPlace=<?= $houseId ?>"
+        <a href="../pages/house_detail_page.php?idPlace=<?= $houseId ?>"
            class='blue-filled-rounded-button house-card-button'><?= $result['price'] ?>€</a>
     </div>
 <?php } ?>
