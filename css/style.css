@@ -132,8 +132,22 @@ textarea {
 /**
  * Nav-bar
  */
-@media (max-width: 60em) {
+@media screen and (max-width: 60em) {
+    #alternative-header, #main-header {
+        align-items: flex-start;
+        justify-content: space-around;
+    }
+
+    #signup-button {
+        border: 0px !important;
+    }
+
+    #logo-section {
+        flex-wrap: wrap;
+    }
+
     #home-nav-bar .hamburger {
+        text-align: right;
         display: block;
         color: white;
         padding: 1em;
@@ -219,7 +233,7 @@ textarea {
 
 #logo-subtitle-container > p {
     font-size: 2em;
-    text-shadow: 2px 2px 6px #000000;
+    text-shadow: 2px 2px 6px black;
     padding: 4em 1em 4em 1em;
     color: white;
     margin: 0;
@@ -232,6 +246,7 @@ textarea {
 #logo-section {
     display: flex;
     padding: 1em;
+    justify-content: center;
 }
 
 #logo-title-container {
@@ -317,7 +332,7 @@ footer {
 
 .house-article-header > h2 {
     font-weight: normal;
-    margin: 1em 0em;
+    margin: 1em;
 }
 
 
@@ -782,6 +797,18 @@ section.range-slider input[type=range]::-moz-focus-outer {
 /*************************************************/
 /****************** House-Rent *******************/
 /*************************************************/
+@media screen and (max-width: 60em) {
+    #house-rent-container {
+        grid-template-columns: [start] 50% [line1] 50% [end] !important;
+        grid-row-gap: 2em;
+    }
+    
+    .house-detail-card {
+        grid-column: start/end;
+        grid-row: start/1;
+    }
+}
+
 #house-rent-container {
     align-items: start;
     justify-content: center;
@@ -789,7 +816,6 @@ section.range-slider input[type=range]::-moz-focus-outer {
     display: grid;
     margin: 1em auto;
     max-width: 80em;
-    min-width: 50em;
     width: 100%;
     grid-template-columns: [start] 20% [line1] 60% [line3] 20% [end];
 }

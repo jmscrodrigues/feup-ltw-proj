@@ -41,6 +41,10 @@
 
   <header id="main-header">
     <nav id="home-nav-bar">
+      <!-- just for the hamburguer menu in responsive layout -->
+      <input type="checkbox" id="hamburger"> 
+      <label class="hamburger" for="hamburger"></label>
+      
       <ul>
         <li><a href="pages/about_us.php">About Us</a></li>
         <li><a href="#top-houses">Top Houses</a></li>
@@ -117,7 +121,7 @@
         <!-- just for the hamburguer menu in responsive layout -->
         <input type="checkbox" id="hamburger"> 
         <label class="hamburger" for="hamburger"></label>
-        
+
         <ul>
           <li><a href="about_us.php">About Us</a></li>
           <li><a href="../#top-houses">Top Houses</a></li>
