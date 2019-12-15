@@ -132,12 +132,69 @@ textarea {
 /**
  * Nav-bar
  */
-#home-nav-bar {
-    padding: 0em;
+@media screen and (max-width: 60em) {
+    #alternative-header, #main-header {
+        align-items: flex-start;
+        justify-content: space-around;
+    }
+
+    #signup-button {
+        border: 0px !important;
+    }
+
+    #logo-section {
+        flex-wrap: wrap;
+    }
+
+    #home-nav-bar .hamburger {
+        text-align: right;
+        display: block;
+        color: white;
+        padding: 1em;
+    }
+  
+    #home-nav-bar .hamburger:before {
+        content:'\2630';
+    }
+  
+    #home-nav-bar ul {
+        flex-direction: column;
+        margin: 0;
+        padding: 0;
+    }
+
+    #home-nav-bar ul li a{
+        margin: 0;
+        padding: 0;
+    }
+  
+    #hamburger:checked + .hamburger + ul li{
+        max-height: 3em;
+        padding: 1em !important;
+        opacity: 1;
+    }
+  
+    #hamburger:checked + .hamburger:before {
+        content:'\2715';
+    }
+  
+    #home-nav-bar li {
+        max-height: 0;
+        padding: 0em 1em !important;
+        margin: 0em !important;
+        text-align: right;
+        opacity: 0;
+        transition: all .3s ease-in-out;
+    }
 }
 
-.hamburguer-nav {
+#hamburger {
     display: none;
+}
+
+
+#home-nav-bar {
+    padding: 0em;
 }
 
 #home-nav-bar ul {
@@ -149,6 +206,7 @@ textarea {
 }
 
 #home-nav-bar ul li {
+    display: block;
     font-weight: 700;
     padding: 1em 1em;
     margin: 1em;
@@ -175,7 +233,7 @@ textarea {
 
 #logo-subtitle-container > p {
     font-size: 2em;
-    text-shadow: 2px 2px 6px #000000;
+    text-shadow: 2px 2px 6px black;
     padding: 4em 1em 4em 1em;
     color: white;
     margin: 0;
@@ -188,6 +246,7 @@ textarea {
 #logo-section {
     display: flex;
     padding: 1em;
+    justify-content: center;
 }
 
 #logo-title-container {
@@ -273,7 +332,7 @@ footer {
 
 .house-article-header > h2 {
     font-weight: normal;
-    margin: 1em 0em;
+    margin: 1em;
 }
 
 
@@ -289,9 +348,15 @@ footer {
     align-items: start;
     margin: 1em auto;
     max-width: 70em;
-    min-width: 50em;
     width: 100%;
     grid-template-columns: [start] 30% [line1] 70% [end];
+}
+
+@media screen and (max-width: 60em) {
+    .houses-list-container {
+        grid-template-columns: [start] auto [end];
+        row-gap: 2em;
+    }
 }
 
 .houses-list-container > .house-article-header {
@@ -301,6 +366,8 @@ footer {
 #house-list-search-bar {
     justify-self: center;
     text-align: center;
+    min-width: 16em;
+    max-width: 20em;
     width: 90%;
     background: var(--grey-color);
     border-radius: 2em;
@@ -678,6 +745,7 @@ section.range-slider input[type=range]::-moz-focus-outer {
 
 /* Messaging */
 #user-area-messages {
+    display: grid;
     grid-template-columns: [start] auto [line1] auto [end];
 }
 
@@ -737,6 +805,18 @@ section.range-slider input[type=range]::-moz-focus-outer {
 /*************************************************/
 /****************** House-Rent *******************/
 /*************************************************/
+@media screen and (max-width: 60em) {
+    #house-rent-container {
+        grid-template-columns: [start] 50% [line1] 50% [end] !important;
+        grid-row-gap: 2em;
+    }
+    
+    .house-detail-card {
+        grid-column: start/end;
+        grid-row: start/1;
+    }
+}
+
 #house-rent-container {
     align-items: start;
     justify-content: center;
@@ -744,7 +824,6 @@ section.range-slider input[type=range]::-moz-focus-outer {
     display: grid;
     margin: 1em auto;
     max-width: 80em;
-    min-width: 50em;
     width: 100%;
     grid-template-columns: [start] 20% [line1] 60% [line3] 20% [end];
 }

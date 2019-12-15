@@ -1,3 +1,12 @@
+function hamburguerMenu() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+        x.className += " responsive";
+    } else {
+        x.className = "topnav";
+    }
+}
+
 /**
  * Get values for price slider
  */
@@ -17,7 +26,7 @@ function getVals() {
     var displayElement = parent.getElementsByClassName("rangeValues")[0];
     displayElement.innerHTML = slide1 + " - " + slide2;
 }
-
+  
 window.onload = function () {
     // Initialize Sliders
     var sliderSections = document.getElementsByClassName("range-slider");
