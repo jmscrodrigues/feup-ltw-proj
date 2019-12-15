@@ -63,63 +63,23 @@ include_once("$dir/database/db_user.php");
 
         <p><?= $houseInfo['classification'] ?> average stars.</p>
 
-        <div class="row">
-          <div class="side">
-            <div>5 star</div>
+      </div>
+      <div class="house-review-container">
+        <?php
+          for ($t = 0; $t < 3; $t++) {
+            ?>
+          <div class="house-review">
+            <section class="profile-card">
+              <div class="house-review-photo rounded-photo-container">
+                <img src="../design/mockups/stock-images/stock-profile-photo.jpg" alt="House image" />
+              </div>
+              <h4><strong>John Doe</strong></h4>
+            </section>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
           </div>
-          <div class="middle">
-            <div class="bar-container">
-              <div class="bar-5"></div>
-            </div>
-          </div>
-          <div class="side right">
-            <div>150</div>
-          </div>
-          <div class="side">
-            <div>4 star</div>
-          </div>
-          <div class="middle">
-            <div class="bar-container">
-              <div class="bar-4"></div>
-            </div>
-          </div>
-          <div class="side right">
-            <div>63</div>
-          </div>
-          <div class="side">
-            <div>3 star</div>
-          </div>
-          <div class="middle">
-            <div class="bar-container">
-              <div class="bar-3"></div>
-            </div>
-          </div>
-          <div class="side right">
-            <div>15</div>
-          </div>
-          <div class="side">
-            <div>2 star</div>
-          </div>
-          <div class="middle">
-            <div class="bar-container">
-              <div class="bar-2"></div>
-            </div>
-          </div>
-          <div class="side right">
-            <div>6</div>
-          </div>
-          <div class="side">
-            <div>1 star</div>
-          </div>
-          <div class="middle">
-            <div class="bar-container">
-              <div class="bar-1"></div>
-            </div>
-          </div>
-          <div class="side right">
-            <div>20</div>
-          </div>
-        </div>
+        <?php } ?>
       </div>
     </div>
     <!-- RENT CARD -->
