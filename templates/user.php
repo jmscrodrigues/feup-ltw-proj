@@ -101,7 +101,7 @@ include_once("$dir/templates/house.php");
           <!-- Modal content -->
           <div class="modal-content">
             <span class="close">&times;</span>
-            <form class="modal-form profile-area-form" action="" method="POST">
+            <form class="modal-form profile-area-form" action="../actions/action_add_house.php" method="POST" enctype="multipart/form-data">
               <input class="input-form" type="text" name="name" required="required" placeholder="House name">
               <input class="input-form" type="text" name="country" required="required" placeholder="Country">
               <input class="input-form" type="number" name="price" required="required" placeholder="Price/night">
@@ -127,6 +127,20 @@ include_once("$dir/templates/house.php");
               } ?>
         </article>
       </div>
+    </div>
+    <!-- Houses list -->
+    <article class='house-article-container'>
+      <?php
+        $houses = getUserHouses($userId);
+        if ($houses == 0) {
+          ?>
+        <h4> You don't have houses. </h4>
+      <?php } else
+          for ($i = 0; $i < count($houses); $i++) {
+            draw_house_card($houses[$i]['idPlace']);
+          } ?>
+    </article>
+    </div>
     </div>
   </section>
 <?php } ?>
@@ -219,7 +233,7 @@ include_once("$dir/templates/house.php");
                     <input class="profile-area-submit-button blue-filled-rounded-button" type="submit" value="Add Review">
                   </form>
                 </div>
-        </div>
+              </div>
             </div>
           <?php } ?>
         </section>

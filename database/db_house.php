@@ -122,5 +122,66 @@ function getTopHouses() {
     return $result;
 }
 
+function addHouse($userId, $houseName, $country, $price, $city, $description, $street, $number) {
+    
+    global $dbh;
+
+    $stmt = $dbh->prepare('insert into PLACE(name,price,street,number,city,country,description,idUser) VALUES (?, ?, ?, ?, ?, ?, ?, ?)');
+    $stmt->execute(array($houseName, $price, $street, $number, $city, $country, $description, $userId));
+
+    $auxstmt = $dbh->prepare('select idPlace from place order by idPlace desc limit 1');
+    $auxstmt->execute();
+    $result = $auxstmt->fetchAll();
+
+    if($result == false) {
+        return -1;
+    }
+
+    $auximage = $dbh->prepare('select idPicture from pictures order by idPicture desc limit 1');
+    $auximage->execute();
+    $result1 = $auximage->fetchAll();
+
+    $idPic = $result1[0]['idPicture'] +1;
+
+    $stmt2 = $dbh->prepare('insert into pictures values (NULL, ?, ?, 1)');
+    $stmt2->execute(array("../assets/images/house_picture_$idPic.jpg", $result[0]['idPlace']));
+
+    return $idPic;
+}
+
+
+function makeReservation($initialDate, $endDate, $idPlace, $idUser) {
+    global $dbh;
+
+    $stmt = $dbh->prepare('select * from reservation where idPlace = ?');
+    $stmt->execute();
+    $result = $stmt->fetchAll();
+
+    if ($result == false) {
+        $stmt2 = $dbh->prepare('insert into reservation values (NULL, ?, ?, ?, ?)');
+        $stmt2->execute(array($idUser, $idPlace, $initialDate, $endDate));
+        return 0;
+    }
+
+    else {
+
+        for ($i = 0; $i < count($result); $i++) {
+            if ( ((date_create_from_format('Y-m-d', $result[$i]['beginDate']) > $initialDate) && (date_create_from_format('Y-m-d', $result[$i]['beginDate']) < $endDate)) ||  ( (date_create_from_format('Y-m-d',$result[$i]['endDate']) > $initialDate) && (date_create_from_format('Y-m-d', $result[$i]['endDate']) < $endDate) )) {
+                return -1;
+            }
+        }
+    
+        
+        $stmt3 = $dbh->prepare('insert into reservation values (NULL, ?, ?, ?, ?)');
+        $stmt3->execute(array($idUser, $idPlace, $initialDate, $endDate));
+        return 0; 
+
+
+    }
+
+    
+
+
+}
 
 ?>

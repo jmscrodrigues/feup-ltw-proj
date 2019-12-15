@@ -15,6 +15,7 @@ include_once("$dir/database/db_user.php");
     <?php
       $houseInfo = getHouse($houseId);
       $userInfo = getUserInfo($houseInfo['idUser']);
+      $image = getPicture($houseId);
       ?>
     <!-- OWNER CARD -->
     <div class="profile-card">
@@ -34,7 +35,7 @@ include_once("$dir/database/db_user.php");
       $houseInfo = getHouse($houseId);
       ?>
     <div class="house-detail-card">
-      <img src="../design/mockups/stock-images/stock-house.jpg" alt="House image" />
+      <img src="<?= $image ?>" alt="House image" />
       <div>
         <h3> <?= $houseInfo['name'] ?> </h3>
         <p> <?= $houseInfo['description'] ?> </p>
@@ -61,34 +62,35 @@ include_once("$dir/database/db_user.php");
           <span class="fa fa-star"></span>
         <?php } ?>
 
-        <p><?= $houseInfo['classification'] ?> average stars.</p>
+        <p><?= $houseInfo['classification'] ?> average stars</p>
+        <div class="house-review-container">
+          <?php
+            for ($t = 0; $t < 3; $t++) {
+              ?>
+            <div class="house-review">
+              <section class="profile-card">
+                <div class="house-review-photo rounded-photo-container">
+                  <img src="../design/mockups/stock-images/stock-profile-photo.jpg" alt="House image" />
+                </div>
+                <h4><strong>John Doe</strong></h4>
+              </section>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
+          <?php } ?>
+        </div>
 
-      </div>
-      <div class="house-review-container">
-        <?php
-          for ($t = 0; $t < 3; $t++) {
-            ?>
-          <div class="house-review">
-            <section class="profile-card">
-              <div class="house-review-photo rounded-photo-container">
-                <img src="../design/mockups/stock-images/stock-profile-photo.jpg" alt="House image" />
-              </div>
-              <h4><strong>John Doe</strong></h4>
-            </section>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-          </div>
-        <?php } ?>
       </div>
     </div>
     <!-- RENT CARD -->
     <div class="rent-house-card">
-      <form>
+      <form action="../actions/action_rent.php" method="POST">
         <label>Start Date</label>
-        <input class="input-form" type="date" name="name" required="required">
+        <input class="input-form" type="date" name="first-date" required="required">
         <label>End Date</label>
-        <input class="input-form" type="date" name="country" required="required">
+        <input class="input-form" type="date" name="last-date" required="required">
+        <input type='hidden' name='idplace' value='<?= $houseId ?>' />
         <input class="blue-filled-rounded-button" type="submit" value="Rent">
       </form>
   </section>
