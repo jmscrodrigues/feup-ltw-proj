@@ -46,7 +46,7 @@
       <label class="hamburger" for="hamburger"></label>
       
       <ul>
-        <li><a href="pages/about_us.php">About Us</a></li>
+        <li><a href="pages/list_houses.php">All Houses</a></li>
         <li><a href="#top-houses">Top Houses</a></li>
         <li><a href="#popular-houses">Popular Houses</a></li>
         <li><a href="#new-houses">New Houses</a></li>
@@ -123,7 +123,7 @@
         <label class="hamburger" for="hamburger"></label>
 
         <ul>
-          <li><a href="about_us.php">About Us</a></li>
+        <li><a href="list_houses.php">All Houses</a></li>
           <li><a href="../#top-houses">Top Houses</a></li>
           <li><a href="../#popular-houses">Popular Houses</a></li>
           <li><a href="../#new-houses">New Houses</a></li>
