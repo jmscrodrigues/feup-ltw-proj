@@ -150,8 +150,38 @@ function addHouse($userId, $houseName, $country, $price, $city, $description, $s
 }
 
 
-function makeReservation() {
+function makeReservation($initialDate, $endDate, $idPlace, $idUser) {
+    global $dbh;
+
+    $stmt = $dbh->prepare('select * from reservation where idPlace = ?');
+    $stmt->execute();
+    $result = $stmt->fetchAll();
+
+    if ($result == false) {
+        $stmt2 = $dbh->prepare('insert into reservation values (NULL, ?, ?, ?, ?)');
+        $stmt2->execute(array($idUser, $idPlace, $initialDate, $endDate));
+        return 0;
+    }
+
+    else {
+
+        for ($i = 0; $i < count($result); $i++) {
+            if ( ((date_create_from_format('Y-m-d', $result[$i]['beginDate']) > $initialDate) && (date_create_from_format('Y-m-d', $result[$i]['beginDate']) < $endDate)) ||  ( (date_create_from_format('Y-m-d',$result[$i]['endDate']) > $initialDate) && (date_create_from_format('Y-m-d', $result[$i]['endDate']) < $endDate) )) {
+                return -1;
+            }
+        }
     
+        
+        $stmt3 = $dbh->prepare('insert into reservation values (NULL, ?, ?, ?, ?)');
+        $stmt3->execute(array($idUser, $idPlace, $initialDate, $endDate));
+        return 0; 
+
+
+    }
+
+    
+
+
 }
 
 ?>
