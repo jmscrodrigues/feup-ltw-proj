@@ -328,10 +328,3 @@
   </body>
 </html>
 <?php } ?>
-
-<?php function draw_about_us() {
-/**
- * Draws error page
- */?>
-    <p>ABOUT US PAGE</p>
-<?php } ?>
