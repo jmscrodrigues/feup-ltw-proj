@@ -348,9 +348,15 @@ footer {
     align-items: start;
     margin: 1em auto;
     max-width: 70em;
-    min-width: 50em;
     width: 100%;
     grid-template-columns: [start] 30% [line1] 70% [end];
+}
+
+@media screen and (max-width: 60em) {
+    .houses-list-container {
+        grid-template-columns: [start] auto [end];
+        row-gap: 2em;
+    }
 }
 
 .houses-list-container > .house-article-header {
@@ -360,6 +366,8 @@ footer {
 #house-list-search-bar {
     justify-self: center;
     text-align: center;
+    min-width: 16em;
+    max-width: 20em;
     width: 90%;
     background: var(--grey-color);
     border-radius: 2em;
