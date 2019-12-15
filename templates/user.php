@@ -21,7 +21,7 @@ include_once("$dir/templates/house.php");
             <aside>
                 <section class="profile-card">
                     <div class="profile-card-photo rounded-photo-container">
-                        <img src="..<?= $result[0]['picture'] ?>" alt="Hemkonfort Logo"/>
+                        <img src="..<?= $result[0]['picture'] ?>" alt="User Image"/>
                     </div>
                     <h3><?= $result[0]['name'] ?></h3>
                 </section>

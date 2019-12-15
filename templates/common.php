@@ -2,6 +2,8 @@
 $dir = $_SERVER['DOCUMENT_ROOT'];
 include_once("$dir/database/connection.php");
 include_once("$dir/templates/house.php");
+include_once("$dir/database/db_house.php");
+
 
 function draw_header_main($username) {
 /**
@@ -151,13 +153,9 @@ function draw_main_body()
         </div>
         <article class='house-article-container'>
             <?php
-
-            global $dbh;
-            $stmt = $dbh->prepare('select * from PLACE ORDER BY classification DESC LIMIT 4');
-            $stmt->execute();
-            $result = $stmt->fetchAll();
+            $resultT = getTopHouses();
             for ($i = 0; $i < 4; $i++) {
-                draw_house_card($result[$i]['idPlace']);
+                draw_house_card($resultT[$i]['idPlace']);
             } ?>
         </article>
 
@@ -168,11 +166,10 @@ function draw_main_body()
         </div>
         <article class='house-article-container'>
             <?php
-            $stmt = $dbh->prepare('SELECT * FROM PLACE');
-            $stmt->execute();
-            $result = $stmt->fetchAll(); ?>
+            $resultP = getPopularHouses();
+            ?>
             <?php for ($i = 0; $i < 4; $i++) {
-                draw_house_card($result[$i]['idPlace']);
+                draw_house_card($resultP[$i]['idPlace']);
             } ?>
         </article>
 
@@ -183,12 +180,10 @@ function draw_main_body()
         </div>
         <article class='house-article-container'>
             <?php
-            $dbh = new PDO('sqlite:database/database.db');
-            $stmt = $dbh->prepare('select * from PLACE ORDER BY idPlace DESC LIMIT 4');
-            $stmt->execute();
-            $result = $stmt->fetchAll(); ?>
+                $resultN = getNewHouses();
+             ?>
             <?php for ($i = 0; $i < 4; $i++) {
-                draw_house_card($result[$i]['idPlace']);
+                draw_house_card($resultN[$i]['idPlace']);
             }
             ?>
         </article>

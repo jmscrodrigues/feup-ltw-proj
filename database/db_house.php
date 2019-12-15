@@ -95,4 +95,32 @@ function getPicture($idHouse)
     return $image;
 }
 
+function getPopularHouses() {
+    global $dbh;
+
+    $stmt = $dbh->prepare('SELECT * FROM PLACE');
+    $stmt->execute();
+    $result = $stmt->fetchAll();
+    return $result;
+}
+
+function getNewHouses() {
+    global $dbh;
+
+    $stmt = $dbh->prepare('select * from PLACE ORDER BY idPlace DESC LIMIT 4');
+    $stmt->execute();
+    $result = $stmt->fetchAll();
+    return $result;
+}
+
+function getTopHouses() {
+    global $dbh;
+
+    $stmt = $dbh->prepare('select * from PLACE ORDER BY classification DESC LIMIT 4');
+    $stmt->execute();
+    $result = $stmt->fetchAll();
+    return $result;
+}
+
+
 ?>

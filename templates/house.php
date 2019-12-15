@@ -1,3 +1,9 @@
+<?php 
+    $dir = $_SERVER['DOCUMENT_ROOT'];
+    include_once("$dir/database/db_house.php");
+    include_once("$dir/database/db_user.php");
+?>
+
 <?php function draw_house_rent_area($houseId)
 {
     /**
@@ -5,40 +11,57 @@
      */
     ?>
     <section id="house-rent-container">
+
+    <?php 
+        $houseInfo = getHouse($houseId);
+        $userInfo = getUserInfo($houseInfo['idUser']);
+    ?>
         <!-- OWNER CARD -->
         <div class="profile-card">
             <div class="profile-card-photo rounded-photo-container">
-                <img src="../design/mockups/stock-images/stock-profile-photo.jpg" alt="House Photo"/>
+                <img src="<?= $userInfo[0]['picture'] ?>" alt="User Image"/>
             </div>
-            <h3>John Doe</h3>
+            
+            <h3><?= $userInfo[0]['name'] ?></h3>
             <div class="profile-card-contacts">
-                <h4>(424) 827-0389</h4>
-                <h4>john.doe@whatever.com</h4>
+                <h4><?= $userInfo[0]['phonenumber'] ?></h4>
+                <h4><?= $userInfo[0]['email'] ?></h4>
                 <a class="black-rounded-button" href="#">Message</a>
             </div>
         </div>
         <!-- HOUSE DETAIL CARD -->
+        <?php 
+            $houseInfo = getHouse($houseId);
+        ?>
         <div class="house-detail-card">
             <img src="../design/mockups/stock-images/stock-house.jpg" alt="House image"/>
             <div>
-                <h3>Casa Banana -> <?= $houseId ?></h3>
-                <p>Banana house description yo</p>
+                <h3> <?= $houseInfo['name'] ?> </h3>
+                <p> <?= $houseInfo['description'] ?> </p>
             </div>
             <div>
                 <h3>Location</h3>
-                <p><strong>Country: </strong>Banana Country</p>
-                <p><strong>City: </strong>Banana city</p>
-                <p><strong>Street: </strong>Banana Street</p>
-                <p><strong>Number: </strong>73</p>
+                <p><strong>Country: </strong><?= $houseInfo['country'] ?></p>
+                <p><strong>City: </strong><?= $houseInfo['city'] ?></p>
+                <p><strong>Street: </strong><?= $houseInfo['street'] ?></p>
+                <p><strong>Number: </strong><?= $houseInfo['number'] ?></p>
             </div>
             <div class="house-rating-container">
                 <h3>User Rating</h3>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star"></span>
-                <p>4.1 average based on 254 reviews.</p>
+
+                <?php 
+                for ($t = 0; $t < round($houseInfo['classification'],0); $t++) {
+                    ?>
+                    <span class="fa fa-star checked"></span>
+                <?php }?>
+                
+                <?php 
+                for ($t = 5 - round($houseInfo['classification'],0); $t > 0; $t++) {
+                    ?>
+                    <span class="fa fa-star"></span>
+                <?php }?>
+                
+                <p><?= $houseInfo['classification'] ?> average stars.</p>
 
                 <div class="row">
                     <div class="side">
