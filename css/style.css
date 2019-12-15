@@ -54,12 +54,13 @@ textarea {
 .rounded-photo-container {
     overflow: hidden;
     border-radius: 50%;
+    display: flex;
+    justify-content: center;
 }
 
 .rounded-photo-container > img {
     width: auto;
     height: 100%;
-    margin-left: -33%;
 }
 
 .black-rounded-button {
