@@ -48,19 +48,23 @@ function draw_header_main($username) {
 
 <header id="main-header">
     <nav id="home-nav-bar">
-        <ul>
-            <li><a href="pages/about_us.php">About Us</a></li>
-            <li><a href="#top-houses">Top Houses</a></li>
-            <li><a href="#popular-houses">Popular Houses</a></li>
-            <li><a href="#new-houses">New Houses</a></li>
-            <?php if ($username == NULL) : ?>
-                <li><a href="pages/sign_in.php">Sign In</a></li>
-                <li id="signup-button"><a href="pages/sign_up.php">Sign Up</a></li>
-            <?php else : ?>
-                <li>Welcome, <a class="header-username" href="pages/user_area_form.php"><?= $username ?></a></li>
-                <li><a href="actions/action_logout.php">Logout</a></li>
-            <?php endif; ?>
-        </ul>
+      <!-- just for the hamburguer menu in responsive layout -->
+      <input type="checkbox" id="hamburger"> 
+      <label class="hamburger" for="hamburger"></label>
+      
+      <ul>
+        <li><a href="pages/list_houses.php">All Houses</a></li>
+        <li><a href="#top-houses">Top Houses</a></li>
+        <li><a href="#popular-houses">Popular Houses</a></li>
+        <li><a href="#new-houses">New Houses</a></li>
+        <?php if ($username == NULL) : ?>
+          <li> <a href="pages/sign_in.php">Sign In</a> </li>
+          <li id="signup-button"> <a href="pages/sign_up.php">Sign Up</a></li>
+        <?php else : ?>
+          <li>Welcome, <a class="header-username"href="pages/user_area_form.php"><?=$username?></a> </li>
+          <li><a href="actions/action_logout.php">Logout</a></li>
+        <?php endif; ?>
+      </ul>
     </nav>
     <div id="logo-section">
         <div id="logo-title-container">
@@ -113,25 +117,30 @@ function draw_header_main($username) {
     <!-- ****** faviconit.com favicons ****** -->
     <title>Hemkonfort</title>
     <meta charset="UTF-8">
-</head>
-<body>
-<header id="alternative-header">
-    <a href="/">
-        <img class="logo-shadow" src="../assets/images/logo.png" alt="Hemkonfort Logo"/>
-    </a>
-    <nav id="home-nav-bar">
+  </head>
+  <body>  
+    <header id="alternative-header">
+      <a href="/">
+        <img class="logo-shadow" src="../assets/images/logo.png" alt="Hemkonfort Logo" />
+      </a>
+
+      <nav id="home-nav-bar">
+        <!-- just for the hamburguer menu in responsive layout -->
+        <input type="checkbox" id="hamburger"> 
+        <label class="hamburger" for="hamburger"></label>
+
         <ul>
-            <li><a href="about_us.php">About Us</a></li>
-            <li><a href="../#top-houses">Top Houses</a></li>
-            <li><a href="../#popular-houses">Popular Houses</a></li>
-            <li><a href="../#new-houses">New Houses</a></li>
-            <?php if ($username == null) : ?>
-                <li><a href="sign_in.php">Sign In</a></li>
-                <li><a href="sign_up.php">Sign Up</a></li>
-            <?php else : ?>
-                <li>Welcome, <a class="header-username" href="user_area_form.php"><?= $username ?></a></li>
-                <li><a class="header-username" href="../actions/action_logout.php">Logout</a></li>
-            <?php endif; ?>
+        <li><a href="list_houses.php">All Houses</a></li>
+          <li><a href="../#top-houses">Top Houses</a></li>
+          <li><a href="../#popular-houses">Popular Houses</a></li>
+          <li><a href="../#new-houses">New Houses</a></li>
+          <?php if ($username == null) : ?>
+            <li> <a href="sign_in.php">Sign In</a></li>
+            <li> <a href="sign_up.php">Sign Up</a> </li>
+          <?php else : ?>
+            <li>Welcome, <a class="header-username" href="user_area_form.php"><?=$username?></a> </li>
+            <li><a class="header-username" href="../actions/action_logout.php">Logout</a></li>
+          <?php endif; ?>
         </ul>
     </nav>
 </header>
@@ -213,17 +222,17 @@ function draw_main_body()
         </div>
 
         <?php if ($username != NULL) : ?>
-            <div class='row-footer-container'>
-                <h2>User Area</h2>
-                <nav class="footer-nav-bar">
-                    <ul>
-                        <li><a href="../pages/user_area_form.php">Personal Profile</a></li>
-                        <li><a href="../pages/user_area_messages.php">Messages</a></li>
-                        <li><a href="../pages/user_area_houses.php">My Houses</a></li>
-                        <li><a href="../pages/user_area_rents.php">My Orders</a></li>
-                    </ul>
-                </nav>
-            </div>
+          <div class='row-footer-container'>
+            <h2>User Area</h2>  
+            <nav class="footer-nav-bar">
+              <ul>
+                <li> <a href="../pages/user_area_form.php">Personal Profile</a> </li>
+                <li> <a href="../pages/user_area_houses.php">My Houses</a> </li>
+                <li> <a href="../pages/user_area_rents.php">My Rents</a> </li>
+                <li> <a href="../pages/user_area_messages.php">Messages</a> </li>
+              </ul>
+            </nav>
+          </div>
         <?php endif; ?>
     </section>
 
@@ -279,12 +288,4 @@ function draw_main_body()
     <p>404 PAGE</p>
     </body>
     </html>
-<?php } ?>
-
-<?php function draw_about_us()
-{
-    /**
-     * Draws error page
-     */ ?>
-    <p>ABOUT US PAGE</p>
 <?php } ?>
