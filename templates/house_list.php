@@ -1,5 +1,6 @@
 <?php
 include_once('../database/connection.php');
+include_once('../database/db_house.php');
 include_once('../templates/house.php');
 
 
@@ -22,10 +23,11 @@ function draw_house_list()
                 </label>
                 <label>Country
                     <select class="input-form select-form" name="Country">
-                        <option value="All">All</option>
-                        <option value="Portugal">Portugal</option>
-                        <option value="Spain">Spain</option>
-                        <option value="Italy">Italy</option>
+                        <option value="">All</option>
+                        <?php $countries=getAllCountries();
+                        for ($i=0;$i<count($countries);$i++) {?>
+                            <option value="<?=$countries[$i]['country']?>"><?=$countries[$i]['country']?></option>
+                    <?php } ?>
                     </select>
                 </label>
                 <label>Price

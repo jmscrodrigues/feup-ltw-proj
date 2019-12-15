@@ -122,5 +122,22 @@ function getTopHouses() {
     return $result;
 }
 
+function getAllCountries() {
+    global $dbh;
+
+    $stmt = $dbh->prepare('select distinct country from PLACE ORDER BY country');
+    $stmt->execute();
+    $result = $stmt->fetchAll();
+    return $result;
+}
+
+function getAllCities() {
+    global $dbh;
+
+    $stmt = $dbh->prepare('select distinct city from PLACE ORDER BY city');
+    $stmt->execute();
+    $result = $stmt->fetchAll();
+    return $result;
+}
 
 ?>
