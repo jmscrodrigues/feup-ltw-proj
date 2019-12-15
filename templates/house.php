@@ -49,14 +49,14 @@
             <div class="house-rating-container">
                 <h3>User Rating</h3>
 
-                <?php 
+                <?php  
                 for ($t = 0; $t < round($houseInfo['classification'],0); $t++) {
                     ?>
                     <span class="fa fa-star checked"></span>
                 <?php }?>
                 
                 <?php 
-                for ($t = 5 - round($houseInfo['classification'],0); $t > 0; $t++) {
+                for ($t = 0; $t < 5 - round($houseInfo['classification'],0); $t++) {
                     ?>
                     <span class="fa fa-star"></span>
                 <?php }?>
