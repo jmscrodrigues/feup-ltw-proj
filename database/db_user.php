@@ -132,4 +132,7 @@ function addPicture($userId,$path)
     $stmt->execute(array($path,$userId));
 
 }
+
+
+
 ?>

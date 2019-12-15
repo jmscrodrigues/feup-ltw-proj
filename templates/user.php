@@ -114,7 +114,7 @@ include_once("$dir/templates/house.php");
                     <!-- Modal content -->
                     <div class="modal-content">
                         <span class="close">&times;</span>
-                        <form class="modal-form profile-area-form" action="" method="POST">
+                        <form class="modal-form profile-area-form" action="../actions/action_add_house.php" method="POST" enctype="multipart/form-data">
                             <input class="input-form" type="text" name="name" required="required"
                                    placeholder="House name">
                             <input class="input-form" type="text" name="country" required="required"

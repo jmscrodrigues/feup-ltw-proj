@@ -122,5 +122,31 @@ function getTopHouses() {
     return $result;
 }
 
+function addHouse($userId, $houseName, $country, $price, $city, $description, $street, $number) {
+    
+    global $dbh;
+
+    $stmt = $dbh->prepare('insert into PLACE(name,price,street,number,city,country,description,idUser) VALUES (?, ?, ?, ?, ?, ?, ?, ?)');
+    $stmt->execute(array($houseName, $price, $street, $number, $city, $country, $description, $userId));
+
+    $auxstmt = $dbh->prepare('select idPlace from place order by idPlace desc limit 1');
+    $auxstmt->execute();
+    $result = $auxstmt->fetchAll();
+
+    if($result == false) {
+        return -1;
+    }
+
+    $auximage = $dbh->prepare('select idPicture from pictures order by idPicture desc limit 1');
+    $auximage->execute();
+    $result1 = $auximage->fetchAll();
+
+    $idPic = $result1[0]['idPicture'] +1;
+
+    $stmt2 = $dbh->prepare('insert into pictures values (NULL, ?, ?, 1)');
+    $stmt2->execute(array("../assets/images/house_picture_$idPic.jpg", $result[0]['idPlace']));
+
+    return $idPic;
+}
 
 ?>

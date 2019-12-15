@@ -15,6 +15,7 @@
     <?php 
         $houseInfo = getHouse($houseId);
         $userInfo = getUserInfo($houseInfo['idUser']);
+        $image = getPicture($houseId);
     ?>
         <!-- OWNER CARD -->
         <div class="profile-card">
@@ -34,7 +35,7 @@
             $houseInfo = getHouse($houseId);
         ?>
         <div class="house-detail-card">
-            <img src="../design/mockups/stock-images/stock-house.jpg" alt="House image"/>
+            <img src="<?= $image ?>" alt="House image"/>
             <div>
                 <h3> <?= $houseInfo['name'] ?> </h3>
                 <p> <?= $houseInfo['description'] ?> </p>
@@ -61,74 +62,19 @@
                     <span class="fa fa-star"></span>
                 <?php }?>
                 
-                <p><?= $houseInfo['classification'] ?> average stars.</p>
+                <p><?= $houseInfo['classification'] ?> average stars</p>
 
-                <div class="row">
-                    <div class="side">
-                        <div>5 star</div>
-                    </div>
-                    <div class="middle">
-                        <div class="bar-container">
-                            <div class="bar-5"></div>
-                        </div>
-                    </div>
-                    <div class="side right">
-                        <div>150</div>
-                    </div>
-                    <div class="side">
-                        <div>4 star</div>
-                    </div>
-                    <div class="middle">
-                        <div class="bar-container">
-                            <div class="bar-4"></div>
-                        </div>
-                    </div>
-                    <div class="side right">
-                        <div>63</div>
-                    </div>
-                    <div class="side">
-                        <div>3 star</div>
-                    </div>
-                    <div class="middle">
-                        <div class="bar-container">
-                            <div class="bar-3"></div>
-                        </div>
-                    </div>
-                    <div class="side right">
-                        <div>15</div>
-                    </div>
-                    <div class="side">
-                        <div>2 star</div>
-                    </div>
-                    <div class="middle">
-                        <div class="bar-container">
-                            <div class="bar-2"></div>
-                        </div>
-                    </div>
-                    <div class="side right">
-                        <div>6</div>
-                    </div>
-                    <div class="side">
-                        <div>1 star</div>
-                    </div>
-                    <div class="middle">
-                        <div class="bar-container">
-                            <div class="bar-1"></div>
-                        </div>
-                    </div>
-                    <div class="side right">
-                        <div>20</div>
-                    </div>
-                </div>
+                
             </div>
         </div>
         <!-- RENT CARD -->
         <div class="rent-house-card">
-            <form>
+            <form action="../actions/action_rent.php" method="POST">
                 <label>Start Date</label>
-                <input class="input-form" type="date" name="name" required="required">
+                <input class="input-form" type="date" name="first-date" required="required">
                 <label>End Date</label>
-                <input class="input-form" type="date" name="country" required="required">
+                <input class="input-form" type="date" name="last-date" required="required">
+                <input type='hidden' name='idplace' value='<?= $houseId ?>'/> 
                 <input class="blue-filled-rounded-button" type="submit" value="Rent">
             </form>
     </section>
