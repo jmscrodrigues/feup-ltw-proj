@@ -110,11 +110,14 @@ function getUserHouses($userId)
     } else return $result;
 }
 
-function getReservations($userId)
+function getReservations($userId,$time)
 {
     global $dbh;
-
-    $stmt = $dbh->prepare('select * from reservation where reservation.idTourist = ?');
+    if ($time=="past")
+        $stmt = $dbh->prepare("select * from reservation where idTourist = ? AND (SELECT date('now') >= endDate) order by endDate desc");
+    else if ($time=="future")
+        $stmt = $dbh->prepare("select * from reservation where idTourist = ? AND (SELECT date('now') < endDate) order by endDate");
+    else return 0;
     $stmt->execute(array($userId));
     $result = $stmt->fetchAll();
     if ($result == false) {

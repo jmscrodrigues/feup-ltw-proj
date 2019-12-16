@@ -179,7 +179,7 @@ include_once("$dir/templates/house.php");
         <h3>Upcoming Reservations</h3>
         <section id="user-area-rents-upcoming">
           <?php
-            $reservations = getReservations($userId);
+            $reservations = getReservations($userId,"future");
             for ($i = 0; $i < count($reservations); $i++) {
               $house = getHouse($reservations[$i]['idPlace']);
               $image = getPicture($reservations[$i]['idPlace']);
@@ -203,7 +203,7 @@ include_once("$dir/templates/house.php");
         <h3>Passed Reservations</h3>
         <section id="user-area-rents-passed">
           <?php
-            $reservations = getReservations($userId);
+            $reservations = getReservations($userId,"past");
             for ($i = 0; $i < count($reservations); $i++) {
               $house = getHouse($reservations[$i]['idPlace']);
               $image = getPicture($reservations[$i]['idPlace']);

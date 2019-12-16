@@ -62,7 +62,7 @@ include_once("$dir/database/db_user.php");
           <span class="fa fa-star"></span>
         <?php } ?>
 
-        <p><?= $houseInfo['classification'] ?> average stars</p>
+        <p>Classification average of <?= $houseInfo['classification'] ?> stars</p>
         <div class="house-review-container">
           <?php
             for ($t = 0; $t < 3; $t++) {

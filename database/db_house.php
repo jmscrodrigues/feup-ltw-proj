@@ -176,7 +176,7 @@ function makeReservation($initialDate, $endDate, $idPlace, $idUser) {
 
     if ($result == false) {
         $stmt2 = $dbh->prepare('insert into reservation values (NULL, ?, ?, ?, ?)');
-        $stmt2->execute(array($idUser, $idPlace, $initialDate, $endDate));
+        $stmt2->execute(array($idPlace, $idUser, $initialDate, $endDate));
         return 0;
     }
 
