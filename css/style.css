@@ -673,6 +673,10 @@ section.range-slider input[type=range]::-moz-focus-outer {
     margin: 2em;
 }
 
+#user-area-houses {
+    min-width: 50em;
+}
+
 /* The Modal (background) */
 .modal {
     display: none; /* Hidden by default */
