@@ -81,11 +81,8 @@ window.onload = function() {
 }
 
 
-function updateSearch() { //TODO add date
-    console.log("teste\n");
+function updateSearch() {
     let request = new XMLHttpRequest()
-    let dir = document.URL;
-    let newDir = dir.substring(0, dir.length - 21);
     request.open("post", "../actions/action_update_search.php", true)
     request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
     request.addEventListener("load", function() {
@@ -101,7 +98,9 @@ function updateSearch() { //TODO add date
     let maxprice = document.getElementsByName("maxprice")[0]['value'];
     let minrating = document.getElementsByName("minrating")[0]['value'];
     let maxrating = document.getElementsByName("maxrating")[0]['value'];
-    request.send(encodeForAjax({ Name: name, Country: country, City: city, Minprice: minprice, Maxprice: maxprice, Minrating: minrating, Maxrating: maxrating }));
+    let beginDate = document.getElementsByName("startdate")[0]['value'];
+    let endDate = document.getElementsByName("finaldate")[0]['value'];
+    request.send(encodeForAjax({ Name: name, Country: country, City: city, Minprice: minprice, Maxprice: maxprice, Minrating: minrating, Maxrating: maxrating, BeginDate: beginDate, EndDate: endDate }));
 }
 
 // Helper function

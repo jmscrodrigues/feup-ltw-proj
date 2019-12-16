@@ -174,31 +174,37 @@ function makeReservation($initialDate, $endDate, $idPlace, $idUser) {
     $stmt->execute(array($idPlace));
     $result = $stmt->fetchAll();
 
-    if ($result == false) {
-        $stmt2 = $dbh->prepare('insert into reservation values (NULL, ?, ?, ?, ?)');
-        $stmt2->execute(array($idPlace, $idUser, $initialDate, $endDate));
-        return 0;
-    }
-
-    else {
-
-        for ($i = 0; $i < count($result); $i++) {
-            $tmpBeginDate=new DateTime($result[$i]['beginDate']);
-            $tmpEndDate=new DateTime($result[$i]['endDate']);
-            $initialDateFormated=new DateTime($initialDate);
-            $endDateFormated=new DateTime($endDate);
-           if ($tmpEndDate->diff($initialDateFormated)->format("%d")>0 || $tmpBeginDate->diff($endDateFormated)->format("%d")<0){
-                return -1;
-            }
-        }
-    
-        
+    if (isAvailable($initialDate, $endDate,$idPlace)){
         $stmt3 = $dbh->prepare('insert into reservation values (NULL, ?, ?, ?, ?)');
         $stmt3->execute(array($idUser, $idPlace, $initialDate, $endDate));
-        return 0; 
+        return 0; }
+    else return -1;
 
+}
 
+function isAvailable($beginDate,$endDate,$idPlace){
+    global $dbh;
+
+    $stmt = $dbh->prepare('select * from reservation where idPlace = ?');
+    $stmt->execute(array($idPlace));
+    $result = $stmt->fetchAll();
+
+    if ($result == false) 
+        return 1;
+    for ($i = 0; $i < count($result); $i++) {
+        $tmpBeginDate=new DateTime($result[$i]['beginDate']);
+        $tmpEndDate=new DateTime($result[$i]['endDate']);
+        $beginDateFormated=new DateTime($beginDate);
+        $endDateFormated=new DateTime($endDate);
+       if ($tmpEndDate>$beginDateFormated && $beginDateFormated>$tmpBeginDate){
+            return 0;
+        }
+        else if ($tmpEndDate>$endDateFormated && $endDateFormated>$tmpBeginDate){
+            return 0;
+        }
+ 
     }
+    return 1;
 }
 
 function getReviews($idPlace){
