@@ -28,6 +28,11 @@ include_once("$dir/database/db_user.php");
         <h4><?= $userInfo['email'] ?></h4>
         <a class="black-rounded-button" href="#">Message</a>
       </div>
+
+      <?php if (isOwner($houseId,get_user_id())) { ?>
+        <a href="../pages/house_area_form.php?idPlace=<?= $houseId ?>" class='blue-filled-rounded-button'>Edit House</a>
+      <?php } ?>
+
     </div>
     <!-- HOUSE DETAIL CARD -->
     <div class="house-detail-card">
@@ -87,6 +92,7 @@ include_once("$dir/database/db_user.php");
       </div>
     </div>
     <!-- RENT CARD -->
+    <?php if (isset($_SESSION['username'])) { ?>
     <div class="rent-house-card">
       <form action="../actions/action_rent.php" method="POST">
         <label>Start Date</label>
@@ -96,6 +102,8 @@ include_once("$dir/database/db_user.php");
         <input type='hidden' name='idplace' value='<?= $houseId ?>' />
         <input class="blue-filled-rounded-button" type="submit" value="Rent">
       </form>
+    </div>
+    <?php } ?>
   </section>
 <?php } ?>
 
@@ -195,7 +203,6 @@ include_once("$dir/database/db_user.php");
           </div>
         <?php } ?>
       </div>
-      <div>
   </section>
 <?php } ?>
 

@@ -673,6 +673,10 @@ section.range-slider input[type=range]::-moz-focus-outer {
     margin: 2em;
 }
 
+#user-area-houses {
+    min-width: 50em;
+}
+
 /* The Modal (background) */
 .modal {
     display: none; /* Hidden by default */
@@ -823,6 +827,10 @@ section.range-slider input[type=range]::-moz-focus-outer {
 
 #house-description {
     grid-row: 3/5;
+}
+
+#house-area-rents {
+    min-width: 50em;
 }
 
 #house-area-rents .rent-card-total {
