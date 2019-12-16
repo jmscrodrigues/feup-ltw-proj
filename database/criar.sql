@@ -60,7 +60,7 @@ create table REVIEW(
     classification INTEGER NOT NULL,
     comment TEXT,
     reply TEXT,
-    CONSTRAINT CHK_REVIEW CHECK (classification between 1 AND 5));
+    CONSTRAINT CHK_REVIEW CHECK (classification between 0 AND 5));
 
 CREATE TRIGGER IF NOT EXISTS CheckReviewDate 
 BEFORE INSERT ON REVIEW

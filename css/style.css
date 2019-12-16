@@ -381,7 +381,7 @@ footer {
 }
 
 
-#house-list-search-bar > form {
+#house-list-search-bar > h4 {
     justify-items: center;
     text-align: center;
     align-items: center;
@@ -389,7 +389,7 @@ footer {
     row-gap: 10px;
 }
 
-#house-list-search-bar > form > label {
+#house-list-search-bar > h4 > label {
     font-weight: bold;
 }
 

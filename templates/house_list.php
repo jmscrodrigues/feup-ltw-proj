@@ -16,12 +16,12 @@ function draw_house_list() {
   </div>
   <section id="house-list-search-bar">
     <h3>Search</h3>
-    <form>
+    <h4 class="house-list">
       <label>Name
         <input class="input-form" type="text" name="name" placeholder="House Name">
       </label>
-      <<label>Country
-            <select class="input-form select-form" name="Country">
+      <label>Country
+            <select class="input-form select-form" name="country">
                 <option value="">All</option>
                 <?php $countries=getAllCountries();
                     for ($i=0;$i<count($countries);$i++) {?>
@@ -31,10 +31,11 @@ function draw_house_list() {
         </label>
       <label>City
         <select class="input-form select-form" name="city">
-          <option value="All">All</option>
-          <option value="Porto">Porto</option>
-          <option value="Lisbon">Lisbon</option>
-          <option value="Aveiro">Aveiro</option>
+          <option value="">All</option>
+          <?php $cities=getAllCities();
+                for ($i=0;$i<count($cities);$i++) {?>
+                <option value="<?=$cities[$i]['city']?>"><?=$cities[$i]['city']?></option>
+            <?php } ?>
         </select>
       </label>
       <label>Price
@@ -58,17 +59,10 @@ function draw_house_list() {
         <input class="input-form" type="date" name="finaldate">
       </label>
       <input class="blue-filled-rounded-button" type="submit" value="Search">
-    </form>
+    </h4>
   </section>
-  <article class='house-article-container'>
-  <?php
-    global $dbh;
-    $stmt = $dbh->prepare('select * from PLACE ORDER BY classification DESC');
-    $stmt->execute();
-    $result = $stmt->fetchAll(); ?>
-    <?php for ($i = 0; $i < count($result); $i++) {
-        draw_house_card($result[$i]['idPlace']);
-    } ?>
+  <article class='house-article-container' id="ListOfHouses">
+  Houses should appear here
   </article>
 </section>
 <?php } ?>
