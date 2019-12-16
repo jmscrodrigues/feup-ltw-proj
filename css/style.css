@@ -743,6 +743,10 @@ section.range-slider input[type=range]::-moz-focus-outer {
     grid-row: start/end;
 }
 
+#user-review-textarea {
+    grid-column: start/end;
+}
+
 .rent-card {
     display: grid;
     grid-template-columns: [start] 8em [line1] 16em [line2] 16em [line3] 16em [end];
