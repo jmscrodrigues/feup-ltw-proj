@@ -205,6 +205,7 @@ include_once("$dir/templates/house.php");
               <p class="rent-card-total">
                 <strong>Total:</strong><?= $endDate->diff($beginDate)->format("%d") * $house['price'] ?>€
               </p>
+              <?php if(hasReview($reservations[$i]['idReservation'])) { ?>
               <button id="add-house-button" class="blue-filled-rounded-button" type="button">Add Review</button>
               <!-- The Modal -->
               <div id="myModal" class="modal">
@@ -219,6 +220,7 @@ include_once("$dir/templates/house.php");
                   </form>
                 </div>
               </div>
+              <?php } ?>
             </div>
           <?php } ?>
         </section>
