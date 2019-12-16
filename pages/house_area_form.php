@@ -9,10 +9,11 @@ $username = get_username();
 if ($username == null)
     die(header('Location: sign_in.php'));
 
-// TODO: see if house belongs to user
-$houseId = NULL;
-
+$houseId = $_GET['idPlace'];
+if (isOwner($houseId,get_user_id())){
 draw_header_alternative($username);
 draw_house_form($houseId);
-draw_footer($username);
+draw_footer($username);}
+else 
+    header("Location: ../pages/house_detail_page.php?idPlace=$houseId");
 ?>

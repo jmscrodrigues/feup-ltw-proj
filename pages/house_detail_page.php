@@ -9,7 +9,10 @@ $username = get_username();
 // TODO verify is house ID exists (if not -> 404 page)
 $houseId = $_GET['idPlace'];
 
-draw_header_alternative($username);
-draw_house_rent_area($houseId);
-draw_footer($username);
+if (isOwner($houseId,get_user_id())) 
+    header("Location: ../pages/house_area_rents.php?idPlace=$houseId");
+else{ 
+	draw_header_alternative($username);
+	draw_house_rent_area($houseId);
+	draw_footer($username);}
 ?>

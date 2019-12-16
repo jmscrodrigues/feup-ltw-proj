@@ -110,7 +110,7 @@ function getUserHouses($userId)
     } else return $result;
 }
 
-function getReservations($userId,$time)
+function getReservationsUser($userId,$time)
 {
     global $dbh;
     if ($time=="past")

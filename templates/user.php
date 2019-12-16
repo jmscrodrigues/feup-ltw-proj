@@ -55,7 +55,7 @@ include_once("$dir/templates/house.php");
           <input class="input-form" type="password" name="password" required="required" placeholder="Old Password">
           <input class="profile-area-submit-button-2 blue-filled-rounded-button" type="submit" value="Update Password">
         </form>
-        <form class="profile-area-form" action="../actions/action_edit_image.php" method="POST" enctype="multipart/form-data">
+        <form class="profile-area-form" action="../actions/action_edit_user_image.php" method="POST" enctype="multipart/form-data">
           <input class="input-form" type="file" name="image" required="required" placeholder="Image">
           <input class="profile-area-submit-button-2 blue-filled-rounded-button" type="submit" value="Submit Profile Picture">
         </form>
@@ -165,7 +165,7 @@ include_once("$dir/templates/house.php");
         <h3>Upcoming Reservations</h3>
         <section id="user-area-rents-upcoming">
           <?php
-            $reservations = getReservations($userId,"future");
+            $reservations = getReservationsUser($userId,"future");
             for ($i = 0; $i < count($reservations); $i++) {
               $house = getHouse($reservations[$i]['idPlace']);
               $image = getPicture($reservations[$i]['idPlace']);
@@ -189,7 +189,7 @@ include_once("$dir/templates/house.php");
         <h3>Passed Reservations</h3>
         <section id="user-area-rents-passed">
           <?php
-            $reservations = getReservations($userId,"past");
+            $reservations = getReservationsUser($userId,"past");
             for ($i = 0; $i < count($reservations); $i++) {
               $house = getHouse($reservations[$i]['idPlace']);
               $image = getPicture($reservations[$i]['idPlace']);
