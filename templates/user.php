@@ -213,8 +213,8 @@ include_once("$dir/templates/house.php");
                   <span class="close">&times;</span>
                   <form class="modal-form profile-area-form" action="../actions/action_add_review.php" method="POST">
                     <input type='hidden' name='idReservation' value="<?= $reservations[$i]['idReservation'] ?>" />
-                    <textarea class="input-form" name="description" required="required" row="3" placeholder="Description"></textarea>
-                    <input class="input-form" type="number" name="rating" required="required" min="0" max="5" placeholder="Rating">
+                    <textarea id="user-review-textarea" class="input-form" name="description" required="required" row="3" placeholder="Description"></textarea>
+                    <input class="input-form" type="number" name="Rating" required="required" min="0" max="5" placeholder="Rating">
                     <input class="profile-area-submit-button-2 blue-filled-rounded-button" type="submit" value="Add Review">
                   </form>
                 </div>
