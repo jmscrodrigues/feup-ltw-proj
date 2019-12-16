@@ -186,4 +186,12 @@ function addReview($idReservation, $rating, $description){
     return 0;
 }
 
+function hasReview($idReservation){
+    global $dbh;
+    $stmt = $dbh->prepare("select * from review where idReservation= ?;"); 
+    $stmt->execute(array($idReservation));
+    $result = $stmt->fetchAll();
+    return $result!=false;
+}
+
 ?>
