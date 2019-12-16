@@ -65,20 +65,27 @@ include_once("$dir/database/db_user.php");
         <p>Classification average of <?= $houseInfo['classification'] ?> stars</p>
         <div class="house-review-container">
           <?php
-            for ($t = 0; $t < 3; $t++) {
+          $reviews=getReviews($houseId);
+          if ($reviews!=false){
+            for ($t = 0; $t < count($reviews); $t++) {
+              $reservation=getReservation($reviews[$t]['idReservation']);
+              $user=getUserInfo($reservation['idTourist']);
               ?>
             <div class="house-review">
               <section class="profile-card">
                 <div class="house-review-photo rounded-photo-container">
-                  <img src="../design/mockups/stock-images/stock-profile-photo.jpg" alt="House image" />
+                  <img src="..<?= $user['picture'] ?>" alt="House image<?=count($reviews)?>" />
                 </div>
-                <h4><strong>John Doe</strong></h4>
+                <h4><strong><?=$user['name']?></strong></h4>
               </section>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+               <p><?php for ($i=0; $i <$reviews[$t]['classification']; $i++){ ?> 
+                <span class="fa fa-star checked"></span>
+              <?php } ?><?php for ($i=0;$i < 5-$reviews[$t]['classification']; $i++){ ?>
+              <span class="fa fa-star"></span><?php } ?>
+              <br><?=$reviews[$t]['comment']?></p>
             </div>
-          <?php } ?>
+          <?php }
+          } ?>
         </div>
 
       </div>

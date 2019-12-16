@@ -199,7 +199,24 @@ function makeReservation($initialDate, $endDate, $idPlace, $idUser) {
 
 
     }
-
 }
+
+function getReviews($idPlace){
+    global $dbh;
+    $stmt = $dbh->prepare('select REVIEW.* from REVIEW,RESERVATION WHERE RESERVATION.idPlace = ? AND RESERVATION.idReservation=REVIEW.idReservation;');
+    $stmt->execute(array($idPlace));
+    $result = $stmt->fetchAll();
+    return $result;
+}
+
+function getReservation($idReservation){
+    global $dbh;
+    $stmt = $dbh->prepare('select * from RESERVATION WHERE idReservation = ? ;');
+    $stmt->execute(array($idReservation));
+    $result = $stmt->fetch();
+    return $result;
+}
+
+
 
 ?>
