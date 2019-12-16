@@ -88,6 +88,7 @@ include_once("$dir/database/db_user.php");
       </div>
     </div>
     <!-- RENT CARD -->
+    <?php if (isset($_SESSION['username'])) { ?>
     <div class="rent-house-card">
       <form action="../actions/action_rent.php" method="POST">
         <label>Start Date</label>
@@ -97,6 +98,8 @@ include_once("$dir/database/db_user.php");
         <input type='hidden' name='idplace' value='<?= $houseId ?>' />
         <input class="blue-filled-rounded-button" type="submit" value="Rent">
       </form>
+    </div>
+    <?php } ?>
   </section>
 <?php } ?>
 
