@@ -36,15 +36,10 @@ create table PLACE(
     country TEXT NOT NULL,
     description TEXT NOT NULL,
     classification INTEGER default 0,
+    picture TEXT default '/assets/images/stock-house.jpg' NOT NULL,
 	idUser INTEGER NOT NULL REFERENCES USER ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT CHK_PLACE CHECK (price>=0),
     UNIQUE(street,number,city,country));
-
-create table PICTURES(
-    idPicture INTEGER PRIMARY KEY,
-    picturePath TEXT NOT NULL,
-    idPlace INTEGER NOT NULL REFERENCES PLACE ON DELETE CASCADE ON UPDATE CASCADE,
-    aproved BOOLEAN NOT NULL);
 
 create table RESERVATION(
     idReservation INTEGER PRIMARY KEY,

@@ -5,8 +5,6 @@
 	$userId=get_user_id();
 	$user=getUserInfo($userId);
 	
-	if ($user['picture']!='/assets/images/empty_user.jpg')
-    	unlink($user['picture']);
 	move_uploaded_file($_FILES['image']['tmp_name'], "../assets/images/profile_picture_$userId.jpg");
 	addPicture($userId,"/assets/images/profile_picture_$userId.jpg");
 

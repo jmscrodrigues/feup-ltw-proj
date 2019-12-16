@@ -168,13 +168,12 @@ include_once("$dir/templates/house.php");
             $reservations = getReservationsUser($userId,"future");
             for ($i = 0; $i < count($reservations); $i++) {
               $house = getHouse($reservations[$i]['idPlace']);
-              $image = getPicture($reservations[$i]['idPlace']);
               $beginDate = new DateTime($reservations[$i]['beginDate']);
               $endDate = new DateTime($reservations[$i]['endDate']);
               ?>
             <div class="rent-card">
               <div class="rent-card-photo rounded-photo-container">
-                <img src="<?= $image ?>" alt="House image" />
+                <img src="<?= $house['picture'] ?>" alt="House image" />
               </div>
               <h4><strong><?= $house['name'] ?></strong></h4>
               <p><strong>From:</strong> <?= $reservations[$i]['beginDate'] ?></p>
@@ -192,13 +191,12 @@ include_once("$dir/templates/house.php");
             $reservations = getReservationsUser($userId,"past");
             for ($i = 0; $i < count($reservations); $i++) {
               $house = getHouse($reservations[$i]['idPlace']);
-              $image = getPicture($reservations[$i]['idPlace']);
               $beginDate = new DateTime($reservations[$i]['beginDate']);
               $endDate = new DateTime($reservations[$i]['endDate']);
               ?>
             <div class="rent-card">
               <div class="rent-card-photo rounded-photo-container">
-                <img src="<?= $image ?>" alt="House image" />
+                <img src="<?= $house['picture'] ?>" alt="House image" />
               </div>
               <h4><strong><?= $house['name'] ?></strong></h4>
               <p><strong>From:</strong> <?= $reservations[$i]['beginDate'] ?></p>

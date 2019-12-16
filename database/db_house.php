@@ -86,15 +86,6 @@ function getHouse($idHouse)
     return $result;
 }
 
-function getPicture($idHouse)
-{
-    global $dbh;
-    $stmt = $dbh->prepare("SELECT picturePath FROM PICTURES WHERE idPlace = ?");
-    $stmt->execute(array($idHouse));
-    $image = $stmt->fetchColumn();
-    return $image;
-}
-
 function getPopularHouses() {
     global $dbh;
 
@@ -148,22 +139,18 @@ function addHouse($userId, $houseName, $country, $price, $city, $description, $s
 
     $auxstmt = $dbh->prepare('select idPlace from place order by idPlace desc limit 1');
     $auxstmt->execute();
-    $result = $auxstmt->fetchAll();
+    $result = $auxstmt->fetch();
 
     if($result == false) {
         return -1;
     }
 
-    $auximage = $dbh->prepare('select idPicture from pictures order by idPicture desc limit 1');
-    $auximage->execute();
-    $result1 = $auximage->fetchAll();
+    $idPlace = $result['idPlace'];
 
-    $idPic = $result1[0]['idPicture'] +1;
+    $stmt2 = $dbh->prepare('update place set picture=? where idPlace = ?');
+    $stmt2->execute(array("../assets/images/house_picture_$idPlace.jpg", "$idPlace"));
 
-    $stmt2 = $dbh->prepare('insert into pictures values (NULL, ?, ?, 1)');
-    $stmt2->execute(array("../assets/images/house_picture_$idPic.jpg", $result[0]['idPlace']));
-
-    return $idPic;
+    return $idPlace;
 }
 
 
@@ -229,6 +216,13 @@ function getReservationsHouse($idHouse){
     $stmt->execute(array($idHouse));
     $result = $stmt->fetchAll();
     return $result;
+}
+
+function updateHouseField($houseId, $value,$atribute){
+    global $dbh;
+    $stmt = $dbh->prepare("update PLACE set $atribute = ? where idPlace = ? ;"); 
+    $stmt->execute(array($value,$houseId));
+    return 0;
 }
 
 ?>

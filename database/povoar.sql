@@ -22,21 +22,6 @@ insert into PLACE(name,price,street,number,city,country,description,idUser) valu
 insert into PLACE(name,price,street,number,city,country,description,idUser) values ('Apartamento no Porto',80,'Rua das Flores',26,'Porto','Portugal','Apartamento Premium',4);
 insert into PLACE(name,price,street,number,city,country,description,idUser) values ('Apartamento no Porto',85,'Rua das Flores',28,'Porto','Portugal','Apartamento',7);
 
-insert into PICTURES values (NULL,'/assets/images/logo.png',1,1);
-insert into PICTURES values (NULL,'/assets/images/logo.png',2,1);
-insert into PICTURES values (NULL,'/assets/images/logo.png',3,1);
-insert into PICTURES values (NULL,'/assets/images/sofa_test.jpeg',4,1);
-insert into PICTURES values (NULL,'/assets/images/logo.png',4,0);
-insert into PICTURES values (NULL,'/assets/images/logo.png',5,1);
-insert into PICTURES values (NULL,'/assets/images/logo.png',6,1);
-insert into PICTURES values (NULL,'/assets/images/logo.png',4,0);
-insert into PICTURES values (NULL,'/assets/images/logo.png',7,1);
-insert into PICTURES values (NULL,'/assets/images/logo.png',8,1);
-insert into PICTURES values (NULL,'/assets/images/logo.png',8,0);
-insert into PICTURES values (NULL,'/assets/images/sofa_test.png',8,1);
-insert into PICTURES values (NULL,'/assets/images/logo.png',9,1);
-insert into PICTURES values (NULL,'/assets/images/logo.png',10,1);
-
 insert into RESERVATION values (NULL,1,1,'2019-05-15','2019-05-20');
 insert into RESERVATION values (NULL,1,4,'2019-08-01','2019-08-03');
 insert into RESERVATION values (NULL,2,1,'2019-09-15','2019-10-01');

@@ -15,7 +15,6 @@ include_once("$dir/database/db_user.php");
     <?php
       $houseInfo = getHouse($houseId);
       $userInfo = getUserInfo($houseInfo['idUser']);
-      $image = getPicture($houseId);
       ?>
     <!-- OWNER CARD -->
     <div class="profile-card">
@@ -32,7 +31,7 @@ include_once("$dir/database/db_user.php");
     </div>
     <!-- HOUSE DETAIL CARD -->
     <div class="house-detail-card">
-      <img src="<?= $image ?>" alt="House image" />
+      <img src="<?= $houseInfo['picture'] ?>" alt="House image" />
       <div>
         <h3> <?= $houseInfo['name'] ?> </h3>
         <p> <?= $houseInfo['description'] ?> </p>
@@ -107,7 +106,6 @@ include_once("$dir/database/db_user.php");
    * Draws content for main page.
    */ 
   $houseInfo = getHouse($houseId);
-  $image = getPicture($houseId);
   ?>
   <section class="profile-area">
     <header>
@@ -117,7 +115,7 @@ include_once("$dir/database/db_user.php");
       <aside>
         <section class="profile-card">
           <div class="profile-card-photo rounded-photo-container">
-            <img src="<?= $image ?>" alt="House Photo" />
+            <img src="<?= $houseInfo['picture'] ?>" alt="House Photo" />
           </div>
           <h3> <?= $houseInfo['name'] ?></h3>
         </section>
@@ -130,17 +128,19 @@ include_once("$dir/database/db_user.php");
       </aside>
       <!-- HOUSE AREA FORM -->
       <div>
-        <form class="profile-area-form" action="" method="POST">
-          <input class="input-form" type="text" name="name" required="required" placeholder=" <?= $houseInfo['name'] ?>">
-          <input class="input-form" type="text" name="country" required="required" placeholder=" <?= $houseInfo['country'] ?>">
-          <input class="input-form" type="number" name="price" required="required" placeholder=" <?= $houseInfo['price'] ?>">
-          <input class="input-form" type="text" name="city" required="required" placeholder=" <?= $houseInfo['city'] ?>">
-          <textarea id="house-description" class="input-form" name="description" required="required" row="3" placeholder=" <?= $houseInfo['description'] ?>"></textarea>
-          <input class="input-form" type="text" name="street" required="required" placeholder=" <?= $houseInfo['street'] ?>">
-          <input class="input-form" type="number" name="number" required="required" placeholder=" <?= $houseInfo['price'] ?>">
+        <form class="profile-area-form" action="../actions/action_edit_house_information.php" method="POST">
+          <input type='hidden' name='idplace' value='<?= $houseId ?>' />
+          <input class="input-form" type="text" name="name" placeholder=" <?= $houseInfo['name'] ?>">
+          <input class="input-form" type="text" name="country" placeholder=" <?= $houseInfo['country'] ?>">
+          <input class="input-form" type="number" name="price" placeholder=" <?= $houseInfo['price'] ?>">
+          <input class="input-form" type="text" name="city" placeholder=" <?= $houseInfo['city'] ?>">
+          <textarea id="house-description" class="input-form" name="description" row="3" placeholder=" <?= $houseInfo['description'] ?>"></textarea>
+          <input class="input-form" type="text" name="street" placeholder=" <?= $houseInfo['street'] ?>">
+          <input class="input-form" type="number" name="number" placeholder=" <?= $houseInfo['price'] ?>">
           <input class="profile-area-submit-button blue-filled-rounded-button" type="submit" value="Submit Changes">
         </form>
-        <form class="profile-area-form" action="" method="POST">
+        <form class="profile-area-form" action="../actions/action_edit_house_image.php" method="POST" enctype="multipart/form-data">
+          <input type='hidden' name='idplace' value='<?= $houseId ?>' />
           <input class="input-form" type="file" name="image" required="required" placeholder="Image">
           <input class="profile-area-submit-button-2 blue-filled-rounded-button" type="submit" value="Submit Image">
         </form>
@@ -152,7 +152,6 @@ include_once("$dir/database/db_user.php");
 <?php function draw_house_rents($houseId)
 {
   $houseInfo = getHouse($houseId);
-      $image = getPicture($houseId);
   /**
    * Draws content for main page.
    */ ?>
@@ -164,7 +163,7 @@ include_once("$dir/database/db_user.php");
       <aside>
         <section class="profile-card">
           <div class="profile-card-photo rounded-photo-container">
-            <img src="<?= $image?>" alt="House Photo" />
+            <img src="<?= $houseInfo['picture']?>" alt="House Photo" />
           </div>
           <h3><?=$houseInfo['name'] ?></h3>
         </section>
@@ -205,16 +204,15 @@ include_once("$dir/database/db_user.php");
   $dir = $_SERVER['DOCUMENT_ROOT'];
   include_once("$dir/database/db_house.php");
 
-  $result = getHouse($houseId);
-  $image = getPicture($houseId);
+  $houseInfo = getHouse($houseId);
   ?>
   <div class="house-card">
-    <img id="houseimg<?= $houseId ?>" src="<?= $image ?>" alt="House Image" />
+    <img id="houseimg<?= $houseId ?>" src="<?= $houseInfo['picture'] ?>" alt="House Image" />
     <div class="house-card-text">
-      <h2><?= $result['name'] ?> </h2>
-      <h3><?= $result['street'] ?></h3>
-      <h4><?= $result['country'] ?></h4>
+      <h2><?= $houseInfo['name'] ?> </h2>
+      <h3><?= $houseInfo['street'] ?></h3>
+      <h4><?= $houseInfo['country'] ?></h4>
     </div>
-    <a href="../pages/house_detail_page.php?idPlace=<?= $houseId ?>" class='blue-filled-rounded-button house-card-button'><?= $result['price'] ?>€</a>
+    <a href="../pages/house_detail_page.php?idPlace=<?= $houseId ?>" class='blue-filled-rounded-button house-card-button'><?= $houseInfo['price'] ?>€</a>
   </div>
 <?php } ?>
