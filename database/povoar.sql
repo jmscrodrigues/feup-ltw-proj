@@ -1,15 +1,15 @@
 PRAGMA foreign_keys	= ON;
 
-insert into USER(username,name,email,password) values ('sumol_de_ananas','Gonçalo Marantes','goncalomarantes99@gmail.com','e05f79651d465214e7558a382ed0f0e5a77380a649f4573f3a1036dc4ee10c0b');--secretpass
-insert into USER(username,name,email,password) values ('monopoly_guy','John Smith','iplayasthethimble@gmail.com','b339abbe244b92e5c157e9cc68f7fe677c42836c3dd93e49471a4a5451a842d2');--cenassecretas
-insert into USER(username,name,email,password) values ('big_dollars','Johnny Smith','ihavemoney@hotmail.com','5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8');--password
-insert into USER(username,name,email,password) values ('banana_papaya','Joe Mamma','tuttifrutyy@gmail.com','ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f');--password123
-insert into USER(username,name,email,password) values ('user_1','Joe Pappa','istoeummail@gmail.com','ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f');--password123
-insert into USER(username,name,email,password) values ('user_2','Joe Gramma','estemailexiste@gmail.com','ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f');--password123
-insert into USER(username,name,email,password) values ('nome_original','Joaquim Gomes','realmail@hotmail.com','ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f');--password123
-insert into USER(username,name,email,password) values ('user_3','Jose Andrade','randommail@gmail.com','ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f');--password123
-insert into USER(username,name,email,password) values ('user_4','Joao Araujo','theoriginalemail@hotmail.com','ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f');--password123
-insert into USER(username,name,email,password) values ('username','Afonso Mendonça','mail@gmail.com','ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f');--password123
+insert into USER(username,name,email,password) values ('sumol_de_ananas','Gonçalo Marantes','goncalomarantes99@gmail.com','$2y$12$eMsDVM1f7w1pT2hMrkk9o.yfiSSZLYrKl6vvA/BokWFa/1wu67iZq');--secretpass
+insert into USER(username,name,email,password) values ('monopoly_guy','John Smith','iplayasthethimble@gmail.com','$2y$12$.qsa6IdR7h3CS8UTm.W6cOlFbowYtKPf.IGdspMfrmWzGrYEK4lsy');--cenassecretas
+insert into USER(username,name,email,password) values ('big_dollars','Johnny Smith','ihavemoney@hotmail.com','$2y$12$yJk7iPZsz5ehUOL.jlcZLuOOPtqQz.9FDR.haGmY7A4zFKdYNE4vC');--password
+insert into USER(username,name,email,password) values ('banana_papaya','Joe Mamma','tuttifrutyy@gmail.com','$2y$12$NANboUIJUn3bJHnDuKeDrOVKhGLnl4LA39zWEBRLMbb8Z/EuKCRMi');--password123
+insert into USER(username,name,email,password) values ('user_1','Joe Pappa','istoeummail@gmail.com','$2y$12$qxjEyOOwgeS1Ve5p4ovgKute0fuCUDH5HlUZbIk3OiLXhlfR7eHbK');--password123
+insert into USER(username,name,email,password) values ('user_2','Joe Gramma','estemailexiste@gmail.com','$2y$12$BaqwMfHAxPJ3B.d44jZ0MeiML1Cjgg7bqTq38fqdl3u623RpEfkQG');--password123
+insert into USER(username,name,email,password) values ('nome_original','Joaquim Gomes','realmail@hotmail.com','$2y$12$JhWTuMhkn.F3wofFhYCVKOEAOqMVMUf/vddQVHbAgU9R2TXx/mLPu');--password123
+insert into USER(username,name,email,password) values ('user_3','Jose Andrade','randommail@gmail.com','$2y$12$tAHA0bEJj.h7QFxt8eQyK.aROmwlm76p2wbJFR9j3/5u0sp67tc1a');--password123
+insert into USER(username,name,email,password) values ('user_4','Joao Araujo','theoriginalemail@hotmail.com','$2y$12$kH6aJoy2HxEIOJxsG0VHXeMv4q9ZXwz2LGLtAtfDF/KAmMU67wnIG');--password123
+insert into USER(username,name,email,password) values ('username','Afonso Mendonça','mail@gmail.com','$2y$12$Ydp/xQk9GginmbLIUWsBseacJgI2UUn6.pOsbejU9c9H36Iebshla');--password123
 
 insert into PLACE(name,price,street,number,city,country,description,idUser) values ('Apartamento no Rossio',42,'Rua do Rossio',18,'Lisboa','Portugal','E um apartamento',2);
 insert into PLACE(name,price,street,number,city,country,description,idUser) values ('Vivenda a beira mar',95,'Rua da Foz',1,'Porto','Portugal','Muito luxuosa',3);

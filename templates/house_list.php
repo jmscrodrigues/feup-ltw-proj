@@ -58,7 +58,6 @@ function draw_house_list() {
       <label>End Date
         <input class="input-form" type="date" name="finaldate">
       </label>
-      <input class="blue-filled-rounded-button" type="submit" value="Search">
     </h4>
   </section>
   <article class='house-article-container' id="ListOfHouses">

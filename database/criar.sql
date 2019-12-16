@@ -22,7 +22,7 @@ create table USER(
 	username TEXT NOT NULL UNIQUE,
     name TEXT NOT NULL,
 	email TEXT NOT NULL UNIQUE,
-    phonenumber INTEGER UNIQUE,
+    phonenumber INTEGER,
     password TEXT NOT NULL,
 	CONSTRAINT CHK_USER CHECK (length(username)>=6 AND length(username)<=20));
 

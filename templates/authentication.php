@@ -47,7 +47,7 @@
             <input class="input-form" type="text" name="username" required="required" placeholder="Username">
             <input class="input-form" type="text" name="name" required="required" placeholder="Full Name">
             <input class="input-form" type="email" name="email" required="required" placeholder="Email">
-            <input class="input-form" type="tel" pattern="[0-9]{9}" name="phonenumber" required="required"
+            <input class="input-form" type="tel" pattern="[0-9]{9}" name="phonenumber"
                    placeholder="Telephone Number">
             <input class="input-form" type="password" name="password" required="required" placeholder="Password">
             <input class="input-form" type="password" name="repeatpassword" required="required"

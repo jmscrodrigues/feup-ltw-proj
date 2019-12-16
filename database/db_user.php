@@ -7,16 +7,14 @@ function verifyLogin($username, $password)
 
     global $dbh;
 
-    $hashedPassword = hash('sha256', $password);
-    $stmt = $dbh->prepare('select id from user where username = ? and password = ?');
-    $stmt->execute(array($username, $hashedPassword));
-    $result = $stmt->fetchAll();
+    $stmt = $dbh->prepare('select * from user where username = ?');
+    $stmt->execute(array($username));
+    $user = $stmt->fetch();
 
-    if ($result == false) {
-        return 0;
-    } else {
-        return $result[0]['id'];
-    }
+    if($user !== false && password_verify($password, $user['password'])) 
+        return $user['id'];
+    else return 0;
+
 }
 
 function createAccount($username, $name, $email, $phonenumber, $password)
@@ -27,20 +25,20 @@ function createAccount($username, $name, $email, $phonenumber, $password)
     if ($phonenumber == NULL)
         $phonenumber = 'NULL';
 
-    $stmt = $dbh->prepare('insert into User VALUES (NULL, NULL, ?, ?, ?, ?, ?)');
-    $newPassword = hash('sha256', $password);
+    $stmt = $dbh->prepare('insert into User(username,name,email,phonenumber,password) VALUES (?, ?, ?, ?, ?)');
+    $options = ['cost' => 12];
+    $newPassword= password_hash($password, PASSWORD_DEFAULT, $options);
 
     if ($stmt->execute(array($username, $name, $email, $phonenumber, $newPassword))) {
-        $stmt2 = $dbh->prepare('select id from user where username = ? and password = ?');
-        $stmt2->execute(array($username, $newPassword));
+        $stmt2 = $dbh->prepare('select id from user where username = ? AND password = ?');
+        $stmt2->execute(array($username,$newPassword));
         $result = $stmt2->fetchAll();
-        if ($result == false) {
-            return 0;
-        } else return $result[0]['id'];
-
-    } else {
-        return 0;
-    }
+        if ($result != false) 
+             return $result[0]['id'];
+    } 
+    
+    return 0;
+    
 }
 
 function editPassword($username, $password, $newPassword)

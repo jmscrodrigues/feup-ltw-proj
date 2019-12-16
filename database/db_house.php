@@ -137,7 +137,7 @@ function getAllCities() {
     $stmt = $dbh->prepare('select distinct city from PLACE ORDER BY city');
     $stmt->execute();
     $result = $stmt->fetchAll();
-    return $result;
+    return $result;}
 
 function addHouse($userId, $houseName, $country, $price, $city, $description, $street, $number) {
     

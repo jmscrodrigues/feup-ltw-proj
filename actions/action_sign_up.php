@@ -25,7 +25,7 @@ if (checkInjectionEmail($email) == -1) {
     header('Location: ../pages/sign_up.php');
 }
 
-$userId = createAccount($username, $name, $phonenumber, $email, $password);
+$userId = createAccount($username, $name, $email,$phonenumber, $password);
     if ($userId == 0) {
         header('Location: ../pages/sign_up.php');
     } else {
