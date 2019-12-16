@@ -128,20 +128,6 @@ include_once("$dir/templates/house.php");
         </article>
       </div>
     </div>
-    <!-- Houses list -->
-    <article class='house-article-container'>
-      <?php
-        $houses = getUserHouses($userId);
-        if ($houses == 0) {
-          ?>
-        <h4> You don't have houses. </h4>
-      <?php } else
-          for ($i = 0; $i < count($houses); $i++) {
-            draw_house_card($houses[$i]['idPlace']);
-          } ?>
-    </article>
-    </div>
-    </div>
   </section>
 <?php } ?>
 
