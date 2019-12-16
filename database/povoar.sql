@@ -36,17 +36,21 @@ insert into RESERVATION values (NULL,3,5,'2019-06-10','2019-06-13');
 insert into RESERVATION values (NULL,7,4,'2019-06-11','2019-06-15');
 insert into RESERVATION values (NULL,6,4,'2020-06-11','2020-06-15');
 insert into RESERVATION values (NULL,9,4,'2019-06-11','2019-06-15');
+insert into RESERVATION values (NULL,10,4,'2019-06-11','2019-06-15');
+insert into RESERVATION values (NULL,9,4,'2019-06-11','2019-06-15');
+insert into RESERVATION values (NULL,8,4,'2019-06-11','2019-06-15');
+insert into RESERVATION values (NULL,7,4,'2019-06-11','2019-06-15');
 insert into RESERVATION values (NULL,4,4,'2019-06-11','2019-06-15');
 
-insert into REVIEW values (1,1,'Horrible place','We are sad to hear that you didnt enjoy your reservation');
-insert into REVIEW values (2,4,'Great location','We are glad you enjoyed');
-insert into REVIEW values (3,5,'Best place ever','');
-insert into REVIEW values (4,3,'Meh','');
-insert into REVIEW values (5,3,'','');
-insert into REVIEW values (11,5,'','');
-insert into REVIEW values (12,2,'','');
-insert into REVIEW values (14,4,'Meh','');
-insert into REVIEW values (15,1,'Horrible','');
+insert into REVIEW values (1,1,'Horrible place');
+insert into REVIEW values (2,4,'Great location');
+insert into REVIEW values (3,5,'Best place ever');
+insert into REVIEW values (4,3,'Meh');
+insert into REVIEW values (5,3,'Ok');
+insert into REVIEW values (11,5,'Saw a ghost');
+insert into REVIEW values (12,2,'Some comment');
+insert into REVIEW values (14,4,'Meh');
+insert into REVIEW values (15,1,'Horrible');
 --os outros não tem review porque a reserva ainda não aconteceu
 
 insert into MESSAGE values (NULL,2,4,1,'Perdi o jogo');

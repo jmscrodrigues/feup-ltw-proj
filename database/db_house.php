@@ -3,37 +3,6 @@
 $dir = $_SERVER['DOCUMENT_ROOT'];
 include_once("$dir/database/connection.php");
 
-function getHousesFilteredSortByPopularity($minPrice, $maxPrice, $minRating, $maxRating, $city, $country, $name)
-{
-    /**
-     * Returns the houses filtered and sorted by popularity TODO delete unused functions
-     */
-    global $dbh;
-    $stmt = $dbh->prepare('select  PLACE.* from PLACE,RESERVATION WHERE (PLACE.price between ? AND ?) AND (Place.classification between ? AND ?) AND PLACE.city like ? AND PLACE.country like ? AND PLACE.name like ? AND PLACE.idPlace=RESERVATION.idPlace GROUP BY PLACE.name ORDER BY count(*) DESC;');
-    $stmt->execute(array($minPrice, $maxPrice, $minRating, $maxRating, "%$city%", "%$country%", "%$name%"));
-    $result = $stmt->fetchAll();
-    if ($result == false) {
-        print("There are no houses with those parameters.");
-        return -1;
-    } else return $result;
-}
-
-function getHousesFilteredSortByClassification($minPrice, $maxPrice, $city, $country, $name)
-{
-    /**
-     * Returns the houses filtered and sorted by classification
-     */
-    global $dbh;
-    $stmt = $dbh->prepare('select * from PLACE WHERE (PLACE.price between ? AND ?) AND PLACE.city like "%?%" AND PLACE.country like "%?%" AND PLACE.name like "%?%" ORDER BY classification DESC;');
-    $stmt->execute(array($minPrice, $maxPrice, $city, $country, $name));
-    $result = $stmt->fetchAll();
-    if ($result == false) {
-        print("There are no houses with those parameters.");
-        return -1;
-    } else return $result;
-}
-
-
 function getHousesFilteredSortByRecent($minPrice, $maxPrice, $minRating, $maxRating, $city, $country, $name)
 {
     /**
@@ -42,21 +11,6 @@ function getHousesFilteredSortByRecent($minPrice, $maxPrice, $minRating, $maxRat
     global $dbh;
     $stmt = $dbh->prepare('select * from PLACE WHERE (PLACE.price between ? AND ?) AND (Place.classification between ? AND ?) AND PLACE.city like ? AND PLACE.country like ? AND PLACE.name like ? ORDER BY idPlace DESC;');
     $stmt->execute(array($minPrice, $maxPrice, $minRating, $maxRating, "%$city%", "%$country%", "%$name%"));
-    $result = $stmt->fetchAll();
-    if ($result == false) {
-        print("There are no houses with those parameters.");
-        return -1;
-    } else return $result;
-}
-
-function getHousesFilteredSortByPrice($minPrice, $maxPrice, $city, $country, $name)
-{
-    /**
-     * Returns the houses filtered and sorted by price
-     */
-    global $dbh;
-    $stmt = $dbh->prepare('select * from PLACE WHERE (PLACE.price between ? AND ?) AND PLACE.city like "%?%" AND PLACE.country like "%?%" AND PLACE.name like "%?%" ORDER BY price DESC;');
-    $stmt->execute(array($minPrice, $maxPrice, $city, $country, $name));
     $result = $stmt->fetchAll();
     if ($result == false) {
         print("There are no houses with those parameters.");
@@ -222,6 +176,13 @@ function updateHouseField($houseId, $value,$atribute){
     global $dbh;
     $stmt = $dbh->prepare("update PLACE set $atribute = ? where idPlace = ? ;"); 
     $stmt->execute(array($value,$houseId));
+    return 0;
+}
+
+function addReview($idReservation, $rating, $description){
+    global $dbh;
+    $stmt = $dbh->prepare("insert into REVIEW values (?,?,?);"); 
+    $stmt->execute(array($idReservation,$rating,$description));
     return 0;
 }
 

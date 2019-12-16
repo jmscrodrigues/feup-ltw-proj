@@ -54,7 +54,6 @@ create table REVIEW(
     idReservation INTEGER NOT NULL REFERENCES RESERVATION ON DELETE CASCADE ON UPDATE CASCADE PRIMARY KEY,
     classification INTEGER NOT NULL,
     comment TEXT,
-    reply TEXT,
     CONSTRAINT CHK_REVIEW CHECK (classification between 0 AND 5));
 
 CREATE TRIGGER IF NOT EXISTS CheckReviewDate 
