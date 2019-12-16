@@ -123,9 +123,8 @@ include_once("$dir/database/db_user.php");
         </section>
         <nav class="profile-nav-bar">
           <ul>
-            <li><a href="house_area_form.php" class="profile-area-button-selected profile-area-button">Profile</a>
-            </li>
-            <li><a href="house_area_rents.php" class="profile-area-button">Rents</a></li>
+            <li><a href="house_area_form.php" class="profile-area-nav-button-selected profile-area-nav-button">Profile</a></li>
+            <li><a href="house_area_rents.php" class="profile-area-nav-button">Rents</a></li>
           </ul>
         </nav>
       </aside>
@@ -169,8 +168,8 @@ include_once("$dir/database/db_user.php");
         </section>
         <nav class="profile-nav-bar">
           <ul>
-            <li><a href="house_area_form.php" class="profile-area-button">Profile</a></li>
-            <li><a href="house_area_rents.php" class="profile-area-button-selected profile-area-button">Rents</a>
+            <li><a href="house_area_form.php" class="profile-area-nav-button">Profile</a></li>
+            <li><a href="house_area_rents.php" class="profile-area-nav-button-selected profile-area-nav-button">Rents</a>
             </li>
           </ul>
         </nav>
