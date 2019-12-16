@@ -171,7 +171,7 @@ function makeReservation($initialDate, $endDate, $idPlace, $idUser) {
     global $dbh;
 
     $stmt = $dbh->prepare('select * from reservation where idPlace = ?');
-    $stmt->execute();
+    $stmt->execute(array($idPlace));
     $result = $stmt->fetchAll();
 
     if ($result == false) {
@@ -183,7 +183,11 @@ function makeReservation($initialDate, $endDate, $idPlace, $idUser) {
     else {
 
         for ($i = 0; $i < count($result); $i++) {
-            if ( ((date_create_from_format('Y-m-d', $result[$i]['beginDate']) > $initialDate) && (date_create_from_format('Y-m-d', $result[$i]['beginDate']) < $endDate)) ||  ( (date_create_from_format('Y-m-d',$result[$i]['endDate']) > $initialDate) && (date_create_from_format('Y-m-d', $result[$i]['endDate']) < $endDate) )) {
+            $tmpBeginDate=new DateTime($result[$i]['beginDate']);
+            $tmpEndDate=new DateTime($result[$i]['endDate']);
+            $initialDateFormated=new DateTime($initialDate);
+            $endDateFormated=new DateTime($endDate);
+           if ($tmpEndDate->diff($initialDateFormated)->format("%d")>0 || $tmpBeginDate->diff($endDateFormated)->format("%d")<0){
                 return -1;
             }
         }
