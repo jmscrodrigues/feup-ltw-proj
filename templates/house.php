@@ -29,6 +29,11 @@ include_once("$dir/database/db_user.php");
         <h4><?= $userInfo['email'] ?></h4>
         <a class="black-rounded-button" href="#">Message</a>
       </div>
+
+      <?php if (isOwner($houseId,get_user_id())) { ?>
+        <a href="../pages/house_area_form.php?idPlace=<?= $houseId ?>" class='blue-filled-rounded-button'>Edit House</a>
+      <?php } ?>
+
     </div>
     <!-- HOUSE DETAIL CARD -->
     <div class="house-detail-card">
