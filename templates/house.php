@@ -31,9 +31,6 @@ include_once("$dir/database/db_user.php");
       </div>
     </div>
     <!-- HOUSE DETAIL CARD -->
-    <?php
-      $houseInfo = getHouse($houseId);
-      ?>
     <div class="house-detail-card">
       <img src="<?= $image ?>" alt="House image" />
       <div>
@@ -108,7 +105,10 @@ include_once("$dir/database/db_user.php");
 {
   /**
    * Draws content for main page.
-   */ ?>
+   */ 
+  $houseInfo = getHouse($houseId);
+  $image = getPicture($houseId);
+  ?>
   <section class="profile-area">
     <header>
       <h2>House Area</h2>
@@ -117,28 +117,28 @@ include_once("$dir/database/db_user.php");
       <aside>
         <section class="profile-card">
           <div class="profile-card-photo rounded-photo-container">
-            <img src="../design/mockups/stock-images/stock-house.jpg" alt="House Photo" />
+            <img src="<?= $image ?>" alt="House Photo" />
           </div>
-          <h3>Casa Banana</h3>
+          <h3> <?= $houseInfo['name'] ?></h3>
         </section>
         <nav class="profile-nav-bar">
           <ul>
-            <li><a href="house_area_form.php" class="profile-area-button-selected profile-area-button">Profile</a>
+            <li><a href="house_area_form.php?idPlace=<?= $houseId ?>" class="profile-area-button-selected profile-area-button">Profile</a>
             </li>
-            <li><a href="house_area_rents.php" class="profile-area-button">Rents</a></li>
+            <li><a href="house_area_rents.php?idPlace=<?= $houseId ?>" class="profile-area-button">Rents</a></li>
           </ul>
         </nav>
       </aside>
       <!-- HOUSE AREA FORM -->
       <div>
         <form class="profile-area-form" action="" method="POST">
-          <input class="input-form" type="text" name="name" required="required" placeholder="Casa Banana">
-          <input class="input-form" type="text" name="country" required="required" placeholder="Banana Country">
-          <input class="input-form" type="number" name="price" required="required" placeholder="30">
-          <input class="input-form" type="text" name="city" required="required" placeholder="Banana City">
-          <textarea id="house-description" class="input-form" name="description" required="required" row="3" placeholder="Banana house is super cool!"></textarea>
-          <input class="input-form" type="text" name="street" required="required" placeholder="Banana Street">
-          <input class="input-form" type="number" name="number" required="required" placeholder="78">
+          <input class="input-form" type="text" name="name" required="required" placeholder=" <?= $houseInfo['name'] ?>">
+          <input class="input-form" type="text" name="country" required="required" placeholder=" <?= $houseInfo['country'] ?>">
+          <input class="input-form" type="number" name="price" required="required" placeholder=" <?= $houseInfo['price'] ?>">
+          <input class="input-form" type="text" name="city" required="required" placeholder=" <?= $houseInfo['city'] ?>">
+          <textarea id="house-description" class="input-form" name="description" required="required" row="3" placeholder=" <?= $houseInfo['description'] ?>"></textarea>
+          <input class="input-form" type="text" name="street" required="required" placeholder=" <?= $houseInfo['street'] ?>">
+          <input class="input-form" type="number" name="number" required="required" placeholder=" <?= $houseInfo['price'] ?>">
           <input class="profile-area-submit-button blue-filled-rounded-button" type="submit" value="Submit Changes">
         </form>
         <form class="profile-area-form" action="" method="POST">
@@ -152,6 +152,8 @@ include_once("$dir/database/db_user.php");
 
 <?php function draw_house_rents($houseId)
 {
+  $houseInfo = getHouse($houseId);
+      $image = getPicture($houseId);
   /**
    * Draws content for main page.
    */ ?>
@@ -163,30 +165,35 @@ include_once("$dir/database/db_user.php");
       <aside>
         <section class="profile-card">
           <div class="profile-card-photo rounded-photo-container">
-            <img src="../design/mockups/stock-images/stock-house.jpg" alt="House Photo" />
+            <img src="<?= $image?>" alt="House Photo" />
           </div>
-          <h3>Casa Banana</h3>
+          <h3><?=$houseInfo['name'] ?></h3>
         </section>
         <nav class="profile-nav-bar">
           <ul>
-            <li><a href="house_area_form.php" class="profile-area-button">Profile</a></li>
-            <li><a href="house_area_rents.php" class="profile-area-button-selected profile-area-button">Rents</a>
+            <li><a href="house_area_form.php?idPlace=<?= $houseId ?>" class="profile-area-button">Profile</a></li>
+            <li><a href="house_area_rents.php?idPlace=<?= $houseId ?>" class="profile-area-button-selected profile-area-button">Rents</a>
             </li>
           </ul>
         </nav>
       </aside>
-      <!-- USER AREA RENTS -->
+      <!-- HOUSE RENTS -->
       <div id="house-area-rents">
-        <?php for ($i = 0; $i < 6; $i++) { ?>
+        <?php $reservations = getReservationsHouse($houseId);
+        for ($i = 0; $i < count($reservations); $i++) {
+          $user=getUserInfo($reservations[$i]['idTourist']);
+          $beginDate = new DateTime($reservations[$i]['beginDate']);
+          $endDate = new DateTime($reservations[$i]['endDate']);
+         ?>
           <div class="rent-card">
             <div class="rent-card-photo rounded-photo-container">
-              <img src="../design/mockups/stock-images/stock-profile-photo.jpg" alt="House image" />
+              <img src="..<?= $user['picture'] ?>" alt="User image" />
             </div>
-            <h4><strong>John Doe</strong></h4>
-            <p><strong>From:</strong> Data de inicio</p>
-            <p>30€ per day</p>
-            <p><strong>To:</strong> Data de fim</p>
-            <p class="rent-card-total"><strong>Total:</strong> 90€</p>
+            <h4><strong><?= $user['name'] ?></strong></h4>
+            <p><strong>From:</strong> <?= $reservations[$i]['beginDate'] ?></p>
+            <p><?= $houseInfo['price'] ?>€ per day</p>
+            <p><strong>To:</strong> <?= $reservations[$i]['endDate'] ?></p>
+            <p class="rent-card-total"><strong>Total:</strong> <?= $endDate->diff($beginDate)->format("%d") * $houseInfo['price'] ?>€</p>
           </div>
         <?php } ?>
       </div>

@@ -6,7 +6,7 @@ include_once("$dir/database/connection.php");
 function getHousesFilteredSortByPopularity($minPrice, $maxPrice, $minRating, $maxRating, $city, $country, $name)
 {
     /**
-     * Returns the houses filtered and sorted by popularity
+     * Returns the houses filtered and sorted by popularity TODO delete unused functions
      */
     global $dbh;
     $stmt = $dbh->prepare('select  PLACE.* from PLACE,RESERVATION WHERE (PLACE.price between ? AND ?) AND (Place.classification between ? AND ?) AND PLACE.city like ? AND PLACE.country like ? AND PLACE.name like ? AND PLACE.idPlace=RESERVATION.idPlace GROUP BY PLACE.name ORDER BY count(*) DESC;');
@@ -223,6 +223,12 @@ function getReservation($idReservation){
     return $result;
 }
 
-
+function getReservationsHouse($idHouse){
+    global $dbh;
+    $stmt = $dbh->prepare('select * from RESERVATION WHERE idPlace = ? ;');
+    $stmt->execute(array($idHouse));
+    $result = $stmt->fetchAll();
+    return $result;
+}
 
 ?>
