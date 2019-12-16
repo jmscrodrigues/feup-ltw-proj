@@ -825,6 +825,10 @@ section.range-slider input[type=range]::-moz-focus-outer {
     grid-row: 3/5;
 }
 
+#house-area-rents {
+    min-width: 50em;
+}
+
 #house-area-rents .rent-card-total {
     grid-row: start/end;
 }

@@ -204,7 +204,6 @@ include_once("$dir/database/db_user.php");
           </div>
         <?php } ?>
       </div>
-      <div>
   </section>
 <?php } ?>
 
