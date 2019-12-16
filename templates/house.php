@@ -87,9 +87,9 @@ include_once("$dir/database/db_user.php");
     <div class="rent-house-card">
       <form action="../actions/action_rent.php" method="POST">
         <label>Start Date</label>
-        <input class="input-form" type="date" name="first-date" required="required">
+        <input class="input-form" type="date" name="first-date" required="required" min=<?php echo date("Y-m-d")?>>
         <label>End Date</label>
-        <input class="input-form" type="date" name="last-date" required="required">
+        <input class="input-form" type="date" name="last-date" required="required" min=<?php echo date("Y-m-d")?>>
         <input type='hidden' name='idplace' value='<?= $houseId ?>' />
         <input class="blue-filled-rounded-button" type="submit" value="Rent">
       </form>

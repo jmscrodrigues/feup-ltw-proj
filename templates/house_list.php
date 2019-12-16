@@ -53,10 +53,10 @@ function draw_house_list() {
         </section>
       </label>
       <label>Start Date
-        <input class="input-form" type="date" name="startdate">
+        <input class="input-form" type="date" name="startdate" min=<?php echo date("Y-m-d")?>>
       </label>
       <label>End Date
-        <input class="input-form" type="date" name="finaldate">
+        <input class="input-form" type="date" name="finaldate" min=<?php echo date("Y-m-d")?>>
       </label>
     </h4>
   </section>
