@@ -217,7 +217,7 @@ include_once("$dir/templates/house.php");
                     <textarea class="input-form" name="description" required="required" row="3" placeholder="Description"></textarea>
                     <input class="input-form" type="number" name="Rating" required="required" min="0" max="5" placeholder="Rating">
                     <input class="input-form" type="file" name="image" required="required" placeholder="Image"><!--TODO remove?-->
-                    <input class="profile-area-submit-button blue-filled-rounded-button" type="submit" value="Add Review">
+                    <input class="profile-area-submit-button-2 blue-filled-rounded-button" type="submit" value="Add Review">
                   </form>
                 </div>
               </div>
