@@ -1,7 +1,6 @@
 <?php
-$dir = $_SERVER['DOCUMENT_ROOT'];
-include_once("$dir/database/db_house.php");
-include_once("$dir/database/db_user.php");
+include_once("../database/db_house.php");
+include_once("../database/db_user.php");
 ?>
 
 <?php function draw_house_rent_area($houseId)
@@ -19,7 +18,7 @@ include_once("$dir/database/db_user.php");
     <!-- OWNER CARD -->
     <div class="profile-card">
       <div class="profile-card-photo rounded-photo-container">
-        <img src="<?= $userInfo['picture'] ?>" alt="User Image" />
+        <img src="../<?= $userInfo['picture'] ?>" alt="User Image" />
       </div>
 
       <h3><?= $userInfo['name'] ?></h3>
@@ -36,7 +35,7 @@ include_once("$dir/database/db_user.php");
     </div>
     <!-- HOUSE DETAIL CARD -->
     <div class="house-detail-card">
-      <img src="<?= $houseInfo['picture'] ?>" alt="House image" />
+      <img src="../<?= $houseInfo['picture'] ?>" alt="House image" />
       <div>
         <h3> <?= $houseInfo['name'] ?> </h3>
         <p> <?= $houseInfo['description'] ?> </p>
@@ -75,7 +74,7 @@ include_once("$dir/database/db_user.php");
             <div class="house-review">
               <section class="profile-card">
                 <div class="house-review-photo rounded-photo-container">
-                  <img src="..<?= $user['picture'] ?>" alt="House image<?=count($reviews)?>" />
+                  <img src="../<?= $user['picture'] ?>" alt="House image<?=count($reviews)?>" />
                 </div>
                 <h4><strong><?=$user['name']?></strong></h4>
               </section>
@@ -208,13 +207,12 @@ include_once("$dir/database/db_user.php");
 
 <?php function draw_house_card($houseId)
 {
-  $dir = $_SERVER['DOCUMENT_ROOT'];
-  include_once("$dir/database/db_house.php");
+  include_once("../database/db_house.php");
 
   $houseInfo = getHouse($houseId);
   ?>
   <div class="house-card">
-    <img id="houseimg<?= $houseId ?>" src="<?= $houseInfo['picture'] ?>" alt="House Image" />
+    <img id="houseimg<?= $houseId ?>" src="../<?= $houseInfo['picture'] ?>" alt="House Image" />
     <div class="house-card-text">
       <h2><?= $houseInfo['name'] ?> </h2>
       <h3><?= $houseInfo['street'] ?></h3>

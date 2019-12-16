@@ -1,7 +1,6 @@
 <?php
 
-$dir = $_SERVER['DOCUMENT_ROOT'];
-include_once("$dir/database/connection.php");
+include_once("../database/connection.php");
 
 function getHousesFilteredSortByRecent($minPrice, $maxPrice, $minRating, $maxRating, $city, $country, $name)
 {
@@ -111,13 +110,9 @@ function addHouse($userId, $houseName, $country, $price, $city, $description, $s
 function makeReservation($initialDate, $endDate, $idPlace, $idUser) {
     global $dbh;
 
-    $stmt = $dbh->prepare('select * from reservation where idPlace = ?');
-    $stmt->execute(array($idPlace));
-    $result = $stmt->fetchAll();
-
     if (isAvailable($initialDate, $endDate,$idPlace)){
         $stmt3 = $dbh->prepare('insert into reservation values (NULL, ?, ?, ?, ?)');
-        $stmt3->execute(array($idUser, $idPlace, $initialDate, $endDate));
+        $stmt3->execute(array($idPlace, $idUser, $initialDate, $endDate));
         return 0; }
     else return -1;
 

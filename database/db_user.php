@@ -1,6 +1,5 @@
 <?php
-$dir = $_SERVER['DOCUMENT_ROOT'];
-include_once("$dir/database/connection.php");
+include_once("../database/connection.php");
 
 function verifyLogin($username, $password)
 {

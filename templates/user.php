@@ -1,8 +1,7 @@
 <?php
-$dir = $_SERVER['DOCUMENT_ROOT'];
-include_once("$dir/database/db_user.php");
-include_once("$dir/database/db_house.php");
-include_once("$dir/templates/house.php");
+include_once("../database/db_user.php");
+include_once("../database/db_house.php");
+include_once("../templates/house.php");
 ?>
 
 <?php function draw_user_form($userId)
@@ -173,7 +172,7 @@ include_once("$dir/templates/house.php");
               ?>
             <div class="rent-card">
               <div class="rent-card-photo rounded-photo-container">
-                <img src="<?= $house['picture'] ?>" alt="House image" />
+                <img src="../<?= $house['picture'] ?>" alt="House image" />
               </div>
               <h4><strong><?= $house['name'] ?></strong></h4>
               <p><strong>From:</strong> <?= $reservations[$i]['beginDate'] ?></p>
@@ -196,7 +195,7 @@ include_once("$dir/templates/house.php");
               ?>
             <div class="rent-card">
               <div class="rent-card-photo rounded-photo-container">
-                <img src="<?= $house['picture'] ?>" alt="House image" />
+                <img src="../<?= $house['picture'] ?>" alt="House image" />
               </div>
               <h4><strong><?= $house['name'] ?></strong></h4>
               <p><strong>From:</strong> <?= $reservations[$i]['beginDate'] ?></p>
@@ -205,7 +204,7 @@ include_once("$dir/templates/house.php");
               <p class="rent-card-total">
                 <strong>Total:</strong><?= $endDate->diff($beginDate)->format("%d") * $house['price'] ?>€
               </p>
-              <?php if(hasReview($reservations[$i]['idReservation'])) { ?>
+              <?php if(!hasReview($reservations[$i]['idReservation'])) { ?>
               <button id="add-house-button" class="blue-filled-rounded-button" type="button">Add Review</button>
               <!-- The Modal -->
               <div id="myModal" class="modal">

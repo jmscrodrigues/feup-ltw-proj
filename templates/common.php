@@ -1,8 +1,7 @@
 <?php
-$dir = $_SERVER['DOCUMENT_ROOT'];
-include_once("$dir/database/connection.php");
-include_once("$dir/templates/house.php");
-include_once("$dir/database/db_house.php");
+include_once("../database/connection.php");
+include_once("../templates/house.php");
+include_once("../database/db_house.php");
 
 
 function draw_header_main($username) {
@@ -14,8 +13,8 @@ function draw_header_main($username) {
 <html lang="en-US">
 <head>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <script src="js/main.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <script src="../js/main.js"></script>
     <!-- Font Awesome Icon Library -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- ****** faviconit.com favicons ****** -->
@@ -53,23 +52,23 @@ function draw_header_main($username) {
       <label class="hamburger" for="hamburger"></label>
       
       <ul>
-        <li><a href="pages/list_houses.php">All Houses</a></li>
+        <li><a href="list_houses.php">All Houses</a></li>
         <li><a href="#top-houses">Top Houses</a></li>
         <li><a href="#popular-houses">Popular Houses</a></li>
         <li><a href="#new-houses">New Houses</a></li>
         <?php if ($username == NULL) : ?>
-          <li> <a href="pages/sign_in.php">Sign In</a> </li>
-          <li id="signup-button"> <a href="pages/sign_up.php">Sign Up</a></li>
+          <li> <a href="sign_in.php">Sign In</a> </li>
+          <li id="signup-button"> <a href="sign_up.php">Sign Up</a></li>
         <?php else : ?>
-          <li>Welcome, <a class="header-username"href="pages/user_area_form.php"><?=$username?></a> </li>
+          <li>Welcome, <a class="header-username"href="user_area_form.php"><?=$username?></a> </li>
           <li><a href="actions/action_logout.php">Logout</a></li>
         <?php endif; ?>
       </ul>
     </nav>
     <div id="logo-section">
         <div id="logo-title-container">
-            <a href="/">
-                <img id="logo" class="logo-shadow" src="assets/images/logo.png" alt="Hemkonfort Logo"/>
+            <a href="home.php">
+                <img id="logo" class="logo-shadow" src="../assets/images/logo.png" alt="Hemkonfort Logo"/>
             </a>
             <h1>Hemkonfort</h1>
         </div>
@@ -120,7 +119,7 @@ function draw_header_main($username) {
   </head>
   <body>  
     <header id="alternative-header">
-      <a href="/">
+      <a href="home.php">
         <img class="logo-shadow" src="../assets/images/logo.png" alt="Hemkonfort Logo" />
       </a>
 
@@ -158,7 +157,7 @@ function draw_main_body()
         <!-- TOP HOUSES -->
         <div class='house-article-header'>
             <h2 id="top-houses"><strong>Top</strong> Houses</h2>
-            <a class="black-rounded-button" href="pages/list_houses.php">View All</a>
+            <a class="black-rounded-button" href="list_houses.php">View All</a>
         </div>
         <article class='house-article-container'>
             <?php
@@ -171,7 +170,7 @@ function draw_main_body()
         <!-- POPULAR HOUSES -->
         <div class='house-article-header'>
             <h2 id="popular-houses"><strong>Popular</strong> Houses</h2>
-            <a class="black-rounded-button" href="pages/list_houses.php">View All</a>
+            <a class="black-rounded-button" href="list_houses.php">View All</a>
         </div>
         <article class='house-article-container'>
             <?php
@@ -185,7 +184,7 @@ function draw_main_body()
         <!-- NEW HOUSES -->
         <div class='house-article-header'>
             <h2 id="new-houses"><strong>New</strong> Houses</h2>
-            <a class="black-rounded-button" href="pages/list_houses.php">View All</a>
+            <a class="black-rounded-button" href="list_houses.php">View All</a>
         </div>
         <article class='house-article-container'>
             <?php
